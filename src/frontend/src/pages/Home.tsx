@@ -1,23 +1,41 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Link } from "@tanstack/react-router";
+import { Textarea } from "@/components/ui/textarea";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   BookOpen,
+  Loader2,
   Play,
   Plus,
+  Rss,
   Search,
+  Share2,
   Sparkles,
   Trophy,
   Users,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { toast } from "sonner";
 import type { Quiz } from "../backend.d";
 import UsernameDialog from "../components/UsernameDialog";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useGetAllQuizzes, useGetUserProfile } from "../hooks/useQueries";
+import {
+  useCreatePost,
+  useGetAllQuizzes,
+  useGetUserProfile,
+} from "../hooks/useQueries";
 
 const SKELETON_KEYS = [
   "sk-a",
@@ -191,7 +209,16 @@ export default function Home() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {filtered.map((quiz, i) => (
-                <QuizCard key={quiz.id.toString()} quiz={quiz} index={i + 1} />
+                <QuizCard
+                  key={quiz.id.toString()}
+                  quiz={quiz}
+                  index={i + 1}
+                  isOwner={
+                    !!identity &&
+                    identity.getPrincipal().toString() ===
+                      quiz.creator.toString()
+                  }
+                />
               ))}
             </div>
           )}
@@ -203,7 +230,16 @@ export default function Home() {
   );
 }
 
-function QuizCard({ quiz, index }: { quiz: Quiz; index: number }) {
+function QuizCard({
+  quiz,
+  index,
+  isOwner,
+}: { quiz: Quiz; index: number; isOwner: boolean }) {
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+  const [message, setMessage] = useState("");
+  const createPost = useCreatePost();
+
   const colors = [
     "from-blue-500 to-cyan-400",
     "from-purple-500 to-pink-400",
@@ -211,6 +247,21 @@ function QuizCard({ quiz, index }: { quiz: Quiz; index: number }) {
     "from-orange-500 to-yellow-400",
   ];
   const color = colors[(index - 1) % colors.length];
+
+  function handlePost() {
+    createPost.mutate(
+      { quizId: quiz.id, message },
+      {
+        onSuccess: () => {
+          setOpen(false);
+          setMessage("");
+          toast.success("Quiz posted to the feed!");
+          navigate({ to: "/feed" });
+        },
+        onError: () => toast.error("Failed to post quiz."),
+      },
+    );
+  }
 
   return (
     <motion.div
@@ -232,16 +283,80 @@ function QuizCard({ quiz, index }: { quiz: Quiz; index: number }) {
         <p className="text-muted-foreground text-sm mb-3 line-clamp-2 flex-1">
           {quiz.description}
         </p>
-        <Link to="/quiz/$id" params={{ id: quiz.id.toString() }}>
-          <Button
-            size="sm"
-            className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
-            data-ocid={`quiz.play_button.${index}`}
-          >
-            <Play className="w-3.5 h-3.5 mr-1.5" />
-            Play Quiz
-          </Button>
-        </Link>
+        <div className="flex flex-col gap-2">
+          <Link to="/quiz/$id" params={{ id: quiz.id.toString() }}>
+            <Button
+              size="sm"
+              className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
+              data-ocid={`quiz.primary_button.${index}`}
+            >
+              <Play className="w-3.5 h-3.5 mr-1.5" />
+              Play Quiz
+            </Button>
+          </Link>
+
+          {isOwner && (
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs"
+                  data-ocid={`quiz.open_modal_button.${index}`}
+                >
+                  <Share2 className="w-3 h-3 mr-1.5" />
+                  Post to Feed
+                </Button>
+              </DialogTrigger>
+              <DialogContent
+                className="sm:max-w-md"
+                data-ocid={`quiz.dialog.${index}`}
+              >
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    <Rss className="w-4 h-4 text-primary" />
+                    Post to Feed
+                  </DialogTitle>
+                  <DialogDescription>
+                    Share <strong>{quiz.title}</strong> with the community. Add
+                    an optional message.
+                  </DialogDescription>
+                </DialogHeader>
+                <Textarea
+                  placeholder="Add a message (optional)…"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={3}
+                  className="bg-secondary border-border rounded-xl resize-none"
+                  data-ocid={`quiz.textarea.${index}`}
+                />
+                <DialogFooter className="gap-2">
+                  <Button
+                    variant="outline"
+                    onClick={() => setOpen(false)}
+                    className="rounded-full"
+                    data-ocid={`quiz.cancel_button.${index}`}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={handlePost}
+                    disabled={createPost.isPending}
+                    className="gradient-bg border-0 text-white rounded-full"
+                    data-ocid={`quiz.submit_button.${index}`}
+                  >
+                    {createPost.isPending ? (
+                      <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
+                    ) : (
+                      <Rss className="w-4 h-4 mr-1.5" />
+                    )}
+                    Post to Feed
+                  </Button>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
+          )}
+        </div>
       </div>
     </motion.div>
   );

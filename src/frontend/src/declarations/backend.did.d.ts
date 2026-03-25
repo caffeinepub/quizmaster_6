@@ -10,6 +10,26 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface Comment {
+  'id' : bigint,
+  'content' : string,
+  'author' : Principal,
+  'timestamp' : Time,
+  'postId' : bigint,
+}
+export interface Post {
+  'id' : bigint,
+  'author' : Principal,
+  'message' : string,
+  'timestamp' : Time,
+  'quizId' : bigint,
+}
+export interface PostWithComment { 'post' : Post, 'comments' : Array<Comment> }
+export interface PostWithStats {
+  'likeCount' : bigint,
+  'post' : Post,
+  'commentCount' : bigint,
+}
 export interface Question {
   'id' : bigint,
   'text' : string,
@@ -52,22 +72,31 @@ export type UserRole = { 'admin' : null } |
   { 'guest' : null };
 export interface _SERVICE {
   '_initializeAccessControlWithSecret' : ActorMethod<[string], undefined>,
+  'addComment' : ActorMethod<[bigint, string], bigint>,
   'addQuestion' : ActorMethod<[bigint, Question], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'createPost' : ActorMethod<[bigint, string], bigint>,
   'createQuiz' : ActorMethod<[string, string], bigint>,
   'createUserProfile' : ActorMethod<[string], undefined>,
+  'getAllPostsWithStats' : ActorMethod<[], Array<PostWithStats>>,
   'getAllQuizzes' : ActorMethod<[], Array<Quiz>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
+  'getCommentsByPostId' : ActorMethod<[bigint], Array<Comment>>,
+  'getPostWithComments' : ActorMethod<[bigint], [] | [PostWithComment]>,
+  'getPostsByQuizId' : ActorMethod<[bigint], Array<PostWithStats>>,
   'getQuiz' : ActorMethod<[bigint], Quiz>,
   'getQuizLeaderboard' : ActorMethod<[bigint], [] | [Array<Result>]>,
   'getQuizQuestions' : ActorMethod<[bigint], Array<Question>>,
   'getQuizStats' : ActorMethod<[], Array<QuizStats>>,
+  'getUserPosts' : ActorMethod<[Principal], Array<PostWithStats>>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'getUserQuizResults' : ActorMethod<[], Array<Result>>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
+  'likePost' : ActorMethod<[bigint], undefined>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'submitQuizAnswers' : ActorMethod<[bigint, Array<T>], bigint>,
+  'unlikePost' : ActorMethod<[bigint], undefined>,
   'updateUserProfile' : ActorMethod<[string], undefined>,
 }
 export declare const idlService: IDL.ServiceClass;

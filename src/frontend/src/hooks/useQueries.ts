@@ -1,5 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Question, Quiz, Result, T, UserProfile } from "../backend.d";
+import type {
+  Comment,
+  PostWithStats,
+  Question,
+  Quiz,
+  Result,
+  T,
+  UserProfile,
+} from "../backend.d";
 import { useActor } from "./useActor";
 
 export function useGetAllQuizzes() {
@@ -130,5 +138,79 @@ export function useUpdateUserProfile() {
       return actor.updateUserProfile(username);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["userProfile"] }),
+  });
+}
+
+// Social feed hooks
+export function useGetAllPosts() {
+  const { actor, isFetching } = useActor();
+  return useQuery<PostWithStats[]>({
+    queryKey: ["posts"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllPostsWithStats();
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useGetComments(postId: bigint) {
+  const { actor, isFetching } = useActor();
+  return useQuery<Comment[]>({
+    queryKey: ["comments", postId.toString()],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getCommentsByPostId(postId);
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useLikePost() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, bigint>({
+    mutationFn: async (postId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.likePost(postId);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] }),
+  });
+}
+
+export function useUnlikePost() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, bigint>({
+    mutationFn: async (postId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.unlikePost(postId);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] }),
+  });
+}
+
+export function useAddComment() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<bigint, Error, { postId: bigint; content: string }>({
+    mutationFn: async ({ postId, content }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.addComment(postId, content);
+    },
+    onSuccess: (_, { postId }) =>
+      qc.invalidateQueries({ queryKey: ["comments", postId.toString()] }),
+  });
+}
+
+export function useCreatePost() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<bigint, Error, { quizId: bigint; message: string }>({
+    mutationFn: async ({ quizId, message }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createPost(quizId, message);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] }),
   });
 }

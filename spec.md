@@ -1,39 +1,31 @@
 # QuizMaster
 
 ## Current State
-Empty project with no backend logic or frontend UI.
+A quiz app with user authentication (Internet Identity), quiz creation, multiple choice and true/false questions, scoring, leaderboard, and a quiz browsing home page. Backend has quizzes, questions, results, user profiles.
 
 ## Requested Changes (Diff)
 
 ### Add
-- User authentication (login/signup required for both quiz creators and players)
-- Quiz creation: any logged-in user can create quizzes with a title and description
-- Question builder: add multiple choice and true/false questions to a quiz
-- Quiz play: players take a quiz, answering one question at a time
-- Score screen: players see their score (correct/total) at the end of a quiz
-- Leaderboard: per-quiz leaderboard showing top scores with usernames
-- Quiz listing page: browse all available quizzes
+- `Post` type: a quiz posted to the social feed (links to a quizId, has creator, timestamp)
+- `Like` on posts: users can like/unlike a post
+- `Comment` on posts: users can add text comments to a post
+- Backend functions: `postQuiz`, `getAllPosts`, `likePost`, `unlikePost`, `addComment`, `getComments`
+- New frontend page: Feed (`/feed`) showing all posts as cards
+- Each post card shows: quiz title, description, creator name, question count, like count, comment section, and a "Play Quiz" button
+- Navigation link to Feed in Navbar
 
 ### Modify
-- N/A
+- Navbar: add "Feed" link
+- Home page: can optionally show a "Post to Feed" button on quiz cards (for quiz owner)
 
 ### Remove
-- N/A
+- Nothing
 
 ## Implementation Plan
-
-### Backend (Motoko)
-- User registration: store username per principal
-- Quiz CRUD: create quiz with title, description, questions (multiple choice + true/false)
-- Quiz play: submit answers, calculate score, store result
-- Leaderboard: query top scores per quiz
-- Data models: Quiz, Question, QuizResult
-
-### Frontend (React)
-- Auth flow: login/signup with Internet Identity, username setup
-- Home page: list all quizzes with title, description, creator, question count
-- Create quiz page: form for title, description, add questions (MC + T/F)
-- Quiz play page: one question at a time, progress indicator
-- Score page: final score display with correct/total and option to view leaderboard
-- Leaderboard page: per-quiz top scores table
-- Navigation: header with login state, link to create quiz
+1. Add `Post`, `Like`, `Comment` types to backend
+2. Add `postQuiz`, `getAllPosts`, `likePost`, `unlikePost`, `addComment`, `getComments` functions
+3. Regenerate frontend bindings
+4. Create `/feed` page with post cards
+5. Create `/feed` route in App.tsx
+6. Add Feed link to Navbar
+7. Add "Post to Feed" button on quiz cards in Home for quiz owners

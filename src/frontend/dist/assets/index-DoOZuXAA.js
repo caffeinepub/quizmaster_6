@@ -20390,7 +20390,7 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [
+const __iconNode$s = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20400,14 +20400,14 @@ const __iconNode$l = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$l);
+const BookOpen = createLucideIcon("book-open", __iconNode$s);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [
+const __iconNode$r = [
   [
     "path",
     {
@@ -20430,41 +20430,57 @@ const __iconNode$k = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$k);
+const Brain = createLucideIcon("brain", __iconNode$r);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$j);
+const __iconNode$q = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$q);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$i);
+const __iconNode$p = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [
+const __iconNode$o = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$o);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$n = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$n);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$m = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const Clock = createLucideIcon("clock", __iconNode$h);
+const Clock = createLucideIcon("clock", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [
+const __iconNode$l = [
   [
     "path",
     {
@@ -20474,26 +20490,42 @@ const __iconNode$g = [
   ],
   ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
 ];
-const Github = createLucideIcon("github", __iconNode$g);
+const Github = createLucideIcon("github", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$f = [
+const __iconNode$k = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
   ["path", { d: "M2 12h20", key: "9i4pu4" }]
 ];
-const Globe = createLucideIcon("globe", __iconNode$f);
+const Globe = createLucideIcon("globe", __iconNode$k);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$e = [
+const __iconNode$j = [
+  [
+    "path",
+    {
+      d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
+      key: "c3ymky"
+    }
+  ]
+];
+const Heart = createLucideIcon("heart", __iconNode$j);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$i = [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
   ["path", { d: "M3 6h.01", key: "1rqtza" }],
@@ -20501,34 +20533,44 @@ const __iconNode$e = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List = createLucideIcon("list", __iconNode$e);
+const List = createLucideIcon("list", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$d = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$d);
+const __iconNode$h = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$h);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$c = [
+const __iconNode$g = [
   ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
   ["path", { d: "M21 12H9", key: "dn1m92" }],
   ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
 ];
-const LogOut = createLucideIcon("log-out", __iconNode$c);
+const LogOut = createLucideIcon("log-out", __iconNode$g);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$b = [
+const __iconNode$f = [
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+];
+const MessageCircle = createLucideIcon("message-circle", __iconNode$f);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$e = [
   [
     "path",
     {
@@ -20537,15 +20579,49 @@ const __iconNode$b = [
     }
   ]
 ];
-const Pen = createLucideIcon("pen", __iconNode$b);
+const Pen = createLucideIcon("pen", __iconNode$e);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
-const Play = createLucideIcon("play", __iconNode$a);
+const __iconNode$d = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("play", __iconNode$d);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$c = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode$c);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$b = [
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+];
+const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$b);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$a = [
+  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
+  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
+  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
+];
+const Rss = createLucideIcon("rss", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20553,10 +20629,10 @@ const Play = createLucideIcon("play", __iconNode$a);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$9 = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$9);
+const Search = createLucideIcon("search", __iconNode$9);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20564,10 +20640,16 @@ const Plus = createLucideIcon("plus", __iconNode$9);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$8 = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$8);
+const Send = createLucideIcon("send", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20575,10 +20657,13 @@ const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
+  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
+  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
+  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
+  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
 ];
-const Search = createLucideIcon("search", __iconNode$7);
+const Share2 = createLucideIcon("share-2", __iconNode$7);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -35663,6 +35748,18 @@ const UserRole = Variant({
   "guest": Null
 });
 const Time = Int;
+const Post = Record({
+  "id": Nat,
+  "author": Principal2,
+  "message": Text,
+  "timestamp": Time,
+  "quizId": Nat
+});
+const PostWithStats = Record({
+  "likeCount": Nat,
+  "post": Post,
+  "commentCount": Nat
+});
 const Quiz = Record({
   "id": Nat,
   "title": Text,
@@ -35671,6 +35768,17 @@ const Quiz = Record({
   "timestamp": Time
 });
 const UserProfile = Record({ "username": Text });
+const Comment = Record({
+  "id": Nat,
+  "content": Text,
+  "author": Principal2,
+  "timestamp": Time,
+  "postId": Nat
+});
+const PostWithComment = Record({
+  "post": Post,
+  "comments": Vec(Comment)
+});
 const Result = Record({
   "username": Text,
   "player": Principal2,
@@ -35694,13 +35802,23 @@ const T = Record({
 });
 Service({
   "_initializeAccessControlWithSecret": Func([Text], [], []),
+  "addComment": Func([Nat, Text], [Nat], []),
   "addQuestion": Func([Nat, Question], [Nat], []),
   "assignCallerUserRole": Func([Principal2, UserRole], [], []),
+  "createPost": Func([Nat, Text], [Nat], []),
   "createQuiz": Func([Text, Text], [Nat], []),
   "createUserProfile": Func([Text], [], []),
+  "getAllPostsWithStats": Func([], [Vec(PostWithStats)], ["query"]),
   "getAllQuizzes": Func([], [Vec(Quiz)], ["query"]),
   "getCallerUserProfile": Func([], [Opt(UserProfile)], ["query"]),
   "getCallerUserRole": Func([], [UserRole], ["query"]),
+  "getCommentsByPostId": Func([Nat], [Vec(Comment)], ["query"]),
+  "getPostWithComments": Func(
+    [Nat],
+    [Opt(PostWithComment)],
+    ["query"]
+  ),
+  "getPostsByQuizId": Func([Nat], [Vec(PostWithStats)], ["query"]),
   "getQuiz": Func([Nat], [Quiz], ["query"]),
   "getQuizLeaderboard": Func(
     [Nat],
@@ -35709,6 +35827,11 @@ Service({
   ),
   "getQuizQuestions": Func([Nat], [Vec(Question)], ["query"]),
   "getQuizStats": Func([], [Vec(QuizStats)], ["query"]),
+  "getUserPosts": Func(
+    [Principal2],
+    [Vec(PostWithStats)],
+    ["query"]
+  ),
   "getUserProfile": Func(
     [Principal2],
     [Opt(UserProfile)],
@@ -35716,8 +35839,10 @@ Service({
   ),
   "getUserQuizResults": Func([], [Vec(Result)], ["query"]),
   "isCallerAdmin": Func([], [Bool], ["query"]),
+  "likePost": Func([Nat], [], []),
   "saveCallerUserProfile": Func([UserProfile], [], []),
   "submitQuizAnswers": Func([Nat, Vec(T)], [Nat], []),
+  "unlikePost": Func([Nat], [], []),
   "updateUserProfile": Func([Text], [], [])
 });
 const idlFactory = ({ IDL: IDL2 }) => {
@@ -35739,6 +35864,18 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "guest": IDL2.Null
   });
   const Time2 = IDL2.Int;
+  const Post2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "author": IDL2.Principal,
+    "message": IDL2.Text,
+    "timestamp": Time2,
+    "quizId": IDL2.Nat
+  });
+  const PostWithStats2 = IDL2.Record({
+    "likeCount": IDL2.Nat,
+    "post": Post2,
+    "commentCount": IDL2.Nat
+  });
   const Quiz2 = IDL2.Record({
     "id": IDL2.Nat,
     "title": IDL2.Text,
@@ -35747,6 +35884,17 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "timestamp": Time2
   });
   const UserProfile2 = IDL2.Record({ "username": IDL2.Text });
+  const Comment2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "content": IDL2.Text,
+    "author": IDL2.Principal,
+    "timestamp": Time2,
+    "postId": IDL2.Nat
+  });
+  const PostWithComment2 = IDL2.Record({
+    "post": Post2,
+    "comments": IDL2.Vec(Comment2)
+  });
   const Result2 = IDL2.Record({
     "username": IDL2.Text,
     "player": IDL2.Principal,
@@ -35770,13 +35918,27 @@ const idlFactory = ({ IDL: IDL2 }) => {
   });
   return IDL2.Service({
     "_initializeAccessControlWithSecret": IDL2.Func([IDL2.Text], [], []),
+    "addComment": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "addQuestion": IDL2.Func([IDL2.Nat, Question2], [IDL2.Nat], []),
     "assignCallerUserRole": IDL2.Func([IDL2.Principal, UserRole2], [], []),
+    "createPost": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "createQuiz": IDL2.Func([IDL2.Text, IDL2.Text], [IDL2.Nat], []),
     "createUserProfile": IDL2.Func([IDL2.Text], [], []),
+    "getAllPostsWithStats": IDL2.Func([], [IDL2.Vec(PostWithStats2)], ["query"]),
     "getAllQuizzes": IDL2.Func([], [IDL2.Vec(Quiz2)], ["query"]),
     "getCallerUserProfile": IDL2.Func([], [IDL2.Opt(UserProfile2)], ["query"]),
     "getCallerUserRole": IDL2.Func([], [UserRole2], ["query"]),
+    "getCommentsByPostId": IDL2.Func([IDL2.Nat], [IDL2.Vec(Comment2)], ["query"]),
+    "getPostWithComments": IDL2.Func(
+      [IDL2.Nat],
+      [IDL2.Opt(PostWithComment2)],
+      ["query"]
+    ),
+    "getPostsByQuizId": IDL2.Func(
+      [IDL2.Nat],
+      [IDL2.Vec(PostWithStats2)],
+      ["query"]
+    ),
     "getQuiz": IDL2.Func([IDL2.Nat], [Quiz2], ["query"]),
     "getQuizLeaderboard": IDL2.Func(
       [IDL2.Nat],
@@ -35785,6 +35947,11 @@ const idlFactory = ({ IDL: IDL2 }) => {
     ),
     "getQuizQuestions": IDL2.Func([IDL2.Nat], [IDL2.Vec(Question2)], ["query"]),
     "getQuizStats": IDL2.Func([], [IDL2.Vec(QuizStats2)], ["query"]),
+    "getUserPosts": IDL2.Func(
+      [IDL2.Principal],
+      [IDL2.Vec(PostWithStats2)],
+      ["query"]
+    ),
     "getUserProfile": IDL2.Func(
       [IDL2.Principal],
       [IDL2.Opt(UserProfile2)],
@@ -35792,8 +35959,10 @@ const idlFactory = ({ IDL: IDL2 }) => {
     ),
     "getUserQuizResults": IDL2.Func([], [IDL2.Vec(Result2)], ["query"]),
     "isCallerAdmin": IDL2.Func([], [IDL2.Bool], ["query"]),
+    "likePost": IDL2.Func([IDL2.Nat], [], []),
     "saveCallerUserProfile": IDL2.Func([UserProfile2], [], []),
     "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(T2)], [IDL2.Nat], []),
+    "unlikePost": IDL2.Func([IDL2.Nat], [], []),
     "updateUserProfile": IDL2.Func([IDL2.Text], [], [])
   });
 };
@@ -35856,6 +36025,20 @@ class Backend {
       return result;
     }
   }
+  async addComment(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.addComment(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.addComment(arg0, arg1);
+      return result;
+    }
+  }
   async addQuestion(arg0, arg1) {
     if (this.processError) {
       try {
@@ -35884,6 +36067,20 @@ class Backend {
       return result;
     }
   }
+  async createPost(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.createPost(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.createPost(arg0, arg1);
+      return result;
+    }
+  }
   async createQuiz(arg0, arg1) {
     if (this.processError) {
       try {
@@ -35909,6 +36106,20 @@ class Backend {
       }
     } else {
       const result = await this.actor.createUserProfile(arg0);
+      return result;
+    }
+  }
+  async getAllPostsWithStats() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getAllPostsWithStats();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getAllPostsWithStats();
       return result;
     }
   }
@@ -35954,6 +36165,48 @@ class Backend {
       return from_candid_UserRole_n7(this._uploadFile, this._downloadFile, result);
     }
   }
+  async getCommentsByPostId(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getCommentsByPostId(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getCommentsByPostId(arg0);
+      return result;
+    }
+  }
+  async getPostWithComments(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getPostWithComments(arg0);
+        return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getPostWithComments(arg0);
+      return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async getPostsByQuizId(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getPostsByQuizId(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getPostsByQuizId(arg0);
+      return result;
+    }
+  }
   async getQuiz(arg0) {
     if (this.processError) {
       try {
@@ -35972,28 +36225,28 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getQuizLeaderboard(arg0);
-        return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n10(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getQuizLeaderboard(arg0);
-      return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n10(this._uploadFile, this._downloadFile, result);
     }
   }
   async getQuizQuestions(arg0) {
     if (this.processError) {
       try {
         const result = await this.actor.getQuizQuestions(arg0);
-        return from_candid_vec_n10(this._uploadFile, this._downloadFile, result);
+        return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getQuizQuestions(arg0);
-      return from_candid_vec_n10(this._uploadFile, this._downloadFile, result);
+      return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
     }
   }
   async getQuizStats() {
@@ -36007,6 +36260,20 @@ class Backend {
       }
     } else {
       const result = await this.actor.getQuizStats();
+      return result;
+    }
+  }
+  async getUserPosts(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getUserPosts(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getUserPosts(arg0);
       return result;
     }
   }
@@ -36052,6 +36319,20 @@ class Backend {
       return result;
     }
   }
+  async likePost(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.likePost(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.likePost(arg0);
+      return result;
+    }
+  }
   async saveCallerUserProfile(arg0) {
     if (this.processError) {
       try {
@@ -36069,14 +36350,28 @@ class Backend {
   async submitQuizAnswers(arg0, arg1) {
     if (this.processError) {
       try {
-        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n14(this._uploadFile, this._downloadFile, arg1));
+        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n15(this._uploadFile, this._downloadFile, arg1));
         return result;
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
-      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n14(this._uploadFile, this._downloadFile, arg1));
+      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n15(this._uploadFile, this._downloadFile, arg1));
+      return result;
+    }
+  }
+  async unlikePost(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.unlikePost(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.unlikePost(arg0);
       return result;
     }
   }
@@ -36095,11 +36390,14 @@ class Backend {
     }
   }
 }
-function from_candid_Question_n11(_uploadFile, _downloadFile, value) {
-  return from_candid_record_n12(_uploadFile, _downloadFile, value);
+function from_candid_Question_n12(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n13(_uploadFile, _downloadFile, value);
 }
 function from_candid_UserRole_n7(_uploadFile, _downloadFile, value) {
   return from_candid_variant_n8(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n10(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
 }
 function from_candid_opt_n6(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
@@ -36107,15 +36405,15 @@ function from_candid_opt_n6(_uploadFile, _downloadFile, value) {
 function from_candid_opt_n9(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
-function from_candid_record_n12(_uploadFile, _downloadFile, value) {
+function from_candid_record_n13(_uploadFile, _downloadFile, value) {
   return {
     id: value.id,
     text: value.text,
-    questionType: from_candid_variant_n13(_uploadFile, _downloadFile, value.questionType),
+    questionType: from_candid_variant_n14(_uploadFile, _downloadFile, value.questionType),
     quizId: value.quizId
   };
 }
-function from_candid_variant_n13(_uploadFile, _downloadFile, value) {
+function from_candid_variant_n14(_uploadFile, _downloadFile, value) {
   return "multipleChoice" in value ? {
     __kind__: "multipleChoice",
     multipleChoice: value.multipleChoice
@@ -36127,21 +36425,21 @@ function from_candid_variant_n13(_uploadFile, _downloadFile, value) {
 function from_candid_variant_n8(_uploadFile, _downloadFile, value) {
   return "admin" in value ? "admin" : "user" in value ? "user" : "guest" in value ? "guest" : value;
 }
-function from_candid_vec_n10(_uploadFile, _downloadFile, value) {
-  return value.map((x2) => from_candid_Question_n11(_uploadFile, _downloadFile, x2));
+function from_candid_vec_n11(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_Question_n12(_uploadFile, _downloadFile, x2));
 }
 function to_candid_Question_n1(_uploadFile, _downloadFile, value) {
   return to_candid_record_n2(_uploadFile, _downloadFile, value);
 }
-function to_candid_T_n15(_uploadFile, _downloadFile, value) {
-  return to_candid_record_n16(_uploadFile, _downloadFile, value);
+function to_candid_T_n16(_uploadFile, _downloadFile, value) {
+  return to_candid_record_n17(_uploadFile, _downloadFile, value);
 }
 function to_candid_UserRole_n4(_uploadFile, _downloadFile, value) {
   return to_candid_variant_n5(_uploadFile, _downloadFile, value);
 }
-function to_candid_record_n16(_uploadFile, _downloadFile, value) {
+function to_candid_record_n17(_uploadFile, _downloadFile, value) {
   return {
-    answer: to_candid_variant_n17(_uploadFile, _downloadFile, value.answer),
+    answer: to_candid_variant_n18(_uploadFile, _downloadFile, value.answer),
     questionId: value.questionId
   };
 }
@@ -36153,7 +36451,7 @@ function to_candid_record_n2(_uploadFile, _downloadFile, value) {
     quizId: value.quizId
   };
 }
-function to_candid_variant_n17(_uploadFile, _downloadFile, value) {
+function to_candid_variant_n18(_uploadFile, _downloadFile, value) {
   return value.__kind__ === "multipleChoice" ? {
     multipleChoice: value.multipleChoice
   } : value.__kind__ === "trueFalse" ? {
@@ -36176,8 +36474,8 @@ function to_candid_variant_n5(_uploadFile, _downloadFile, value) {
     guest: null
   } : value;
 }
-function to_candid_vec_n14(_uploadFile, _downloadFile, value) {
-  return value.map((x2) => to_candid_T_n15(_uploadFile, _downloadFile, x2));
+function to_candid_vec_n15(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => to_candid_T_n16(_uploadFile, _downloadFile, x2));
 }
 function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
   const agent = options.agent || HttpAgent.createSync({
@@ -37114,6 +37412,61 @@ function useUpdateUserProfile() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["userProfile"] })
   });
 }
+function useGetAllPosts() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["posts"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllPostsWithStats();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useGetComments(postId) {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["comments", postId.toString()],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getCommentsByPostId(postId);
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useLikePost() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (postId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.likePost(postId);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] })
+  });
+}
+function useAddComment() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ postId, content }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.addComment(postId, content);
+    },
+    onSuccess: (_2, { postId }) => qc.invalidateQueries({ queryKey: ["comments", postId.toString()] })
+  });
+}
+function useCreatePost() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ quizId, message }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createPost(quizId, message);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] })
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
@@ -37122,6 +37475,7 @@ function Navbar() {
   const isActive = (path) => location2.pathname === path;
   const navLinks = [
     { path: "/", label: "Quizzes", icon: List },
+    { path: "/feed", label: "Feed", icon: Rss },
     { path: "/create", label: "Create Quiz", icon: Plus },
     { path: "/profile", label: "My Profile", icon: User }
   ];
@@ -45506,6 +45860,267 @@ function Skeleton({ className, ...props }) {
     }
   );
 }
+const SKELETON_KEYS$1 = ["sk-a", "sk-b", "sk-c"];
+function Feed() {
+  const { data: posts, isLoading } = useGetAllPosts();
+  const { data: quizzes } = useGetAllQuizzes();
+  const { identity } = useInternetIdentity();
+  const quizMap = /* @__PURE__ */ new Map();
+  for (const q2 of quizzes ?? []) {
+    quizMap.set(q2.id.toString(), q2);
+  }
+  const sorted = [...posts ?? []].sort(
+    (a2, b2) => Number(b2.post.timestamp - a2.post.timestamp)
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute top-10 left-10 w-72 h-72 rounded-full opacity-10 pointer-events-none",
+        style: {
+          background: "radial-gradient(circle, oklch(0.73 0.14 215), transparent)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute top-60 right-10 w-56 h-56 rounded-full opacity-10 pointer-events-none",
+        style: {
+          background: "radial-gradient(circle, oklch(0.56 0.20 290), transparent)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pt-14 pb-6 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.5 },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "mb-5 gradient-bg border-0 text-white px-4 py-1.5 rounded-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-3 h-3 mr-1.5" }),
+            "Social Quiz Feed"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-4xl md:text-5xl font-extrabold mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gradient-text", children: "Discover & Share" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground", children: "Quiz Posts" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-base max-w-xl mx-auto mb-6", children: "See what quizzes the community is sharing. Like, comment, and jump in to play." })
+        ]
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pb-20 max-w-2xl", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", "data-ocid": "feed.loading_state", children: SKELETON_KEYS$1.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-56 rounded-2xl bg-secondary" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        className: "text-center py-20 glass-card rounded-2xl",
+        "data-ocid": "feed.empty_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "w-12 h-12 mx-auto mb-4 text-muted-foreground" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg mb-2", children: "No posts yet!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-6", children: "Be the first to share a quiz to the feed." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "gradient-bg border-0 text-white rounded-full", children: "Browse Quizzes" }) })
+        ]
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: sorted.map((pws, i) => {
+      const quiz = quizMap.get(pws.post.quizId.toString());
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(
+        PostCard,
+        {
+          pws,
+          quiz,
+          index: i + 1,
+          isLoggedIn: !!identity
+        },
+        pws.post.id.toString()
+      );
+    }) }) }) })
+  ] });
+}
+function PostCard({
+  pws,
+  quiz,
+  index: index2,
+  isLoggedIn
+}) {
+  var _a3;
+  const [commentsOpen, setCommentsOpen] = reactExports.useState(false);
+  const [liked, setLiked] = reactExports.useState(false);
+  const [commentText, setCommentText] = reactExports.useState("");
+  const likePost = useLikePost();
+  const addComment = useAddComment();
+  const { data: comments, isLoading: commentsLoading } = useGetComments(
+    commentsOpen ? pws.post.id : BigInt(-1)
+  );
+  const authorStr = pws.post.author.toString();
+  const shortAuthor = authorStr.length > 12 ? `${authorStr.slice(0, 6)}…${authorStr.slice(-4)}` : authorStr;
+  const likeCount = liked ? Number(pws.likeCount) + 1 : Number(pws.likeCount);
+  function handleLike() {
+    if (!isLoggedIn) return;
+    if (!liked) {
+      likePost.mutate(pws.post.id);
+      setLiked(true);
+    }
+  }
+  function handleComment() {
+    const text = commentText.trim();
+    if (!text || !isLoggedIn) return;
+    addComment.mutate(
+      { postId: pws.post.id, content: text },
+      { onSuccess: () => setCommentText("") }
+    );
+  }
+  const colorAccents = [
+    "from-blue-500 to-cyan-400",
+    "from-purple-500 to-pink-400",
+    "from-green-500 to-teal-400",
+    "from-orange-500 to-yellow-400"
+  ];
+  const accent = colorAccents[(index2 - 1) % colorAccents.length];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 24 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, scale: 0.97 },
+      transition: { delay: index2 * 0.04, duration: 0.4 },
+      className: "glass-card rounded-2xl overflow-hidden",
+      "data-ocid": `feed.item.${index2}`,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1.5 bg-gradient-to-r ${accent}` }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-9 h-9 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                AvatarFallback,
+                {
+                  className: `bg-gradient-to-br ${accent} text-white text-xs font-bold`,
+                  children: ((_a3 = shortAuthor[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?"
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: new Date(
+                  Number(pws.post.timestamp / BigInt(1e6))
+                ).toLocaleDateString() })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", className: "text-xs shrink-0", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-2.5 h-2.5 mr-1" }),
+              "Quiz Post"
+            ] })
+          ] }),
+          quiz ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-base mb-0.5 gradient-text", children: quiz.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm line-clamp-2", children: quiz.description })
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm italic", children: "Quiz not found" }) }),
+          pws.post.message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground/80 mb-4 border-l-2 border-primary/40 pl-3 italic", children: pws.post.message }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mt-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                type: "button",
+                onClick: handleLike,
+                disabled: !isLoggedIn || liked,
+                className: `flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full transition-all duration-200 ${liked ? "bg-pink-500/20 text-pink-400" : "hover:bg-pink-500/10 text-muted-foreground hover:text-pink-400"} disabled:opacity-50 disabled:cursor-not-allowed`,
+                "data-ocid": `feed.toggle.${index2}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: `w-4 h-4 ${liked ? "fill-current" : ""}` }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: likeCount })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "button",
+              {
+                type: "button",
+                onClick: () => setCommentsOpen((v2) => !v2),
+                className: "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full hover:bg-secondary text-muted-foreground hover:text-foreground transition-all duration-200",
+                "data-ocid": `feed.secondary_button.${index2}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { className: "w-4 h-4" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: Number(pws.commentCount) }),
+                  commentsOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1" }),
+            quiz && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: pws.post.quizId.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Button,
+              {
+                size: "sm",
+                className: "gradient-bg border-0 text-white font-semibold rounded-full text-xs px-4",
+                "data-ocid": `feed.primary_button.${index2}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3 h-3 mr-1.5" }),
+                  "Play Quiz"
+                ]
+              }
+            ) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: commentsOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
+            {
+              initial: { height: 0, opacity: 0 },
+              animate: { height: "auto", opacity: 1 },
+              exit: { height: 0, opacity: 0 },
+              transition: { duration: 0.25 },
+              className: "overflow-hidden",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 pt-4 border-t border-border", children: [
+                commentsLoading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" })
+                ] }) : (comments ?? []).length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm text-center py-2", children: "No comments yet. Be the first!" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3 mb-4 max-h-48 overflow-y-auto pr-1", children: (comments ?? []).map((c2) => {
+                  var _a4;
+                  const cAuthor = c2.author.toString();
+                  const shortC = cAuthor.length > 12 ? `${cAuthor.slice(0, 6)}…${cAuthor.slice(-4)}` : cAuthor;
+                  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2.5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-6 h-6 shrink-0 mt-0.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_a4 = shortC[0]) == null ? void 0 : _a4.toUpperCase()) ?? "?" }) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-medium text-foreground/80", children: [
+                        shortC,
+                        " "
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: c2.content })
+                    ] })
+                  ] }, c2.id.toString());
+                }) }),
+                isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 mt-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Textarea,
+                    {
+                      placeholder: "Write a comment…",
+                      value: commentText,
+                      onChange: (e) => setCommentText(e.target.value),
+                      rows: 2,
+                      className: "flex-1 bg-secondary border-border rounded-xl text-sm resize-none",
+                      "data-ocid": `feed.textarea.${index2}`
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      size: "sm",
+                      onClick: handleComment,
+                      disabled: !commentText.trim() || addComment.isPending,
+                      className: "gradient-bg border-0 text-white rounded-xl self-end px-3",
+                      "data-ocid": `feed.submit_button.${index2}`,
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" })
+                    }
+                  )
+                ] }),
+                !isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-xs text-center mt-2", children: "Log in to like and comment." })
+              ] })
+            }
+          ) })
+        ] })
+      ]
+    }
+  );
+}
 function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
   return function handleEvent(event) {
     originalEventHandler == null ? void 0 : originalEventHandler(event);
@@ -46972,7 +47587,7 @@ var Dialog$1 = (props) => {
 };
 Dialog$1.displayName = DIALOG_NAME;
 var TRIGGER_NAME = "DialogTrigger";
-var DialogTrigger = reactExports.forwardRef(
+var DialogTrigger$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...triggerProps } = props;
     const context = useDialogContext(TRIGGER_NAME, __scopeDialog);
@@ -46992,7 +47607,7 @@ var DialogTrigger = reactExports.forwardRef(
     );
   }
 );
-DialogTrigger.displayName = TRIGGER_NAME;
+DialogTrigger$1.displayName = TRIGGER_NAME;
 var PORTAL_NAME = "DialogPortal";
 var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME, {
   forceMount: void 0
@@ -47232,6 +47847,7 @@ var DescriptionWarning = ({ contentRef, descriptionId }) => {
   return null;
 };
 var Root$1 = Dialog$1;
+var Trigger = DialogTrigger$1;
 var Portal = DialogPortal$1;
 var Overlay = DialogOverlay$1;
 var Content = DialogContent$1;
@@ -47242,6 +47858,11 @@ function Dialog({
   ...props
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Root$1, { "data-slot": "dialog", ...props });
+}
+function DialogTrigger({
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Trigger, { "data-slot": "dialog-trigger", ...props });
 }
 function DialogPortal({
   ...props
@@ -47305,6 +47926,19 @@ function DialogHeader({ className, ...props }) {
     {
       "data-slot": "dialog-header",
       className: cn("flex flex-col gap-2 text-center sm:text-left", className),
+      ...props
+    }
+  );
+}
+function DialogFooter({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "dialog-footer",
+      className: cn(
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        className
+      ),
       ...props
     }
   );
@@ -47559,14 +48193,30 @@ function Home() {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "mt-4 gradient-bg border-0 text-white rounded-full", children: "Create the first quiz!" }) })
               ]
             }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5", children: filtered.map((quiz, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(QuizCard, { quiz, index: i + 1 }, quiz.id.toString())) })
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5", children: filtered.map((quiz, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            QuizCard,
+            {
+              quiz,
+              index: i + 1,
+              isOwner: !!identity && identity.getPrincipal().toString() === quiz.creator.toString()
+            },
+            quiz.id.toString()
+          )) })
         ]
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(UsernameDialog, { open: showUsernameDialog })
   ] });
 }
-function QuizCard({ quiz, index: index2 }) {
+function QuizCard({
+  quiz,
+  index: index2,
+  isOwner
+}) {
+  const navigate = useNavigate();
+  const [open, setOpen] = reactExports.useState(false);
+  const [message, setMessage] = reactExports.useState("");
+  const createPost = useCreatePost();
   const colors = [
     "from-blue-500 to-cyan-400",
     "from-purple-500 to-pink-400",
@@ -47574,6 +48224,20 @@ function QuizCard({ quiz, index: index2 }) {
     "from-orange-500 to-yellow-400"
   ];
   const color2 = colors[(index2 - 1) % colors.length];
+  function handlePost() {
+    createPost.mutate(
+      { quizId: quiz.id, message },
+      {
+        onSuccess: () => {
+          setOpen(false);
+          setMessage("");
+          ue.success("Quiz posted to the feed!");
+          navigate({ to: "/feed" });
+        },
+        onError: () => ue.error("Failed to post quiz.")
+      }
+    );
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     motion.div,
     {
@@ -47593,18 +48257,91 @@ function QuizCard({ quiz, index: index2 }) {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 flex flex-col flex-1", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-base mb-1 line-clamp-2", children: quiz.title }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-3 line-clamp-2 flex-1", children: quiz.description }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: quiz.id.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            Button,
-            {
-              size: "sm",
-              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
-              "data-ocid": `quiz.play_button.${index2}`,
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3.5 h-3.5 mr-1.5" }),
-                "Play Quiz"
-              ]
-            }
-          ) })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: quiz.id.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Button,
+              {
+                size: "sm",
+                className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
+                "data-ocid": `quiz.primary_button.${index2}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3.5 h-3.5 mr-1.5" }),
+                  "Play Quiz"
+                ]
+              }
+            ) }),
+            isOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs(Dialog, { open, onOpenChange: setOpen, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                Button,
+                {
+                  size: "sm",
+                  variant: "outline",
+                  className: "w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs",
+                  "data-ocid": `quiz.open_modal_button.${index2}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Share2, { className: "w-3 h-3 mr-1.5" }),
+                    "Post to Feed"
+                  ]
+                }
+              ) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                DialogContent,
+                {
+                  className: "sm:max-w-md",
+                  "data-ocid": `quiz.dialog.${index2}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogHeader, { children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogTitle, { className: "flex items-center gap-2", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 text-primary" }),
+                        "Post to Feed"
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogDescription, { children: [
+                        "Share ",
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: quiz.title }),
+                        " with the community. Add an optional message."
+                      ] })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Textarea,
+                      {
+                        placeholder: "Add a message (optional)…",
+                        value: message,
+                        onChange: (e) => setMessage(e.target.value),
+                        rows: 3,
+                        className: "bg-secondary border-border rounded-xl resize-none",
+                        "data-ocid": `quiz.textarea.${index2}`
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogFooter, { className: "gap-2", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        Button,
+                        {
+                          variant: "outline",
+                          onClick: () => setOpen(false),
+                          className: "rounded-full",
+                          "data-ocid": `quiz.cancel_button.${index2}`,
+                          children: "Cancel"
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                        Button,
+                        {
+                          onClick: handlePost,
+                          disabled: createPost.isPending,
+                          className: "gradient-bg border-0 text-white rounded-full",
+                          "data-ocid": `quiz.submit_button.${index2}`,
+                          children: [
+                            createPost.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 mr-1.5" }),
+                            "Post to Feed"
+                          ]
+                        }
+                      )
+                    ] })
+                  ]
+                }
+              )
+            ] })
+          ] })
         ] })
       ]
     }
@@ -48390,13 +49127,19 @@ const profileRoute = createRoute({
   path: "/profile",
   component: Profile
 });
+const feedRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/feed",
+  component: Feed
+});
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
   playQuizRoute,
   scoreRoute,
   leaderboardRoute,
-  profileRoute
+  profileRoute,
+  feedRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {

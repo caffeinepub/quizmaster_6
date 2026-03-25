@@ -5,11 +5,11 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
-  redirect,
 } from "@tanstack/react-router";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import CreateQuiz from "./pages/CreateQuiz";
+import Feed from "./pages/Feed";
 import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import PlayQuiz from "./pages/PlayQuiz";
@@ -71,6 +71,12 @@ const profileRoute = createRoute({
   component: Profile,
 });
 
+const feedRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/feed",
+  component: Feed,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -78,6 +84,7 @@ const routeTree = rootRoute.addChildren([
   scoreRoute,
   leaderboardRoute,
   profileRoute,
+  feedRoute,
 ]);
 
 const router = createRouter({ routeTree });

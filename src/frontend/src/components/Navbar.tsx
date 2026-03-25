@@ -1,7 +1,7 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Brain, List, LogOut, Plus, Trophy, User } from "lucide-react";
+import { Brain, List, LogOut, Plus, Rss, User } from "lucide-react";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetUserProfile } from "../hooks/useQueries";
 
@@ -14,6 +14,7 @@ export default function Navbar() {
 
   const navLinks = [
     { path: "/", label: "Quizzes", icon: List },
+    { path: "/feed", label: "Feed", icon: Rss },
     { path: "/create", label: "Create Quiz", icon: Plus },
     { path: "/profile", label: "My Profile", icon: User },
   ];

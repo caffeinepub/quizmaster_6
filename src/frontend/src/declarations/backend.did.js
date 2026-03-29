@@ -26,6 +26,21 @@ export const UserRole = IDL.Variant({
   'guest' : IDL.Null,
 });
 export const Time = IDL.Int;
+export const Quiz = IDL.Record({
+  'id' : IDL.Nat,
+  'title' : IDL.Text,
+  'creator' : IDL.Principal,
+  'description' : IDL.Text,
+  'timestamp' : Time,
+});
+export const QuizWithAnswers = IDL.Record({
+  'quiz' : Quiz,
+  'questions' : IDL.Vec(Question),
+});
+export const PointsEntry = IDL.Record({
+  'player' : IDL.Principal,
+  'points' : IDL.Nat,
+});
 export const Post = IDL.Record({
   'id' : IDL.Nat,
   'author' : IDL.Principal,
@@ -37,13 +52,6 @@ export const PostWithStats = IDL.Record({
   'likeCount' : IDL.Nat,
   'post' : Post,
   'commentCount' : IDL.Nat,
-});
-export const Quiz = IDL.Record({
-  'id' : IDL.Nat,
-  'title' : IDL.Text,
-  'creator' : IDL.Principal,
-  'description' : IDL.Text,
-  'timestamp' : Time,
 });
 export const UserProfile = IDL.Record({ 'username' : IDL.Text });
 export const Comment = IDL.Record({
@@ -84,14 +92,18 @@ export const idlService = IDL.Service({
   'addComment' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
   'addQuestion' : IDL.Func([IDL.Nat, Question], [IDL.Nat], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+  'awardPoints' : IDL.Func([IDL.Nat], [], []),
   'createPost' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
   'createQuiz' : IDL.Func([IDL.Text, IDL.Text], [IDL.Nat], []),
   'createUserProfile' : IDL.Func([IDL.Text], [], []),
+  'getAdminQuizAnswers' : IDL.Func([], [IDL.Vec(QuizWithAnswers)], ['query']),
+  'getAllPlayerPoints' : IDL.Func([], [IDL.Vec(PointsEntry)], ['query']),
   'getAllPostsWithStats' : IDL.Func([], [IDL.Vec(PostWithStats)], ['query']),
   'getAllQuizzes' : IDL.Func([], [IDL.Vec(Quiz)], ['query']),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
   'getCommentsByPostId' : IDL.Func([IDL.Nat], [IDL.Vec(Comment)], ['query']),
+  'getMyPoints' : IDL.Func([], [IDL.Nat], ['query']),
   'getPostWithComments' : IDL.Func(
       [IDL.Nat],
       [IDL.Opt(PostWithComment)],
@@ -106,6 +118,7 @@ export const idlService = IDL.Service({
     ),
   'getQuizQuestions' : IDL.Func([IDL.Nat], [IDL.Vec(Question)], ['query']),
   'getQuizStats' : IDL.Func([], [IDL.Vec(QuizStats)], ['query']),
+  'getTopPlayer' : IDL.Func([], [IDL.Opt(IDL.Principal)], ['query']),
   'getUserPosts' : IDL.Func(
       [IDL.Principal],
       [IDL.Vec(PostWithStats)],
@@ -146,6 +159,21 @@ export const idlFactory = ({ IDL }) => {
     'guest' : IDL.Null,
   });
   const Time = IDL.Int;
+  const Quiz = IDL.Record({
+    'id' : IDL.Nat,
+    'title' : IDL.Text,
+    'creator' : IDL.Principal,
+    'description' : IDL.Text,
+    'timestamp' : Time,
+  });
+  const QuizWithAnswers = IDL.Record({
+    'quiz' : Quiz,
+    'questions' : IDL.Vec(Question),
+  });
+  const PointsEntry = IDL.Record({
+    'player' : IDL.Principal,
+    'points' : IDL.Nat,
+  });
   const Post = IDL.Record({
     'id' : IDL.Nat,
     'author' : IDL.Principal,
@@ -157,13 +185,6 @@ export const idlFactory = ({ IDL }) => {
     'likeCount' : IDL.Nat,
     'post' : Post,
     'commentCount' : IDL.Nat,
-  });
-  const Quiz = IDL.Record({
-    'id' : IDL.Nat,
-    'title' : IDL.Text,
-    'creator' : IDL.Principal,
-    'description' : IDL.Text,
-    'timestamp' : Time,
   });
   const UserProfile = IDL.Record({ 'username' : IDL.Text });
   const Comment = IDL.Record({
@@ -204,14 +225,18 @@ export const idlFactory = ({ IDL }) => {
     'addComment' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
     'addQuestion' : IDL.Func([IDL.Nat, Question], [IDL.Nat], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
+    'awardPoints' : IDL.Func([IDL.Nat], [], []),
     'createPost' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
     'createQuiz' : IDL.Func([IDL.Text, IDL.Text], [IDL.Nat], []),
     'createUserProfile' : IDL.Func([IDL.Text], [], []),
+    'getAdminQuizAnswers' : IDL.Func([], [IDL.Vec(QuizWithAnswers)], ['query']),
+    'getAllPlayerPoints' : IDL.Func([], [IDL.Vec(PointsEntry)], ['query']),
     'getAllPostsWithStats' : IDL.Func([], [IDL.Vec(PostWithStats)], ['query']),
     'getAllQuizzes' : IDL.Func([], [IDL.Vec(Quiz)], ['query']),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
     'getCommentsByPostId' : IDL.Func([IDL.Nat], [IDL.Vec(Comment)], ['query']),
+    'getMyPoints' : IDL.Func([], [IDL.Nat], ['query']),
     'getPostWithComments' : IDL.Func(
         [IDL.Nat],
         [IDL.Opt(PostWithComment)],
@@ -230,6 +255,7 @@ export const idlFactory = ({ IDL }) => {
       ),
     'getQuizQuestions' : IDL.Func([IDL.Nat], [IDL.Vec(Question)], ['query']),
     'getQuizStats' : IDL.Func([], [IDL.Vec(QuizStats)], ['query']),
+    'getTopPlayer' : IDL.Func([], [IDL.Opt(IDL.Principal)], ['query']),
     'getUserPosts' : IDL.Func(
         [IDL.Principal],
         [IDL.Vec(PostWithStats)],

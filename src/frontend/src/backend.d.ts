@@ -7,7 +7,31 @@ export interface None {
     __kind__: "None";
 }
 export type Option<T> = Some<T> | None;
+export interface Comment {
+    id: bigint;
+    content: string;
+    author: Principal;
+    timestamp: Time;
+    postId: bigint;
+}
 export type Time = bigint;
+export interface PointsEntry {
+    player: Principal;
+    points: bigint;
+}
+export interface Quiz {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    description: string;
+    timestamp: Time;
+}
+export interface QuizStats {
+    title: string;
+    totalAttemptCount: bigint;
+    quizId: bigint;
+    totalCorrectCount: bigint;
+}
 export interface Result {
     username: string;
     player: Principal;
@@ -15,6 +39,10 @@ export interface Result {
     totalQuestions: bigint;
     timestamp: Time;
     quizId: bigint;
+}
+export interface QuizWithAnswers {
+    quiz: Quiz;
+    questions: Array<Question>;
 }
 export interface T {
     answer: {
@@ -35,25 +63,12 @@ export interface PostWithComment {
     post: Post;
     comments: Array<Comment>;
 }
-export interface Quiz {
-    id: bigint;
-    title: string;
-    creator: Principal;
-    description: string;
-    timestamp: Time;
-}
 export interface Post {
     id: bigint;
     author: Principal;
     message: string;
     timestamp: Time;
     quizId: bigint;
-}
-export interface QuizStats {
-    title: string;
-    totalAttemptCount: bigint;
-    quizId: bigint;
-    totalCorrectCount: bigint;
 }
 export interface Question {
     id: bigint;
@@ -72,13 +87,6 @@ export interface Question {
     };
     quizId: bigint;
 }
-export interface Comment {
-    id: bigint;
-    content: string;
-    author: Principal;
-    timestamp: Time;
-    postId: bigint;
-}
 export interface UserProfile {
     username: string;
 }
@@ -91,23 +99,29 @@ export interface backendInterface {
     addComment(postId: bigint, content: string): Promise<bigint>;
     addQuestion(quizId: bigint, question: Question): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    awardPoints(amount: bigint): Promise<void>;
     createPost(quizId: bigint, message: string): Promise<bigint>;
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
+    getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
+    getAllPlayerPoints(): Promise<Array<PointsEntry>>;
     getAllPostsWithStats(): Promise<Array<PostWithStats>>;
     getAllQuizzes(): Promise<Array<Quiz>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getCommentsByPostId(postId: bigint): Promise<Array<Comment>>;
+    getMyPoints(): Promise<bigint>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
     getQuiz(quizId: bigint): Promise<Quiz>;
     getQuizLeaderboard(quizId: bigint): Promise<Array<Result> | null>;
     getQuizQuestions(quizId: bigint): Promise<Array<Question>>;
     getQuizStats(): Promise<Array<QuizStats>>;
+    getTopPlayer(): Promise<Principal | null>;
     getUserPosts(user: Principal): Promise<Array<PostWithStats>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     getUserQuizResults(): Promise<Array<Result>>;
+    givePoints(recipient: Principal, amount: bigint): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
     likePost(postId: bigint): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;

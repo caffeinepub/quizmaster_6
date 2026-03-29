@@ -1,7 +1,17 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Brain, List, LogOut, Plus, Rss, User } from "lucide-react";
+import {
+  Brain,
+  Gamepad2,
+  List,
+  LogOut,
+  Plus,
+  Rss,
+  ShieldCheck,
+  Trophy,
+  User,
+} from "lucide-react";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetUserProfile } from "../hooks/useQueries";
 
@@ -10,13 +20,17 @@ export default function Navbar() {
   const { data: profile } = useGetUserProfile();
   const location = useLocation();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) =>
+    location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   const navLinks = [
     { path: "/", label: "Quizzes", icon: List },
     { path: "/feed", label: "Feed", icon: Rss },
-    { path: "/create", label: "Create Quiz", icon: Plus },
-    { path: "/profile", label: "My Profile", icon: User },
+    { path: "/games", label: "Games", icon: Gamepad2 },
+    { path: "/points-leaderboard", label: "Leaderboard", icon: Trophy },
+    { path: "/create", label: "Create", icon: Plus },
+    { path: "/profile", label: "Profile", icon: User },
+    { path: "/admin", label: "Admin", icon: ShieldCheck },
   ];
 
   return (
@@ -28,7 +42,7 @@ export default function Navbar() {
         borderBottom: "1px solid oklch(0.28 0.04 245 / 0.4)",
       }}
     >
-      <div className="container mx-auto px-4 py-3 flex items-center gap-6">
+      <div className="container mx-auto px-4 py-3 flex items-center gap-4">
         {/* Logo */}
         <Link
           to="/"
@@ -38,19 +52,23 @@ export default function Navbar() {
           <div className="w-9 h-9 rounded-xl gradient-bg flex items-center justify-center glow-cyan">
             <Brain className="w-5 h-5 text-white" />
           </div>
-          <span className="font-bold text-xl gradient-text">QuizMaster</span>
+          <span className="font-bold text-xl gradient-text hidden sm:block">
+            QuizMaster
+          </span>
         </Link>
 
         {/* Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 flex-1">
+        <nav className="hidden md:flex items-center gap-0.5 flex-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                isActive(link.path)
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                isActive(link.path) && link.path !== "/"
                   ? "gradient-bg text-white"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  : link.path === "/" && location.pathname === "/"
+                    ? "gradient-bg text-white"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
               data-ocid="nav.link"
             >
@@ -70,7 +88,7 @@ export default function Navbar() {
                     {profile?.username?.[0]?.toUpperCase() ?? "U"}
                   </AvatarFallback>
                 </Avatar>
-                <span className="text-sm font-medium hidden sm:block">
+                <span className="text-sm font-medium hidden lg:block">
                   {profile?.username ?? "User"}
                 </span>
               </div>
@@ -82,7 +100,7 @@ export default function Navbar() {
                 data-ocid="nav.link"
               >
                 <LogOut className="w-4 h-4 mr-1" />
-                Log Out
+                <span className="hidden sm:inline">Log Out</span>
               </Button>
             </>
           ) : (

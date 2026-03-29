@@ -17,6 +17,7 @@ export interface Comment {
   'timestamp' : Time,
   'postId' : bigint,
 }
+export interface PointsEntry { 'player' : Principal, 'points' : bigint }
 export interface Post {
   'id' : bigint,
   'author' : Principal,
@@ -52,6 +53,10 @@ export interface QuizStats {
   'quizId' : bigint,
   'totalCorrectCount' : bigint,
 }
+export interface QuizWithAnswers {
+  'quiz' : Quiz,
+  'questions' : Array<Question>,
+}
 export interface Result {
   'username' : string,
   'player' : Principal,
@@ -75,20 +80,25 @@ export interface _SERVICE {
   'addComment' : ActorMethod<[bigint, string], bigint>,
   'addQuestion' : ActorMethod<[bigint, Question], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
+  'awardPoints' : ActorMethod<[bigint], undefined>,
   'createPost' : ActorMethod<[bigint, string], bigint>,
   'createQuiz' : ActorMethod<[string, string], bigint>,
   'createUserProfile' : ActorMethod<[string], undefined>,
+  'getAdminQuizAnswers' : ActorMethod<[], Array<QuizWithAnswers>>,
+  'getAllPlayerPoints' : ActorMethod<[], Array<PointsEntry>>,
   'getAllPostsWithStats' : ActorMethod<[], Array<PostWithStats>>,
   'getAllQuizzes' : ActorMethod<[], Array<Quiz>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getCommentsByPostId' : ActorMethod<[bigint], Array<Comment>>,
+  'getMyPoints' : ActorMethod<[], bigint>,
   'getPostWithComments' : ActorMethod<[bigint], [] | [PostWithComment]>,
   'getPostsByQuizId' : ActorMethod<[bigint], Array<PostWithStats>>,
   'getQuiz' : ActorMethod<[bigint], Quiz>,
   'getQuizLeaderboard' : ActorMethod<[bigint], [] | [Array<Result>]>,
   'getQuizQuestions' : ActorMethod<[bigint], Array<Question>>,
   'getQuizStats' : ActorMethod<[], Array<QuizStats>>,
+  'getTopPlayer' : ActorMethod<[], [] | [Principal]>,
   'getUserPosts' : ActorMethod<[Principal], Array<PostWithStats>>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'getUserQuizResults' : ActorMethod<[], Array<Result>>,

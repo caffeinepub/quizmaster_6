@@ -18,23 +18,42 @@ const SEGMENTS = [
   { label: "5", value: 5, color: "#6366f1" },
 ];
 
-const COOLDOWN_SECS = 30;
+const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000; // 3 days
 const SEG_ANGLE = 360 / SEGMENTS.length;
+
+function getStorageKey(principal: string) {
+  return `spinwheel_last_spin_${principal}`;
+}
+
+function getTimeRemaining(lastSpinTs: number): number {
+  const remaining = COOLDOWN_MS - (Date.now() - lastSpinTs);
+  return remaining > 0 ? remaining : 0;
+}
+
+function formatCountdown(ms: number): string {
+  if (ms <= 0) return "";
+  const s = Math.floor(ms / 1000);
+  const days = Math.floor(s / 86400);
+  const hours = Math.floor((s % 86400) / 3600);
+  const minutes = Math.floor((s % 3600) / 60);
+  const seconds = s % 60;
+  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
+  if (minutes > 0) return `${minutes}m ${seconds}s`;
+  return `${seconds}s`;
+}
 
 function drawWheel(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext("2d")!;
   const cx = canvas.width / 2;
   const cy = canvas.height / 2;
   const r = cx - 8;
-
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  SEGMENTS.forEach((seg, i) => {
+  for (let i = 0; i < SEGMENTS.length; i++) {
+    const seg = SEGMENTS[i];
     const startAngle = ((i * SEG_ANGLE - 90) * Math.PI) / 180;
     const endAngle = (((i + 1) * SEG_ANGLE - 90) * Math.PI) / 180;
     const midAngle = (startAngle + endAngle) / 2;
-
-    // Segment fill
     ctx.beginPath();
     ctx.moveTo(cx, cy);
     ctx.arc(cx, cy, r, startAngle, endAngle);
@@ -44,8 +63,6 @@ function drawWheel(canvas: HTMLCanvasElement) {
     ctx.strokeStyle = "rgba(255,255,255,0.25)";
     ctx.lineWidth = 2;
     ctx.stroke();
-
-    // Label
     ctx.save();
     ctx.translate(
       cx + r * 0.65 * Math.cos(midAngle),
@@ -58,9 +75,7 @@ function drawWheel(canvas: HTMLCanvasElement) {
     ctx.textBaseline = "middle";
     ctx.fillText(seg.label, 0, 0);
     ctx.restore();
-  });
-
-  // Center circle
+  }
   ctx.beginPath();
   ctx.arc(cx, cy, 22, 0, Math.PI * 2);
   ctx.fillStyle = "#1e1b4b";
@@ -68,6 +83,22 @@ function drawWheel(canvas: HTMLCanvasElement) {
   ctx.strokeStyle = "rgba(255,255,255,0.5)";
   ctx.lineWidth = 3;
   ctx.stroke();
+}
+
+function startTicker(
+  setCooldownMs: React.Dispatch<React.SetStateAction<number>>,
+) {
+  const id = setInterval(() => {
+    setCooldownMs((prev) => {
+      const next = prev - 1000;
+      if (next <= 0) {
+        clearInterval(id);
+        return 0;
+      }
+      return next;
+    });
+  }, 1000);
+  return id;
 }
 
 export default function SpinWheel() {
@@ -78,57 +109,54 @@ export default function SpinWheel() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);
-  const [cooldown, setCooldown] = useState(0);
+  const [cooldownMs, setCooldownMs] = useState(0);
   const [result, setResult] = useState<number | null>(null);
-  const cooldownRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const principalStr = identity?.getPrincipal().toText() ?? "";
+
+  // Load persisted cooldown on identity change and start ticker if needed
+  useEffect(() => {
+    if (!principalStr) return;
+    const stored = localStorage.getItem(getStorageKey(principalStr));
+    if (stored) {
+      const remaining = getTimeRemaining(Number(stored));
+      setCooldownMs(remaining);
+      if (remaining > 0) {
+        const id = startTicker(setCooldownMs);
+        return () => clearInterval(id);
+      }
+    } else {
+      setCooldownMs(0);
+    }
+  }, [principalStr]);
 
   useEffect(() => {
     if (canvasRef.current) drawWheel(canvasRef.current);
   }, []);
 
-  useEffect(() => {
-    return () => {
-      if (cooldownRef.current) clearInterval(cooldownRef.current);
-    };
-  }, []);
-
-  const startCooldown = () => {
-    setCooldown(COOLDOWN_SECS);
-    cooldownRef.current = setInterval(() => {
-      setCooldown((c) => {
-        if (c <= 1) {
-          clearInterval(cooldownRef.current!);
-          return 0;
-        }
-        return c - 1;
-      });
-    }, 1000);
-  };
-
   const spin = async () => {
-    if (spinning || cooldown > 0 || !identity) return;
+    if (spinning || cooldownMs > 0 || !identity) return;
     setResult(null);
     setSpinning(true);
 
-    const extraSpins = 3 + Math.floor(Math.random() * 5); // 3-7 full rotations
+    const extraSpins = 3 + Math.floor(Math.random() * 5);
     const stopDeg = Math.floor(Math.random() * 360);
-    const totalDeg = extraSpins * 360 + stopDeg;
-    const finalRot = rotation + totalDeg;
+    const finalRot = rotation + extraSpins * 360 + stopDeg;
     setRotation(finalRot);
 
     await new Promise((r) => setTimeout(r, 4500));
 
-    // Figure out winning segment
-    // The pointer is at the top (0 deg). After rotation, pointer points at:
     const normalised = ((finalRot % 360) + 360) % 360;
-    // The segment whose start is at (360 - normalised) relative
-    const pointerAngle = (360 - normalised + 90) % 360; // offset -90 because we started at -90
+    const pointerAngle = (360 - normalised + 90) % 360;
     const segIndex = Math.floor(pointerAngle / SEG_ANGLE) % SEGMENTS.length;
     const won = SEGMENTS[segIndex].value;
 
     setResult(won);
     setSpinning(false);
-    startCooldown();
+
+    localStorage.setItem(getStorageKey(principalStr), String(Date.now()));
+    setCooldownMs(COOLDOWN_MS);
+    startTicker(setCooldownMs);
 
     try {
       await awardPoints(BigInt(won));
@@ -161,7 +189,6 @@ export default function SpinWheel() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-lg">
-      {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold gradient-text">Spin Wheel</h1>
@@ -176,10 +203,8 @@ export default function SpinWheel() {
         </div>
       </div>
 
-      {/* Wheel */}
       <div className="flex flex-col items-center gap-6">
         <div className="relative">
-          {/* Pointer */}
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10"
             style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" }}
@@ -204,30 +229,38 @@ export default function SpinWheel() {
                 ? "transform 4.5s cubic-bezier(0.17, 0.67, 0.12, 0.99)"
                 : "none",
               boxShadow: "0 0 40px oklch(0.73 0.14 215 / 0.4)",
+              opacity: cooldownMs > 0 && !spinning ? 0.5 : 1,
             }}
           />
         </div>
 
-        {/* Spin button */}
         <Button
           className="w-40 h-14 text-lg font-bold gradient-bg border-0 text-white rounded-full glow-cyan disabled:opacity-50"
           onClick={spin}
-          disabled={spinning || cooldown > 0}
+          disabled={spinning || cooldownMs > 0}
           data-ocid="spinwheel.primary_button"
         >
           {spinning ? (
             <RotateCcw className="w-5 h-5 animate-spin" />
-          ) : cooldown > 0 ? (
-            `Wait ${cooldown}s`
+          ) : cooldownMs > 0 ? (
+            "On Cooldown"
           ) : (
             "SPIN!"
           )}
         </Button>
 
-        {cooldown > 0 && (
-          <p className="text-sm text-muted-foreground">
-            Next spin in {cooldown} seconds
-          </p>
+        {cooldownMs > 0 && (
+          <div className="glass-card rounded-2xl px-6 py-4 text-center">
+            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+              Next spin available in
+            </p>
+            <p className="text-2xl font-bold text-primary tabular-nums">
+              {formatCountdown(cooldownMs)}
+            </p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Spin wheel resets every 3 days
+            </p>
+          </div>
         )}
 
         <Link to="/games">
@@ -242,7 +275,6 @@ export default function SpinWheel() {
         </Link>
       </div>
 
-      {/* Result popup */}
       <AnimatePresence>
         {result !== null && (
           <motion.div
@@ -270,6 +302,9 @@ export default function SpinWheel() {
                 </span>
                 <span className="text-2xl text-muted-foreground ml-2">pts</span>
               </div>
+              <p className="text-sm text-muted-foreground mb-4">
+                Next spin available in 3 days
+              </p>
               <Button
                 className="w-full gradient-bg border-0 text-white rounded-full glow-cyan"
                 onClick={() => setResult(null)}

@@ -50234,15 +50234,35 @@ const SEGMENTS = [
   { label: "200", value: 200, color: "#ef4444" },
   { label: "5", value: 5, color: "#6366f1" }
 ];
-const COOLDOWN_SECS = 30;
+const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1e3;
 const SEG_ANGLE = 360 / SEGMENTS.length;
+function getStorageKey(principal) {
+  return `spinwheel_last_spin_${principal}`;
+}
+function getTimeRemaining(lastSpinTs) {
+  const remaining = COOLDOWN_MS - (Date.now() - lastSpinTs);
+  return remaining > 0 ? remaining : 0;
+}
+function formatCountdown(ms) {
+  if (ms <= 0) return "";
+  const s2 = Math.floor(ms / 1e3);
+  const days = Math.floor(s2 / 86400);
+  const hours = Math.floor(s2 % 86400 / 3600);
+  const minutes = Math.floor(s2 % 3600 / 60);
+  const seconds = s2 % 60;
+  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
+  if (minutes > 0) return `${minutes}m ${seconds}s`;
+  return `${seconds}s`;
+}
 function drawWheel(canvas) {
   const ctx = canvas.getContext("2d");
   const cx2 = canvas.width / 2;
   const cy = canvas.height / 2;
   const r2 = cx2 - 8;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  SEGMENTS.forEach((seg, i) => {
+  for (let i = 0; i < SEGMENTS.length; i++) {
+    const seg = SEGMENTS[i];
     const startAngle = (i * SEG_ANGLE - 90) * Math.PI / 180;
     const endAngle = ((i + 1) * SEG_ANGLE - 90) * Math.PI / 180;
     const midAngle = (startAngle + endAngle) / 2;
@@ -50267,7 +50287,7 @@ function drawWheel(canvas) {
     ctx.textBaseline = "middle";
     ctx.fillText(seg.label, 0, 0);
     ctx.restore();
-  });
+  }
   ctx.beginPath();
   ctx.arc(cx2, cy, 22, 0, Math.PI * 2);
   ctx.fillStyle = "#1e1b4b";
@@ -50276,6 +50296,19 @@ function drawWheel(canvas) {
   ctx.lineWidth = 3;
   ctx.stroke();
 }
+function startTicker(setCooldownMs) {
+  const id2 = setInterval(() => {
+    setCooldownMs((prev) => {
+      const next = prev - 1e3;
+      if (next <= 0) {
+        clearInterval(id2);
+        return 0;
+      }
+      return next;
+    });
+  }, 1e3);
+  return id2;
+}
 function SpinWheel() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
@@ -50283,37 +50316,33 @@ function SpinWheel() {
   const canvasRef = reactExports.useRef(null);
   const [rotation, setRotation] = reactExports.useState(0);
   const [spinning, setSpinning] = reactExports.useState(false);
-  const [cooldown, setCooldown] = reactExports.useState(0);
+  const [cooldownMs, setCooldownMs] = reactExports.useState(0);
   const [result, setResult] = reactExports.useState(null);
-  const cooldownRef = reactExports.useRef(null);
+  const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
+  reactExports.useEffect(() => {
+    if (!principalStr) return;
+    const stored = localStorage.getItem(getStorageKey(principalStr));
+    if (stored) {
+      const remaining = getTimeRemaining(Number(stored));
+      setCooldownMs(remaining);
+      if (remaining > 0) {
+        const id2 = startTicker(setCooldownMs);
+        return () => clearInterval(id2);
+      }
+    } else {
+      setCooldownMs(0);
+    }
+  }, [principalStr]);
   reactExports.useEffect(() => {
     if (canvasRef.current) drawWheel(canvasRef.current);
   }, []);
-  reactExports.useEffect(() => {
-    return () => {
-      if (cooldownRef.current) clearInterval(cooldownRef.current);
-    };
-  }, []);
-  const startCooldown = () => {
-    setCooldown(COOLDOWN_SECS);
-    cooldownRef.current = setInterval(() => {
-      setCooldown((c2) => {
-        if (c2 <= 1) {
-          clearInterval(cooldownRef.current);
-          return 0;
-        }
-        return c2 - 1;
-      });
-    }, 1e3);
-  };
   const spin = async () => {
-    if (spinning || cooldown > 0 || !identity) return;
+    if (spinning || cooldownMs > 0 || !identity) return;
     setResult(null);
     setSpinning(true);
     const extraSpins = 3 + Math.floor(Math.random() * 5);
     const stopDeg = Math.floor(Math.random() * 360);
-    const totalDeg = extraSpins * 360 + stopDeg;
-    const finalRot = rotation + totalDeg;
+    const finalRot = rotation + extraSpins * 360 + stopDeg;
     setRotation(finalRot);
     await new Promise((r2) => setTimeout(r2, 4500));
     const normalised = (finalRot % 360 + 360) % 360;
@@ -50322,7 +50351,9 @@ function SpinWheel() {
     const won = SEGMENTS[segIndex].value;
     setResult(won);
     setSpinning(false);
-    startCooldown();
+    localStorage.setItem(getStorageKey(principalStr), String(Date.now()));
+    setCooldownMs(COOLDOWN_MS);
+    startTicker(setCooldownMs);
     try {
       await awardPoints(BigInt(won));
       await refetchPoints();
@@ -50390,7 +50421,8 @@ function SpinWheel() {
             style: {
               transform: `rotate(${rotation}deg)`,
               transition: spinning ? "transform 4.5s cubic-bezier(0.17, 0.67, 0.12, 0.99)" : "none",
-              boxShadow: "0 0 40px oklch(0.73 0.14 215 / 0.4)"
+              boxShadow: "0 0 40px oklch(0.73 0.14 215 / 0.4)",
+              opacity: cooldownMs > 0 && !spinning ? 0.5 : 1
             }
           }
         )
@@ -50400,15 +50432,15 @@ function SpinWheel() {
         {
           className: "w-40 h-14 text-lg font-bold gradient-bg border-0 text-white rounded-full glow-cyan disabled:opacity-50",
           onClick: spin,
-          disabled: spinning || cooldown > 0,
+          disabled: spinning || cooldownMs > 0,
           "data-ocid": "spinwheel.primary_button",
-          children: spinning ? /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-5 h-5 animate-spin" }) : cooldown > 0 ? `Wait ${cooldown}s` : "SPIN!"
+          children: spinning ? /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-5 h-5 animate-spin" }) : cooldownMs > 0 ? "On Cooldown" : "SPIN!"
         }
       ),
-      cooldown > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
-        "Next spin in ",
-        cooldown,
-        " seconds"
+      cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl px-6 py-4 text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: "Next spin available in" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl font-bold text-primary tabular-nums", children: formatCountdown(cooldownMs) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: "Spin wheel resets every 3 days" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Button,
@@ -50448,6 +50480,7 @@ function SpinWheel() {
                 ] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-muted-foreground ml-2", children: "pts" })
               ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Next spin available in 3 days" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Button,
                 {

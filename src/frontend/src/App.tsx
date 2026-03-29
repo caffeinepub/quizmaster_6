@@ -8,13 +8,18 @@ import {
 } from "@tanstack/react-router";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import AdminPanel from "./pages/AdminPanel";
 import CreateQuiz from "./pages/CreateQuiz";
 import Feed from "./pages/Feed";
+import GamesHub from "./pages/GamesHub";
 import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
+import MemoryGame from "./pages/MemoryGame";
 import PlayQuiz from "./pages/PlayQuiz";
+import PointsLeaderboard from "./pages/PointsLeaderboard";
 import Profile from "./pages/Profile";
 import ScoreScreen from "./pages/ScoreScreen";
+import SpinWheel from "./pages/SpinWheel";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -77,6 +82,36 @@ const feedRoute = createRoute({
   component: Feed,
 });
 
+const gamesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games",
+  component: GamesHub,
+});
+
+const memoryGameRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/memory",
+  component: MemoryGame,
+});
+
+const spinWheelRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/spinwheel",
+  component: SpinWheel,
+});
+
+const pointsLeaderboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/points-leaderboard",
+  component: PointsLeaderboard,
+});
+
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminPanel,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -85,6 +120,11 @@ const routeTree = rootRoute.addChildren([
   leaderboardRoute,
   profileRoute,
   feedRoute,
+  gamesRoute,
+  memoryGameRoute,
+  spinWheelRoute,
+  pointsLeaderboardRoute,
+  adminRoute,
 ]);
 
 const router = createRouter({ routeTree });

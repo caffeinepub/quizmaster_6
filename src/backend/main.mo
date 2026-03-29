@@ -8,14 +8,25 @@ import Runtime "mo:core/Runtime";
 import Text "mo:core/Text";
 import Int "mo:core/Int";
 import Time "mo:core/Time";
-import Migration "migration";
+
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
+import Migration "migration";
 
 (with migration = Migration.run)
 actor {
-  let accessControlState = AccessControl.initState();
-  include MixinAuthorization(accessControlState);
+  type PointsEntry = {
+    player : Principal;
+    points : Nat;
+  };
+
+  module PointsEntry {
+    public func compare(a : PointsEntry, b : PointsEntry) : Order.Order {
+      Nat.compare(b.points, a.points);
+    };
+  };
+
+  type Points = Nat;
 
   type UserProfile = {
     username : Text;
@@ -104,6 +115,11 @@ actor {
     comments : [Comment];
   };
 
+  type QuizWithAnswers = {
+    quiz : Quiz;
+    questions : [Question];
+  };
+
   // Key compare modules for sorting
   module Question {
     public func compare(a : Question, b : Question) : Order.Order {
@@ -140,6 +156,7 @@ actor {
   let questions = Map.empty<Nat, Question>();
   let quizResults = Map.empty<Nat, Result>();
   let resultsByQuiz = Map.empty<Nat, [Result]>();
+  let userPoints = Map.empty<Principal, Points>();
 
   // Social Feed state
   let posts = Map.empty<Nat, Post>();
@@ -154,6 +171,9 @@ actor {
   var nextPostId = 0;
   var nextCommentId = 0;
 
+  let accessControlState = AccessControl.initState();
+  include MixinAuthorization(accessControlState);
+
   public shared ({ caller }) func createUserProfile(username : Text) : async () {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create profiles");
@@ -161,6 +181,123 @@ actor {
     if (userProfiles.containsKey(caller)) { Runtime.trap("User already exists") };
     let userProfile : UserProfile = { username };
     userProfiles.add(caller, userProfile);
+  };
+
+  // Points System functions
+  public shared ({ caller }) func awardPoints(amount : Nat) : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can award points");
+    };
+    let currentPoints = switch (userPoints.get(caller)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+    userPoints.add(caller, currentPoints + amount);
+  };
+
+  // Give points to another player (deducted from caller's balance)
+  public shared ({ caller }) func givePoints(recipient : Principal, amount : Nat) : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can give points");
+    };
+    if (caller == recipient) {
+      Runtime.trap("Cannot give points to yourself");
+    };
+    if (amount == 0) {
+      Runtime.trap("Amount must be greater than zero");
+    };
+    let callerPoints = switch (userPoints.get(caller)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+    if (callerPoints < amount) {
+      Runtime.trap("Insufficient points");
+    };
+    userPoints.add(caller, callerPoints - amount);
+    let recipientPoints = switch (userPoints.get(recipient)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+    userPoints.add(recipient, recipientPoints + amount);
+  };
+
+  public query ({ caller }) func getMyPoints() : async Nat {
+    switch (userPoints.get(caller)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+  };
+
+  public query func getTopPlayer() : async ?Principal {
+    var topPlayer : ?PointsEntry = null;
+    for (entry in userPoints.entries()) {
+      let (player, points) = entry;
+      let current : PointsEntry = { player; points };
+      switch (topPlayer) {
+        case (null) { topPlayer := ?current };
+        case (?top) {
+          if (points > top.points) {
+            topPlayer := ?current;
+          };
+        };
+      };
+    };
+    switch (topPlayer) {
+      case (null) { null };
+      case (?top) { ?top.player };
+    };
+  };
+
+  public query func getAllPlayerPoints() : async [PointsEntry] {
+    userPoints.toArray().map(
+      func((player, points)) { { player; points } }
+    ).sort();
+  };
+
+  func getTopPlayerSync() : ?Principal {
+    var topPlayer : ?PointsEntry = null;
+    for (entry in userPoints.entries()) {
+      let (player, points) = entry;
+      let current : PointsEntry = { player; points };
+      switch (topPlayer) {
+        case (null) { topPlayer := ?current };
+        case (?top) {
+          if (points > top.points) {
+            topPlayer := ?current;
+          };
+        };
+      };
+    };
+    switch (topPlayer) {
+      case (null) { null };
+      case (?top) { ?top.player };
+    };
+  };
+
+  public query ({ caller }) func getAdminQuizAnswers() : async [QuizWithAnswers] {
+    let topPlayer = getTopPlayerSync();
+    switch (topPlayer) {
+      case (null) {
+        Runtime.trap("Unauthorized: No top player exists yet");
+      };
+      case (?top) {
+        if (caller != top) {
+          Runtime.trap("Unauthorized: Only the player with the most points can access this endpoint");
+        };
+      };
+    };
+
+    quizzes.values().toArray().map(
+      func(quiz) {
+        let quizQuestions = questions.values().toArray().filter(
+          func(q) { q.quizId == quiz.id }
+        ).sort();
+        {
+          quiz;
+          questions = quizQuestions;
+        };
+      }
+    );
   };
 
   public shared ({ caller }) func createQuiz(title : Text, description : Text) : async Nat {
@@ -209,7 +346,6 @@ actor {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz answers");
     };
-    // Validate quiz exists
     let quiz = switch (quizzes.get(quizId)) {
       case (null) { Runtime.trap("Quiz does not exist") };
       case (?quiz) { quiz };
@@ -217,7 +353,6 @@ actor {
 
     var correctCount = 0;
     for (answer in answers.values()) {
-      // Validate question exists
       switch (questions.get(answer.questionId)) {
         case (null) { Runtime.trap("Question does not exist") };
         case (?question) {
@@ -300,22 +435,22 @@ actor {
     userProfiles.add(caller, { username });
   };
 
-  public query ({ caller }) func getAllQuizzes() : async [Quiz] {
+  public query func getAllQuizzes() : async [Quiz] {
     quizzes.values().toArray().sort();
   };
 
-  public query ({ caller }) func getQuiz(quizId : Nat) : async Quiz {
+  public query func getQuiz(quizId : Nat) : async Quiz {
     switch (quizzes.get(quizId)) {
       case (null) { Runtime.trap("Quiz does not exist") };
       case (?quiz) { quiz };
     };
   };
 
-  public query ({ caller }) func getQuizQuestions(quizId : Nat) : async [Question] {
+  public query func getQuizQuestions(quizId : Nat) : async [Question] {
     questions.values().toArray().filter(func(q) { q.quizId == quizId });
   };
 
-  public query ({ caller }) func getQuizLeaderboard(quizId : Nat) : async ?[Result] {
+  public query func getQuizLeaderboard(quizId : Nat) : async ?[Result] {
     switch (resultsByQuiz.get(quizId)) {
       case (null) { null };
       case (?results) {
@@ -326,7 +461,7 @@ actor {
     };
   };
 
-  public query ({ caller }) func getQuizStats() : async [QuizStats] {
+  public query func getQuizStats() : async [QuizStats] {
     quizzes.values().toArray().map(
       func(quiz) {
         let results = switch (resultsByQuiz.get(quiz.id)) {
@@ -400,7 +535,6 @@ actor {
       case (?l) { l };
     };
 
-    // Check if user already liked
     let alreadyLiked = existingLikes.any(func(l) { l.user == caller });
     if (alreadyLiked) {
       Runtime.trap("User already liked this post");
@@ -462,7 +596,7 @@ actor {
     commentId;
   };
 
-  public query ({ caller }) func getAllPostsWithStats() : async [PostWithStats] {
+  public query func getAllPostsWithStats() : async [PostWithStats] {
     posts.values().toArray().map(
       func(post) {
         let likeCount = switch (likes.get(post.id)) {
@@ -482,7 +616,7 @@ actor {
     ).sort();
   };
 
-  public query ({ caller }) func getPostsByQuizId(quizId : Nat) : async [PostWithStats] {
+  public query func getPostsByQuizId(quizId : Nat) : async [PostWithStats] {
     switch (postsByQuiz.get(quizId)) {
       case (null) { [] };
       case (?quizPosts) {
@@ -507,14 +641,14 @@ actor {
     };
   };
 
-  public query ({ caller }) func getCommentsByPostId(postId : Nat) : async [Comment] {
+  public query func getCommentsByPostId(postId : Nat) : async [Comment] {
     switch (comments.get(postId)) {
       case (null) { [] };
       case (?c) { c };
     };
   };
 
-  public query ({ caller }) func getPostWithComments(postId : Nat) : async ?PostWithComment {
+  public query func getPostWithComments(postId : Nat) : async ?PostWithComment {
     switch (posts.get(postId)) {
       case (null) { null };
       case (?post) {
@@ -530,7 +664,7 @@ actor {
     };
   };
 
-  public query ({ caller }) func getUserPosts(user : Principal) : async [PostWithStats] {
+  public query func getUserPosts(user : Principal) : async [PostWithStats] {
     posts.values().toArray().filter(
       func(post) { post.author == user }
     ).map(

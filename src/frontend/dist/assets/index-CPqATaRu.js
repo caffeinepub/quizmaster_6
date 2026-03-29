@@ -20390,7 +20390,7 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$s = [
+const __iconNode$A = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20400,14 +20400,14 @@ const __iconNode$s = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$s);
+const BookOpen = createLucideIcon("book-open", __iconNode$A);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$r = [
+const __iconNode$z = [
   [
     "path",
     {
@@ -20430,57 +20430,124 @@ const __iconNode$r = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$r);
+const Brain = createLucideIcon("brain", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$q = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$q);
+const __iconNode$y = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$y);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$p = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$p);
+const __iconNode$x = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$x);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$o = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$o);
+const __iconNode$w = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$w);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$n = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$n);
+const __iconNode$v = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$v);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [
+const __iconNode$u = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$u);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$t = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const Clock = createLucideIcon("clock", __iconNode$m);
+const Clock = createLucideIcon("clock", __iconNode$t);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [
+const __iconNode$s = [
+  [
+    "path",
+    {
+      d: "M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z",
+      key: "1vdc57"
+    }
+  ],
+  ["path", { d: "M5 21h14", key: "11awu3" }]
+];
+const Crown = createLucideIcon("crown", __iconNode$s);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$r = [
+  ["line", { x1: "6", x2: "10", y1: "11", y2: "11", key: "1gktln" }],
+  ["line", { x1: "8", x2: "8", y1: "9", y2: "13", key: "qnk9ow" }],
+  ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12", key: "krot7o" }],
+  ["line", { x1: "18", x2: "18.01", y1: "10", y2: "10", key: "1lcuu1" }],
+  [
+    "path",
+    {
+      d: "M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z",
+      key: "mfqc10"
+    }
+  ]
+];
+const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$r);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$q = [
+  ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
+  ["path", { d: "M12 8v13", key: "1c76mn" }],
+  ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
+  [
+    "path",
+    {
+      d: "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5",
+      key: "1ihvrl"
+    }
+  ]
+];
+const Gift = createLucideIcon("gift", __iconNode$q);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$p = [
   [
     "path",
     {
@@ -20490,26 +20557,26 @@ const __iconNode$l = [
   ],
   ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
 ];
-const Github = createLucideIcon("github", __iconNode$l);
+const Github = createLucideIcon("github", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$k = [
+const __iconNode$o = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
   ["path", { d: "M2 12h20", key: "9i4pu4" }]
 ];
-const Globe = createLucideIcon("globe", __iconNode$k);
+const Globe = createLucideIcon("globe", __iconNode$o);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [
+const __iconNode$n = [
   [
     "path",
     {
@@ -20518,14 +20585,14 @@ const __iconNode$j = [
     }
   ]
 ];
-const Heart = createLucideIcon("heart", __iconNode$j);
+const Heart = createLucideIcon("heart", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [
+const __iconNode$m = [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
   ["path", { d: "M3 6h.01", key: "1rqtza" }],
@@ -20533,44 +20600,55 @@ const __iconNode$i = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List = createLucideIcon("list", __iconNode$i);
+const List = createLucideIcon("list", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$h = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$h);
+const __iconNode$l = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [
+const __iconNode$k = [
+  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+];
+const Lock = createLucideIcon("lock", __iconNode$k);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$j = [
   ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
   ["path", { d: "M21 12H9", key: "dn1m92" }],
   ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
 ];
-const LogOut = createLucideIcon("log-out", __iconNode$g);
+const LogOut = createLucideIcon("log-out", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$f = [
+const __iconNode$i = [
   ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ];
-const MessageCircle = createLucideIcon("message-circle", __iconNode$f);
+const MessageCircle = createLucideIcon("message-circle", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$e = [
+const __iconNode$h = [
   [
     "path",
     {
@@ -20579,15 +20657,50 @@ const __iconNode$e = [
     }
   ]
 ];
-const Pen = createLucideIcon("pen", __iconNode$e);
+const Pen = createLucideIcon("pen", __iconNode$h);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$d = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
-const Play = createLucideIcon("play", __iconNode$d);
+const __iconNode$g = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("play", __iconNode$g);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$f = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode$f);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$e = [
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+];
+const RefreshCw = createLucideIcon("refresh-cw", __iconNode$e);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$d = [
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+];
+const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$d);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20595,10 +20708,11 @@ const Play = createLucideIcon("play", __iconNode$d);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$c = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
+  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
+  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$c);
+const Rss = createLucideIcon("rss", __iconNode$c);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20606,10 +20720,10 @@ const Plus = createLucideIcon("plus", __iconNode$c);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$b = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$b);
+const Search = createLucideIcon("search", __iconNode$b);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20617,11 +20731,16 @@ const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$b);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$a = [
-  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
-  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
-  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const Rss = createLucideIcon("rss", __iconNode$a);
+const Send = createLucideIcon("send", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20629,10 +20748,13 @@ const Rss = createLucideIcon("rss", __iconNode$a);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$9 = [
-  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
+  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
+  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
+  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
+  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
 ];
-const Search = createLucideIcon("search", __iconNode$9);
+const Share2 = createLucideIcon("share-2", __iconNode$9);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20643,13 +20765,13 @@ const __iconNode$8 = [
   [
     "path",
     {
-      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
-      key: "1ffxy3"
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
     }
   ],
-  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const Send = createLucideIcon("send", __iconNode$8);
+const ShieldCheck = createLucideIcon("shield-check", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20657,20 +20779,6 @@ const Send = createLucideIcon("send", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
-  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
-  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
-  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
-  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
-];
-const Share2 = createLucideIcon("share-2", __iconNode$7);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$6 = [
   [
     "path",
     {
@@ -20683,7 +20791,21 @@ const __iconNode$6 = [
   ["path", { d: "M4 17v2", key: "vumght" }],
   ["path", { d: "M5 18H3", key: "zchphs" }]
 ];
-const Sparkles = createLucideIcon("sparkles", __iconNode$6);
+const Sparkles = createLucideIcon("sparkles", __iconNode$7);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$6 = [
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
+  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
+  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
+  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
+];
+const Trash2 = createLucideIcon("trash-2", __iconNode$6);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20691,20 +20813,6 @@ const Sparkles = createLucideIcon("sparkles", __iconNode$6);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$5 = [
-  ["path", { d: "M3 6h18", key: "d0wm0j" }],
-  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
-  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
-  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
-  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
-];
-const Trash2 = createLucideIcon("trash-2", __iconNode$5);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$4 = [
   ["path", { d: "M6 9H4.5a2.5 2.5 0 0 1 0-5H6", key: "17hqa7" }],
   ["path", { d: "M18 9h1.5a2.5 2.5 0 0 0 0-5H18", key: "lmptdp" }],
   ["path", { d: "M4 22h16", key: "57wxv0" }],
@@ -20712,14 +20820,14 @@ const __iconNode$4 = [
   ["path", { d: "M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22", key: "1np0yb" }],
   ["path", { d: "M18 2H6v7a6 6 0 0 0 12 0V2Z", key: "u46fv3" }]
 ];
-const Trophy = createLucideIcon("trophy", __iconNode$4);
+const Trophy = createLucideIcon("trophy", __iconNode$5);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$3 = [
+const __iconNode$4 = [
   [
     "path",
     {
@@ -20728,7 +20836,18 @@ const __iconNode$3 = [
     }
   ]
 ];
-const Twitter = createLucideIcon("twitter", __iconNode$3);
+const Twitter = createLucideIcon("twitter", __iconNode$4);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$3 = [
+  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
+  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
+];
+const User = createLucideIcon("user", __iconNode$3);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20736,10 +20855,12 @@ const Twitter = createLucideIcon("twitter", __iconNode$3);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$2 = [
-  ["path", { d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2", key: "975kel" }],
-  ["circle", { cx: "12", cy: "7", r: "4", key: "17ys0d" }]
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+  ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
+  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
+  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
 ];
-const User = createLucideIcon("user", __iconNode$2);
+const Users = createLucideIcon("users", __iconNode$2);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20747,12 +20868,10 @@ const User = createLucideIcon("user", __iconNode$2);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$1 = [
-  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
-  ["path", { d: "M16 3.128a4 4 0 0 1 0 7.744", key: "16gr8j" }],
-  ["path", { d: "M22 21v-2a4 4 0 0 0-3-3.87", key: "kshegd" }],
-  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }]
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const Users = createLucideIcon("users", __iconNode$1);
+const X$1 = createLucideIcon("x", __iconNode$1);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20760,10 +20879,15 @@ const Users = createLucideIcon("users", __iconNode$1);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode = [
-  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
-  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+  [
+    "path",
+    {
+      d: "M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
+      key: "1xq2db"
+    }
+  ]
 ];
-const X$1 = createLucideIcon("x", __iconNode);
+const Zap = createLucideIcon("zap", __iconNode);
 function Footer() {
   const year = (/* @__PURE__ */ new Date()).getFullYear();
   const utm = `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`;
@@ -35748,6 +35872,21 @@ const UserRole = Variant({
   "guest": Null
 });
 const Time = Int;
+const Quiz = Record({
+  "id": Nat,
+  "title": Text,
+  "creator": Principal2,
+  "description": Text,
+  "timestamp": Time
+});
+const QuizWithAnswers = Record({
+  "quiz": Quiz,
+  "questions": Vec(Question)
+});
+const PointsEntry = Record({
+  "player": Principal2,
+  "points": Nat
+});
 const Post = Record({
   "id": Nat,
   "author": Principal2,
@@ -35759,13 +35898,6 @@ const PostWithStats = Record({
   "likeCount": Nat,
   "post": Post,
   "commentCount": Nat
-});
-const Quiz = Record({
-  "id": Nat,
-  "title": Text,
-  "creator": Principal2,
-  "description": Text,
-  "timestamp": Time
 });
 const UserProfile = Record({ "username": Text });
 const Comment = Record({
@@ -35805,14 +35937,18 @@ Service({
   "addComment": Func([Nat, Text], [Nat], []),
   "addQuestion": Func([Nat, Question], [Nat], []),
   "assignCallerUserRole": Func([Principal2, UserRole], [], []),
+  "awardPoints": Func([Nat], [], []),
   "createPost": Func([Nat, Text], [Nat], []),
   "createQuiz": Func([Text, Text], [Nat], []),
   "createUserProfile": Func([Text], [], []),
+  "getAdminQuizAnswers": Func([], [Vec(QuizWithAnswers)], ["query"]),
+  "getAllPlayerPoints": Func([], [Vec(PointsEntry)], ["query"]),
   "getAllPostsWithStats": Func([], [Vec(PostWithStats)], ["query"]),
   "getAllQuizzes": Func([], [Vec(Quiz)], ["query"]),
   "getCallerUserProfile": Func([], [Opt(UserProfile)], ["query"]),
   "getCallerUserRole": Func([], [UserRole], ["query"]),
   "getCommentsByPostId": Func([Nat], [Vec(Comment)], ["query"]),
+  "getMyPoints": Func([], [Nat], ["query"]),
   "getPostWithComments": Func(
     [Nat],
     [Opt(PostWithComment)],
@@ -35827,6 +35963,7 @@ Service({
   ),
   "getQuizQuestions": Func([Nat], [Vec(Question)], ["query"]),
   "getQuizStats": Func([], [Vec(QuizStats)], ["query"]),
+  "getTopPlayer": Func([], [Opt(Principal2)], ["query"]),
   "getUserPosts": Func(
     [Principal2],
     [Vec(PostWithStats)],
@@ -35864,6 +36001,21 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "guest": IDL2.Null
   });
   const Time2 = IDL2.Int;
+  const Quiz2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "title": IDL2.Text,
+    "creator": IDL2.Principal,
+    "description": IDL2.Text,
+    "timestamp": Time2
+  });
+  const QuizWithAnswers2 = IDL2.Record({
+    "quiz": Quiz2,
+    "questions": IDL2.Vec(Question2)
+  });
+  const PointsEntry2 = IDL2.Record({
+    "player": IDL2.Principal,
+    "points": IDL2.Nat
+  });
   const Post2 = IDL2.Record({
     "id": IDL2.Nat,
     "author": IDL2.Principal,
@@ -35875,13 +36027,6 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "likeCount": IDL2.Nat,
     "post": Post2,
     "commentCount": IDL2.Nat
-  });
-  const Quiz2 = IDL2.Record({
-    "id": IDL2.Nat,
-    "title": IDL2.Text,
-    "creator": IDL2.Principal,
-    "description": IDL2.Text,
-    "timestamp": Time2
   });
   const UserProfile2 = IDL2.Record({ "username": IDL2.Text });
   const Comment2 = IDL2.Record({
@@ -35921,14 +36066,18 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "addComment": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "addQuestion": IDL2.Func([IDL2.Nat, Question2], [IDL2.Nat], []),
     "assignCallerUserRole": IDL2.Func([IDL2.Principal, UserRole2], [], []),
+    "awardPoints": IDL2.Func([IDL2.Nat], [], []),
     "createPost": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "createQuiz": IDL2.Func([IDL2.Text, IDL2.Text], [IDL2.Nat], []),
     "createUserProfile": IDL2.Func([IDL2.Text], [], []),
+    "getAdminQuizAnswers": IDL2.Func([], [IDL2.Vec(QuizWithAnswers2)], ["query"]),
+    "getAllPlayerPoints": IDL2.Func([], [IDL2.Vec(PointsEntry2)], ["query"]),
     "getAllPostsWithStats": IDL2.Func([], [IDL2.Vec(PostWithStats2)], ["query"]),
     "getAllQuizzes": IDL2.Func([], [IDL2.Vec(Quiz2)], ["query"]),
     "getCallerUserProfile": IDL2.Func([], [IDL2.Opt(UserProfile2)], ["query"]),
     "getCallerUserRole": IDL2.Func([], [UserRole2], ["query"]),
     "getCommentsByPostId": IDL2.Func([IDL2.Nat], [IDL2.Vec(Comment2)], ["query"]),
+    "getMyPoints": IDL2.Func([], [IDL2.Nat], ["query"]),
     "getPostWithComments": IDL2.Func(
       [IDL2.Nat],
       [IDL2.Opt(PostWithComment2)],
@@ -35947,6 +36096,7 @@ const idlFactory = ({ IDL: IDL2 }) => {
     ),
     "getQuizQuestions": IDL2.Func([IDL2.Nat], [IDL2.Vec(Question2)], ["query"]),
     "getQuizStats": IDL2.Func([], [IDL2.Vec(QuizStats2)], ["query"]),
+    "getTopPlayer": IDL2.Func([], [IDL2.Opt(IDL2.Principal)], ["query"]),
     "getUserPosts": IDL2.Func(
       [IDL2.Principal],
       [IDL2.Vec(PostWithStats2)],
@@ -36067,6 +36217,20 @@ class Backend {
       return result;
     }
   }
+  async awardPoints(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.awardPoints(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.awardPoints(arg0);
+      return result;
+    }
+  }
   async createPost(arg0, arg1) {
     if (this.processError) {
       try {
@@ -36109,6 +36273,34 @@ class Backend {
       return result;
     }
   }
+  async getAdminQuizAnswers() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getAdminQuizAnswers();
+        return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getAdminQuizAnswers();
+      return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async getAllPlayerPoints() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getAllPlayerPoints();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getAllPlayerPoints();
+      return result;
+    }
+  }
   async getAllPostsWithStats() {
     if (this.processError) {
       try {
@@ -36141,28 +36333,28 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getCallerUserProfile();
-        return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getCallerUserProfile();
-      return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
     }
   }
   async getCallerUserRole() {
     if (this.processError) {
       try {
         const result = await this.actor.getCallerUserRole();
-        return from_candid_UserRole_n7(this._uploadFile, this._downloadFile, result);
+        return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getCallerUserRole();
-      return from_candid_UserRole_n7(this._uploadFile, this._downloadFile, result);
+      return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
     }
   }
   async getCommentsByPostId(arg0) {
@@ -36179,18 +36371,32 @@ class Backend {
       return result;
     }
   }
+  async getMyPoints() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getMyPoints();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getMyPoints();
+      return result;
+    }
+  }
   async getPostWithComments(arg0) {
     if (this.processError) {
       try {
         const result = await this.actor.getPostWithComments(arg0);
-        return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getPostWithComments(arg0);
-      return from_candid_opt_n9(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
     }
   }
   async getPostsByQuizId(arg0) {
@@ -36225,28 +36431,28 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getQuizLeaderboard(arg0);
-        return from_candid_opt_n10(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getQuizLeaderboard(arg0);
-      return from_candid_opt_n10(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
     }
   }
   async getQuizQuestions(arg0) {
     if (this.processError) {
       try {
         const result = await this.actor.getQuizQuestions(arg0);
-        return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
+        return from_candid_vec_n9(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getQuizQuestions(arg0);
-      return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
+      return from_candid_vec_n9(this._uploadFile, this._downloadFile, result);
     }
   }
   async getQuizStats() {
@@ -36261,6 +36467,20 @@ class Backend {
     } else {
       const result = await this.actor.getQuizStats();
       return result;
+    }
+  }
+  async getTopPlayer() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getTopPlayer();
+        return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getTopPlayer();
+      return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
     }
   }
   async getUserPosts(arg0) {
@@ -36281,14 +36501,14 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getUserProfile(arg0);
-        return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getUserProfile(arg0);
-      return from_candid_opt_n6(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
     }
   }
   async getUserQuizResults() {
@@ -36350,14 +36570,14 @@ class Backend {
   async submitQuizAnswers(arg0, arg1) {
     if (this.processError) {
       try {
-        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n15(this._uploadFile, this._downloadFile, arg1));
+        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
         return result;
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
-      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n15(this._uploadFile, this._downloadFile, arg1));
+      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
       return result;
     }
   }
@@ -36390,30 +36610,42 @@ class Backend {
     }
   }
 }
-function from_candid_Question_n12(_uploadFile, _downloadFile, value) {
-  return from_candid_record_n13(_uploadFile, _downloadFile, value);
+function from_candid_Question_n10(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n11(_uploadFile, _downloadFile, value);
 }
-function from_candid_UserRole_n7(_uploadFile, _downloadFile, value) {
-  return from_candid_variant_n8(_uploadFile, _downloadFile, value);
+function from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n8(_uploadFile, _downloadFile, value);
 }
-function from_candid_opt_n10(_uploadFile, _downloadFile, value) {
+function from_candid_UserRole_n14(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n15(_uploadFile, _downloadFile, value);
+}
+function from_candid_opt_n13(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n6(_uploadFile, _downloadFile, value) {
+function from_candid_opt_n16(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n9(_uploadFile, _downloadFile, value) {
+function from_candid_opt_n17(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
-function from_candid_record_n13(_uploadFile, _downloadFile, value) {
+function from_candid_opt_n18(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_record_n11(_uploadFile, _downloadFile, value) {
   return {
     id: value.id,
     text: value.text,
-    questionType: from_candid_variant_n14(_uploadFile, _downloadFile, value.questionType),
+    questionType: from_candid_variant_n12(_uploadFile, _downloadFile, value.questionType),
     quizId: value.quizId
   };
 }
-function from_candid_variant_n14(_uploadFile, _downloadFile, value) {
+function from_candid_record_n8(_uploadFile, _downloadFile, value) {
+  return {
+    quiz: value.quiz,
+    questions: from_candid_vec_n9(_uploadFile, _downloadFile, value.questions)
+  };
+}
+function from_candid_variant_n12(_uploadFile, _downloadFile, value) {
   return "multipleChoice" in value ? {
     __kind__: "multipleChoice",
     multipleChoice: value.multipleChoice
@@ -36422,26 +36654,23 @@ function from_candid_variant_n14(_uploadFile, _downloadFile, value) {
     trueFalse: value.trueFalse
   } : value;
 }
-function from_candid_variant_n8(_uploadFile, _downloadFile, value) {
+function from_candid_variant_n15(_uploadFile, _downloadFile, value) {
   return "admin" in value ? "admin" : "user" in value ? "user" : "guest" in value ? "guest" : value;
 }
-function from_candid_vec_n11(_uploadFile, _downloadFile, value) {
-  return value.map((x2) => from_candid_Question_n12(_uploadFile, _downloadFile, x2));
+function from_candid_vec_n6(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, x2));
+}
+function from_candid_vec_n9(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_Question_n10(_uploadFile, _downloadFile, x2));
 }
 function to_candid_Question_n1(_uploadFile, _downloadFile, value) {
   return to_candid_record_n2(_uploadFile, _downloadFile, value);
 }
-function to_candid_T_n16(_uploadFile, _downloadFile, value) {
-  return to_candid_record_n17(_uploadFile, _downloadFile, value);
+function to_candid_T_n20(_uploadFile, _downloadFile, value) {
+  return to_candid_record_n21(_uploadFile, _downloadFile, value);
 }
 function to_candid_UserRole_n4(_uploadFile, _downloadFile, value) {
   return to_candid_variant_n5(_uploadFile, _downloadFile, value);
-}
-function to_candid_record_n17(_uploadFile, _downloadFile, value) {
-  return {
-    answer: to_candid_variant_n18(_uploadFile, _downloadFile, value.answer),
-    questionId: value.questionId
-  };
 }
 function to_candid_record_n2(_uploadFile, _downloadFile, value) {
   return {
@@ -36451,7 +36680,13 @@ function to_candid_record_n2(_uploadFile, _downloadFile, value) {
     quizId: value.quizId
   };
 }
-function to_candid_variant_n18(_uploadFile, _downloadFile, value) {
+function to_candid_record_n21(_uploadFile, _downloadFile, value) {
+  return {
+    answer: to_candid_variant_n22(_uploadFile, _downloadFile, value.answer),
+    questionId: value.questionId
+  };
+}
+function to_candid_variant_n22(_uploadFile, _downloadFile, value) {
   return value.__kind__ === "multipleChoice" ? {
     multipleChoice: value.multipleChoice
   } : value.__kind__ === "trueFalse" ? {
@@ -36474,8 +36709,8 @@ function to_candid_variant_n5(_uploadFile, _downloadFile, value) {
     guest: null
   } : value;
 }
-function to_candid_vec_n15(_uploadFile, _downloadFile, value) {
-  return value.map((x2) => to_candid_T_n16(_uploadFile, _downloadFile, x2));
+function to_candid_vec_n19(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => to_candid_T_n20(_uploadFile, _downloadFile, x2));
 }
 function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
   const agent = options.agent || HttpAgent.createSync({
@@ -37467,17 +37702,67 @@ function useCreatePost() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] })
   });
 }
+function useGetMyPoints() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["myPoints"],
+    queryFn: async () => {
+      if (!actor) return 0n;
+      return actor.getMyPoints();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useGetAllPlayerPoints() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["allPlayerPoints"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllPlayerPoints();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useAwardPoints() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (amount) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.awardPoints(amount);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    }
+  });
+}
+function useGetAdminQuizAnswers(enabled) {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["adminQuizAnswers"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAdminQuizAnswers();
+    },
+    enabled: !!actor && !isFetching && enabled
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
   const location2 = useLocation();
-  const isActive = (path) => location2.pathname === path;
+  const isActive = (path) => location2.pathname === path || location2.pathname.startsWith(`${path}/`);
   const navLinks = [
     { path: "/", label: "Quizzes", icon: List },
     { path: "/feed", label: "Feed", icon: Rss },
-    { path: "/create", label: "Create Quiz", icon: Plus },
-    { path: "/profile", label: "My Profile", icon: User }
+    { path: "/games", label: "Games", icon: Gamepad2 },
+    { path: "/points-leaderboard", label: "Leaderboard", icon: Trophy },
+    { path: "/create", label: "Create", icon: Plus },
+    { path: "/profile", label: "Profile", icon: User },
+    { path: "/admin", label: "Admin", icon: ShieldCheck }
   ];
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "header",
@@ -37488,7 +37773,7 @@ function Navbar() {
         backdropFilter: "blur(16px)",
         borderBottom: "1px solid oklch(0.28 0.04 245 / 0.4)"
       },
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-3 flex items-center gap-6", children: [
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-3 flex items-center gap-4", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(
           Link,
           {
@@ -37497,15 +37782,15 @@ function Navbar() {
             "data-ocid": "nav.link",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-5 h-5 text-white" }) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl gradient-text", children: "QuizMaster" })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-xl gradient-text hidden sm:block", children: "QuizMaster" })
             ]
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden md:flex items-center gap-1 flex-1", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden md:flex items-center gap-0.5 flex-1", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
           Link,
           {
             to: link.path,
-            className: `flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${isActive(link.path) ? "gradient-bg text-white" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`,
+            className: `flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium transition-all duration-200 ${isActive(link.path) && link.path !== "/" ? "gradient-bg text-white" : link.path === "/" && location2.pathname === "/" ? "gradient-bg text-white" : "text-muted-foreground hover:text-foreground hover:bg-secondary"}`,
             "data-ocid": "nav.link",
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(link.icon, { className: "w-3.5 h-3.5" }),
@@ -37517,7 +37802,7 @@ function Navbar() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto flex items-center gap-3", children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-8 h-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_b3 = (_a3 = profile == null ? void 0 : profile.username) == null ? void 0 : _a3[0]) == null ? void 0 : _b3.toUpperCase()) ?? "U" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium hidden sm:block", children: (profile == null ? void 0 : profile.username) ?? "User" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium hidden lg:block", children: (profile == null ? void 0 : profile.username) ?? "User" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs(
             Button,
@@ -37529,7 +37814,7 @@ function Navbar() {
               "data-ocid": "nav.link",
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(LogOut, { className: "w-4 h-4 mr-1" }),
-                "Log Out"
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "Log Out" })
               ]
             }
           )
@@ -37579,66 +37864,12 @@ function Badge({
     }
   );
 }
-function Input({ className, type, ...props }) {
+function Skeleton({ className, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "input",
+    "div",
     {
-      type,
-      "data-slot": "input",
-      className: cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      ),
-      ...props
-    }
-  );
-}
-var NAME = "Label";
-var Label$1 = reactExports.forwardRef((props, forwardedRef) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Primitive.label,
-    {
-      ...props,
-      ref: forwardedRef,
-      onMouseDown: (event) => {
-        var _a3;
-        const target = event.target;
-        if (target.closest("button, input, select, textarea")) return;
-        (_a3 = props.onMouseDown) == null ? void 0 : _a3.call(props, event);
-        if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
-      }
-    }
-  );
-});
-Label$1.displayName = NAME;
-var Root$2 = Label$1;
-function Label({
-  className,
-  ...props
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root$2,
-    {
-      "data-slot": "label",
-      className: cn(
-        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
-      ),
-      ...props
-    }
-  );
-}
-function Textarea({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "textarea",
-    {
-      "data-slot": "textarea",
-      className: cn(
-        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        className
-      ),
+      "data-slot": "skeleton",
+      className: cn("bg-accent animate-pulse rounded-md", className),
       ...props
     }
   );
@@ -45531,6 +45762,249 @@ const featureBundle = {
   ...layout
 };
 const motion = /* @__PURE__ */ createMotionProxy(featureBundle, createDomVisualElement);
+const SKELETON_KEYS$3 = ["sk1", "sk2", "sk3"];
+function AnswerDisplay({ q: q2 }) {
+  if (q2.questionType.__kind__ === "trueFalse") {
+    const ans = q2.questionType.trueFalse.correctAnswer;
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: "Answer: " }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Badge,
+        {
+          className: ans ? "bg-green-500/20 text-green-400 border-green-500/40" : "bg-red-500/20 text-red-400 border-red-500/40",
+          children: ans ? "True" : "False"
+        }
+      )
+    ] });
+  }
+  const { correctOption, options } = q2.questionType.multipleChoice;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-2 space-y-1", children: options.map((opt) => {
+    const optIdx = BigInt(options.indexOf(opt));
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: `flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm ${optIdx === correctOption ? "bg-green-500/20 border border-green-500/40 text-green-300" : "bg-secondary/40 text-muted-foreground"}`,
+        children: [
+          optIdx === correctOption && /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "w-3.5 h-3.5 text-green-400 shrink-0" }),
+          opt
+        ]
+      },
+      opt
+    );
+  }) });
+}
+function AdminPanel() {
+  var _a3;
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: myPoints, isLoading: loadingPoints } = useGetMyPoints();
+  const { data: allPoints, isLoading: loadingAll } = useGetAllPlayerPoints();
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  const sorted = allPoints ? [...allPoints].sort(
+    (a2, b2) => b2.points > a2.points ? 1 : b2.points < a2.points ? -1 : 0
+  ) : [];
+  const topPlayer = (_a3 = sorted[0]) == null ? void 0 : _a3.player.toString();
+  const isTopPlayer = !!myPrincipal && topPlayer === myPrincipal && (myPoints ?? 0n) > 0n;
+  const myRank = sorted.findIndex((e) => e.player.toString() === myPrincipal) + 1;
+  const { data: quizAnswers, isLoading: loadingAnswers } = useGetAdminQuizAnswers(isTopPlayer);
+  const isLoading = loadingPoints || loadingAll;
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Lock, { className: "w-16 h-16 text-muted-foreground mx-auto mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-2", children: "Admin Panel" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "Log in to check your access level." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "gradient-bg border-0 text-white rounded-full px-8 glow-cyan",
+          onClick: login,
+          disabled: loginStatus === "logging-in",
+          "data-ocid": "admin.primary_button",
+          children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+        }
+      )
+    ] });
+  }
+  if (isLoading) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "container mx-auto px-4 py-10 max-w-3xl",
+        "data-ocid": "admin.loading_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-16 rounded-2xl mb-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-40 rounded-2xl mb-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-40 rounded-2xl" })
+        ]
+      }
+    );
+  }
+  if (!isTopPlayer) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "container mx-auto px-4 py-20 max-w-md text-center",
+        "data-ocid": "admin.error_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Lock, { className: "w-16 h-16 text-destructive mx-auto mb-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-3", children: "Access Denied" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-2", children: "Only the #1 all-time points leader can access this panel." }),
+          myRank > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground mb-6", children: [
+            "Your current rank:",
+            " ",
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("strong", { className: "text-foreground", children: [
+              "#",
+              myRank
+            ] }),
+            " with",
+            " ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "text-primary", children: (myPoints == null ? void 0 : myPoints.toString()) ?? "0" }),
+            " ",
+            "points."
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-6", children: "You haven't earned any points yet. Play mini games!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3 justify-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                className: "gradient-bg border-0 text-white rounded-full glow-cyan",
+                "data-ocid": "admin.primary_button",
+                children: "Play Mini Games"
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/points-leaderboard", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                variant: "outline",
+                className: "rounded-full",
+                "data-ocid": "admin.secondary_button",
+                children: "View Leaderboard"
+              }
+            ) })
+          ] })
+        ]
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-10 max-w-3xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -20 },
+        animate: { opacity: 1, y: 0 },
+        className: "mb-8",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ShieldCheck, { className: "w-8 h-8 text-yellow-400" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold gradient-text", children: "Admin Panel" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-3 h-3 mr-1" }),
+              "#1 Player"
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "You are the #1 all-time points leader. Here are all quiz answers." })
+        ]
+      }
+    ),
+    loadingAnswers ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", "data-ocid": "admin.loading_state", children: SKELETON_KEYS$3.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-32 rounded-2xl" }, k2)) }) : !quizAnswers || quizAnswers.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "glass-card rounded-2xl p-12 text-center",
+        "data-ocid": "admin.empty_state",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "No quizzes found." })
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-6", "data-ocid": "admin.panel", children: quizAnswers.map((qwa, qi) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: qi * 0.08 },
+        className: "glass-card rounded-2xl overflow-hidden",
+        "data-ocid": `admin.item.${qi + 1}`,
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-4 border-b border-border/40", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold", children: qwa.quiz.title }),
+            qwa.quiz.description && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mt-0.5", children: qwa.quiz.description })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 py-4 space-y-5", children: qwa.questions.map((q2, qi2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { "data-ocid": `admin.item.${qi + 1}`, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-medium", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-muted-foreground text-sm mr-2", children: [
+                "Q",
+                qi2 + 1,
+                "."
+              ] }),
+              q2.text
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(AnswerDisplay, { q: q2 })
+          ] }, q2.id.toString())) })
+        ]
+      },
+      qwa.quiz.id.toString()
+    )) })
+  ] });
+}
+function Input({ className, type, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "input",
+    {
+      type,
+      "data-slot": "input",
+      className: cn(
+        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        className
+      ),
+      ...props
+    }
+  );
+}
+var NAME = "Label";
+var Label$1 = reactExports.forwardRef((props, forwardedRef) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Primitive.label,
+    {
+      ...props,
+      ref: forwardedRef,
+      onMouseDown: (event) => {
+        var _a3;
+        const target = event.target;
+        if (target.closest("button, input, select, textarea")) return;
+        (_a3 = props.onMouseDown) == null ? void 0 : _a3.call(props, event);
+        if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
+      }
+    }
+  );
+});
+Label$1.displayName = NAME;
+var Root$2 = Label$1;
+function Label({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Root$2,
+    {
+      "data-slot": "label",
+      className: cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function Textarea({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "textarea",
+    {
+      "data-slot": "textarea",
+      className: cn(
+        "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 flex field-sizing-content min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        className
+      ),
+      ...props
+    }
+  );
+}
 let questionCounter = 0;
 const emptyQuestion = () => ({
   id: `q-${++questionCounter}`,
@@ -45850,17 +46324,7 @@ function CreateQuiz() {
     }
   ) });
 }
-function Skeleton({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "skeleton",
-      className: cn("bg-accent animate-pulse rounded-md", className),
-      ...props
-    }
-  );
-}
-const SKELETON_KEYS$1 = ["sk-a", "sk-b", "sk-c"];
+const SKELETON_KEYS$2 = ["sk-a", "sk-b", "sk-c"];
 function Feed() {
   const { data: posts, isLoading } = useGetAllPosts();
   const { data: quizzes } = useGetAllQuizzes();
@@ -45911,7 +46375,7 @@ function Feed() {
         ]
       }
     ) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pb-20 max-w-2xl", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", "data-ocid": "feed.loading_state", children: SKELETON_KEYS$1.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-56 rounded-2xl bg-secondary" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pb-20 max-w-2xl", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", "data-ocid": "feed.loading_state", children: SKELETON_KEYS$2.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-56 rounded-2xl bg-secondary" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
       motion.div,
       {
         initial: { opacity: 0 },
@@ -46120,6 +46584,209 @@ function PostCard({
       ]
     }
   );
+}
+function Card({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card",
+      className: cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function CardHeader({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-header",
+      className: cn(
+        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function CardTitle({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-title",
+      className: cn("leading-none font-semibold", className),
+      ...props
+    }
+  );
+}
+function CardDescription({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-description",
+      className: cn("text-muted-foreground text-sm", className),
+      ...props
+    }
+  );
+}
+function CardContent({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-content",
+      className: cn("px-6", className),
+      ...props
+    }
+  );
+}
+function GamesHub() {
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: myPoints } = useGetMyPoints();
+  const games = [
+    {
+      id: "memory",
+      title: "Memory Match",
+      description: "Flip cards to find matching pairs. Earn 10 points per match!",
+      icon: Brain,
+      path: "/games/memory",
+      gradient: "from-cyan-500 to-blue-600",
+      glowClass: "glow-cyan",
+      badge: "10 pts/pair"
+    },
+    {
+      id: "spinwheel",
+      title: "Spin Wheel",
+      description: "Spin the wheel and win up to 200 bonus points! 30s cooldown.",
+      icon: RotateCcw,
+      path: "/games/spinwheel",
+      gradient: "from-purple-500 to-pink-600",
+      glowClass: "glow-purple",
+      badge: "Up to 200 pts"
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-10 max-w-4xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -20 },
+        animate: { opacity: 1, y: 0 },
+        className: "text-center mb-10",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-8 h-8 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold gradient-text", children: "Mini Games" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg", children: "Play games, earn points, and claim the #1 spot!" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, scale: 0.95 },
+        animate: { opacity: 1, scale: 1 },
+        transition: { delay: 0.1 },
+        className: "glass-card rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-6 h-6 text-white" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Your Total Points" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-3xl font-bold gradient-text", children: identity ? myPoints !== void 0 ? myPoints.toString() : "—" : "Log in to earn" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/points-leaderboard", "data-ocid": "games.link", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              variant: "outline",
+              className: "gap-2 border-primary/40 hover:border-primary",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-4 h-4 text-yellow-400" }),
+                "Points Leaderboard"
+              ]
+            }
+          ) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-6", children: games.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.2 + i * 0.1 },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-primary/50 transition-all duration-300 group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: `w-14 h-14 rounded-2xl bg-gradient-to-br ${game.gradient} flex items-center justify-center ${game.glowClass} mb-3`,
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(game.icon, { className: "w-7 h-7 text-white" })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "text-xs", children: game.badge })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-xl", children: game.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: game.description })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: game.path,
+              "data-ocid": `games.${game.id}.primary_button`,
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan group-hover:opacity-90", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
+                "Play Now"
+              ] })
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan",
+              onClick: login,
+              disabled: loginStatus === "logging-in",
+              "data-ocid": `games.${game.id}.primary_button`,
+              children: "Log In to Play"
+            }
+          ) })
+        ] })
+      },
+      game.id
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { delay: 0.5 },
+        className: "mt-10 glass-card rounded-2xl p-5 flex items-center gap-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-8 h-8 text-yellow-400 shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-foreground", children: "Become the #1 All-Time Player" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
+              "The player with the most total points unlocks the exclusive",
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Link,
+                {
+                  to: "/admin",
+                  className: "text-primary underline",
+                  "data-ocid": "games.link",
+                  children: "Admin Panel"
+                }
+              ),
+              " ",
+              "— revealing answers to every quiz."
+            ] })
+          ] })
+        ]
+      }
+    )
+  ] });
 }
 function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
   return function handleEvent(event) {
@@ -48025,7 +48692,7 @@ function UsernameDialog({ open }) {
     }
   ) });
 }
-const SKELETON_KEYS = [
+const SKELETON_KEYS$1 = [
   "sk-a",
   "sk-b",
   "sk-c",
@@ -48180,7 +48847,7 @@ function Home() {
             {
               className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5",
               "data-ocid": "quiz.loading_state",
-              children: SKELETON_KEYS.map((key) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-64 rounded-2xl bg-secondary" }, key))
+              children: SKELETON_KEYS$1.map((key) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-64 rounded-2xl bg-secondary" }, key))
             }
           ) : filtered.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "div",
@@ -48537,6 +49204,250 @@ function Leaderboard() {
     }
   ) });
 }
+const EMOJIS = ["🦊", "🐬", "🦁", "🐙", "🦋", "🐸", "🦄", "🐺"];
+function shuffle(arr) {
+  const a2 = [...arr];
+  for (let i = a2.length - 1; i > 0; i--) {
+    const j2 = Math.floor(Math.random() * (i + 1));
+    [a2[i], a2[j2]] = [a2[j2], a2[i]];
+  }
+  return a2;
+}
+function initCards() {
+  const pairs = EMOJIS.flatMap((emoji, idx) => [
+    { emoji, pairIndex: idx },
+    { emoji, pairIndex: idx }
+  ]);
+  return shuffle(pairs).map((p2, id2) => ({
+    id: id2,
+    ...p2,
+    isFlipped: false,
+    isMatched: false
+  }));
+}
+function MemoryGame() {
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
+  const { mutateAsync: awardPoints } = useAwardPoints();
+  const [cards, setCards] = reactExports.useState(initCards);
+  const [selected, setSelected] = reactExports.useState([]);
+  const [locked, setLocked] = reactExports.useState(false);
+  const [pointsEarned, setPointsEarned] = reactExports.useState(0);
+  const [gameOver, setGameOver] = reactExports.useState(false);
+  const processingRef = reactExports.useRef(false);
+  const matchedCount = cards.filter((c2) => c2.isMatched).length;
+  reactExports.useEffect(() => {
+    if (matchedCount === cards.length && cards.length > 0) {
+      setGameOver(true);
+    }
+  }, [matchedCount, cards.length]);
+  const handleCardClick = reactExports.useCallback(
+    async (id2) => {
+      if (!identity || locked || processingRef.current) return;
+      const card = cards.find((c2) => c2.id === id2);
+      if (!card || card.isFlipped || card.isMatched) return;
+      if (selected.includes(id2)) return;
+      const newSelected = [...selected, id2];
+      setCards(
+        (prev) => prev.map((c2) => c2.id === id2 ? { ...c2, isFlipped: true } : c2)
+      );
+      if (newSelected.length < 2) {
+        setSelected(newSelected);
+        return;
+      }
+      setLocked(true);
+      processingRef.current = true;
+      setSelected([]);
+      const [idA, idB] = newSelected;
+      const cardA = cards.find((c2) => c2.id === idA);
+      const cardB = cards.find((c2) => c2.id === idB);
+      setCards(
+        (prev) => prev.map((c2) => c2.id === idB ? { ...c2, isFlipped: true } : c2)
+      );
+      await new Promise((r2) => setTimeout(r2, 900));
+      if (cardA.pairIndex === cardB.pairIndex) {
+        setCards(
+          (prev) => prev.map(
+            (c2) => c2.id === idA || c2.id === idB ? { ...c2, isMatched: true } : c2
+          )
+        );
+        setPointsEarned((p2) => p2 + 10);
+        try {
+          await awardPoints(10n);
+          await refetchPoints();
+        } catch {
+          ue.error("Failed to award points");
+        }
+        ue.success("+10 points! 🎉");
+      } else {
+        setCards(
+          (prev) => prev.map(
+            (c2) => c2.id === idA || c2.id === idB ? { ...c2, isFlipped: false } : c2
+          )
+        );
+      }
+      setLocked(false);
+      processingRef.current = false;
+    },
+    [identity, locked, selected, cards, awardPoints, refetchPoints]
+  );
+  const resetGame = () => {
+    setCards(initCards());
+    setSelected([]);
+    setLocked(false);
+    setPointsEarned(0);
+    setGameOver(false);
+    processingRef.current = false;
+  };
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-16 h-16 text-primary mx-auto mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-2", children: "Login to Play" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "You need to be logged in to earn points." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "gradient-bg border-0 text-white rounded-full px-8 glow-cyan",
+          onClick: login,
+          disabled: loginStatus === "logging-in",
+          "data-ocid": "memory.primary_button",
+          children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+        }
+      )
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-8 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: "Memory Match" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Find all 8 pairs to complete!" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold", children: (myPoints == null ? void 0 : myPoints.toString()) ?? "0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "pts" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Button,
+          {
+            variant: "outline",
+            size: "sm",
+            onClick: resetGame,
+            className: "gap-1",
+            "data-ocid": "memory.secondary_button",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(RefreshCw, { className: "w-3.5 h-3.5" }),
+              "Reset"
+            ]
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl p-3 mb-5 flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: "Pairs found" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-semibold", children: [
+        matchedCount / 2,
+        " / 8"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm text-muted-foreground", children: [
+        "Points earned this game:",
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "text-primary", children: pointsEarned })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-4 gap-3", "data-ocid": "memory.card.panel", children: cards.map((card) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        className: "aspect-square cursor-pointer",
+        style: { perspective: 600 },
+        onClick: () => handleCardClick(card.id),
+        "data-ocid": `memory.item.${card.id + 1}`,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            className: "w-full h-full relative",
+            animate: { rotateY: card.isFlipped || card.isMatched ? 180 : 0 },
+            transition: { duration: 0.35 },
+            style: { transformStyle: "preserve-3d" },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: "absolute inset-0 rounded-xl gradient-bg flex items-center justify-center text-white text-2xl font-bold glow-cyan",
+                  style: { backfaceVisibility: "hidden" },
+                  children: "?"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: `absolute inset-0 rounded-xl flex items-center justify-center text-3xl ${card.isMatched ? "bg-green-500/30 border-2 border-green-400" : "glass-card"}`,
+                  style: {
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)"
+                  },
+                  children: card.emoji
+                }
+              )
+            ]
+          }
+        )
+      },
+      card.id
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: gameOver && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        className: "fixed inset-0 bg-black/70 flex items-center justify-center z-50",
+        "data-ocid": "memory.modal",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { scale: 0.8, y: 40 },
+            animate: { scale: 1, y: 0 },
+            className: "glass-card rounded-3xl p-8 text-center max-w-sm mx-4",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-6xl mb-4", children: "🎉" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold gradient-text mb-2", children: "Game Complete!" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-4", children: "You matched all 8 pairs!" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl p-4 mb-6", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Points earned" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-4xl font-bold text-primary", children: [
+                  "+",
+                  pointsEarned
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    className: "flex-1 gradient-bg border-0 text-white rounded-full glow-cyan",
+                    onClick: resetGame,
+                    "data-ocid": "memory.confirm_button",
+                    children: "Play Again"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", className: "flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    variant: "outline",
+                    className: "w-full rounded-full",
+                    "data-ocid": "memory.cancel_button",
+                    children: "Back to Games"
+                  }
+                ) })
+              ] })
+            ]
+          }
+        )
+      }
+    ) })
+  ] });
+}
 var PROGRESS_NAME = "Progress";
 var DEFAULT_MAX = 100;
 var [createProgressContext] = createContextScope(PROGRESS_NAME);
@@ -48817,6 +49728,239 @@ function PlayQuiz() {
     ) })
   ] });
 }
+const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
+function GivePointsDialog({
+  recipient,
+  displayName,
+  myPoints,
+  onSuccess,
+  open,
+  onOpenChange
+}) {
+  const { actor } = useActor();
+  const [amount, setAmount] = reactExports.useState("1");
+  const [isPending, setIsPending] = reactExports.useState(false);
+  const maxAmount = Number(myPoints);
+  const amountNum = Number.parseInt(amount, 10);
+  const isValid = !Number.isNaN(amountNum) && amountNum >= 1 && amountNum <= maxAmount;
+  async function handleSend() {
+    if (!actor || !isValid) return;
+    setIsPending(true);
+    try {
+      await actor.givePoints(
+        recipient.player,
+        BigInt(amountNum)
+      );
+      ue.success(`Sent ${amountNum} pts to ${displayName}!`);
+      onOpenChange(false);
+      setAmount("1");
+      onSuccess();
+    } catch (err) {
+      ue.error((err == null ? void 0 : err.message) ?? "Failed to send points");
+    } finally {
+      setIsPending(false);
+    }
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog, { open, onOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogContent, { className: "sm:max-w-sm", "data-ocid": "give_points.dialog", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogHeader, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogTitle, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "w-5 h-5 text-primary" }),
+        "Give Points"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogDescription, { children: [
+        "Send points to",
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-foreground", children: displayName })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4 py-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between text-sm", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: "Your balance" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 font-bold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-3.5 h-3.5 text-yellow-400" }),
+          myPoints.toString(),
+          " pts"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "give-points-amount", children: "Amount" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Input,
+          {
+            id: "give-points-amount",
+            type: "number",
+            min: 1,
+            max: maxAmount,
+            value: amount,
+            onChange: (e) => setAmount(e.target.value),
+            placeholder: "Enter amount",
+            "data-ocid": "give_points.input"
+          }
+        ),
+        !isValid && amount !== "" && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "p",
+          {
+            className: "text-xs text-destructive",
+            "data-ocid": "give_points.error_state",
+            children: [
+              "Enter a value between 1 and ",
+              maxAmount
+            ]
+          }
+        )
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogFooter, { className: "gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          variant: "outline",
+          onClick: () => onOpenChange(false),
+          disabled: isPending,
+          "data-ocid": "give_points.cancel_button",
+          children: "Cancel"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          onClick: handleSend,
+          disabled: !isValid || isPending,
+          "data-ocid": "give_points.submit_button",
+          children: isPending ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "mr-2 h-4 w-4 animate-spin" }),
+            "Sending..."
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "mr-2 h-4 w-4" }),
+            "Send Points"
+          ] })
+        }
+      )
+    ] })
+  ] }) });
+}
+function PointsLeaderboard() {
+  const { identity } = useInternetIdentity();
+  const { data: entries, isLoading } = useGetAllPlayerPoints();
+  const { data: myPoints = 0n } = useGetMyPoints();
+  const qc = useQueryClient();
+  const [giveTarget, setGiveTarget] = reactExports.useState(null);
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  const sorted = entries ? [...entries].sort(
+    (a2, b2) => b2.points > a2.points ? 1 : b2.points < a2.points ? -1 : 0
+  ) : [];
+  const rankColor = (rank) => {
+    if (rank === 1) return "text-yellow-400";
+    if (rank === 2) return "text-slate-300";
+    if (rank === 3) return "text-amber-600";
+    return "text-muted-foreground";
+  };
+  function refreshPoints() {
+    qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    qc.invalidateQueries({ queryKey: ["myPoints"] });
+  }
+  const giveTargetDisplay = giveTarget ? `${giveTarget.player.toString().slice(0, 8)}...${giveTarget.player.toString().slice(-5)}` : "";
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-10 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -20 },
+        animate: { opacity: 1, y: 0 },
+        className: "text-center mb-8",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 mb-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-7 h-7 text-yellow-400" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold gradient-text", children: "Points Leaderboard" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "All-time top players ranked by mini-game points" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "glass-card rounded-2xl overflow-hidden",
+        "data-ocid": "leaderboard.table",
+        children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 space-y-3", "data-ocid": "leaderboard.loading_state", children: SKELETON_KEYS.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-14 rounded-xl" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-12 text-center", "data-ocid": "leaderboard.empty_state", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-12 h-12 text-muted-foreground mx-auto mb-3" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "No players yet. Be the first to earn points!" })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-border/40", children: sorted.map((entry, i) => {
+          const rank = i + 1;
+          const principal = entry.player.toString();
+          const isMe = myPrincipal && principal === myPrincipal;
+          const displayName = `${principal.slice(0, 8)}...${principal.slice(-5)}`;
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              initial: { opacity: 0, x: -20 },
+              animate: { opacity: 1, x: 0 },
+              transition: { delay: i * 0.05 },
+              className: `flex items-center gap-4 px-5 py-4 ${rank === 1 ? "bg-yellow-400/5" : ""} ${isMe ? "bg-primary/10" : ""}`,
+              "data-ocid": `leaderboard.item.${rank}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    className: `w-9 h-9 flex items-center justify-center font-bold text-lg shrink-0 ${rankColor(rank)}`,
+                    children: rank === 1 ? /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6" }) : rank
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium truncate", children: displayName }),
+                  rank === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: [
+                    "👑",
+                    " #1"
+                  ] }),
+                  isMe && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Badge,
+                    {
+                      variant: "outline",
+                      className: "border-primary/60 text-primary text-xs",
+                      children: "You"
+                    }
+                  )
+                ] }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 shrink-0", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-lg", children: entry.points.toString() }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "pts" })
+                ] }),
+                myPrincipal && !isMe && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    size: "sm",
+                    variant: "outline",
+                    className: "shrink-0 border-primary/40 text-primary hover:bg-primary/10 hover:text-primary",
+                    onClick: () => setGiveTarget(entry),
+                    "data-ocid": `leaderboard.give_points.button.${rank}`,
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "w-3.5 h-3.5 mr-1" }),
+                      "Give"
+                    ]
+                  }
+                )
+              ]
+            },
+            principal
+          );
+        }) })
+      }
+    ),
+    giveTarget && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      GivePointsDialog,
+      {
+        recipient: giveTarget,
+        displayName: giveTargetDisplay,
+        myPoints,
+        open: !!giveTarget,
+        onOpenChange: (open) => {
+          if (!open) setGiveTarget(null);
+        },
+        onSuccess: refreshPoints
+      }
+    )
+  ] });
+}
 function Profile() {
   var _a3, _b3;
   const { identity, login } = useInternetIdentity();
@@ -49080,6 +50224,246 @@ function ScoreScreen() {
     }
   ) });
 }
+const SEGMENTS = [
+  { label: "10", value: 10, color: "#3b82f6" },
+  { label: "25", value: 25, color: "#8b5cf6" },
+  { label: "50", value: 50, color: "#06b6d4" },
+  { label: "75", value: 75, color: "#ec4899" },
+  { label: "100", value: 100, color: "#10b981" },
+  { label: "150", value: 150, color: "#f59e0b" },
+  { label: "200", value: 200, color: "#ef4444" },
+  { label: "5", value: 5, color: "#6366f1" }
+];
+const COOLDOWN_SECS = 30;
+const SEG_ANGLE = 360 / SEGMENTS.length;
+function drawWheel(canvas) {
+  const ctx = canvas.getContext("2d");
+  const cx2 = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const r2 = cx2 - 8;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  SEGMENTS.forEach((seg, i) => {
+    const startAngle = (i * SEG_ANGLE - 90) * Math.PI / 180;
+    const endAngle = ((i + 1) * SEG_ANGLE - 90) * Math.PI / 180;
+    const midAngle = (startAngle + endAngle) / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx2, cy);
+    ctx.arc(cx2, cy, r2, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = seg.color;
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,0.25)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.save();
+    ctx.translate(
+      cx2 + r2 * 0.65 * Math.cos(midAngle),
+      cy + r2 * 0.65 * Math.sin(midAngle)
+    );
+    ctx.rotate(midAngle + Math.PI / 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = "bold 16px Plus Jakarta Sans, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(seg.label, 0, 0);
+    ctx.restore();
+  });
+  ctx.beginPath();
+  ctx.arc(cx2, cy, 22, 0, Math.PI * 2);
+  ctx.fillStyle = "#1e1b4b";
+  ctx.fill();
+  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+function SpinWheel() {
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
+  const { mutateAsync: awardPoints } = useAwardPoints();
+  const canvasRef = reactExports.useRef(null);
+  const [rotation, setRotation] = reactExports.useState(0);
+  const [spinning, setSpinning] = reactExports.useState(false);
+  const [cooldown, setCooldown] = reactExports.useState(0);
+  const [result, setResult] = reactExports.useState(null);
+  const cooldownRef = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    if (canvasRef.current) drawWheel(canvasRef.current);
+  }, []);
+  reactExports.useEffect(() => {
+    return () => {
+      if (cooldownRef.current) clearInterval(cooldownRef.current);
+    };
+  }, []);
+  const startCooldown = () => {
+    setCooldown(COOLDOWN_SECS);
+    cooldownRef.current = setInterval(() => {
+      setCooldown((c2) => {
+        if (c2 <= 1) {
+          clearInterval(cooldownRef.current);
+          return 0;
+        }
+        return c2 - 1;
+      });
+    }, 1e3);
+  };
+  const spin = async () => {
+    if (spinning || cooldown > 0 || !identity) return;
+    setResult(null);
+    setSpinning(true);
+    const extraSpins = 3 + Math.floor(Math.random() * 5);
+    const stopDeg = Math.floor(Math.random() * 360);
+    const totalDeg = extraSpins * 360 + stopDeg;
+    const finalRot = rotation + totalDeg;
+    setRotation(finalRot);
+    await new Promise((r2) => setTimeout(r2, 4500));
+    const normalised = (finalRot % 360 + 360) % 360;
+    const pointerAngle = (360 - normalised + 90) % 360;
+    const segIndex = Math.floor(pointerAngle / SEG_ANGLE) % SEGMENTS.length;
+    const won = SEGMENTS[segIndex].value;
+    setResult(won);
+    setSpinning(false);
+    startCooldown();
+    try {
+      await awardPoints(BigInt(won));
+      await refetchPoints();
+      ue.success(`+${won} points! 🎉`);
+    } catch {
+      ue.error("Failed to award points");
+    }
+  };
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-16 h-16 text-primary mx-auto mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-2", children: "Login to Spin" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "Log in to spin the wheel and earn points." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "gradient-bg border-0 text-white rounded-full px-8 glow-cyan",
+          onClick: login,
+          disabled: loginStatus === "logging-in",
+          "data-ocid": "spinwheel.primary_button",
+          children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+        }
+      )
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-8 max-w-lg", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: "Spin Wheel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Win up to 200 bonus points!" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold", children: (myPoints == null ? void 0 : myPoints.toString()) ?? "0" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "pts" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10",
+            style: { filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" },
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "w-0 h-0",
+                style: {
+                  borderLeft: "10px solid transparent",
+                  borderRight: "10px solid transparent",
+                  borderTop: "24px solid #fbbf24"
+                }
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "canvas",
+          {
+            ref: canvasRef,
+            width: 300,
+            height: 300,
+            className: "rounded-full",
+            style: {
+              transform: `rotate(${rotation}deg)`,
+              transition: spinning ? "transform 4.5s cubic-bezier(0.17, 0.67, 0.12, 0.99)" : "none",
+              boxShadow: "0 0 40px oklch(0.73 0.14 215 / 0.4)"
+            }
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "w-40 h-14 text-lg font-bold gradient-bg border-0 text-white rounded-full glow-cyan disabled:opacity-50",
+          onClick: spin,
+          disabled: spinning || cooldown > 0,
+          "data-ocid": "spinwheel.primary_button",
+          children: spinning ? /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-5 h-5 animate-spin" }) : cooldown > 0 ? `Wait ${cooldown}s` : "SPIN!"
+        }
+      ),
+      cooldown > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
+        "Next spin in ",
+        cooldown,
+        " seconds"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          variant: "ghost",
+          size: "sm",
+          className: "text-muted-foreground",
+          "data-ocid": "spinwheel.link",
+          children: "← Back to Games"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: result !== null && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        className: "fixed inset-0 bg-black/70 flex items-center justify-center z-50",
+        onClick: () => setResult(null),
+        "data-ocid": "spinwheel.modal",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { scale: 0.6, y: 30 },
+            animate: { scale: 1, y: 0 },
+            exit: { scale: 0.8, opacity: 0 },
+            className: "glass-card rounded-3xl p-8 text-center max-w-xs mx-4",
+            onClick: (e) => e.stopPropagation(),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-6xl mb-3", children: "🎰" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text mb-1", children: "You won!" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "my-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-6xl font-bold text-primary", children: [
+                  "+",
+                  result
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-muted-foreground ml-2", children: "pts" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Button,
+                {
+                  className: "w-full gradient-bg border-0 text-white rounded-full glow-cyan",
+                  onClick: () => setResult(null),
+                  "data-ocid": "spinwheel.close_button",
+                  children: "Awesome!"
+                }
+              )
+            ]
+          }
+        )
+      }
+    ) })
+  ] });
+}
 const rootRoute = createRootRoute({
   component: () => /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
@@ -49132,6 +50516,31 @@ const feedRoute = createRoute({
   path: "/feed",
   component: Feed
 });
+const gamesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games",
+  component: GamesHub
+});
+const memoryGameRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/memory",
+  component: MemoryGame
+});
+const spinWheelRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/spinwheel",
+  component: SpinWheel
+});
+const pointsLeaderboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/points-leaderboard",
+  component: PointsLeaderboard
+});
+const adminRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/admin",
+  component: AdminPanel
+});
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -49139,7 +50548,12 @@ const routeTree = rootRoute.addChildren([
   scoreRoute,
   leaderboardRoute,
   profileRoute,
-  feedRoute
+  feedRoute,
+  gamesRoute,
+  memoryGameRoute,
+  spinWheelRoute,
+  pointsLeaderboardRoute,
+  adminRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {

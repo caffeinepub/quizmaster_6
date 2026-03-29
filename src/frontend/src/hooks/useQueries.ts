@@ -1,9 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
   Comment,
+  PointsEntry,
   PostWithStats,
   Question,
   Quiz,
+  QuizWithAnswers,
   Result,
   T,
   UserProfile,
@@ -212,5 +214,57 @@ export function useCreatePost() {
       return actor.createPost(quizId, message);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["posts"] }),
+  });
+}
+
+// Mini-game / points hooks
+export function useGetMyPoints() {
+  const { actor, isFetching } = useActor();
+  return useQuery<bigint>({
+    queryKey: ["myPoints"],
+    queryFn: async () => {
+      if (!actor) return 0n;
+      return actor.getMyPoints();
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useGetAllPlayerPoints() {
+  const { actor, isFetching } = useActor();
+  return useQuery<PointsEntry[]>({
+    queryKey: ["allPlayerPoints"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllPlayerPoints();
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useAwardPoints() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, bigint>({
+    mutationFn: async (amount) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.awardPoints(amount);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    },
+  });
+}
+
+export function useGetAdminQuizAnswers(enabled: boolean) {
+  const { actor, isFetching } = useActor();
+  return useQuery<QuizWithAnswers[]>({
+    queryKey: ["adminQuizAnswers"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAdminQuizAnswers();
+    },
+    enabled: !!actor && !isFetching && enabled,
   });
 }

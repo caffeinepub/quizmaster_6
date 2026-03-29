@@ -1,11 +1,21 @@
 import Map "mo:core/Map";
-import Nat "mo:core/Nat";
 import Principal "mo:core/Principal";
 import Time "mo:core/Time";
+import Nat "mo:core/Nat";
 
 module {
+  type Points = Nat;
+
   type UserProfile = {
     username : Text;
+  };
+
+  type Quiz = {
+    id : Nat;
+    title : Text;
+    description : Text;
+    creator : Principal;
+    timestamp : Time.Time;
   };
 
   type Question = {
@@ -23,42 +33,12 @@ module {
     };
   };
 
-  type Quiz = {
-    id : Nat;
-    title : Text;
-    description : Text;
-    creator : Principal;
-    timestamp : Time.Time;
-  };
-
   type Result = {
     quizId : Nat;
     player : Principal;
     username : Text;
     score : Nat;
     totalQuestions : Nat;
-    timestamp : Time.Time;
-  };
-
-  type QuizStats = {
-    quizId : Nat;
-    title : Text;
-    totalAttemptCount : Nat;
-    totalCorrectCount : Nat;
-  };
-
-  // Social Feed Types
-  type Post = {
-    id : Nat;
-    author : Principal;
-    quizId : Nat;
-    message : Text;
-    timestamp : Time.Time;
-  };
-
-  type Like = {
-    postId : Nat;
-    user : Principal;
     timestamp : Time.Time;
   };
 
@@ -70,30 +50,30 @@ module {
     timestamp : Time.Time;
   };
 
-  type OldActor = {
-    userProfiles : Map.Map<Principal, UserProfile>;
-    quizzes : Map.Map<Nat, Quiz>;
-    questions : Map.Map<Nat, Question>;
-    quizResults : Map.Map<Nat, Result>;
-    resultsByQuiz : Map.Map<Nat, [Result]>;
-
-    nextQuizId : Nat;
-    nextQuestionId : Nat;
-    nextResultId : Nat;
+  type Like = {
+    postId : Nat;
+    user : Principal;
+    timestamp : Time.Time;
   };
 
-  type NewActor = {
+  type Post = {
+    id : Nat;
+    author : Principal;
+    quizId : Nat;
+    message : Text;
+    timestamp : Time.Time;
+  };
+
+  type OldState = {
     userProfiles : Map.Map<Principal, UserProfile>;
     quizzes : Map.Map<Nat, Quiz>;
     questions : Map.Map<Nat, Question>;
     quizResults : Map.Map<Nat, Result>;
     resultsByQuiz : Map.Map<Nat, [Result]>;
-
     posts : Map.Map<Nat, Post>;
     likes : Map.Map<Nat, [Like]>;
     comments : Map.Map<Nat, [Comment]>;
     postsByQuiz : Map.Map<Nat, [Post]>;
-
     nextQuizId : Nat;
     nextQuestionId : Nat;
     nextResultId : Nat;
@@ -101,16 +81,28 @@ module {
     nextCommentId : Nat;
   };
 
-  public func run(old : OldActor) : NewActor {
+  type NewState = {
+    userProfiles : Map.Map<Principal, UserProfile>;
+    quizzes : Map.Map<Nat, Quiz>;
+    questions : Map.Map<Nat, Question>;
+    quizResults : Map.Map<Nat, Result>;
+    resultsByQuiz : Map.Map<Nat, [Result]>;
+    userPoints : Map.Map<Principal, Points>;
+    posts : Map.Map<Nat, Post>;
+    likes : Map.Map<Nat, [Like]>;
+    comments : Map.Map<Nat, [Comment]>;
+    postsByQuiz : Map.Map<Nat, [Post]>;
+    nextQuizId : Nat;
+    nextQuestionId : Nat;
+    nextResultId : Nat;
+    nextPostId : Nat;
+    nextCommentId : Nat;
+  };
+
+  public func run(old : OldState) : NewState {
     {
       old with
-      posts = Map.empty<Nat, Post>();
-      likes = Map.empty<Nat, [Like]>();
-      comments = Map.empty<Nat, [Comment]>();
-      postsByQuiz = Map.empty<Nat, [Post]>();
-
-      nextPostId = 0;
-      nextCommentId = 0;
+      userPoints = Map.empty<Principal, Points>();
     };
   };
 };

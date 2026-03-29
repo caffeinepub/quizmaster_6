@@ -50234,7 +50234,7 @@ const SEGMENTS = [
   { label: "200", value: 200, color: "#ef4444" },
   { label: "5", value: 5, color: "#6366f1" }
 ];
-const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1e3;
+const COOLDOWN_MS = 1 * 24 * 60 * 60 * 1e3;
 const SEG_ANGLE = 360 / SEGMENTS.length;
 function getStorageKey(principal) {
   return `spinwheel_last_spin_${principal}`;
@@ -50440,7 +50440,7 @@ function SpinWheel() {
       cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl px-6 py-4 text-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: "Next spin available in" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl font-bold text-primary tabular-nums", children: formatCountdown(cooldownMs) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: "Spin wheel resets every 3 days" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: "Spin wheel resets every 1 day" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Button,
@@ -50480,7 +50480,7 @@ function SpinWheel() {
                 ] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-muted-foreground ml-2", children: "pts" })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Next spin available in 3 days" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Next spin available in 1 day" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Button,
                 {

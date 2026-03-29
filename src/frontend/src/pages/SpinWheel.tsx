@@ -18,7 +18,7 @@ const SEGMENTS = [
   { label: "5", value: 5, color: "#6366f1" },
 ];
 
-const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1000; // 3 days
+const COOLDOWN_MS = 1 * 24 * 60 * 60 * 1000; // 1 day
 const SEG_ANGLE = 360 / SEGMENTS.length;
 
 function getStorageKey(principal: string) {
@@ -258,7 +258,7 @@ export default function SpinWheel() {
               {formatCountdown(cooldownMs)}
             </p>
             <p className="text-xs text-muted-foreground mt-1">
-              Spin wheel resets every 3 days
+              Spin wheel resets every 1 day
             </p>
           </div>
         )}
@@ -303,7 +303,7 @@ export default function SpinWheel() {
                 <span className="text-2xl text-muted-foreground ml-2">pts</span>
               </div>
               <p className="text-sm text-muted-foreground mb-4">
-                Next spin available in 3 days
+                Next spin available in 1 day
               </p>
               <Button
                 className="w-full gradient-bg border-0 text-white rounded-full glow-cyan"

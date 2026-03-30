@@ -1,3 +1,4 @@
+import { RankBadge } from "@/components/RankBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,24 +15,27 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useActor } from "@/hooks/useActor";
 import type { Principal } from "@icp-sdk/core/principal";
 import { useQueryClient } from "@tanstack/react-query";
-import { Crown, Gift, Loader2, Trophy, Zap } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
+import { Crown, Gift, Loader2, MessageSquare, Trophy, Zap } from "lucide-react";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import type { PointsEntry } from "../backend.d";
+import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useGetAllPlayerPoints, useGetMyPoints } from "../hooks/useQueries";
+import {
+  useGetAllAssignedRanks,
+  useGetAllPlayerPoints,
+  useGetMyPoints,
+} from "../hooks/useQueries";
 
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 
-interface ActorWithGivePoints {
-  givePoints(recipient: Principal, amount: bigint): Promise<void>;
-}
-
-function GivePointsDialog({
+function GiftPointsDialog({
   recipient,
   displayName,
   myPoints,
+  isCallerOwner,
   onSuccess,
   open,
   onOpenChange,
@@ -39,6 +43,7 @@ function GivePointsDialog({
   recipient: PointsEntry;
   displayName: string;
   myPoints: bigint;
+  isCallerOwner: boolean;
   onSuccess: () => void;
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -47,25 +52,24 @@ function GivePointsDialog({
   const [amount, setAmount] = useState("1");
   const [isPending, setIsPending] = useState(false);
 
-  const maxAmount = Number(myPoints);
+  const maxAmount = isCallerOwner ? Number.MAX_SAFE_INTEGER : Number(myPoints);
   const amountNum = Number.parseInt(amount, 10);
   const isValid =
-    !Number.isNaN(amountNum) && amountNum >= 1 && amountNum <= maxAmount;
+    !Number.isNaN(amountNum) &&
+    amountNum >= 1 &&
+    (isCallerOwner || amountNum <= maxAmount);
 
   async function handleSend() {
     if (!actor || !isValid) return;
     setIsPending(true);
     try {
-      await (actor as unknown as ActorWithGivePoints).givePoints(
-        recipient.player,
-        BigInt(amountNum),
-      );
-      toast.success(`Sent ${amountNum} pts to ${displayName}!`);
+      await actor.giftPoints(recipient.player, BigInt(amountNum));
+      toast.success(`Gifted ${amountNum} pts to ${displayName}!`);
       onOpenChange(false);
       setAmount("1");
       onSuccess();
     } catch (err: any) {
-      toast.error(err?.message ?? "Failed to send points");
+      toast.error(err?.message ?? "Failed to gift points");
     } finally {
       setIsPending(false);
     }
@@ -73,11 +77,11 @@ function GivePointsDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-sm" data-ocid="give_points.dialog">
+      <DialogContent className="sm:max-w-sm" data-ocid="gift_points.dialog">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <Gift className="w-5 h-5 text-primary" />
-            Give Points
+            Gift Points
           </DialogTitle>
           <DialogDescription>
             Send points to{" "}
@@ -90,28 +94,30 @@ function GivePointsDialog({
             <span className="text-muted-foreground">Your balance</span>
             <span className="flex items-center gap-1 font-bold">
               <Zap className="w-3.5 h-3.5 text-yellow-400" />
-              {myPoints.toString()} pts
+              {isCallerOwner ? "∞" : myPoints.toString()} pts
             </span>
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="give-points-amount">Amount</Label>
+            <Label htmlFor="gift-points-amount">Amount</Label>
             <Input
-              id="give-points-amount"
+              id="gift-points-amount"
               type="number"
               min={1}
-              max={maxAmount}
+              max={isCallerOwner ? undefined : maxAmount}
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="Enter amount"
-              data-ocid="give_points.input"
+              data-ocid="gift_points.input"
             />
             {!isValid && amount !== "" && (
               <p
                 className="text-xs text-destructive"
-                data-ocid="give_points.error_state"
+                data-ocid="gift_points.error_state"
               >
-                Enter a value between 1 and {maxAmount}
+                {isCallerOwner
+                  ? "Enter a value greater than 0"
+                  : `Enter a value between 1 and ${maxAmount}`}
               </p>
             )}
           </div>
@@ -122,14 +128,14 @@ function GivePointsDialog({
             variant="outline"
             onClick={() => onOpenChange(false)}
             disabled={isPending}
-            data-ocid="give_points.cancel_button"
+            data-ocid="gift_points.cancel_button"
           >
             Cancel
           </Button>
           <Button
             onClick={handleSend}
             disabled={!isValid || isPending}
-            data-ocid="give_points.submit_button"
+            data-ocid="gift_points.submit_button"
           >
             {isPending ? (
               <>
@@ -139,7 +145,7 @@ function GivePointsDialog({
             ) : (
               <>
                 <Gift className="mr-2 h-4 w-4" />
-                Send Points
+                Gift Points
               </>
             )}
           </Button>
@@ -153,7 +159,18 @@ export default function PointsLeaderboard() {
   const { identity } = useInternetIdentity();
   const { data: entries, isLoading } = useGetAllPlayerPoints();
   const { data: myPoints = 0n } = useGetMyPoints();
+  const { ownerPrincipal, isOwner } = useOwner();
+  const { data: assignedRanks } = useGetAllAssignedRanks();
+
+  const assignedRankMap = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const e of assignedRanks ?? []) {
+      if (e.rank) map.set(e.player.toString(), e.rank);
+    }
+    return map;
+  }, [assignedRanks]);
   const qc = useQueryClient();
+  const navigate = useNavigate();
 
   const [giveTarget, setGiveTarget] = useState<PointsEntry | null>(null);
 
@@ -222,7 +239,15 @@ export default function PointsLeaderboard() {
               const rank = i + 1;
               const principal = entry.player.toString();
               const isMe = myPrincipal && principal === myPrincipal;
+              const isEntryOwner = isOwnerPrincipal(
+                ownerPrincipal,
+                entry.player,
+              );
               const displayName = `${principal.slice(0, 8)}...${principal.slice(-5)}`;
+              const entryPoints = Number(entry.points);
+              const displayPoints = isEntryOwner
+                ? "∞"
+                : entry.points.toString();
 
               return (
                 <motion.div
@@ -231,7 +256,7 @@ export default function PointsLeaderboard() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   className={`flex items-center gap-4 px-5 py-4 ${
-                    rank === 1 ? "bg-yellow-400/5" : ""
+                    rank === 1 && !isEntryOwner ? "bg-yellow-400/5" : ""
                   } ${isMe ? "bg-primary/10" : ""}`}
                   data-ocid={`leaderboard.item.${rank}`}
                 >
@@ -239,7 +264,13 @@ export default function PointsLeaderboard() {
                   <div
                     className={`w-9 h-9 flex items-center justify-center font-bold text-lg shrink-0 ${rankColor(rank)}`}
                   >
-                    {rank === 1 ? <Crown className="w-6 h-6" /> : rank}
+                    {isEntryOwner ? (
+                      <span title="Owner">👑</span>
+                    ) : rank === 1 ? (
+                      <Crown className="w-6 h-6" />
+                    ) : (
+                      rank
+                    )}
                   </div>
 
                   {/* Name */}
@@ -248,11 +279,11 @@ export default function PointsLeaderboard() {
                       <span className="font-medium truncate">
                         {displayName}
                       </span>
-                      {rank === 1 && (
-                        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
-                          {"\uD83D\uDC51"} #1
-                        </Badge>
-                      )}
+                      <RankBadge
+                        points={entryPoints}
+                        isOwner={isEntryOwner}
+                        assignedRank={assignedRankMap.get(principal)}
+                      />
                       {isMe && (
                         <Badge
                           variant="outline"
@@ -261,30 +292,54 @@ export default function PointsLeaderboard() {
                           You
                         </Badge>
                       )}
+                      {!isEntryOwner && rank === 1 && (
+                        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
+                          🏆 #1
+                        </Badge>
+                      )}
                     </div>
                   </div>
 
                   {/* Points */}
                   <div className="flex items-center gap-1.5 shrink-0">
                     <Zap className="w-4 h-4 text-yellow-400" />
-                    <span className="font-bold text-lg">
-                      {entry.points.toString()}
-                    </span>
+                    <span className="font-bold text-lg">{displayPoints}</span>
                     <span className="text-xs text-muted-foreground">pts</span>
                   </div>
 
-                  {/* Give Points button — only for other logged-in users */}
+                  {/* Action buttons */}
                   {myPrincipal && !isMe && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="shrink-0 border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
-                      onClick={() => setGiveTarget(entry)}
-                      data-ocid={`leaderboard.give_points.button.${rank}`}
-                    >
-                      <Gift className="w-3.5 h-3.5 mr-1" />
-                      Give
-                    </Button>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {/* Message button */}
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-muted-foreground hover:text-foreground"
+                        onClick={() =>
+                          navigate({
+                            to: "/messages/$userId",
+                            params: { userId: principal },
+                          })
+                        }
+                        data-ocid={`leaderboard.message.button.${rank}`}
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                      </Button>
+
+                      {/* Gift Points button */}
+                      {(isOwner || myPoints > 0n) && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-primary/40 text-primary hover:bg-primary/10 hover:text-primary"
+                          onClick={() => setGiveTarget(entry)}
+                          data-ocid={`leaderboard.give_points.button.${rank}`}
+                        >
+                          <Gift className="w-3.5 h-3.5 mr-1" />
+                          Gift
+                        </Button>
+                      )}
+                    </div>
                   )}
                 </motion.div>
               );
@@ -293,12 +348,13 @@ export default function PointsLeaderboard() {
         )}
       </div>
 
-      {/* Give Points Dialog */}
+      {/* Gift Points Dialog */}
       {giveTarget && (
-        <GivePointsDialog
+        <GiftPointsDialog
           recipient={giveTarget}
           displayName={giveTargetDisplay}
           myPoints={myPoints}
+          isCallerOwner={isOwner}
           open={!!giveTarget}
           onOpenChange={(open) => {
             if (!open) setGiveTarget(null);

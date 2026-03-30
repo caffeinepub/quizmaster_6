@@ -1,11 +1,14 @@
+import type { Principal } from "@icp-sdk/core/principal";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
   Answer,
   Comment,
+  ConversationSummary,
   CustomGame,
   CustomTriviaQuestion,
   PointsEntry,
   PostWithStats,
+  PrivateMessage,
   Question,
   Quiz,
   QuizWithAnswers,
@@ -353,6 +356,21 @@ export function useSeedQuizzes() {
   });
 }
 
+export function useDeleteQuiz() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, bigint>({
+    mutationFn: async (quizId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).deleteQuiz(quizId);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["quizzes"] });
+      qc.invalidateQueries({ queryKey: ["posts"] });
+    },
+  });
+}
+
 // Chat hooks
 export function useGetMessages() {
   const { actor, isFetching } = useActor();
@@ -413,5 +431,97 @@ export function usePlayCustomTrivia() {
       qc.invalidateQueries({ queryKey: ["myPoints"] });
       qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
     },
+  });
+}
+
+// Private messaging hooks
+export function useGetMyConversations() {
+  const { actor, isFetching } = useActor();
+  return useQuery<ConversationSummary[]>({
+    queryKey: ["myConversations"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getMyConversations() as Promise<
+        ConversationSummary[]
+      >;
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 10000,
+  });
+}
+
+export function useGetConversation(otherUser: Principal | null) {
+  const { actor, isFetching } = useActor();
+  return useQuery<PrivateMessage[]>({
+    queryKey: ["conversation", otherUser?.toString() ?? ""],
+    queryFn: async () => {
+      if (!actor || !otherUser) return [];
+      return (actor as any).getConversation(otherUser) as Promise<
+        PrivateMessage[]
+      >;
+    },
+    enabled: !!actor && !isFetching && !!otherUser,
+    refetchInterval: 3000,
+  });
+}
+
+export function useGetUnreadMessageCount() {
+  const { actor, isFetching } = useActor();
+  return useQuery<bigint>({
+    queryKey: ["unreadMessages"],
+    queryFn: async () => {
+      if (!actor) return 0n;
+      return (actor as any).getUnreadMessageCount() as Promise<bigint>;
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 10000,
+  });
+}
+
+export function useGiftPoints() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, { recipient: Principal; amount: bigint }>({
+    mutationFn: async ({ recipient, amount }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.giftPoints(recipient, amount);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    },
+  });
+}
+
+export interface PlayerRankEntry {
+  player: { toString(): string };
+  rank: string;
+}
+
+export function useGetAllAssignedRanks() {
+  const { actor, isFetching } = useActor();
+  return useQuery<PlayerRankEntry[]>({
+    queryKey: ["assignedRanks"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getAllAssignedRanks() as Promise<PlayerRankEntry[]>;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useAssignPlayerRank() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    void,
+    Error,
+    { player: import("@icp-sdk/core/principal").Principal; rank: string }
+  >({
+    mutationFn: async ({ player, rank }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).assignPlayerRank(player, rank);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["assignedRanks"] }),
   });
 }

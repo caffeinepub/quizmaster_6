@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useNavigate } from "@tanstack/react-router";
 import { MessageCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { RankBadge } from "../components/RankBadge";
+import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useGetMessages, useSendMessage } from "../hooks/useQueries";
+import {
+  useGetAllPlayerPoints,
+  useGetMessages,
+  useSendMessage,
+} from "../hooks/useQueries";
 
 function formatTime(timestampNs: bigint): string {
   const date = new Date(Number(timestampNs) / 1_000_000);
@@ -22,11 +29,22 @@ export default function Chat() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: messages } = useGetMessages();
   const { mutateAsync: sendMessage, isPending } = useSendMessage();
+  const { ownerPrincipal } = useOwner();
+  const { data: allPoints } = useGetAllPlayerPoints();
+  const navigate = useNavigate();
 
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const myPrincipal = identity?.getPrincipal().toText();
   const msgCount = messages?.length ?? 0;
+
+  const pointsMap = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const e of allPoints ?? []) {
+      map.set(e.player.toString(), Number(e.points));
+    }
+    return map;
+  }, [allPoints]);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: scroll on new messages
   useEffect(() => {
@@ -65,7 +83,7 @@ export default function Chat() {
           <div>
             <h1 className="text-2xl font-bold gradient-text">Community Chat</h1>
             <p className="text-xs text-muted-foreground">
-              {msgCount} messages \u00b7 auto-refreshes every 5s
+              {msgCount} messages · auto-refreshes every 5s
             </p>
           </div>
         </div>
@@ -93,6 +111,12 @@ export default function Chat() {
             <div className="space-y-3">
               {messages.map((msg, i) => {
                 const isMe = msg.author.toString() === myPrincipal;
+                const authorIsOwner = isOwnerPrincipal(
+                  ownerPrincipal,
+                  msg.author,
+                );
+                const authorStr = msg.author.toString();
+                const authorPoints = pointsMap.get(authorStr) ?? 0;
                 return (
                   <motion.div
                     key={msg.id.toString()}
@@ -112,14 +136,43 @@ export default function Chat() {
                       {msg.author.toString().slice(0, 2).toUpperCase()}
                     </div>
                     <div
-                      className={`max-w-[70%] ${isMe ? "items-end" : "items-start"} flex flex-col gap-0.5`}
+                      className={`max-w-[70%] ${
+                        isMe ? "items-end" : "items-start"
+                      } flex flex-col gap-0.5`}
                     >
                       <div
-                        className={`flex items-center gap-2 ${isMe ? "flex-row-reverse" : ""}`}
+                        className={`flex items-center gap-1.5 ${
+                          isMe ? "flex-row-reverse" : ""
+                        }`}
                       >
-                        <span className="text-xs text-muted-foreground font-medium">
-                          {isMe ? "You" : shortAuthor(msg.author)}
-                        </span>
+                        {isMe ? (
+                          <span className="text-xs text-muted-foreground font-medium">
+                            You
+                          </span>
+                        ) : (
+                          <button
+                            type="button"
+                            className="text-xs text-muted-foreground font-medium hover:text-primary transition-colors cursor-pointer"
+                            onClick={() =>
+                              navigate({
+                                to: "/messages/$userId",
+                                params: { userId: authorStr },
+                              })
+                            }
+                            title="Send private message"
+                            data-ocid={`chat.item.${i + 1}`}
+                          >
+                            {shortAuthor(msg.author)}
+                          </button>
+                        )}
+                        <RankBadge
+                          points={
+                            isMe
+                              ? (pointsMap.get(myPrincipal ?? "") ?? 0)
+                              : authorPoints
+                          }
+                          isOwner={isMe ? false : authorIsOwner}
+                        />
                         <span className="text-xs text-muted-foreground/60">
                           {formatTime(msg.timestamp)}
                         </span>

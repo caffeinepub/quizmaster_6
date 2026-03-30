@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@tanstack/react-router";
 import {
@@ -7,18 +8,25 @@ import {
   List,
   LogOut,
   MessageCircle,
+  MessageSquare,
   Plus,
   Rss,
   ShieldCheck,
   Trophy,
   User,
 } from "lucide-react";
+import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useGetUserProfile } from "../hooks/useQueries";
+import {
+  useGetUnreadMessageCount,
+  useGetUserProfile,
+} from "../hooks/useQueries";
 
 export default function Navbar() {
   const { login, clear, identity, loginStatus } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const { data: unreadCount = 0n } = useGetUnreadMessageCount();
+  const { isOwner } = useOwner();
   const location = useLocation();
 
   const isActive = (path: string) =>
@@ -80,8 +88,26 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Auth */}
+        {/* Auth + Messages */}
         <div className="ml-auto flex items-center gap-3">
+          {identity && (
+            <Link
+              to="/messages"
+              className="relative p-2 rounded-full hover:bg-secondary/60 transition-colors"
+              data-ocid="nav.link"
+            >
+              <MessageSquare className="w-5 h-5 text-muted-foreground" />
+              {unreadCount > 0n && (
+                <Badge
+                  className="absolute -top-0.5 -right-0.5 w-4 h-4 p-0 flex items-center justify-center text-[10px] bg-primary text-white border-0"
+                  data-ocid="nav.toast"
+                >
+                  {unreadCount > 9n ? "9+" : unreadCount.toString()}
+                </Badge>
+              )}
+            </Link>
+          )}
+
           {identity ? (
             <>
               <div className="flex items-center gap-2">
@@ -92,6 +118,11 @@ export default function Navbar() {
                 </Avatar>
                 <span className="text-sm font-medium hidden lg:block">
                   {profile?.username ?? "User"}
+                  {isOwner && (
+                    <span className="ml-1" title="Owner">
+                      👑
+                    </span>
+                  )}
                 </span>
               </div>
               <Button

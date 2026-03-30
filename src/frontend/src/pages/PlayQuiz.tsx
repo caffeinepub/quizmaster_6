@@ -5,7 +5,7 @@ import { ChevronRight, Clock, Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { T } from "../backend.d";
+import type { Answer } from "../backend.d";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useGetQuiz,
@@ -24,7 +24,7 @@ export default function PlayQuiz() {
   const submitAnswers = useSubmitQuizAnswers();
 
   const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState<Map<string, T>>(new Map());
+  const [answers, setAnswers] = useState<Map<string, Answer>>(new Map());
   const [selected, setSelected] = useState<number | boolean | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -87,7 +87,7 @@ export default function PlayQuiz() {
   const handleNext = async () => {
     if (selected === null) return;
 
-    const answer: T = {
+    const answer: Answer = {
       questionId: question.id,
       answer: isMultipleChoice
         ? {

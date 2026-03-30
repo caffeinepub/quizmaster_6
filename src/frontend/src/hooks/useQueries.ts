@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
+  Answer,
   Comment,
   PointsEntry,
   PostWithStats,
@@ -7,7 +8,6 @@ import type {
   Quiz,
   QuizWithAnswers,
   Result,
-  T,
   UserProfile,
 } from "../backend.d";
 import { useActor } from "./useActor";
@@ -111,7 +111,7 @@ export function useAddQuestion() {
 
 export function useSubmitQuizAnswers() {
   const { actor } = useActor();
-  return useMutation<bigint, Error, { quizId: bigint; answers: T[] }>({
+  return useMutation<bigint, Error, { quizId: bigint; answers: Answer[] }>({
     mutationFn: async ({ quizId, answers }) => {
       if (!actor) throw new Error("Not authenticated");
       return actor.submitQuizAnswers(quizId, answers);

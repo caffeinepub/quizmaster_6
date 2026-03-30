@@ -89,6 +89,7 @@ export class ExternalBlob {
         return this;
     }
 }
+export type Time = bigint;
 export interface Comment {
     id: bigint;
     content: string;
@@ -96,7 +97,10 @@ export interface Comment {
     timestamp: Time;
     postId: bigint;
 }
-export type Time = bigint;
+export interface SpinWheelSegment {
+    segmentLabel: string;
+    points: bigint;
+}
 export interface PointsEntry {
     player: Principal;
     points: bigint;
@@ -114,6 +118,28 @@ export interface QuizStats {
     quizId: bigint;
     totalCorrectCount: bigint;
 }
+export interface CustomTriviaQuestion {
+    correctOption: bigint;
+    text: string;
+    options: Array<string>;
+    pointsReward: bigint;
+}
+export interface CustomGame {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    gameType: {
+        __kind__: "customSpinWheel";
+        customSpinWheel: {
+            segments: Array<SpinWheelSegment>;
+        };
+    } | {
+        __kind__: "customTrivia";
+        customTrivia: {
+            questions: Array<CustomTriviaQuestion>;
+        };
+    };
+}
 export interface Result {
     username: string;
     player: Principal;
@@ -125,16 +151,6 @@ export interface Result {
 export interface QuizWithAnswers {
     quiz: Quiz;
     questions: Array<Question>;
-}
-export interface T {
-    answer: {
-        __kind__: "multipleChoice";
-        multipleChoice: bigint;
-    } | {
-        __kind__: "trueFalse";
-        trueFalse: boolean;
-    };
-    questionId: bigint;
 }
 export interface PostWithStats {
     likeCount: bigint;
@@ -151,6 +167,16 @@ export interface Post {
     message: string;
     timestamp: Time;
     quizId: bigint;
+}
+export interface Answer {
+    answer: {
+        __kind__: "multipleChoice";
+        multipleChoice: bigint;
+    } | {
+        __kind__: "trueFalse";
+        trueFalse: boolean;
+    };
+    questionId: bigint;
 }
 export interface Question {
     id: bigint;
@@ -183,16 +209,20 @@ export interface backendInterface {
     addQuestion(quizId: bigint, question: Question): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     awardPoints(amount: bigint): Promise<void>;
+    createCustomSpinWheel(title: string, segments: Array<SpinWheelSegment>): Promise<bigint>;
+    createCustomTrivia(title: string, questions: Array<CustomTriviaQuestion>): Promise<bigint>;
     createPost(quizId: bigint, message: string): Promise<bigint>;
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
     getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
+    getAllCustomGames(): Promise<Array<CustomGame>>;
     getAllPlayerPoints(): Promise<Array<PointsEntry>>;
     getAllPostsWithStats(): Promise<Array<PostWithStats>>;
     getAllQuizzes(): Promise<Array<Quiz>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getCommentsByPostId(postId: bigint): Promise<Array<Comment>>;
+    getMemoryGameCooldown(): Promise<Time | null>;
     getMyPoints(): Promise<bigint>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
@@ -200,18 +230,29 @@ export interface backendInterface {
     getQuizLeaderboard(quizId: bigint): Promise<Array<Result> | null>;
     getQuizQuestions(quizId: bigint): Promise<Array<Question>>;
     getQuizStats(): Promise<Array<QuizStats>>;
+    getSpinWheelCooldown(): Promise<Time | null>;
     getTopPlayer(): Promise<Principal | null>;
+    getTotalVisitors(): Promise<bigint>;
     getUserPosts(user: Principal): Promise<Array<PostWithStats>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     getUserQuizResults(): Promise<Array<Result>>;
+    giftPoints(recipient: Principal, amount: bigint): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
     likePost(postId: bigint): Promise<void>;
+    playCustomSpinWheel(gameId: bigint): Promise<bigint>;
+    playCustomTrivia(gameId: bigint, answers: Array<{
+        answerIndex: bigint;
+        questionId: bigint;
+    }>): Promise<bigint>;
+    recordMemoryGamePlay(): Promise<void>;
+    recordSpinWheelPlay(): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
-    submitQuizAnswers(quizId: bigint, answers: Array<T>): Promise<bigint>;
+    submitQuizAnswers(quizId: bigint, answers: Array<Answer>): Promise<bigint>;
+    trackVisit(): Promise<void>;
     unlikePost(postId: bigint): Promise<void>;
     updateUserProfile(username: string): Promise<void>;
 }
-import type { PostWithComment as _PostWithComment, Question as _Question, Quiz as _Quiz, QuizWithAnswers as _QuizWithAnswers, Result as _Result, T as _T, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
+import type { Answer as _Answer, CustomGame as _CustomGame, CustomTriviaQuestion as _CustomTriviaQuestion, PostWithComment as _PostWithComment, Question as _Question, Quiz as _Quiz, QuizWithAnswers as _QuizWithAnswers, Result as _Result, SpinWheelSegment as _SpinWheelSegment, Time as _Time, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
     async _initializeAccessControlWithSecret(arg0: string): Promise<void> {
@@ -284,6 +325,34 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async createCustomSpinWheel(arg0: string, arg1: Array<SpinWheelSegment>): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.createCustomSpinWheel(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.createCustomSpinWheel(arg0, arg1);
+            return result;
+        }
+    }
+    async createCustomTrivia(arg0: string, arg1: Array<CustomTriviaQuestion>): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.createCustomTrivia(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.createCustomTrivia(arg0, arg1);
+            return result;
+        }
+    }
     async createPost(arg0: bigint, arg1: string): Promise<bigint> {
         if (this.processError) {
             try {
@@ -340,6 +409,20 @@ export class Backend implements backendInterface {
             return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
         }
     }
+    async getAllCustomGames(): Promise<Array<CustomGame>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllCustomGames();
+                return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllCustomGames();
+            return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+        }
+    }
     async getAllPlayerPoints(): Promise<Array<PointsEntry>> {
         if (this.processError) {
             try {
@@ -386,28 +469,28 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserProfile();
-                return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserProfile();
-            return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
         }
     }
     async getCallerUserRole(): Promise<UserRole> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserRole();
-                return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
+                return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserRole();
-            return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
+            return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
         }
     }
     async getCommentsByPostId(arg0: bigint): Promise<Array<Comment>> {
@@ -422,6 +505,20 @@ export class Backend implements backendInterface {
         } else {
             const result = await this.actor.getCommentsByPostId(arg0);
             return result;
+        }
+    }
+    async getMemoryGameCooldown(): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMemoryGameCooldown();
+                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMemoryGameCooldown();
+            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
         }
     }
     async getMyPoints(): Promise<bigint> {
@@ -442,14 +539,14 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getPostWithComments(arg0);
-                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getPostWithComments(arg0);
-            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
         }
     }
     async getPostsByQuizId(arg0: bigint): Promise<Array<PostWithStats>> {
@@ -484,14 +581,14 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getQuizLeaderboard(arg0);
-                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getQuizLeaderboard(arg0);
-            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
         }
     }
     async getQuizQuestions(arg0: bigint): Promise<Array<Question>> {
@@ -522,18 +619,46 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getSpinWheelCooldown(): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getSpinWheelCooldown();
+                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getSpinWheelCooldown();
+            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+        }
+    }
     async getTopPlayer(): Promise<Principal | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getTopPlayer();
-                return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getTopPlayer();
-            return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getTotalVisitors(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getTotalVisitors();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getTotalVisitors();
+            return result;
         }
     }
     async getUserPosts(arg0: Principal): Promise<Array<PostWithStats>> {
@@ -554,14 +679,14 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getUserProfile(arg0);
-                return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getUserProfile(arg0);
-            return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
         }
     }
     async getUserQuizResults(): Promise<Array<Result>> {
@@ -575,6 +700,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getUserQuizResults();
+            return result;
+        }
+    }
+    async giftPoints(arg0: Principal, arg1: bigint): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.giftPoints(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.giftPoints(arg0, arg1);
             return result;
         }
     }
@@ -606,6 +745,65 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async playCustomSpinWheel(arg0: bigint): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.playCustomSpinWheel(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.playCustomSpinWheel(arg0);
+            return result;
+        }
+    }
+    async playCustomTrivia(arg0: bigint, arg1: Array<{
+        answerIndex: bigint;
+        questionId: bigint;
+    }>): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.playCustomTrivia(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.playCustomTrivia(arg0, arg1);
+            return result;
+        }
+    }
+    async recordMemoryGamePlay(): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.recordMemoryGamePlay();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.recordMemoryGamePlay();
+            return result;
+        }
+    }
+    async recordSpinWheelPlay(): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.recordSpinWheelPlay();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.recordSpinWheelPlay();
+            return result;
+        }
+    }
     async saveCallerUserProfile(arg0: UserProfile): Promise<void> {
         if (this.processError) {
             try {
@@ -620,17 +818,31 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async submitQuizAnswers(arg0: bigint, arg1: Array<T>): Promise<bigint> {
+    async submitQuizAnswers(arg0: bigint, arg1: Array<Answer>): Promise<bigint> {
         if (this.processError) {
             try {
-                const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
+                const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
+            const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
+            return result;
+        }
+    }
+    async trackVisit(): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.trackVisit();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.trackVisit();
             return result;
         }
     }
@@ -663,25 +875,31 @@ export class Backend implements backendInterface {
         }
     }
 }
+function from_candid_CustomGame_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _CustomGame): CustomGame {
+    return from_candid_record_n15(_uploadFile, _downloadFile, value);
+}
 function from_candid_Question_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Question): Question {
     return from_candid_record_n11(_uploadFile, _downloadFile, value);
 }
 function from_candid_QuizWithAnswers_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _QuizWithAnswers): QuizWithAnswers {
     return from_candid_record_n8(_uploadFile, _downloadFile, value);
 }
-function from_candid_UserRole_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
-    return from_candid_variant_n15(_uploadFile, _downloadFile, value);
+function from_candid_UserRole_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
+    return from_candid_variant_n19(_uploadFile, _downloadFile, value);
 }
-function from_candid_opt_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
+function from_candid_opt_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_PostWithComment]): PostWithComment | null {
+function from_candid_opt_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Time]): Time | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Array<_Result>]): Array<Result> | null {
+function from_candid_opt_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_PostWithComment]): PostWithComment | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
+function from_candid_opt_n22(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Array<_Result>]): Array<Result> | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n23(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
     return value.length === 0 ? null : value[0];
 }
 function from_candid_record_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
@@ -720,6 +938,42 @@ function from_candid_record_n11(_uploadFile: (file: ExternalBlob) => Promise<Uin
         text: value.text,
         questionType: from_candid_variant_n12(_uploadFile, _downloadFile, value.questionType),
         quizId: value.quizId
+    };
+}
+function from_candid_record_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    gameType: {
+        customSpinWheel: {
+            segments: Array<_SpinWheelSegment>;
+        };
+    } | {
+        customTrivia: {
+            questions: Array<_CustomTriviaQuestion>;
+        };
+    };
+}): {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    gameType: {
+        __kind__: "customSpinWheel";
+        customSpinWheel: {
+            segments: Array<SpinWheelSegment>;
+        };
+    } | {
+        __kind__: "customTrivia";
+        customTrivia: {
+            questions: Array<CustomTriviaQuestion>;
+        };
+    };
+} {
+    return {
+        id: value.id,
+        title: value.title,
+        creator: value.creator,
+        gameType: from_candid_variant_n16(_uploadFile, _downloadFile, value.gameType)
     };
 }
 function from_candid_record_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
@@ -763,7 +1017,34 @@ function from_candid_variant_n12(_uploadFile: (file: ExternalBlob) => Promise<Ui
         trueFalse: value.trueFalse
     } : value;
 }
-function from_candid_variant_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_variant_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    customSpinWheel: {
+        segments: Array<_SpinWheelSegment>;
+    };
+} | {
+    customTrivia: {
+        questions: Array<_CustomTriviaQuestion>;
+    };
+}): {
+    __kind__: "customSpinWheel";
+    customSpinWheel: {
+        segments: Array<SpinWheelSegment>;
+    };
+} | {
+    __kind__: "customTrivia";
+    customTrivia: {
+        questions: Array<CustomTriviaQuestion>;
+    };
+} {
+    return "customSpinWheel" in value ? {
+        __kind__: "customSpinWheel",
+        customSpinWheel: value.customSpinWheel
+    } : "customTrivia" in value ? {
+        __kind__: "customTrivia",
+        customTrivia: value.customTrivia
+    } : value;
+}
+function from_candid_variant_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     admin: null;
 } | {
     user: null;
@@ -772,17 +1053,20 @@ function from_candid_variant_n15(_uploadFile: (file: ExternalBlob) => Promise<Ui
 }): UserRole {
     return "admin" in value ? UserRole.admin : "user" in value ? UserRole.user : "guest" in value ? UserRole.guest : value;
 }
+function from_candid_vec_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_CustomGame>): Array<CustomGame> {
+    return value.map((x)=>from_candid_CustomGame_n14(_uploadFile, _downloadFile, x));
+}
 function from_candid_vec_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_QuizWithAnswers>): Array<QuizWithAnswers> {
     return value.map((x)=>from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, x));
 }
 function from_candid_vec_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_Question>): Array<Question> {
     return value.map((x)=>from_candid_Question_n10(_uploadFile, _downloadFile, x));
 }
+function to_candid_Answer_n25(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Answer): _Answer {
+    return to_candid_record_n26(_uploadFile, _downloadFile, value);
+}
 function to_candid_Question_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Question): _Question {
     return to_candid_record_n2(_uploadFile, _downloadFile, value);
-}
-function to_candid_T_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: T): _T {
-    return to_candid_record_n21(_uploadFile, _downloadFile, value);
 }
 function to_candid_UserRole_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): _UserRole {
     return to_candid_variant_n5(_uploadFile, _downloadFile, value);
@@ -825,7 +1109,7 @@ function to_candid_record_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8A
         quizId: value.quizId
     };
 }
-function to_candid_record_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function to_candid_record_n26(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     answer: {
         __kind__: "multipleChoice";
         multipleChoice: bigint;
@@ -843,11 +1127,11 @@ function to_candid_record_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8
     questionId: bigint;
 } {
     return {
-        answer: to_candid_variant_n22(_uploadFile, _downloadFile, value.answer),
+        answer: to_candid_variant_n27(_uploadFile, _downloadFile, value.answer),
         questionId: value.questionId
     };
 }
-function to_candid_variant_n22(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function to_candid_variant_n27(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     __kind__: "multipleChoice";
     multipleChoice: bigint;
 } | {
@@ -906,8 +1190,8 @@ function to_candid_variant_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8
         guest: null
     } : value;
 }
-function to_candid_vec_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<T>): Array<_T> {
-    return value.map((x)=>to_candid_T_n20(_uploadFile, _downloadFile, x));
+function to_candid_vec_n24(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<Answer>): Array<_Answer> {
+    return value.map((x)=>to_candid_Answer_n25(_uploadFile, _downloadFile, x));
 }
 export interface CreateActorOptions {
     agent?: Agent;

@@ -28354,14 +28354,14 @@ function st(t) {
 function k(t, n) {
   I(t, n.length), s > o.length - n.length && (o = R(o, o.length + n.length), r = new DataView(o.buffer)), o.set(n, s), s += n.length;
 }
-function T$1(t, n) {
+function T(t, n) {
   I(t, n);
 }
 function ct(t) {
-  T$1(c.UnsignedInteger, t);
+  T(c.UnsignedInteger, t);
 }
 function ot(t) {
-  T$1(
+  T(
     c.NegativeInteger,
     typeof t == "bigint" ? -1n - t : -1 - t
   );
@@ -35871,6 +35871,16 @@ const UserRole = Variant({
   "user": Null,
   "guest": Null
 });
+const SpinWheelSegment = Record({
+  "segmentLabel": Text,
+  "points": Nat
+});
+const CustomTriviaQuestion = Record({
+  "correctOption": Nat,
+  "text": Text,
+  "options": Vec(Text),
+  "pointsReward": Nat
+});
 const Time = Int;
 const Quiz = Record({
   "id": Nat,
@@ -35882,6 +35892,17 @@ const Quiz = Record({
 const QuizWithAnswers = Record({
   "quiz": Quiz,
   "questions": Vec(Question)
+});
+const CustomGame = Record({
+  "id": Nat,
+  "title": Text,
+  "creator": Principal2,
+  "gameType": Variant({
+    "customSpinWheel": Record({ "segments": Vec(SpinWheelSegment) }),
+    "customTrivia": Record({
+      "questions": Vec(CustomTriviaQuestion)
+    })
+  })
 });
 const PointsEntry = Record({
   "player": Principal2,
@@ -35925,7 +35946,7 @@ const QuizStats = Record({
   "quizId": Nat,
   "totalCorrectCount": Nat
 });
-const T = Record({
+const Answer = Record({
   "answer": Variant({
     "multipleChoice": Nat,
     "trueFalse": Bool
@@ -35938,16 +35959,28 @@ Service({
   "addQuestion": Func([Nat, Question], [Nat], []),
   "assignCallerUserRole": Func([Principal2, UserRole], [], []),
   "awardPoints": Func([Nat], [], []),
+  "createCustomSpinWheel": Func(
+    [Text, Vec(SpinWheelSegment)],
+    [Nat],
+    []
+  ),
+  "createCustomTrivia": Func(
+    [Text, Vec(CustomTriviaQuestion)],
+    [Nat],
+    []
+  ),
   "createPost": Func([Nat, Text], [Nat], []),
   "createQuiz": Func([Text, Text], [Nat], []),
   "createUserProfile": Func([Text], [], []),
   "getAdminQuizAnswers": Func([], [Vec(QuizWithAnswers)], ["query"]),
+  "getAllCustomGames": Func([], [Vec(CustomGame)], ["query"]),
   "getAllPlayerPoints": Func([], [Vec(PointsEntry)], ["query"]),
   "getAllPostsWithStats": Func([], [Vec(PostWithStats)], ["query"]),
   "getAllQuizzes": Func([], [Vec(Quiz)], ["query"]),
   "getCallerUserProfile": Func([], [Opt(UserProfile)], ["query"]),
   "getCallerUserRole": Func([], [UserRole], ["query"]),
   "getCommentsByPostId": Func([Nat], [Vec(Comment)], ["query"]),
+  "getMemoryGameCooldown": Func([], [Opt(Time)], ["query"]),
   "getMyPoints": Func([], [Nat], ["query"]),
   "getPostWithComments": Func(
     [Nat],
@@ -35963,7 +35996,9 @@ Service({
   ),
   "getQuizQuestions": Func([Nat], [Vec(Question)], ["query"]),
   "getQuizStats": Func([], [Vec(QuizStats)], ["query"]),
+  "getSpinWheelCooldown": Func([], [Opt(Time)], ["query"]),
   "getTopPlayer": Func([], [Opt(Principal2)], ["query"]),
+  "getTotalVisitors": Func([], [Nat], ["query"]),
   "getUserPosts": Func(
     [Principal2],
     [Vec(PostWithStats)],
@@ -35975,10 +36010,25 @@ Service({
     ["query"]
   ),
   "getUserQuizResults": Func([], [Vec(Result)], ["query"]),
+  "giftPoints": Func([Principal2, Nat], [], []),
   "isCallerAdmin": Func([], [Bool], ["query"]),
   "likePost": Func([Nat], [], []),
+  "playCustomSpinWheel": Func([Nat], [Nat], []),
+  "playCustomTrivia": Func(
+    [
+      Nat,
+      Vec(
+        Record({ "answerIndex": Nat, "questionId": Nat })
+      )
+    ],
+    [Nat],
+    []
+  ),
+  "recordMemoryGamePlay": Func([], [], []),
+  "recordSpinWheelPlay": Func([], [], []),
   "saveCallerUserProfile": Func([UserProfile], [], []),
-  "submitQuizAnswers": Func([Nat, Vec(T)], [Nat], []),
+  "submitQuizAnswers": Func([Nat, Vec(Answer)], [Nat], []),
+  "trackVisit": Func([], [], []),
   "unlikePost": Func([Nat], [], []),
   "updateUserProfile": Func([Text], [], [])
 });
@@ -36000,6 +36050,16 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "user": IDL2.Null,
     "guest": IDL2.Null
   });
+  const SpinWheelSegment2 = IDL2.Record({
+    "segmentLabel": IDL2.Text,
+    "points": IDL2.Nat
+  });
+  const CustomTriviaQuestion2 = IDL2.Record({
+    "correctOption": IDL2.Nat,
+    "text": IDL2.Text,
+    "options": IDL2.Vec(IDL2.Text),
+    "pointsReward": IDL2.Nat
+  });
   const Time2 = IDL2.Int;
   const Quiz2 = IDL2.Record({
     "id": IDL2.Nat,
@@ -36011,6 +36071,19 @@ const idlFactory = ({ IDL: IDL2 }) => {
   const QuizWithAnswers2 = IDL2.Record({
     "quiz": Quiz2,
     "questions": IDL2.Vec(Question2)
+  });
+  const CustomGame2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "title": IDL2.Text,
+    "creator": IDL2.Principal,
+    "gameType": IDL2.Variant({
+      "customSpinWheel": IDL2.Record({
+        "segments": IDL2.Vec(SpinWheelSegment2)
+      }),
+      "customTrivia": IDL2.Record({
+        "questions": IDL2.Vec(CustomTriviaQuestion2)
+      })
+    })
   });
   const PointsEntry2 = IDL2.Record({
     "player": IDL2.Principal,
@@ -36054,7 +36127,7 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "quizId": IDL2.Nat,
     "totalCorrectCount": IDL2.Nat
   });
-  const T2 = IDL2.Record({
+  const Answer2 = IDL2.Record({
     "answer": IDL2.Variant({
       "multipleChoice": IDL2.Nat,
       "trueFalse": IDL2.Bool
@@ -36067,16 +36140,28 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "addQuestion": IDL2.Func([IDL2.Nat, Question2], [IDL2.Nat], []),
     "assignCallerUserRole": IDL2.Func([IDL2.Principal, UserRole2], [], []),
     "awardPoints": IDL2.Func([IDL2.Nat], [], []),
+    "createCustomSpinWheel": IDL2.Func(
+      [IDL2.Text, IDL2.Vec(SpinWheelSegment2)],
+      [IDL2.Nat],
+      []
+    ),
+    "createCustomTrivia": IDL2.Func(
+      [IDL2.Text, IDL2.Vec(CustomTriviaQuestion2)],
+      [IDL2.Nat],
+      []
+    ),
     "createPost": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "createQuiz": IDL2.Func([IDL2.Text, IDL2.Text], [IDL2.Nat], []),
     "createUserProfile": IDL2.Func([IDL2.Text], [], []),
     "getAdminQuizAnswers": IDL2.Func([], [IDL2.Vec(QuizWithAnswers2)], ["query"]),
+    "getAllCustomGames": IDL2.Func([], [IDL2.Vec(CustomGame2)], ["query"]),
     "getAllPlayerPoints": IDL2.Func([], [IDL2.Vec(PointsEntry2)], ["query"]),
     "getAllPostsWithStats": IDL2.Func([], [IDL2.Vec(PostWithStats2)], ["query"]),
     "getAllQuizzes": IDL2.Func([], [IDL2.Vec(Quiz2)], ["query"]),
     "getCallerUserProfile": IDL2.Func([], [IDL2.Opt(UserProfile2)], ["query"]),
     "getCallerUserRole": IDL2.Func([], [UserRole2], ["query"]),
     "getCommentsByPostId": IDL2.Func([IDL2.Nat], [IDL2.Vec(Comment2)], ["query"]),
+    "getMemoryGameCooldown": IDL2.Func([], [IDL2.Opt(Time2)], ["query"]),
     "getMyPoints": IDL2.Func([], [IDL2.Nat], ["query"]),
     "getPostWithComments": IDL2.Func(
       [IDL2.Nat],
@@ -36096,7 +36181,9 @@ const idlFactory = ({ IDL: IDL2 }) => {
     ),
     "getQuizQuestions": IDL2.Func([IDL2.Nat], [IDL2.Vec(Question2)], ["query"]),
     "getQuizStats": IDL2.Func([], [IDL2.Vec(QuizStats2)], ["query"]),
+    "getSpinWheelCooldown": IDL2.Func([], [IDL2.Opt(Time2)], ["query"]),
     "getTopPlayer": IDL2.Func([], [IDL2.Opt(IDL2.Principal)], ["query"]),
+    "getTotalVisitors": IDL2.Func([], [IDL2.Nat], ["query"]),
     "getUserPosts": IDL2.Func(
       [IDL2.Principal],
       [IDL2.Vec(PostWithStats2)],
@@ -36108,10 +36195,25 @@ const idlFactory = ({ IDL: IDL2 }) => {
       ["query"]
     ),
     "getUserQuizResults": IDL2.Func([], [IDL2.Vec(Result2)], ["query"]),
+    "giftPoints": IDL2.Func([IDL2.Principal, IDL2.Nat], [], []),
     "isCallerAdmin": IDL2.Func([], [IDL2.Bool], ["query"]),
     "likePost": IDL2.Func([IDL2.Nat], [], []),
+    "playCustomSpinWheel": IDL2.Func([IDL2.Nat], [IDL2.Nat], []),
+    "playCustomTrivia": IDL2.Func(
+      [
+        IDL2.Nat,
+        IDL2.Vec(
+          IDL2.Record({ "answerIndex": IDL2.Nat, "questionId": IDL2.Nat })
+        )
+      ],
+      [IDL2.Nat],
+      []
+    ),
+    "recordMemoryGamePlay": IDL2.Func([], [], []),
+    "recordSpinWheelPlay": IDL2.Func([], [], []),
     "saveCallerUserProfile": IDL2.Func([UserProfile2], [], []),
-    "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(T2)], [IDL2.Nat], []),
+    "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(Answer2)], [IDL2.Nat], []),
+    "trackVisit": IDL2.Func([], [], []),
     "unlikePost": IDL2.Func([IDL2.Nat], [], []),
     "updateUserProfile": IDL2.Func([IDL2.Text], [], [])
   });
@@ -36231,6 +36333,34 @@ class Backend {
       return result;
     }
   }
+  async createCustomSpinWheel(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.createCustomSpinWheel(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.createCustomSpinWheel(arg0, arg1);
+      return result;
+    }
+  }
+  async createCustomTrivia(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.createCustomTrivia(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.createCustomTrivia(arg0, arg1);
+      return result;
+    }
+  }
   async createPost(arg0, arg1) {
     if (this.processError) {
       try {
@@ -36287,6 +36417,20 @@ class Backend {
       return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
     }
   }
+  async getAllCustomGames() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getAllCustomGames();
+        return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getAllCustomGames();
+      return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+    }
+  }
   async getAllPlayerPoints() {
     if (this.processError) {
       try {
@@ -36333,28 +36477,28 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getCallerUserProfile();
-        return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getCallerUserProfile();
-      return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
     }
   }
   async getCallerUserRole() {
     if (this.processError) {
       try {
         const result = await this.actor.getCallerUserRole();
-        return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
+        return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getCallerUserRole();
-      return from_candid_UserRole_n14(this._uploadFile, this._downloadFile, result);
+      return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
     }
   }
   async getCommentsByPostId(arg0) {
@@ -36369,6 +36513,20 @@ class Backend {
     } else {
       const result = await this.actor.getCommentsByPostId(arg0);
       return result;
+    }
+  }
+  async getMemoryGameCooldown() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getMemoryGameCooldown();
+        return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getMemoryGameCooldown();
+      return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
     }
   }
   async getMyPoints() {
@@ -36389,14 +36547,14 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getPostWithComments(arg0);
-        return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getPostWithComments(arg0);
-      return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
     }
   }
   async getPostsByQuizId(arg0) {
@@ -36431,14 +36589,14 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getQuizLeaderboard(arg0);
-        return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getQuizLeaderboard(arg0);
-      return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
     }
   }
   async getQuizQuestions(arg0) {
@@ -36469,18 +36627,46 @@ class Backend {
       return result;
     }
   }
+  async getSpinWheelCooldown() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getSpinWheelCooldown();
+        return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getSpinWheelCooldown();
+      return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+    }
+  }
   async getTopPlayer() {
     if (this.processError) {
       try {
         const result = await this.actor.getTopPlayer();
-        return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getTopPlayer();
-      return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
+    }
+  }
+  async getTotalVisitors() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getTotalVisitors();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getTotalVisitors();
+      return result;
     }
   }
   async getUserPosts(arg0) {
@@ -36501,14 +36687,14 @@ class Backend {
     if (this.processError) {
       try {
         const result = await this.actor.getUserProfile(arg0);
-        return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+        return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
       const result = await this.actor.getUserProfile(arg0);
-      return from_candid_opt_n13(this._uploadFile, this._downloadFile, result);
+      return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
     }
   }
   async getUserQuizResults() {
@@ -36522,6 +36708,20 @@ class Backend {
       }
     } else {
       const result = await this.actor.getUserQuizResults();
+      return result;
+    }
+  }
+  async giftPoints(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.giftPoints(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.giftPoints(arg0, arg1);
       return result;
     }
   }
@@ -36553,6 +36753,62 @@ class Backend {
       return result;
     }
   }
+  async playCustomSpinWheel(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.playCustomSpinWheel(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.playCustomSpinWheel(arg0);
+      return result;
+    }
+  }
+  async playCustomTrivia(arg0, arg1) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.playCustomTrivia(arg0, arg1);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.playCustomTrivia(arg0, arg1);
+      return result;
+    }
+  }
+  async recordMemoryGamePlay() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.recordMemoryGamePlay();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.recordMemoryGamePlay();
+      return result;
+    }
+  }
+  async recordSpinWheelPlay() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.recordSpinWheelPlay();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.recordSpinWheelPlay();
+      return result;
+    }
+  }
   async saveCallerUserProfile(arg0) {
     if (this.processError) {
       try {
@@ -36570,14 +36826,28 @@ class Backend {
   async submitQuizAnswers(arg0, arg1) {
     if (this.processError) {
       try {
-        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
+        const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
         return result;
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
-      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n19(this._uploadFile, this._downloadFile, arg1));
+      const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
+      return result;
+    }
+  }
+  async trackVisit() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.trackVisit();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.trackVisit();
       return result;
     }
   }
@@ -36610,25 +36880,31 @@ class Backend {
     }
   }
 }
+function from_candid_CustomGame_n14(_uploadFile, _downloadFile, value) {
+  return from_candid_record_n15(_uploadFile, _downloadFile, value);
+}
 function from_candid_Question_n10(_uploadFile, _downloadFile, value) {
   return from_candid_record_n11(_uploadFile, _downloadFile, value);
 }
 function from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, value) {
   return from_candid_record_n8(_uploadFile, _downloadFile, value);
 }
-function from_candid_UserRole_n14(_uploadFile, _downloadFile, value) {
-  return from_candid_variant_n15(_uploadFile, _downloadFile, value);
-}
-function from_candid_opt_n13(_uploadFile, _downloadFile, value) {
-  return value.length === 0 ? null : value[0];
-}
-function from_candid_opt_n16(_uploadFile, _downloadFile, value) {
-  return value.length === 0 ? null : value[0];
+function from_candid_UserRole_n18(_uploadFile, _downloadFile, value) {
+  return from_candid_variant_n19(_uploadFile, _downloadFile, value);
 }
 function from_candid_opt_n17(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n18(_uploadFile, _downloadFile, value) {
+function from_candid_opt_n20(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n21(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n22(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n23(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
 function from_candid_record_n11(_uploadFile, _downloadFile, value) {
@@ -36637,6 +36913,14 @@ function from_candid_record_n11(_uploadFile, _downloadFile, value) {
     text: value.text,
     questionType: from_candid_variant_n12(_uploadFile, _downloadFile, value.questionType),
     quizId: value.quizId
+  };
+}
+function from_candid_record_n15(_uploadFile, _downloadFile, value) {
+  return {
+    id: value.id,
+    title: value.title,
+    creator: value.creator,
+    gameType: from_candid_variant_n16(_uploadFile, _downloadFile, value.gameType)
   };
 }
 function from_candid_record_n8(_uploadFile, _downloadFile, value) {
@@ -36654,8 +36938,20 @@ function from_candid_variant_n12(_uploadFile, _downloadFile, value) {
     trueFalse: value.trueFalse
   } : value;
 }
-function from_candid_variant_n15(_uploadFile, _downloadFile, value) {
+function from_candid_variant_n16(_uploadFile, _downloadFile, value) {
+  return "customSpinWheel" in value ? {
+    __kind__: "customSpinWheel",
+    customSpinWheel: value.customSpinWheel
+  } : "customTrivia" in value ? {
+    __kind__: "customTrivia",
+    customTrivia: value.customTrivia
+  } : value;
+}
+function from_candid_variant_n19(_uploadFile, _downloadFile, value) {
   return "admin" in value ? "admin" : "user" in value ? "user" : "guest" in value ? "guest" : value;
+}
+function from_candid_vec_n13(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => from_candid_CustomGame_n14(_uploadFile, _downloadFile, x2));
 }
 function from_candid_vec_n6(_uploadFile, _downloadFile, value) {
   return value.map((x2) => from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, x2));
@@ -36663,11 +36959,11 @@ function from_candid_vec_n6(_uploadFile, _downloadFile, value) {
 function from_candid_vec_n9(_uploadFile, _downloadFile, value) {
   return value.map((x2) => from_candid_Question_n10(_uploadFile, _downloadFile, x2));
 }
+function to_candid_Answer_n25(_uploadFile, _downloadFile, value) {
+  return to_candid_record_n26(_uploadFile, _downloadFile, value);
+}
 function to_candid_Question_n1(_uploadFile, _downloadFile, value) {
   return to_candid_record_n2(_uploadFile, _downloadFile, value);
-}
-function to_candid_T_n20(_uploadFile, _downloadFile, value) {
-  return to_candid_record_n21(_uploadFile, _downloadFile, value);
 }
 function to_candid_UserRole_n4(_uploadFile, _downloadFile, value) {
   return to_candid_variant_n5(_uploadFile, _downloadFile, value);
@@ -36680,13 +36976,13 @@ function to_candid_record_n2(_uploadFile, _downloadFile, value) {
     quizId: value.quizId
   };
 }
-function to_candid_record_n21(_uploadFile, _downloadFile, value) {
+function to_candid_record_n26(_uploadFile, _downloadFile, value) {
   return {
-    answer: to_candid_variant_n22(_uploadFile, _downloadFile, value.answer),
+    answer: to_candid_variant_n27(_uploadFile, _downloadFile, value.answer),
     questionId: value.questionId
   };
 }
-function to_candid_variant_n22(_uploadFile, _downloadFile, value) {
+function to_candid_variant_n27(_uploadFile, _downloadFile, value) {
   return value.__kind__ === "multipleChoice" ? {
     multipleChoice: value.multipleChoice
   } : value.__kind__ === "trueFalse" ? {
@@ -36709,8 +37005,8 @@ function to_candid_variant_n5(_uploadFile, _downloadFile, value) {
     guest: null
   } : value;
 }
-function to_candid_vec_n19(_uploadFile, _downloadFile, value) {
-  return value.map((x2) => to_candid_T_n20(_uploadFile, _downloadFile, x2));
+function to_candid_vec_n24(_uploadFile, _downloadFile, value) {
+  return value.map((x2) => to_candid_Answer_n25(_uploadFile, _downloadFile, x2));
 }
 function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
   const agent = options.agent || HttpAgent.createSync({
@@ -50234,7 +50530,7 @@ const SEGMENTS = [
   { label: "200", value: 200, color: "#ef4444" },
   { label: "5", value: 5, color: "#6366f1" }
 ];
-const COOLDOWN_MS = 1 * 24 * 60 * 60 * 1e3;
+const COOLDOWN_MS = 3 * 24 * 60 * 60 * 1e3;
 const SEG_ANGLE = 360 / SEGMENTS.length;
 function getStorageKey(principal) {
   return `spinwheel_last_spin_${principal}`;
@@ -50440,7 +50736,7 @@ function SpinWheel() {
       cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl px-6 py-4 text-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: "Next spin available in" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl font-bold text-primary tabular-nums", children: formatCountdown(cooldownMs) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: "Spin wheel resets every 1 day" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-1", children: "Spin wheel resets every 3 days" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/games", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         Button,
@@ -50480,7 +50776,7 @@ function SpinWheel() {
                 ] }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-muted-foreground ml-2", children: "pts" })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Next spin available in 1 day" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: "Next spin available in 3 days" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Button,
                 {

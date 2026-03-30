@@ -10,12 +10,32 @@ import type { ActorMethod } from '@icp-sdk/core/agent';
 import type { IDL } from '@icp-sdk/core/candid';
 import type { Principal } from '@icp-sdk/core/principal';
 
+export interface Answer {
+  'answer' : { 'multipleChoice' : bigint } |
+    { 'trueFalse' : boolean },
+  'questionId' : bigint,
+}
 export interface Comment {
   'id' : bigint,
   'content' : string,
   'author' : Principal,
   'timestamp' : Time,
   'postId' : bigint,
+}
+export interface CustomGame {
+  'id' : bigint,
+  'title' : string,
+  'creator' : Principal,
+  'gameType' : {
+      'customSpinWheel' : { 'segments' : Array<SpinWheelSegment> }
+    } |
+    { 'customTrivia' : { 'questions' : Array<CustomTriviaQuestion> } },
+}
+export interface CustomTriviaQuestion {
+  'correctOption' : bigint,
+  'text' : string,
+  'options' : Array<string>,
+  'pointsReward' : bigint,
 }
 export interface PointsEntry { 'player' : Principal, 'points' : bigint }
 export interface Post {
@@ -65,11 +85,7 @@ export interface Result {
   'timestamp' : Time,
   'quizId' : bigint,
 }
-export interface T {
-  'answer' : { 'multipleChoice' : bigint } |
-    { 'trueFalse' : boolean },
-  'questionId' : bigint,
-}
+export interface SpinWheelSegment { 'segmentLabel' : string, 'points' : bigint }
 export type Time = bigint;
 export interface UserProfile { 'username' : string }
 export type UserRole = { 'admin' : null } |
@@ -81,16 +97,26 @@ export interface _SERVICE {
   'addQuestion' : ActorMethod<[bigint, Question], bigint>,
   'assignCallerUserRole' : ActorMethod<[Principal, UserRole], undefined>,
   'awardPoints' : ActorMethod<[bigint], undefined>,
+  'createCustomSpinWheel' : ActorMethod<
+    [string, Array<SpinWheelSegment>],
+    bigint
+  >,
+  'createCustomTrivia' : ActorMethod<
+    [string, Array<CustomTriviaQuestion>],
+    bigint
+  >,
   'createPost' : ActorMethod<[bigint, string], bigint>,
   'createQuiz' : ActorMethod<[string, string], bigint>,
   'createUserProfile' : ActorMethod<[string], undefined>,
   'getAdminQuizAnswers' : ActorMethod<[], Array<QuizWithAnswers>>,
+  'getAllCustomGames' : ActorMethod<[], Array<CustomGame>>,
   'getAllPlayerPoints' : ActorMethod<[], Array<PointsEntry>>,
   'getAllPostsWithStats' : ActorMethod<[], Array<PostWithStats>>,
   'getAllQuizzes' : ActorMethod<[], Array<Quiz>>,
   'getCallerUserProfile' : ActorMethod<[], [] | [UserProfile]>,
   'getCallerUserRole' : ActorMethod<[], UserRole>,
   'getCommentsByPostId' : ActorMethod<[bigint], Array<Comment>>,
+  'getMemoryGameCooldown' : ActorMethod<[], [] | [Time]>,
   'getMyPoints' : ActorMethod<[], bigint>,
   'getPostWithComments' : ActorMethod<[bigint], [] | [PostWithComment]>,
   'getPostsByQuizId' : ActorMethod<[bigint], Array<PostWithStats>>,
@@ -98,14 +124,25 @@ export interface _SERVICE {
   'getQuizLeaderboard' : ActorMethod<[bigint], [] | [Array<Result>]>,
   'getQuizQuestions' : ActorMethod<[bigint], Array<Question>>,
   'getQuizStats' : ActorMethod<[], Array<QuizStats>>,
+  'getSpinWheelCooldown' : ActorMethod<[], [] | [Time]>,
   'getTopPlayer' : ActorMethod<[], [] | [Principal]>,
+  'getTotalVisitors' : ActorMethod<[], bigint>,
   'getUserPosts' : ActorMethod<[Principal], Array<PostWithStats>>,
   'getUserProfile' : ActorMethod<[Principal], [] | [UserProfile]>,
   'getUserQuizResults' : ActorMethod<[], Array<Result>>,
+  'giftPoints' : ActorMethod<[Principal, bigint], undefined>,
   'isCallerAdmin' : ActorMethod<[], boolean>,
   'likePost' : ActorMethod<[bigint], undefined>,
+  'playCustomSpinWheel' : ActorMethod<[bigint], bigint>,
+  'playCustomTrivia' : ActorMethod<
+    [bigint, Array<{ 'answerIndex' : bigint, 'questionId' : bigint }>],
+    bigint
+  >,
+  'recordMemoryGamePlay' : ActorMethod<[], undefined>,
+  'recordSpinWheelPlay' : ActorMethod<[], undefined>,
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
-  'submitQuizAnswers' : ActorMethod<[bigint, Array<T>], bigint>,
+  'submitQuizAnswers' : ActorMethod<[bigint, Array<Answer>], bigint>,
+  'trackVisit' : ActorMethod<[], undefined>,
   'unlikePost' : ActorMethod<[bigint], undefined>,
   'updateUserProfile' : ActorMethod<[string], undefined>,
 }

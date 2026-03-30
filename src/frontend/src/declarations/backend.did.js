@@ -25,6 +25,16 @@ export const UserRole = IDL.Variant({
   'user' : IDL.Null,
   'guest' : IDL.Null,
 });
+export const SpinWheelSegment = IDL.Record({
+  'segmentLabel' : IDL.Text,
+  'points' : IDL.Nat,
+});
+export const CustomTriviaQuestion = IDL.Record({
+  'correctOption' : IDL.Nat,
+  'text' : IDL.Text,
+  'options' : IDL.Vec(IDL.Text),
+  'pointsReward' : IDL.Nat,
+});
 export const Time = IDL.Int;
 export const Quiz = IDL.Record({
   'id' : IDL.Nat,
@@ -36,6 +46,17 @@ export const Quiz = IDL.Record({
 export const QuizWithAnswers = IDL.Record({
   'quiz' : Quiz,
   'questions' : IDL.Vec(Question),
+});
+export const CustomGame = IDL.Record({
+  'id' : IDL.Nat,
+  'title' : IDL.Text,
+  'creator' : IDL.Principal,
+  'gameType' : IDL.Variant({
+    'customSpinWheel' : IDL.Record({ 'segments' : IDL.Vec(SpinWheelSegment) }),
+    'customTrivia' : IDL.Record({
+      'questions' : IDL.Vec(CustomTriviaQuestion),
+    }),
+  }),
 });
 export const PointsEntry = IDL.Record({
   'player' : IDL.Principal,
@@ -79,12 +100,19 @@ export const QuizStats = IDL.Record({
   'quizId' : IDL.Nat,
   'totalCorrectCount' : IDL.Nat,
 });
-export const T = IDL.Record({
+export const Answer = IDL.Record({
   'answer' : IDL.Variant({
     'multipleChoice' : IDL.Nat,
     'trueFalse' : IDL.Bool,
   }),
   'questionId' : IDL.Nat,
+});
+
+export const ChatMessage = IDL.Record({
+  'id' : IDL.Nat,
+  'author' : IDL.Principal,
+  'content' : IDL.Text,
+  'timestamp' : Time,
 });
 
 export const idlService = IDL.Service({
@@ -93,16 +121,28 @@ export const idlService = IDL.Service({
   'addQuestion' : IDL.Func([IDL.Nat, Question], [IDL.Nat], []),
   'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
   'awardPoints' : IDL.Func([IDL.Nat], [], []),
+  'createCustomSpinWheel' : IDL.Func(
+      [IDL.Text, IDL.Vec(SpinWheelSegment)],
+      [IDL.Nat],
+      [],
+    ),
+  'createCustomTrivia' : IDL.Func(
+      [IDL.Text, IDL.Vec(CustomTriviaQuestion)],
+      [IDL.Nat],
+      [],
+    ),
   'createPost' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
   'createQuiz' : IDL.Func([IDL.Text, IDL.Text], [IDL.Nat], []),
   'createUserProfile' : IDL.Func([IDL.Text], [], []),
   'getAdminQuizAnswers' : IDL.Func([], [IDL.Vec(QuizWithAnswers)], ['query']),
+  'getAllCustomGames' : IDL.Func([], [IDL.Vec(CustomGame)], ['query']),
   'getAllPlayerPoints' : IDL.Func([], [IDL.Vec(PointsEntry)], ['query']),
   'getAllPostsWithStats' : IDL.Func([], [IDL.Vec(PostWithStats)], ['query']),
   'getAllQuizzes' : IDL.Func([], [IDL.Vec(Quiz)], ['query']),
   'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
   'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
   'getCommentsByPostId' : IDL.Func([IDL.Nat], [IDL.Vec(Comment)], ['query']),
+  'getMemoryGameCooldown' : IDL.Func([], [IDL.Opt(Time)], ['query']),
   'getMyPoints' : IDL.Func([], [IDL.Nat], ['query']),
   'getPostWithComments' : IDL.Func(
       [IDL.Nat],
@@ -118,7 +158,9 @@ export const idlService = IDL.Service({
     ),
   'getQuizQuestions' : IDL.Func([IDL.Nat], [IDL.Vec(Question)], ['query']),
   'getQuizStats' : IDL.Func([], [IDL.Vec(QuizStats)], ['query']),
+  'getSpinWheelCooldown' : IDL.Func([], [IDL.Opt(Time)], ['query']),
   'getTopPlayer' : IDL.Func([], [IDL.Opt(IDL.Principal)], ['query']),
+  'getTotalVisitors' : IDL.Func([], [IDL.Nat], ['query']),
   'getUserPosts' : IDL.Func(
       [IDL.Principal],
       [IDL.Vec(PostWithStats)],
@@ -130,10 +172,27 @@ export const idlService = IDL.Service({
       ['query'],
     ),
   'getUserQuizResults' : IDL.Func([], [IDL.Vec(Result)], ['query']),
+  'giftPoints' : IDL.Func([IDL.Principal, IDL.Nat], [], []),
   'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
   'likePost' : IDL.Func([IDL.Nat], [], []),
+  'playCustomSpinWheel' : IDL.Func([IDL.Nat], [IDL.Nat], []),
+  'playCustomTrivia' : IDL.Func(
+      [
+        IDL.Nat,
+        IDL.Vec(
+          IDL.Record({ 'answerIndex' : IDL.Nat, 'questionId' : IDL.Nat })
+        ),
+      ],
+      [IDL.Nat],
+      [],
+    ),
+  'recordMemoryGamePlay' : IDL.Func([], [], []),
+  'recordSpinWheelPlay' : IDL.Func([], [], []),
   'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
-  'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(T)], [IDL.Nat], []),
+  'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(Answer)], [IDL.Nat], []),
+  'trackVisit' : IDL.Func([], [], []),
+  'getMessages' : IDL.Func([], [IDL.Vec(ChatMessage)], ['query']),
+  'sendMessage' : IDL.Func([IDL.Text], [IDL.Nat], []),
   'unlikePost' : IDL.Func([IDL.Nat], [], []),
   'updateUserProfile' : IDL.Func([IDL.Text], [], []),
 });
@@ -158,6 +217,16 @@ export const idlFactory = ({ IDL }) => {
     'user' : IDL.Null,
     'guest' : IDL.Null,
   });
+  const SpinWheelSegment = IDL.Record({
+    'segmentLabel' : IDL.Text,
+    'points' : IDL.Nat,
+  });
+  const CustomTriviaQuestion = IDL.Record({
+    'correctOption' : IDL.Nat,
+    'text' : IDL.Text,
+    'options' : IDL.Vec(IDL.Text),
+    'pointsReward' : IDL.Nat,
+  });
   const Time = IDL.Int;
   const Quiz = IDL.Record({
     'id' : IDL.Nat,
@@ -169,6 +238,19 @@ export const idlFactory = ({ IDL }) => {
   const QuizWithAnswers = IDL.Record({
     'quiz' : Quiz,
     'questions' : IDL.Vec(Question),
+  });
+  const CustomGame = IDL.Record({
+    'id' : IDL.Nat,
+    'title' : IDL.Text,
+    'creator' : IDL.Principal,
+    'gameType' : IDL.Variant({
+      'customSpinWheel' : IDL.Record({
+        'segments' : IDL.Vec(SpinWheelSegment),
+      }),
+      'customTrivia' : IDL.Record({
+        'questions' : IDL.Vec(CustomTriviaQuestion),
+      }),
+    }),
   });
   const PointsEntry = IDL.Record({
     'player' : IDL.Principal,
@@ -212,7 +294,7 @@ export const idlFactory = ({ IDL }) => {
     'quizId' : IDL.Nat,
     'totalCorrectCount' : IDL.Nat,
   });
-  const T = IDL.Record({
+  const Answer = IDL.Record({
     'answer' : IDL.Variant({
       'multipleChoice' : IDL.Nat,
       'trueFalse' : IDL.Bool,
@@ -220,22 +302,41 @@ export const idlFactory = ({ IDL }) => {
     'questionId' : IDL.Nat,
   });
   
+  const ChatMessage = IDL.Record({
+    'id' : IDL.Nat,
+    'author' : IDL.Principal,
+    'content' : IDL.Text,
+    'timestamp' : Time,
+  });
+
   return IDL.Service({
     '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
     'addComment' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
     'addQuestion' : IDL.Func([IDL.Nat, Question], [IDL.Nat], []),
     'assignCallerUserRole' : IDL.Func([IDL.Principal, UserRole], [], []),
     'awardPoints' : IDL.Func([IDL.Nat], [], []),
+    'createCustomSpinWheel' : IDL.Func(
+        [IDL.Text, IDL.Vec(SpinWheelSegment)],
+        [IDL.Nat],
+        [],
+      ),
+    'createCustomTrivia' : IDL.Func(
+        [IDL.Text, IDL.Vec(CustomTriviaQuestion)],
+        [IDL.Nat],
+        [],
+      ),
     'createPost' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
     'createQuiz' : IDL.Func([IDL.Text, IDL.Text], [IDL.Nat], []),
     'createUserProfile' : IDL.Func([IDL.Text], [], []),
     'getAdminQuizAnswers' : IDL.Func([], [IDL.Vec(QuizWithAnswers)], ['query']),
+    'getAllCustomGames' : IDL.Func([], [IDL.Vec(CustomGame)], ['query']),
     'getAllPlayerPoints' : IDL.Func([], [IDL.Vec(PointsEntry)], ['query']),
     'getAllPostsWithStats' : IDL.Func([], [IDL.Vec(PostWithStats)], ['query']),
     'getAllQuizzes' : IDL.Func([], [IDL.Vec(Quiz)], ['query']),
     'getCallerUserProfile' : IDL.Func([], [IDL.Opt(UserProfile)], ['query']),
     'getCallerUserRole' : IDL.Func([], [UserRole], ['query']),
     'getCommentsByPostId' : IDL.Func([IDL.Nat], [IDL.Vec(Comment)], ['query']),
+    'getMemoryGameCooldown' : IDL.Func([], [IDL.Opt(Time)], ['query']),
     'getMyPoints' : IDL.Func([], [IDL.Nat], ['query']),
     'getPostWithComments' : IDL.Func(
         [IDL.Nat],
@@ -255,7 +356,9 @@ export const idlFactory = ({ IDL }) => {
       ),
     'getQuizQuestions' : IDL.Func([IDL.Nat], [IDL.Vec(Question)], ['query']),
     'getQuizStats' : IDL.Func([], [IDL.Vec(QuizStats)], ['query']),
+    'getSpinWheelCooldown' : IDL.Func([], [IDL.Opt(Time)], ['query']),
     'getTopPlayer' : IDL.Func([], [IDL.Opt(IDL.Principal)], ['query']),
+    'getTotalVisitors' : IDL.Func([], [IDL.Nat], ['query']),
     'getUserPosts' : IDL.Func(
         [IDL.Principal],
         [IDL.Vec(PostWithStats)],
@@ -267,10 +370,27 @@ export const idlFactory = ({ IDL }) => {
         ['query'],
       ),
     'getUserQuizResults' : IDL.Func([], [IDL.Vec(Result)], ['query']),
+    'giftPoints' : IDL.Func([IDL.Principal, IDL.Nat], [], []),
     'isCallerAdmin' : IDL.Func([], [IDL.Bool], ['query']),
     'likePost' : IDL.Func([IDL.Nat], [], []),
+    'playCustomSpinWheel' : IDL.Func([IDL.Nat], [IDL.Nat], []),
+    'playCustomTrivia' : IDL.Func(
+        [
+          IDL.Nat,
+          IDL.Vec(
+            IDL.Record({ 'answerIndex' : IDL.Nat, 'questionId' : IDL.Nat })
+          ),
+        ],
+        [IDL.Nat],
+        [],
+      ),
+    'recordMemoryGamePlay' : IDL.Func([], [], []),
+    'recordSpinWheelPlay' : IDL.Func([], [], []),
     'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
-    'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(T)], [IDL.Nat], []),
+    'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(Answer)], [IDL.Nat], []),
+    'trackVisit' : IDL.Func([], [], []),
+    'getMessages' : IDL.Func([], [IDL.Vec(ChatMessage)], ['query']),
+    'sendMessage' : IDL.Func([IDL.Text], [IDL.Nat], []),
     'unlikePost' : IDL.Func([IDL.Nat], [], []),
     'updateUserProfile' : IDL.Func([IDL.Text], [], []),
   });

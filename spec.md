@@ -1,32 +1,31 @@
 # QuizMaster
 
 ## Current State
-- Quiz creation, play, scoring, per-quiz leaderboard
-- Social feed with posts, likes, comments
-- Internet Identity authentication
-- Authorization with roles (admin/user/guest)
+Full-stack quiz + social app. Backend has custom games (createCustomTrivia, createCustomSpinWheel, getAllCustomGames, playCustomTrivia, playCustomSpinWheel). GamesHub only shows Memory Game and Spin Wheel. No chat feature exists.
 
 ## Requested Changes (Diff)
 
 ### Add
-- **Mini Game: Memory Game** -- flip cards to match pairs, earn points per match
-- **Mini Game: Spin Wheel** -- spin to win random bonus points
-- **Points system** -- players accumulate points from both mini games, stored per user
-- **#1 All-Time Player detection** -- the single player with the most total points gets admin access
-- **Admin Panel** -- only accessible to the #1 all-time points leader; shows all quizzes with their correct answers for every question
+- Chat: backend ChatMessage type, sendMessage, getMessages
+- Chat page with polling, send input for logged-in users
+- Chat link in Navbar
+- Community Games section in GamesHub using getAllCustomGames
+- Custom game page for trivia and spin wheel custom games
+- 1-day localStorage cooldown per custom game per user
+- New hooks: usePlayCustomTrivia, usePlayCustomSpinWheel, useGetMessages, useSendMessage
 
 ### Modify
-- Backend: add points tracking, getTopPlayer, getPlayerPoints, awardPoints functions
-- Backend: add getAdminQuizAnswers function (all quizzes + all questions with correct answers)
-- App.tsx: add routes for /games, /games/memory, /games/spinwheel, /admin
-- Navbar: add "Games" and "Admin" (conditionally visible) links
+- GamesHub.tsx: community games section with cooldown timers
+- Navbar.tsx: add Chat link
+- App.tsx: add /chat and /games/custom/$id routes
+- useQueries.ts: add new hooks
 
 ### Remove
-- Nothing removed
+- Nothing
 
 ## Implementation Plan
-1. Backend: add `playerPoints` map, `awardPoints(caller, amount)`, `getPlayerPoints(caller)`, `getTopPlayer()` returning Principal of #1 scorer, `getAdminQuizAnswers()` returning all quizzes with questions including correct answers (admin-only check: caller must be top player)
-2. Frontend: Memory Game page -- grid of face-down cards, flip pairs, award points on match via backend
-3. Frontend: Spin Wheel page -- animated wheel, spin button, award random points (10-100) via backend
-4. Frontend: Admin Panel page -- fetch top player, check if caller is top player, display all quiz questions with correct answers
-5. Wire new routes in App.tsx, add Games nav link, conditionally show Admin link for top player
+1. Generate backend with chat support added
+2. Add hooks for custom game play and chat
+3. Create Chat page with polling every 5s
+4. Create CustomGamePage handling trivia and spin wheel
+5. Update GamesHub, Navbar, App.tsx

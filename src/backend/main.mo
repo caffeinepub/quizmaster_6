@@ -5,13 +5,11 @@ import Nat "mo:core/Nat";
 import Order "mo:core/Order";
 import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
-import Text "mo:core/Text";
 import Int "mo:core/Int";
 import Time "mo:core/Time";
 
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
-
 
 
 actor {
@@ -71,13 +69,11 @@ actor {
     totalCorrectCount : Nat;
   };
 
-  module Answer {
-    public type T = {
-      questionId : Nat;
-      answer : {
-        #multipleChoice : Nat;
-        #trueFalse : Bool;
-      };
+  type Answer = {
+    questionId : Nat;
+    answer : {
+      #multipleChoice : Nat;
+      #trueFalse : Bool;
     };
   };
 
@@ -120,6 +116,58 @@ actor {
     questions : [Question];
   };
 
+  // Mini Games Types
+  type MiniGameType = {
+    #spinWheel;
+    #memoryGame;
+  };
+
+  type MiniGameCooldown = {
+    lastPlayed : Time.Time;
+    gameType : MiniGameType;
+  };
+
+  type SpinWheelSegment = {
+    segmentLabel : Text;
+    points : Nat;
+  };
+
+  type CustomTriviaQuestion = {
+    text : Text;
+    options : [Text];
+    correctOption : Nat;
+    pointsReward : Nat;
+  };
+
+  type CustomGame = {
+    id : Nat;
+    title : Text;
+    creator : Principal;
+    gameType : {
+      #customTrivia : {
+        questions : [CustomTriviaQuestion];
+      };
+      #customSpinWheel : {
+        segments : [SpinWheelSegment];
+      };
+    };
+  };
+
+  // Visitor Tracking Types
+  type Visitor = {
+    principalId : Principal;
+    timestamp : Time.Time;
+  };
+
+
+  // Chat Types
+  type ChatMessage = {
+    id : Nat;
+    author : Principal;
+    content : Text;
+    timestamp : Time.Time;
+  };
+
   // Key compare modules for sorting
   module Question {
     public func compare(a : Question, b : Question) : Order.Order {
@@ -141,7 +189,14 @@ actor {
 
   module QuizStats {
     public func compareByAverageScore(statsA : QuizStats, statsB : QuizStats) : Order.Order {
-      Nat.compare(statsA.totalCorrectCount / statsA.totalAttemptCount, statsB.totalCorrectCount / statsB.totalAttemptCount);
+      // Avoid division by zero by checking if totalAttemptCount is not zero
+      var ratioA = 0;
+      var ratioB = 0;
+      if (statsA.totalAttemptCount > 0 and statsB.totalAttemptCount > 0) {
+        ratioA := statsA.totalCorrectCount / statsA.totalAttemptCount;
+        ratioB := statsB.totalCorrectCount / statsB.totalAttemptCount;
+      };
+      Nat.compare(ratioA, ratioB);
     };
   };
 
@@ -164,17 +219,35 @@ actor {
   let comments = Map.empty<Nat, [Comment]>();
   let postsByQuiz = Map.empty<Nat, [Post]>();
 
+  // Mini Games state
+  let miniGameCooldowns = Map.empty<Principal, [MiniGameCooldown]>();
+  let customGames = Map.empty<Nat, CustomGame>();
+
+  // Visitors state
+  let visitors = Map.empty<Principal, Visitor>();
+
+
+  // Chat state
+  let chatMessages = Map.empty<Nat, ChatMessage>();
+  var nextChatMessageId = 0;
+
   // ID Counters
   var nextQuizId = 0;
   var nextQuestionId = 0;
   var nextResultId = 0;
   var nextPostId = 0;
   var nextCommentId = 0;
+  var nextCustomGameId = 0;
 
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
 
+  /////////////////////////////////////////////////////////////////////////////
+  // User Profile Functions
+  /////////////////////////////////////////////////////////////////////////////
+
   public shared ({ caller }) func createUserProfile(username : Text) : async () {
+    // Only allow authenticated users to create profiles
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create profiles");
     };
@@ -183,8 +256,44 @@ actor {
     userProfiles.add(caller, userProfile);
   };
 
-  // Points System functions
+  public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
+    // Only allow authenticated users to view profiles
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can view profiles");
+    };
+    userProfiles.get(caller);
+  };
+
+  public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
+    // Allow users to view their own profiles, or any profile for admins
+    if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
+      Runtime.trap("Unauthorized: Can only view your own profile");
+    };
+    userProfiles.get(user);
+  };
+
+  public shared ({ caller }) func saveCallerUserProfile(profile : UserProfile) : async () {
+    // Only allow authenticated users to save profiles
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can save profiles");
+    };
+    userProfiles.add(caller, profile);
+  };
+
+  public shared ({ caller }) func updateUserProfile(username : Text) : async () {
+    // Only allow authenticated users to update profiles
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can update profiles");
+    };
+    userProfiles.add(caller, { username });
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Points System Functions
+  /////////////////////////////////////////////////////////////////////////////
+
   public shared ({ caller }) func awardPoints(amount : Nat) : async () {
+    // Only allow authenticated users to award points
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can award points");
     };
@@ -196,12 +305,12 @@ actor {
   };
 
   // Give points to another player (deducted from caller's balance)
-  public shared ({ caller }) func givePoints(recipient : Principal, amount : Nat) : async () {
+  public shared ({ caller }) func giftPoints(recipient : Principal, amount : Nat) : async () {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can give points");
+      Runtime.trap("Unauthorized: Only users can gift points");
     };
     if (caller == recipient) {
-      Runtime.trap("Cannot give points to yourself");
+      Runtime.trap("Cannot gift points to yourself");
     };
     if (amount == 0) {
       Runtime.trap("Amount must be greater than zero");
@@ -274,33 +383,12 @@ actor {
     };
   };
 
-  public query ({ caller }) func getAdminQuizAnswers() : async [QuizWithAnswers] {
-    let topPlayer = getTopPlayerSync();
-    switch (topPlayer) {
-      case (null) {
-        Runtime.trap("Unauthorized: No top player exists yet");
-      };
-      case (?top) {
-        if (caller != top) {
-          Runtime.trap("Unauthorized: Only the player with the most points can access this endpoint");
-        };
-      };
-    };
-
-    quizzes.values().toArray().map(
-      func(quiz) {
-        let quizQuestions = questions.values().toArray().filter(
-          func(q) { q.quizId == quiz.id }
-        ).sort();
-        {
-          quiz;
-          questions = quizQuestions;
-        };
-      }
-    );
-  };
+  /////////////////////////////////////////////////////////////////////////////
+  // Quiz Functions
+  /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func createQuiz(title : Text, description : Text) : async Nat {
+    // Only allow authenticated users to create quizzes
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create quizzes");
     };
@@ -325,6 +413,7 @@ actor {
       case (?q) { q };
     };
 
+    // Only allow the creator or admin to add questions
     if (quiz.creator != caller and not AccessControl.isAdmin(accessControlState, caller)) {
       Runtime.trap("Unauthorized: Only the quiz creator or admins can add questions");
     };
@@ -342,7 +431,8 @@ actor {
     questionId;
   };
 
-  public shared ({ caller }) func submitQuizAnswers(quizId : Nat, answers : [Answer.T]) : async Nat {
+  public shared ({ caller }) func submitQuizAnswers(quizId : Nat, answers : [Answer]) : async Nat {
+    // Only allow authenticated users to submit quiz answers
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz answers");
     };
@@ -407,34 +497,6 @@ actor {
     correctCount;
   };
 
-  public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can view profiles");
-    };
-    userProfiles.get(caller);
-  };
-
-  public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
-    if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Can only view your own profile");
-    };
-    userProfiles.get(user);
-  };
-
-  public shared ({ caller }) func saveCallerUserProfile(profile : UserProfile) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can save profiles");
-    };
-    userProfiles.add(caller, profile);
-  };
-
-  public shared ({ caller }) func updateUserProfile(username : Text) : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can update profiles");
-    };
-    userProfiles.add(caller, { username });
-  };
-
   public query func getAllQuizzes() : async [Quiz] {
     quizzes.values().toArray().sort();
   };
@@ -488,9 +550,38 @@ actor {
     );
   };
 
+  public query ({ caller }) func getAdminQuizAnswers() : async [QuizWithAnswers] {
+    let topPlayer = getTopPlayerSync();
+    switch (topPlayer) {
+      case (null) {
+        Runtime.trap("Unauthorized: No top player exists yet");
+      };
+      case (?top) {
+        if (caller != top) {
+          Runtime.trap("Unauthorized: Only the player with the most points can access this endpoint");
+        };
+      };
+    };
+
+    quizzes.values().toArray().map(
+      func(quiz) {
+        let quizQuestions = questions.values().toArray().filter(
+          func(q) { q.quizId == quiz.id }
+        ).sort();
+        {
+          quiz;
+          questions = quizQuestions;
+        };
+      }
+    );
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
   // Social Feed Functions
+  /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func createPost(quizId : Nat, message : Text) : async Nat {
+    // Only allow authenticated users to create posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create posts");
     };
@@ -522,6 +613,7 @@ actor {
   };
 
   public shared ({ caller }) func likePost(postId : Nat) : async () {
+    // Only allow authenticated users to like posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can like posts");
     };
@@ -550,6 +642,7 @@ actor {
   };
 
   public shared ({ caller }) func unlikePost(postId : Nat) : async () {
+    // Only allow authenticated users to unlike posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can unlike posts");
     };
@@ -568,6 +661,7 @@ actor {
   };
 
   public shared ({ caller }) func addComment(postId : Nat, content : Text) : async Nat {
+    // Only allow authenticated users to add comments
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can add comments");
     };
@@ -685,4 +779,258 @@ actor {
       }
     ).sort();
   };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Mini Games Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func recordSpinWheelPlay() : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can record mini game plays");
+    };
+    recordMiniGamePlay(caller, #spinWheel);
+  };
+
+  public query ({ caller }) func getSpinWheelCooldown() : async ?Time.Time {
+    getMiniGameCooldown(caller, #spinWheel);
+  };
+
+  public shared ({ caller }) func recordMemoryGamePlay() : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can record mini game plays");
+    };
+    recordMiniGamePlay(caller, #memoryGame);
+  };
+
+  public query ({ caller }) func getMemoryGameCooldown() : async ?Time.Time {
+    getMiniGameCooldown(caller, #memoryGame);
+  };
+
+  // Helper functions for mini games
+  func recordMiniGamePlay(player : Principal, gameType : MiniGameType) {
+    let existingCooldowns = switch (miniGameCooldowns.get(player)) {
+      case (null) { [] };
+      case (?c) { c };
+    };
+
+    let filteredCooldowns = existingCooldowns.filter(func(c) { N.not_equal(c.gameType, gameType) });
+
+    let newCooldown = {
+      lastPlayed = Time.now();
+      gameType;
+    };
+
+    miniGameCooldowns.add(player, filteredCooldowns.concat([newCooldown]));
+  };
+
+  func getMiniGameCooldown(player : Principal, gameType : MiniGameType) : ?Time.Time {
+    switch (miniGameCooldowns.get(player)) {
+      case (null) { null };
+      case (?cooldowns) {
+        let matchingCooldowns = cooldowns.filter(func(c) { N.equal(c.gameType, gameType) });
+        if (matchingCooldowns.size() > 0) { ?matchingCooldowns[0].lastPlayed } else { null };
+      };
+    };
+  };
+
+  // Generic function for comparing MiniGameType values
+  module N {
+    public func equal(a : MiniGameType, b : MiniGameType) : Bool {
+      switch (a, b) {
+        case (#spinWheel, #spinWheel) { true };
+        case (#memoryGame, #memoryGame) { true };
+        case (_, _) { false };
+      };
+    };
+    public func not_equal(a : MiniGameType, b : MiniGameType) : Bool {
+      not equal(a, b);
+    };
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Visitor Tracking Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func trackVisit() : async () {
+    // Allow any authenticated principal (including guests) to track visits
+    let visitor : Visitor = {
+      principalId = caller;
+      timestamp = Time.now();
+    };
+    visitors.add(caller, visitor);
+  };
+
+  public query func getTotalVisitors() : async Nat {
+    visitors.size();
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Custom Games Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func createCustomTrivia(title : Text, questions : [CustomTriviaQuestion]) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can create custom games");
+    };
+    
+    // Check if caller is the top player
+    let topPlayer = getTopPlayerSync();
+    switch (topPlayer) {
+      case (null) {
+        Runtime.trap("Unauthorized: No top player exists yet");
+      };
+      case (?top) {
+        if (caller != top) {
+          Runtime.trap("Unauthorized: Only the top player can create custom games");
+        };
+      };
+    };
+
+    let gameId = nextCustomGameId;
+    nextCustomGameId += 1;
+
+    let customGame : CustomGame = {
+      id = gameId;
+      title;
+      creator = caller;
+      gameType = #customTrivia({ questions });
+    };
+
+    customGames.add(gameId, customGame);
+    gameId;
+  };
+
+  public shared ({ caller }) func createCustomSpinWheel(title : Text, segments : [SpinWheelSegment]) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can create custom games");
+    };
+    
+    // Check if caller is the top player
+    let topPlayer = getTopPlayerSync();
+    switch (topPlayer) {
+      case (null) {
+        Runtime.trap("Unauthorized: No top player exists yet");
+      };
+      case (?top) {
+        if (caller != top) {
+          Runtime.trap("Unauthorized: Only the top player can create custom games");
+        };
+      };
+    };
+
+    let gameId = nextCustomGameId;
+    nextCustomGameId += 1;
+
+    let customGame : CustomGame = {
+      id = gameId;
+      title;
+      creator = caller;
+      gameType = #customSpinWheel({ segments });
+    };
+
+    customGames.add(gameId, customGame);
+    gameId;
+  };
+
+  public query func getAllCustomGames() : async [CustomGame] {
+    customGames.values().toArray();
+  };
+
+  public shared ({ caller }) func playCustomTrivia(gameId : Nat, answers : [{ questionId : Nat; answerIndex : Nat }]) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can play custom games");
+    };
+
+    let game = switch (customGames.get(gameId)) {
+      case (null) { Runtime.trap("Custom game does not exist") };
+      case (?g) { g };
+    };
+
+    let questions = switch (game.gameType) {
+      case (#customTrivia({ questions })) { questions };
+      case (_) { Runtime.trap("Invalid game type") };
+    };
+
+    var score = 0;
+
+    for (answer in answers.values()) {
+      let matchingQuestions = questions.filter(func(q) { q.correctOption == answer.questionId });
+      if (matchingQuestions.size() > 0) {
+        let question = matchingQuestions[0];
+        if (question.correctOption == answer.answerIndex) {
+          score += question.pointsReward;
+        };
+      };
+    };
+
+    let currentPoints = switch (userPoints.get(caller)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+
+    userPoints.add(caller, currentPoints + score);
+    score;
+  };
+
+  public shared ({ caller }) func playCustomSpinWheel(gameId : Nat) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can play custom games");
+    };
+
+    let game = switch (customGames.get(gameId)) {
+      case (null) { Runtime.trap("Custom game does not exist") };
+      case (?g) { g };
+    };
+
+    let segments = switch (game.gameType) {
+      case (#customSpinWheel({ segments })) { segments };
+      case (_) { Runtime.trap("Invalid game type") };
+    };
+
+    if (segments.size() == 0) {
+      return 0;
+    };
+
+    let nowNat = Time.now().toNat();
+    let randomIndex = nowNat % segments.size();
+    let pointsWon = segments[randomIndex].points;
+
+    let currentPoints = switch (userPoints.get(caller)) {
+      case (null) { 0 };
+      case (?points) { points };
+    };
+
+    userPoints.add(caller, currentPoints + pointsWon);
+    pointsWon;
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Chat Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func sendMessage(content : Text) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can send messages");
+    };
+    if (content.size() == 0) {
+      Runtime.trap("Message cannot be empty");
+    };
+    let msgId = nextChatMessageId;
+    nextChatMessageId += 1;
+    let msg : ChatMessage = {
+      id = msgId;
+      author = caller;
+      content;
+      timestamp = Time.now();
+    };
+    chatMessages.add(msgId, msg);
+    msgId;
+  };
+
+  public query func getMessages() : async [ChatMessage] {
+    chatMessages.values().toArray().sort(
+      func(a, b) { Int.compare(a.timestamp, b.timestamp) }
+    );
+  };
+
 };

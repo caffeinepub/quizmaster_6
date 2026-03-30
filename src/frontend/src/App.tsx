@@ -9,7 +9,9 @@ import {
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import AdminPanel from "./pages/AdminPanel";
+import Chat from "./pages/Chat";
 import CreateQuiz from "./pages/CreateQuiz";
+import CustomGamePage from "./pages/CustomGamePage";
 import Feed from "./pages/Feed";
 import GamesHub from "./pages/GamesHub";
 import Home from "./pages/Home";
@@ -100,6 +102,12 @@ const spinWheelRoute = createRoute({
   component: SpinWheel,
 });
 
+const customGameRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/custom/$id",
+  component: CustomGamePage,
+});
+
 const pointsLeaderboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/points-leaderboard",
@@ -110,6 +118,12 @@ const adminRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/admin",
   component: AdminPanel,
+});
+
+const chatRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/chat",
+  component: Chat,
 });
 
 const routeTree = rootRoute.addChildren([
@@ -123,8 +137,10 @@ const routeTree = rootRoute.addChildren([
   gamesRoute,
   memoryGameRoute,
   spinWheelRoute,
+  customGameRoute,
   pointsLeaderboardRoute,
   adminRoute,
+  chatRoute,
 ]);
 
 const router = createRouter({ routeTree });

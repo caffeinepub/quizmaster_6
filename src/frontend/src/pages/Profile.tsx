@@ -1,3 +1,13 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,12 +19,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { BookOpen, Check, Edit2, Loader2, Trophy, X } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import {
+  BookOpen,
+  Check,
+  Crown,
+  Edit2,
+  Loader2,
+  Play,
+  Trash2,
+  Trophy,
+  X,
+} from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
+  useDeleteQuiz,
+  useGetAllQuizzes,
   useGetUserProfile,
   useGetUserQuizResults,
   useUpdateUserProfile,
@@ -24,10 +48,19 @@ export default function Profile() {
   const { identity, login } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
   const { data: results, isLoading: loadingResults } = useGetUserQuizResults();
+  const { data: allQuizzes } = useGetAllQuizzes();
   const updateProfile = useUpdateUserProfile();
+  const deleteQuiz = useDeleteQuiz();
+  const { isOwner, ownerPrincipal, claimOwnership, isLoadingOwner } =
+    useOwner();
 
   const [editing, setEditing] = useState(false);
   const [newUsername, setNewUsername] = useState("");
+  const [claiming, setClaiming] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<{
+    id: bigint;
+    title: string;
+  } | null>(null);
 
   if (!identity) {
     return (
@@ -47,6 +80,12 @@ export default function Profile() {
     );
   }
 
+  const myPrincipal = identity.getPrincipal().toString();
+
+  const myQuizzes = (allQuizzes ?? []).filter(
+    (q) => q.creator.toString() === myPrincipal,
+  );
+
   const startEditing = () => {
     setNewUsername(profile?.username ?? "");
     setEditing(true);
@@ -62,6 +101,31 @@ export default function Profile() {
       toast.error("Failed to update username.");
     }
   };
+
+  const handleClaimOwnership = async () => {
+    setClaiming(true);
+    try {
+      await claimOwnership();
+      toast.success("👑 You are now the Owner! You have infinite points.");
+    } catch (err: any) {
+      toast.error(err?.message ?? "Failed to claim ownership");
+    } finally {
+      setClaiming(false);
+    }
+  };
+
+  function handleDeleteConfirm() {
+    if (!deleteTarget) return;
+    deleteQuiz.mutate(deleteTarget.id, {
+      onSuccess: () => {
+        toast.success("Quiz deleted.");
+        setDeleteTarget(null);
+      },
+      onError: (err) => toast.error(err.message ?? "Failed to delete quiz."),
+    });
+  }
+
+  const noOwnerYet = !isLoadingOwner && ownerPrincipal === null;
 
   const sortedResults = results
     ? [...results].sort((a, b) => Number(b.timestamp) - Number(a.timestamp))
@@ -113,10 +177,19 @@ export default function Profile() {
                 </Button>
               </div>
             ) : (
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap">
                 <h1 className="text-2xl font-bold">
                   {profile?.username ?? "Loading..."}
                 </h1>
+                {isOwner && (
+                  <span
+                    className="flex items-center gap-1 text-yellow-400 font-semibold text-sm"
+                    title="Owner rank — infinite points"
+                  >
+                    <Crown className="w-4 h-4" />
+                    Owner
+                  </span>
+                )}
                 <Button
                   size="icon"
                   variant="ghost"
@@ -139,9 +212,111 @@ export default function Profile() {
                   quizzes played
                 </span>
               </div>
+              <div className="text-sm">
+                <span className="font-bold text-primary">
+                  {myQuizzes.length}
+                </span>
+                <span className="text-muted-foreground ml-1">
+                  quizzes created
+                </span>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Claim Owner section */}
+        {noOwnerYet && !isOwner && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="glass-card rounded-2xl p-6 border border-yellow-400/20"
+          >
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center shrink-0">
+                <Crown className="w-6 h-6 text-yellow-400" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold mb-1 flex items-center gap-2">
+                  Claim Owner Rank
+                  <span className="text-yellow-400">👑</span>
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  No owner has been claimed yet. The first person to claim
+                  ownership gets the <strong>Owner</strong> rank — unlimited
+                  points and the ability to gift points freely to anyone.
+                </p>
+                <Button
+                  onClick={handleClaimOwnership}
+                  disabled={claiming}
+                  className="bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400/40 rounded-full px-6"
+                  data-ocid="profile.primary_button"
+                >
+                  {claiming ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Claiming...
+                    </>
+                  ) : (
+                    <>
+                      <Crown className="w-4 h-4 mr-2" />
+                      Claim Owner
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* My Quizzes */}
+        {myQuizzes.length > 0 && (
+          <div>
+            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-primary" />
+              My Quizzes
+            </h2>
+            <div className="glass-card rounded-2xl overflow-hidden divide-y divide-border/40">
+              {myQuizzes.map((quiz, i) => (
+                <div
+                  key={quiz.id.toString()}
+                  className="flex items-center gap-3 px-5 py-4"
+                  data-ocid={`profile.quiz.item.${i + 1}`}
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium truncate">{quiz.title}</p>
+                    <p className="text-xs text-muted-foreground truncate">
+                      {quiz.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <Link to="/quiz/$id" params={{ id: quiz.id.toString() }}>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="rounded-full border-primary/40 text-primary hover:bg-primary/10"
+                        data-ocid={`profile.quiz.primary_button.${i + 1}`}
+                      >
+                        <Play className="w-3 h-3 mr-1" />
+                        Play
+                      </Button>
+                    </Link>
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                      onClick={() =>
+                        setDeleteTarget({ id: quiz.id, title: quiz.title })
+                      }
+                      data-ocid={`profile.quiz.delete_button.${i + 1}`}
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Quiz history */}
         <div>
@@ -215,6 +390,46 @@ export default function Profile() {
           </div>
         </div>
       </motion.div>
+
+      {/* Delete Quiz confirmation */}
+      <AlertDialog
+        open={!!deleteTarget}
+        onOpenChange={(open) => !open && setDeleteTarget(null)}
+      >
+        <AlertDialogContent data-ocid="profile.dialog">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Trash2 className="w-4 h-4 text-destructive" />
+              Delete this quiz?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <strong>{deleteTarget?.title}</strong> will be permanently
+              deleted. This cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              onClick={() => setDeleteTarget(null)}
+              data-ocid="profile.cancel_button"
+            >
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDeleteConfirm}
+              disabled={deleteQuiz.isPending}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              data-ocid="profile.delete_button"
+            >
+              {deleteQuiz.isPending ? (
+                <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4 mr-1.5" />
+              )}
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

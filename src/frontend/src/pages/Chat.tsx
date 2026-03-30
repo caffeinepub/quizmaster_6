@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useNavigate } from "@tanstack/react-router";
 import { MessageCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetMessages, useSendMessage } from "../hooks/useQueries";
 
@@ -22,6 +24,8 @@ export default function Chat() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: messages } = useGetMessages();
   const { mutateAsync: sendMessage, isPending } = useSendMessage();
+  const { ownerPrincipal } = useOwner();
+  const navigate = useNavigate();
 
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -65,7 +69,7 @@ export default function Chat() {
           <div>
             <h1 className="text-2xl font-bold gradient-text">Community Chat</h1>
             <p className="text-xs text-muted-foreground">
-              {msgCount} messages \u00b7 auto-refreshes every 5s
+              {msgCount} messages · auto-refreshes every 5s
             </p>
           </div>
         </div>
@@ -93,6 +97,11 @@ export default function Chat() {
             <div className="space-y-3">
               {messages.map((msg, i) => {
                 const isMe = msg.author.toString() === myPrincipal;
+                const authorIsOwner = isOwnerPrincipal(
+                  ownerPrincipal,
+                  msg.author,
+                );
+                const authorStr = msg.author.toString();
                 return (
                   <motion.div
                     key={msg.id.toString()}
@@ -112,14 +121,36 @@ export default function Chat() {
                       {msg.author.toString().slice(0, 2).toUpperCase()}
                     </div>
                     <div
-                      className={`max-w-[70%] ${isMe ? "items-end" : "items-start"} flex flex-col gap-0.5`}
+                      className={`max-w-[70%] ${
+                        isMe ? "items-end" : "items-start"
+                      } flex flex-col gap-0.5`}
                     >
                       <div
-                        className={`flex items-center gap-2 ${isMe ? "flex-row-reverse" : ""}`}
+                        className={`flex items-center gap-2 ${
+                          isMe ? "flex-row-reverse" : ""
+                        }`}
                       >
-                        <span className="text-xs text-muted-foreground font-medium">
-                          {isMe ? "You" : shortAuthor(msg.author)}
-                        </span>
+                        {isMe ? (
+                          <span className="text-xs text-muted-foreground font-medium">
+                            You
+                          </span>
+                        ) : (
+                          <button
+                            type="button"
+                            className="text-xs text-muted-foreground font-medium hover:text-primary transition-colors cursor-pointer flex items-center gap-0.5"
+                            onClick={() =>
+                              navigate({
+                                to: "/messages/$userId",
+                                params: { userId: authorStr },
+                              })
+                            }
+                            title="Send private message"
+                            data-ocid={`chat.item.${i + 1}`}
+                          >
+                            {shortAuthor(msg.author)}
+                            {authorIsOwner && <span>👑</span>}
+                          </button>
+                        )}
                         <span className="text-xs text-muted-foreground/60">
                           {formatTime(msg.timestamp)}
                         </span>

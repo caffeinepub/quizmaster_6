@@ -1,3 +1,13 @@
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,6 +33,7 @@ import {
   Search,
   Share2,
   Sparkles,
+  Trash2,
   Trophy,
   Users,
 } from "lucide-react";
@@ -31,9 +42,11 @@ import { useState } from "react";
 import { toast } from "sonner";
 import type { Quiz } from "../backend.d";
 import UsernameDialog from "../components/UsernameDialog";
+import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useCreatePost,
+  useDeleteQuiz,
   useGetAllQuizzes,
   useGetUserProfile,
   useSeedQuizzes,
@@ -55,9 +68,12 @@ export default function Home() {
   const { data: quizzes, isLoading } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const { isOwner } = useOwner();
   const seedMutation = useSeedQuizzes();
 
   const showUsernameDialog = !!identity && profile === null;
+
+  const myPrincipal = identity?.getPrincipal().toString();
 
   const filtered = (quizzes ?? []).filter(
     (q) =>
@@ -185,7 +201,7 @@ export default function Home() {
             <div className="relative w-full sm:w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
-                placeholder="Search quizzes…"
+                placeholder="Search quizzes\u2026"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="pl-9 bg-secondary border-border rounded-full"
@@ -229,25 +245,31 @@ export default function Home() {
                     <Database className="w-4 h-4 mr-2" />
                   )}
                   {seedMutation.isPending
-                    ? "Loading quizzes…"
+                    ? "Loading quizzes\u2026"
                     : "Load Sample Quizzes"}
                 </Button>
               )}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {filtered.map((quiz, i) => (
-                <QuizCard
-                  key={quiz.id.toString()}
-                  quiz={quiz}
-                  index={i + 1}
-                  isOwner={
-                    !!identity &&
-                    identity.getPrincipal().toString() ===
-                      quiz.creator.toString()
-                  }
-                />
-              ))}
+              {filtered.map((quiz, i) => {
+                const canDelete =
+                  isOwner ||
+                  (!!myPrincipal && quiz.creator.toString() === myPrincipal);
+                return (
+                  <QuizCard
+                    key={quiz.id.toString()}
+                    quiz={quiz}
+                    index={i + 1}
+                    isCreator={
+                      !!identity &&
+                      identity.getPrincipal().toString() ===
+                        quiz.creator.toString()
+                    }
+                    canDelete={canDelete}
+                  />
+                );
+              })}
             </div>
           )}
         </motion.div>
@@ -261,12 +283,20 @@ export default function Home() {
 function QuizCard({
   quiz,
   index,
-  isOwner,
-}: { quiz: Quiz; index: number; isOwner: boolean }) {
+  isCreator,
+  canDelete,
+}: {
+  quiz: Quiz;
+  index: number;
+  isCreator: boolean;
+  canDelete: boolean;
+}) {
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [postOpen, setPostOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
   const [message, setMessage] = useState("");
   const createPost = useCreatePost();
+  const deleteQuiz = useDeleteQuiz();
 
   const colors = [
     "from-blue-500 to-cyan-400",
@@ -281,7 +311,7 @@ function QuizCard({
       { quizId: quiz.id, message },
       {
         onSuccess: () => {
-          setOpen(false);
+          setPostOpen(false);
           setMessage("");
           toast.success("Quiz posted to the feed!");
           navigate({ to: "/feed" });
@@ -291,101 +321,162 @@ function QuizCard({
     );
   }
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.05 }}
-      className="glass-card rounded-2xl overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
-      data-ocid={`quiz.item.${index}`}
-    >
-      <div
-        className={`h-36 bg-gradient-to-br ${color} flex items-center justify-center`}
-      >
-        <BookOpen className="w-12 h-12 text-white/80" />
-      </div>
-      <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-semibold text-base mb-1 line-clamp-2">
-          {quiz.title}
-        </h3>
-        <p className="text-muted-foreground text-sm mb-3 line-clamp-2 flex-1">
-          {quiz.description}
-        </p>
-        <div className="flex flex-col gap-2">
-          <Link to="/quiz/$id" params={{ id: quiz.id.toString() }}>
-            <Button
-              size="sm"
-              className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
-              data-ocid={`quiz.primary_button.${index}`}
-            >
-              <Play className="w-3.5 h-3.5 mr-1.5" />
-              Play Quiz
-            </Button>
-          </Link>
+  function handleDelete() {
+    deleteQuiz.mutate(quiz.id, {
+      onSuccess: () => {
+        toast.success("Quiz deleted.");
+        setDeleteOpen(false);
+      },
+      onError: (err) => toast.error(err.message ?? "Failed to delete quiz."),
+    });
+  }
 
-          {isOwner && (
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs"
-                  data-ocid={`quiz.open_modal_button.${index}`}
-                >
-                  <Share2 className="w-3 h-3 mr-1.5" />
-                  Post to Feed
-                </Button>
-              </DialogTrigger>
-              <DialogContent
-                className="sm:max-w-md"
-                data-ocid={`quiz.dialog.${index}`}
-              >
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2">
-                    <Rss className="w-4 h-4 text-primary" />
-                    Post to Feed
-                  </DialogTitle>
-                  <DialogDescription>
-                    Share <strong>{quiz.title}</strong> with the community. Add
-                    an optional message.
-                  </DialogDescription>
-                </DialogHeader>
-                <Textarea
-                  placeholder="Add a message (optional)…"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={3}
-                  className="bg-secondary border-border rounded-xl resize-none"
-                  data-ocid={`quiz.textarea.${index}`}
-                />
-                <DialogFooter className="gap-2">
-                  <Button
-                    variant="outline"
-                    onClick={() => setOpen(false)}
-                    className="rounded-full"
-                    data-ocid={`quiz.cancel_button.${index}`}
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    onClick={handlePost}
-                    disabled={createPost.isPending}
-                    className="gradient-bg border-0 text-white rounded-full"
-                    data-ocid={`quiz.submit_button.${index}`}
-                  >
-                    {createPost.isPending ? (
-                      <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
-                    ) : (
-                      <Rss className="w-4 h-4 mr-1.5" />
-                    )}
-                    Post to Feed
-                  </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.05 }}
+        className="glass-card rounded-2xl overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 relative"
+        data-ocid={`quiz.item.${index}`}
+      >
+        <div
+          className={`h-36 bg-gradient-to-br ${color} flex items-center justify-center relative`}
+        >
+          <BookOpen className="w-12 h-12 text-white/80" />
+          {/* Delete button in card corner */}
+          {canDelete && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setDeleteOpen(true);
+              }}
+              className="absolute top-2 right-2 p-1.5 rounded-lg bg-black/30 hover:bg-destructive/80 text-white transition-colors"
+              title="Delete quiz"
+              data-ocid={`quiz.delete_button.${index}`}
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+            </button>
           )}
         </div>
-      </div>
-    </motion.div>
+        <div className="p-4 flex flex-col flex-1">
+          <h3 className="font-semibold text-base mb-1 line-clamp-2">
+            {quiz.title}
+          </h3>
+          <p className="text-muted-foreground text-sm mb-3 line-clamp-2 flex-1">
+            {quiz.description}
+          </p>
+          <div className="flex flex-col gap-2">
+            <Link to="/quiz/$id" params={{ id: quiz.id.toString() }}>
+              <Button
+                size="sm"
+                className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
+                data-ocid={`quiz.primary_button.${index}`}
+              >
+                <Play className="w-3.5 h-3.5 mr-1.5" />
+                Play Quiz
+              </Button>
+            </Link>
+
+            {isCreator && (
+              <Dialog open={postOpen} onOpenChange={setPostOpen}>
+                <DialogTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs"
+                    data-ocid={`quiz.open_modal_button.${index}`}
+                  >
+                    <Share2 className="w-3 h-3 mr-1.5" />
+                    Post to Feed
+                  </Button>
+                </DialogTrigger>
+                <DialogContent
+                  className="sm:max-w-md"
+                  data-ocid={`quiz.dialog.${index}`}
+                >
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center gap-2">
+                      <Rss className="w-4 h-4 text-primary" />
+                      Post to Feed
+                    </DialogTitle>
+                    <DialogDescription>
+                      Share <strong>{quiz.title}</strong> with the community.
+                      Add an optional message.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <Textarea
+                    placeholder="Add a message (optional)\u2026"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows={3}
+                    className="bg-secondary border-border rounded-xl resize-none"
+                    data-ocid={`quiz.textarea.${index}`}
+                  />
+                  <DialogFooter className="gap-2">
+                    <Button
+                      variant="outline"
+                      onClick={() => setPostOpen(false)}
+                      className="rounded-full"
+                      data-ocid={`quiz.cancel_button.${index}`}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={handlePost}
+                      disabled={createPost.isPending}
+                      className="gradient-bg border-0 text-white rounded-full"
+                      data-ocid={`quiz.submit_button.${index}`}
+                    >
+                      {createPost.isPending ? (
+                        <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
+                      ) : (
+                        <Rss className="w-4 h-4 mr-1.5" />
+                      )}
+                      Post to Feed
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            )}
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Delete confirmation dialog */}
+      <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
+        <AlertDialogContent data-ocid={`quiz.modal.${index}`}>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="flex items-center gap-2">
+              <Trash2 className="w-4 h-4 text-destructive" />
+              Delete this quiz?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              <strong>{quiz.title}</strong> will be permanently deleted. This
+              cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel data-ocid={`quiz.cancel_button.${index}`}>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDelete}
+              disabled={deleteQuiz.isPending}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              data-ocid={`quiz.delete_button.${index}`}
+            >
+              {deleteQuiz.isPending ? (
+                <Loader2 className="w-4 h-4 mr-1.5 animate-spin" />
+              ) : (
+                <Trash2 className="w-4 h-4 mr-1.5" />
+              )}
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
   );
 }

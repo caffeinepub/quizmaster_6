@@ -58,6 +58,14 @@ export interface CustomGame {
         };
     };
 }
+export interface PrivateMessage {
+    id: bigint;
+    content: string;
+    recipient: Principal;
+    isRead: boolean;
+    sender: Principal;
+    timestamp: Time;
+}
 export interface Result {
     username: string;
     player: Principal;
@@ -96,6 +104,12 @@ export interface Answer {
     };
     questionId: bigint;
 }
+export interface ChatMessage {
+    id: bigint;
+    content: string;
+    author: Principal;
+    timestamp: Time;
+}
 export interface Question {
     id: bigint;
     text: string;
@@ -113,6 +127,12 @@ export interface Question {
     };
     quizId: bigint;
 }
+export interface ConversationSummary {
+    lastMessage: string;
+    otherUser: Principal;
+    unreadCount: bigint;
+    lastTimestamp: Time;
+}
 export interface UserProfile {
     username: string;
 }
@@ -126,11 +146,13 @@ export interface backendInterface {
     addQuestion(quizId: bigint, question: Question): Promise<bigint>;
     assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
     awardPoints(amount: bigint): Promise<void>;
+    claimOwnership(): Promise<void>;
     createCustomSpinWheel(title: string, segments: Array<SpinWheelSegment>): Promise<bigint>;
     createCustomTrivia(title: string, questions: Array<CustomTriviaQuestion>): Promise<bigint>;
     createPost(quizId: bigint, message: string): Promise<bigint>;
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
+    deleteQuiz(quizId: bigint): Promise<void>;
     getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
     getAllCustomGames(): Promise<Array<CustomGame>>;
     getAllPlayerPoints(): Promise<Array<PointsEntry>>;
@@ -139,8 +161,12 @@ export interface backendInterface {
     getCallerUserProfile(): Promise<UserProfile | null>;
     getCallerUserRole(): Promise<UserRole>;
     getCommentsByPostId(postId: bigint): Promise<Array<Comment>>;
+    getConversation(otherUser: Principal): Promise<Array<PrivateMessage>>;
     getMemoryGameCooldown(): Promise<Time | null>;
+    getMessages(): Promise<Array<ChatMessage>>;
+    getMyConversations(): Promise<Array<ConversationSummary>>;
     getMyPoints(): Promise<bigint>;
+    getOwner(): Promise<Principal | null>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
     getQuiz(quizId: bigint): Promise<Quiz>;
@@ -150,12 +176,15 @@ export interface backendInterface {
     getSpinWheelCooldown(): Promise<Time | null>;
     getTopPlayer(): Promise<Principal | null>;
     getTotalVisitors(): Promise<bigint>;
+    getUnreadMessageCount(): Promise<bigint>;
     getUserPosts(user: Principal): Promise<Array<PostWithStats>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     getUserQuizResults(): Promise<Array<Result>>;
     giftPoints(recipient: Principal, amount: bigint): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
+    isCallerOwner(): Promise<boolean>;
     likePost(postId: bigint): Promise<void>;
+    markConversationRead(otherUser: Principal): Promise<void>;
     playCustomSpinWheel(gameId: bigint): Promise<bigint>;
     playCustomTrivia(gameId: bigint, answers: Array<{
         answerIndex: bigint;
@@ -164,6 +193,9 @@ export interface backendInterface {
     recordMemoryGamePlay(): Promise<void>;
     recordSpinWheelPlay(): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
+    searchUsers(searchQuery: string): Promise<Array<[Principal, UserProfile]>>;
+    sendMessage(content: string): Promise<bigint>;
+    sendPrivateMessage(recipient: Principal, content: string): Promise<bigint>;
     submitQuizAnswers(quizId: bigint, answers: Array<Answer>): Promise<bigint>;
     trackVisit(): Promise<void>;
     unlikePost(postId: bigint): Promise<void>;

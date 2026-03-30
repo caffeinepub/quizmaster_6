@@ -20390,18 +20390,18 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$D = [
+const __iconNode$E = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$D);
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$E);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$C = [
+const __iconNode$D = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20411,14 +20411,14 @@ const __iconNode$C = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$C);
+const BookOpen = createLucideIcon("book-open", __iconNode$D);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$B = [
+const __iconNode$C = [
   [
     "path",
     {
@@ -20441,39 +20441,50 @@ const __iconNode$B = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$B);
+const Brain = createLucideIcon("brain", __iconNode$C);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$A = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$A);
+const __iconNode$B = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$B);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$z = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$z);
+const __iconNode$A = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$A);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$y = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$y);
+const __iconNode$z = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$x = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$x);
+const __iconNode$y = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$y);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$x = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$x);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20481,10 +20492,10 @@ const ChevronUp = createLucideIcon("chevron-up", __iconNode$x);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$w = [
-  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
-  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$w);
+const CircleCheck = createLucideIcon("circle-check", __iconNode$w);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20493,9 +20504,9 @@ const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$w);
  */
 const __iconNode$v = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$v);
+const Clock = createLucideIcon("clock", __iconNode$v);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20503,17 +20514,6 @@ const CircleCheck = createLucideIcon("circle-check", __iconNode$v);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$u = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
-];
-const Clock = createLucideIcon("clock", __iconNode$u);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$t = [
   [
     "path",
     {
@@ -20523,7 +20523,19 @@ const __iconNode$t = [
   ],
   ["path", { d: "M5 21h14", key: "11awu3" }]
 ];
-const Crown = createLucideIcon("crown", __iconNode$t);
+const Crown = createLucideIcon("crown", __iconNode$u);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$t = [
+  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
+  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
+  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
+];
+const Database = createLucideIcon("database", __iconNode$t);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20531,18 +20543,6 @@ const Crown = createLucideIcon("crown", __iconNode$t);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$s = [
-  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
-  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
-  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
-];
-const Database = createLucideIcon("database", __iconNode$s);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$r = [
   ["line", { x1: "6", x2: "10", y1: "11", y2: "11", key: "1gktln" }],
   ["line", { x1: "8", x2: "8", y1: "9", y2: "13", key: "qnk9ow" }],
   ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12", key: "krot7o" }],
@@ -20555,14 +20555,14 @@ const __iconNode$r = [
     }
   ]
 ];
-const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$r);
+const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$s);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$q = [
+const __iconNode$r = [
   ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
   ["path", { d: "M12 8v13", key: "1c76mn" }],
   ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
@@ -20574,14 +20574,14 @@ const __iconNode$q = [
     }
   ]
 ];
-const Gift = createLucideIcon("gift", __iconNode$q);
+const Gift = createLucideIcon("gift", __iconNode$r);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$p = [
+const __iconNode$q = [
   [
     "path",
     {
@@ -20591,7 +20591,19 @@ const __iconNode$p = [
   ],
   ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
 ];
-const Github = createLucideIcon("github", __iconNode$p);
+const Github = createLucideIcon("github", __iconNode$q);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$p = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }]
+];
+const Globe = createLucideIcon("globe", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20599,18 +20611,6 @@ const Github = createLucideIcon("github", __iconNode$p);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$o = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
-  ["path", { d: "M2 12h20", key: "9i4pu4" }]
-];
-const Globe = createLucideIcon("globe", __iconNode$o);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$n = [
   [
     "path",
     {
@@ -20619,14 +20619,14 @@ const __iconNode$n = [
     }
   ]
 ];
-const Heart = createLucideIcon("heart", __iconNode$n);
+const Heart = createLucideIcon("heart", __iconNode$o);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [
+const __iconNode$n = [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
   ["path", { d: "M3 6h.01", key: "1rqtza" }],
@@ -20634,15 +20634,26 @@ const __iconNode$m = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List$1 = createLucideIcon("list", __iconNode$m);
+const List$1 = createLucideIcon("list", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$l);
+const __iconNode$m = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$m);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$l = [
+  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+];
+const Lock = createLucideIcon("lock", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20650,10 +20661,11 @@ const LoaderCircle = createLucideIcon("loader-circle", __iconNode$l);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$k = [
-  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
-  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+  ["path", { d: "M21 12H9", key: "dn1m92" }],
+  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
 ];
-const Lock = createLucideIcon("lock", __iconNode$k);
+const LogOut = createLucideIcon("log-out", __iconNode$k);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20661,11 +20673,9 @@ const Lock = createLucideIcon("lock", __iconNode$k);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$j = [
-  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
-  ["path", { d: "M21 12H9", key: "dn1m92" }],
-  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ];
-const LogOut = createLucideIcon("log-out", __iconNode$j);
+const MessageCircle = createLucideIcon("message-circle", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20673,9 +20683,9 @@ const LogOut = createLucideIcon("log-out", __iconNode$j);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$i = [
-  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ];
-const MessageCircle = createLucideIcon("message-circle", __iconNode$i);
+const MessageSquare = createLucideIcon("message-square", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -21181,6 +21191,15 @@ function createSlotClone(ownerName) {
   return SlotClone;
 }
 var SLOTTABLE_IDENTIFIER = Symbol("radix.slottable");
+// @__NO_SIDE_EFFECTS__
+function createSlottable(ownerName) {
+  const Slottable2 = ({ children }) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children });
+  };
+  Slottable2.displayName = `${ownerName}.Slottable`;
+  Slottable2.__radixId = SLOTTABLE_IDENTIFIER;
+  return Slottable2;
+}
 function isSlottable(child) {
   return reactExports.isValidElement(child) && typeof child.type === "function" && "__radixId" in child.type && child.type.__radixId === SLOTTABLE_IDENTIFIER;
 }
@@ -23922,6 +23941,38 @@ const cva = (base, config) => (props) => {
   }, []);
   return cx(base, getVariantClassNames, getCompoundVariantClassNames, props === null || props === void 0 ? void 0 : props.class, props === null || props === void 0 ? void 0 : props.className);
 };
+const badgeVariants = cva(
+  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+  {
+    variants: {
+      variant: {
+        default: "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+        secondary: "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
+        destructive: "border-transparent bg-destructive text-destructive-foreground [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+        outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground"
+      }
+    },
+    defaultVariants: {
+      variant: "default"
+    }
+  }
+);
+function Badge({
+  className,
+  variant,
+  asChild = false,
+  ...props
+}) {
+  const Comp = asChild ? Slot$1 : "span";
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Comp,
+    {
+      "data-slot": "badge",
+      className: cn(badgeVariants({ variant }), className),
+      ...props
+    }
+  );
+}
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
@@ -34575,1319 +34626,6 @@ function _createActorMethod(actor, methodName, func, blsVerify2) {
   handler.withOptions = (options) => (...args) => caller(options, ...args);
   return handler;
 }
-function isObject$1(value) {
-  return value !== null && typeof value === "object";
-}
-const _Ed25519PublicKey = class _Ed25519PublicKey {
-  // `fromRaw` and `fromDer` should be used for instantiation, not this constructor.
-  constructor(key) {
-    __privateAdd(this, _rawKey2);
-    __privateAdd(this, _derKey2);
-    if (key.byteLength !== _Ed25519PublicKey.RAW_KEY_LENGTH) {
-      throw new Error("An Ed25519 public key must be exactly 32bytes long");
-    }
-    __privateSet(this, _rawKey2, key);
-    __privateSet(this, _derKey2, _Ed25519PublicKey.derEncode(key));
-  }
-  /**
-   * Construct Ed25519PublicKey from an existing PublicKey
-   * @param {unknown} maybeKey - existing PublicKey, ArrayBuffer, DerEncodedPublicKey, or hex string
-   * @returns {Ed25519PublicKey} Instance of Ed25519PublicKey
-   */
-  static from(maybeKey) {
-    if (typeof maybeKey === "string") {
-      const key = hexToBytes(maybeKey);
-      return this.fromRaw(key);
-    } else if (isObject$1(maybeKey)) {
-      const key = maybeKey;
-      if (isObject$1(key) && Object.hasOwnProperty.call(key, "__derEncodedPublicKey__")) {
-        return this.fromDer(key);
-      } else if (ArrayBuffer.isView(key)) {
-        const view = key;
-        return this.fromRaw(uint8FromBufLike$1(view.buffer));
-      } else if (key instanceof ArrayBuffer) {
-        return this.fromRaw(uint8FromBufLike$1(key));
-      } else if ("rawKey" in key && key.rawKey instanceof Uint8Array) {
-        return this.fromRaw(key.rawKey);
-      } else if ("derKey" in key) {
-        return this.fromDer(key.derKey);
-      } else if ("toDer" in key) {
-        return this.fromDer(key.toDer());
-      }
-    }
-    throw new Error("Cannot construct Ed25519PublicKey from the provided key.");
-  }
-  static fromRaw(rawKey) {
-    return new _Ed25519PublicKey(rawKey);
-  }
-  static fromDer(derKey) {
-    return new _Ed25519PublicKey(this.derDecode(derKey));
-  }
-  static derEncode(publicKey) {
-    const key = wrapDER(publicKey, ED25519_OID);
-    key.__derEncodedPublicKey__ = void 0;
-    return key;
-  }
-  static derDecode(key) {
-    const unwrapped = unwrapDER(key, ED25519_OID);
-    if (unwrapped.length !== this.RAW_KEY_LENGTH) {
-      throw new Error("An Ed25519 public key must be exactly 32bytes long");
-    }
-    return unwrapped;
-  }
-  get rawKey() {
-    return __privateGet(this, _rawKey2);
-  }
-  get derKey() {
-    return __privateGet(this, _derKey2);
-  }
-  toDer() {
-    return this.derKey;
-  }
-  toRaw() {
-    return this.rawKey;
-  }
-};
-_rawKey2 = new WeakMap();
-_derKey2 = new WeakMap();
-_Ed25519PublicKey.RAW_KEY_LENGTH = 32;
-let Ed25519PublicKey = _Ed25519PublicKey;
-const _Ed25519KeyIdentity = class _Ed25519KeyIdentity extends SignIdentity {
-  // `fromRaw` and `fromDer` should be used for instantiation, not this constructor.
-  constructor(publicKey, privateKey) {
-    super();
-    __privateAdd(this, _publicKey);
-    __privateAdd(this, _privateKey);
-    __privateSet(this, _publicKey, Ed25519PublicKey.from(publicKey));
-    __privateSet(this, _privateKey, privateKey);
-  }
-  /**
-   * Generate a new Ed25519KeyIdentity.
-   * @param seed a 32-byte seed for the private key. If not provided, a random seed will be generated.
-   * @returns Ed25519KeyIdentity
-   */
-  static generate(seed) {
-    if (seed && seed.length !== 32) {
-      throw new Error("Ed25519 Seed needs to be 32 bytes long.");
-    }
-    if (!seed)
-      seed = ed25519.utils.randomPrivateKey();
-    if (uint8Equals$1(seed, new Uint8Array(new Array(32).fill(0)))) {
-      console.warn("Seed is all zeros. This is not a secure seed. Please provide a seed with sufficient entropy if this is a production environment.");
-    }
-    const sk = new Uint8Array(32);
-    for (let i = 0; i < 32; i++) {
-      sk[i] = seed[i];
-    }
-    const pk = ed25519.getPublicKey(sk);
-    return _Ed25519KeyIdentity.fromKeyPair(pk, sk);
-  }
-  static fromParsedJson(obj) {
-    const [publicKeyDer, privateKeyRaw] = obj;
-    return new _Ed25519KeyIdentity(Ed25519PublicKey.fromDer(hexToBytes(publicKeyDer)), hexToBytes(privateKeyRaw));
-  }
-  static fromJSON(json) {
-    const parsed = JSON.parse(json);
-    if (Array.isArray(parsed)) {
-      if (typeof parsed[0] === "string" && typeof parsed[1] === "string") {
-        return this.fromParsedJson([parsed[0], parsed[1]]);
-      } else {
-        throw new Error("Deserialization error: JSON must have at least 2 items.");
-      }
-    }
-    throw new Error(`Deserialization error: Invalid JSON type for string: ${JSON.stringify(json)}`);
-  }
-  static fromKeyPair(publicKey, privateKey) {
-    return new _Ed25519KeyIdentity(Ed25519PublicKey.fromRaw(publicKey), privateKey);
-  }
-  static fromSecretKey(secretKey) {
-    const publicKey = ed25519.getPublicKey(secretKey);
-    return _Ed25519KeyIdentity.fromKeyPair(publicKey, secretKey);
-  }
-  /**
-   * Serialize this key to JSON.
-   */
-  toJSON() {
-    return [bytesToHex(__privateGet(this, _publicKey).toDer()), bytesToHex(__privateGet(this, _privateKey))];
-  }
-  /**
-   * Return a copy of the key pair.
-   */
-  getKeyPair() {
-    return {
-      secretKey: __privateGet(this, _privateKey),
-      publicKey: __privateGet(this, _publicKey)
-    };
-  }
-  /**
-   * Return the public key.
-   */
-  getPublicKey() {
-    return __privateGet(this, _publicKey);
-  }
-  /**
-   * Signs a blob of data, with this identity's private key.
-   * @param challenge - challenge to sign with this identity's secretKey, producing a signature
-   */
-  async sign(challenge) {
-    const signature = ed25519.sign(challenge, __privateGet(this, _privateKey).slice(0, 32));
-    Object.defineProperty(signature, "__signature__", {
-      enumerable: false,
-      value: void 0
-    });
-    return signature;
-  }
-  /**
-   * Verify
-   * @param sig - signature to verify
-   * @param msg - message to verify
-   * @param pk - public key
-   * @returns - true if the signature is valid, false otherwise
-   */
-  static verify(sig, msg, pk) {
-    const [signature, message, publicKey] = [sig, msg, pk].map((x2) => {
-      if (typeof x2 === "string") {
-        x2 = hexToBytes(x2);
-      }
-      return uint8FromBufLike$1(x2);
-    });
-    return ed25519.verify(signature, message, publicKey);
-  }
-};
-_publicKey = new WeakMap();
-_privateKey = new WeakMap();
-let Ed25519KeyIdentity = _Ed25519KeyIdentity;
-class CryptoError extends Error {
-  constructor(message) {
-    super(message);
-    this.message = message;
-    Object.setPrototypeOf(this, CryptoError.prototype);
-  }
-}
-function _getEffectiveCrypto(subtleCrypto) {
-  if (typeof global !== "undefined" && global["crypto"] && global["crypto"]["subtle"]) {
-    return global["crypto"]["subtle"];
-  }
-  if (subtleCrypto) {
-    return subtleCrypto;
-  } else if (typeof crypto !== "undefined" && crypto["subtle"]) {
-    return crypto.subtle;
-  } else {
-    throw new CryptoError("Global crypto was not available and none was provided. Please inlcude a SubtleCrypto implementation. See https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto");
-  }
-}
-class ECDSAKeyIdentity extends SignIdentity {
-  /**
-   * Generates a randomly generated identity for use in calls to the Internet Computer.
-   * @param {CryptoKeyOptions} options optional settings
-   * @param {CryptoKeyOptions['extractable']} options.extractable - whether the key should allow itself to be used. Set to false for maximum security.
-   * @param {CryptoKeyOptions['keyUsages']} options.keyUsages - a list of key usages that the key can be used for
-   * @param {CryptoKeyOptions['subtleCrypto']} options.subtleCrypto interface
-   * @returns a {@link ECDSAKeyIdentity}
-   */
-  static async generate(options) {
-    const { extractable = false, keyUsages = ["sign", "verify"], subtleCrypto } = options ?? {};
-    const effectiveCrypto = _getEffectiveCrypto(subtleCrypto);
-    const keyPair = await effectiveCrypto.generateKey({
-      name: "ECDSA",
-      namedCurve: "P-256"
-    }, extractable, keyUsages);
-    const derKey = uint8FromBufLike$1(await effectiveCrypto.exportKey("spki", keyPair.publicKey));
-    Object.assign(derKey, {
-      __derEncodedPublicKey__: void 0
-    });
-    return new this(keyPair, derKey, effectiveCrypto);
-  }
-  /**
-   * generates an identity from a public and private key. Please ensure that you are generating these keys securely and protect the user's private key
-   * @param keyPair a CryptoKeyPair
-   * @param subtleCrypto - a SubtleCrypto interface in case one is not available globally
-   * @returns an {@link ECDSAKeyIdentity}
-   */
-  static async fromKeyPair(keyPair, subtleCrypto) {
-    const effectiveCrypto = _getEffectiveCrypto(subtleCrypto);
-    const derKey = uint8FromBufLike$1(await effectiveCrypto.exportKey("spki", keyPair.publicKey));
-    Object.assign(derKey, {
-      __derEncodedPublicKey__: void 0
-    });
-    return new ECDSAKeyIdentity(keyPair, derKey, effectiveCrypto);
-  }
-  // `fromKeyPair` and `generate` should be used for instantiation, not this constructor.
-  constructor(keyPair, derKey, subtleCrypto) {
-    super();
-    this._keyPair = keyPair;
-    this._derKey = derKey;
-    this._subtleCrypto = subtleCrypto;
-  }
-  /**
-   * Return the internally-used key pair.
-   * @returns a CryptoKeyPair
-   */
-  getKeyPair() {
-    return this._keyPair;
-  }
-  /**
-   * Return the public key.
-   * @returns an {@link PublicKey & DerCryptoKey}
-   */
-  getPublicKey() {
-    const derKey = this._derKey;
-    const key = Object.create(this._keyPair.publicKey);
-    key.toDer = function() {
-      return derKey;
-    };
-    return key;
-  }
-  /**
-   * Signs a blob of data, with this identity's private key.
-   * @param {Uint8Array} challenge - challenge to sign with this identity's secretKey, producing a signature
-   * @returns {Promise<Signature>} signature
-   */
-  async sign(challenge) {
-    const params = {
-      name: "ECDSA",
-      hash: { name: "SHA-256" }
-    };
-    const signature = uint8FromBufLike$1(await this._subtleCrypto.sign(params, this._keyPair.privateKey, challenge));
-    Object.assign(signature, {
-      __signature__: void 0
-    });
-    return signature;
-  }
-}
-class PartialIdentity {
-  constructor(inner) {
-    __privateAdd(this, _inner2);
-    __privateSet(this, _inner2, inner);
-  }
-  /**
-   * The raw public key of this identity.
-   */
-  get rawKey() {
-    return __privateGet(this, _inner2).rawKey;
-  }
-  /**
-   * The DER-encoded public key of this identity.
-   */
-  get derKey() {
-    return __privateGet(this, _inner2).derKey;
-  }
-  /**
-   * The DER-encoded public key of this identity.
-   */
-  toDer() {
-    return __privateGet(this, _inner2).toDer();
-  }
-  /**
-   * The inner {@link PublicKey} used by this identity.
-   */
-  getPublicKey() {
-    return __privateGet(this, _inner2);
-  }
-  /**
-   * The {@link Principal} of this identity.
-   */
-  getPrincipal() {
-    if (!__privateGet(this, _inner2).rawKey) {
-      throw new Error("Cannot get principal from a public key without a raw key.");
-    }
-    return Principal$1.fromUint8Array(new Uint8Array(__privateGet(this, _inner2).rawKey));
-  }
-  /**
-   * Required for the Identity interface, but cannot implemented for just a public key.
-   */
-  transformRequest() {
-    return Promise.reject("Not implemented. You are attempting to use a partial identity to sign calls, but this identity only has access to the public key.To sign calls, use a DelegationIdentity instead.");
-  }
-}
-_inner2 = new WeakMap();
-function safeBytesToHex(data) {
-  if (data instanceof Uint8Array) {
-    return bytesToHex(data);
-  }
-  return bytesToHex(new Uint8Array(data));
-}
-function _parseBlob(value) {
-  if (typeof value !== "string" || value.length < 64) {
-    throw new Error("Invalid public key.");
-  }
-  return hexToBytes(value);
-}
-class Delegation {
-  constructor(pubkey, expiration, targets) {
-    this.pubkey = pubkey;
-    this.expiration = expiration;
-    this.targets = targets;
-  }
-  toCborValue() {
-    return {
-      pubkey: this.pubkey,
-      expiration: this.expiration,
-      ...this.targets && {
-        targets: this.targets
-      }
-    };
-  }
-  toJSON() {
-    return {
-      expiration: this.expiration.toString(16),
-      pubkey: safeBytesToHex(this.pubkey),
-      ...this.targets && { targets: this.targets.map((p2) => p2.toHex()) }
-    };
-  }
-}
-async function _createSingleDelegation(from, to, expiration, targets) {
-  const delegation = new Delegation(
-    to.toDer(),
-    BigInt(+expiration) * BigInt(1e6),
-    // In nanoseconds.
-    targets
-  );
-  const challenge = new Uint8Array([
-    ...IC_REQUEST_AUTH_DELEGATION_DOMAIN_SEPARATOR,
-    ...new Uint8Array(requestIdOf({ ...delegation }))
-  ]);
-  const signature = await from.sign(challenge);
-  return {
-    delegation,
-    signature
-  };
-}
-class DelegationChain {
-  /**
-   * Create a delegation chain between two (or more) keys. By default, the expiration time
-   * will be very short (15 minutes).
-   *
-   * To build a chain of more than 2 identities, this function needs to be called multiple times,
-   * passing the previous delegation chain into the options argument. For example:
-   * @example
-   * const rootKey = createKey();
-   * const middleKey = createKey();
-   * const bottomeKey = createKey();
-   *
-   * const rootToMiddle = await DelegationChain.create(
-   *   root, middle.getPublicKey(), Date.parse('2100-01-01'),
-   * );
-   * const middleToBottom = await DelegationChain.create(
-   *   middle, bottom.getPublicKey(), Date.parse('2100-01-01'), { previous: rootToMiddle },
-   * );
-   *
-   * // We can now use a delegation identity that uses the delegation above:
-   * const identity = DelegationIdentity.fromDelegation(bottomKey, middleToBottom);
-   * @param from The identity that will delegate.
-   * @param to The identity that gets delegated. It can now sign messages as if it was the
-   *           identity above.
-   * @param expiration The length the delegation is valid. By default, 15 minutes from calling
-   *                   this function.
-   * @param options A set of options for this delegation. expiration and previous
-   * @param options.previous - Another DelegationChain that this chain should start with.
-   * @param options.targets - targets that scope the delegation (e.g. Canister Principals)
-   */
-  static async create(from, to, expiration = new Date(Date.now() + 15 * 60 * 1e3), options = {}) {
-    var _a3, _b3;
-    const delegation = await _createSingleDelegation(from, to, expiration, options.targets);
-    return new DelegationChain([...((_a3 = options.previous) == null ? void 0 : _a3.delegations) || [], delegation], ((_b3 = options.previous) == null ? void 0 : _b3.publicKey) || from.getPublicKey().toDer());
-  }
-  /**
-   * Creates a DelegationChain object from a JSON string.
-   * @param json The JSON string to parse.
-   */
-  static fromJSON(json) {
-    const { publicKey, delegations } = typeof json === "string" ? JSON.parse(json) : json;
-    if (!Array.isArray(delegations)) {
-      throw new Error("Invalid delegations.");
-    }
-    const parsedDelegations = delegations.map((signedDelegation) => {
-      const { delegation, signature } = signedDelegation;
-      const { pubkey, expiration, targets } = delegation;
-      if (targets !== void 0 && !Array.isArray(targets)) {
-        throw new Error("Invalid targets.");
-      }
-      return {
-        delegation: new Delegation(
-          _parseBlob(pubkey),
-          BigInt("0x" + expiration),
-          // expiration in JSON is an hexa string (See toJSON() below).
-          targets && targets.map((t) => {
-            if (typeof t !== "string") {
-              throw new Error("Invalid target.");
-            }
-            return Principal$1.fromHex(t);
-          })
-        ),
-        signature: _parseBlob(signature)
-      };
-    });
-    return new this(parsedDelegations, _parseBlob(publicKey));
-  }
-  /**
-   * Creates a DelegationChain object from a list of delegations and a DER-encoded public key.
-   * @param delegations The list of delegations.
-   * @param publicKey The DER-encoded public key of the key-pair signing the first delegation.
-   */
-  static fromDelegations(delegations, publicKey) {
-    return new this(delegations, publicKey);
-  }
-  constructor(delegations, publicKey) {
-    this.delegations = delegations;
-    this.publicKey = publicKey;
-  }
-  toJSON() {
-    return {
-      delegations: this.delegations.map((signedDelegation) => {
-        const { delegation, signature } = signedDelegation;
-        const { targets } = delegation;
-        return {
-          delegation: {
-            expiration: delegation.expiration.toString(16),
-            pubkey: safeBytesToHex(delegation.pubkey),
-            ...targets && {
-              targets: targets.map((t) => t.toHex())
-            }
-          },
-          signature: safeBytesToHex(signature)
-        };
-      }),
-      publicKey: safeBytesToHex(this.publicKey)
-    };
-  }
-}
-class DelegationIdentity extends SignIdentity {
-  /**
-   * Create a delegation without having access to delegateKey.
-   * @param key The key used to sign the requests.
-   * @param delegation A delegation object created using `createDelegation`.
-   */
-  static fromDelegation(key, delegation) {
-    return new this(key, delegation);
-  }
-  constructor(_inner3, _delegation2) {
-    super();
-    this._inner = _inner3;
-    this._delegation = _delegation2;
-  }
-  getDelegation() {
-    return this._delegation;
-  }
-  getPublicKey() {
-    return {
-      derKey: this._delegation.publicKey,
-      toDer: () => this._delegation.publicKey
-    };
-  }
-  sign(blob) {
-    return this._inner.sign(blob);
-  }
-  async transformRequest(request2) {
-    const { body, ...fields } = request2;
-    const requestId = await requestIdOf(body);
-    return {
-      ...fields,
-      body: {
-        content: body,
-        sender_sig: await this.sign(new Uint8Array([...IC_REQUEST_DOMAIN_SEPARATOR, ...new Uint8Array(requestId)])),
-        sender_delegation: this._delegation.delegations,
-        sender_pubkey: this._delegation.publicKey
-      }
-    };
-  }
-}
-const _PartialDelegationIdentity = class _PartialDelegationIdentity extends PartialIdentity {
-  constructor(inner, delegation) {
-    super(inner);
-    __privateAdd(this, _delegation);
-    __privateSet(this, _delegation, delegation);
-  }
-  /**
-   * The Delegation Chain of this identity.
-   */
-  get delegation() {
-    return __privateGet(this, _delegation);
-  }
-  /**
-   * Create a {@link PartialDelegationIdentity} from a {@link PublicKey} and a {@link DelegationChain}.
-   * @param key The {@link PublicKey} to delegate to.
-   * @param delegation a {@link DelegationChain} targeting the inner key.
-   */
-  static fromDelegation(key, delegation) {
-    return new _PartialDelegationIdentity(key, delegation);
-  }
-};
-_delegation = new WeakMap();
-let PartialDelegationIdentity = _PartialDelegationIdentity;
-function isDelegationValid(chain2, checks) {
-  for (const { delegation } of chain2.delegations) {
-    if (+new Date(Number(delegation.expiration / BigInt(1e6))) <= +Date.now()) {
-      return false;
-    }
-  }
-  const scopes = [];
-  for (const s2 of scopes) {
-    const scope = s2.toText();
-    for (const { delegation } of chain2.delegations) {
-      if (delegation.targets === void 0) {
-        continue;
-      }
-      let none = true;
-      for (const target of delegation.targets) {
-        if (target.toText() === scope) {
-          none = false;
-          break;
-        }
-      }
-      if (none) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
-const events = ["mousedown", "mousemove", "keydown", "touchstart", "wheel"];
-class IdleManager {
-  /**
-   * @protected
-   * @param options {@link IdleManagerOptions}
-   */
-  constructor(options = {}) {
-    __publicField(this, "callbacks", []);
-    __publicField(this, "idleTimeout", 10 * 60 * 1e3);
-    __publicField(this, "timeoutID");
-    const { onIdle, idleTimeout = 10 * 60 * 1e3 } = options || {};
-    this.callbacks = onIdle ? [onIdle] : [];
-    this.idleTimeout = idleTimeout;
-    const _resetTimer = this._resetTimer.bind(this);
-    window.addEventListener("load", _resetTimer, true);
-    events.forEach(function(name) {
-      document.addEventListener(name, _resetTimer, true);
-    });
-    const debounce = (func, wait) => {
-      let timeout2;
-      return (...args) => {
-        const context = this;
-        const later = function() {
-          timeout2 = void 0;
-          func.apply(context, args);
-        };
-        clearTimeout(timeout2);
-        timeout2 = window.setTimeout(later, wait);
-      };
-    };
-    if (options == null ? void 0 : options.captureScroll) {
-      const scroll = debounce(_resetTimer, (options == null ? void 0 : options.scrollDebounce) ?? 100);
-      window.addEventListener("scroll", scroll, true);
-    }
-    _resetTimer();
-  }
-  /**
-   * Creates an {@link IdleManager}
-   * @param {IdleManagerOptions} options Optional configuration
-   * @see {@link IdleManagerOptions}
-   * @param options.onIdle Callback once user has been idle. Use to prompt for fresh login, and use `Actor.agentOf(your_actor).invalidateIdentity()` to protect the user
-   * @param options.idleTimeout timeout in ms
-   * @param options.captureScroll capture scroll events
-   * @param options.scrollDebounce scroll debounce time in ms
-   */
-  static create(options = {}) {
-    return new this(options);
-  }
-  /**
-   * @param {IdleCB} callback function to be called when user goes idle
-   */
-  registerCallback(callback) {
-    this.callbacks.push(callback);
-  }
-  /**
-   * Cleans up the idle manager and its listeners
-   */
-  exit() {
-    clearTimeout(this.timeoutID);
-    window.removeEventListener("load", this._resetTimer, true);
-    const _resetTimer = this._resetTimer.bind(this);
-    events.forEach(function(name) {
-      document.removeEventListener(name, _resetTimer, true);
-    });
-    this.callbacks.forEach((cb) => cb());
-  }
-  /**
-   * Resets the timeouts during cleanup
-   */
-  _resetTimer() {
-    const exit = this.exit.bind(this);
-    window.clearTimeout(this.timeoutID);
-    this.timeoutID = window.setTimeout(exit, this.idleTimeout);
-  }
-}
-const instanceOfAny = (object, constructors) => constructors.some((c2) => object instanceof c2);
-let idbProxyableTypes;
-let cursorAdvanceMethods;
-function getIdbProxyableTypes() {
-  return idbProxyableTypes || (idbProxyableTypes = [
-    IDBDatabase,
-    IDBObjectStore,
-    IDBIndex,
-    IDBCursor,
-    IDBTransaction
-  ]);
-}
-function getCursorAdvanceMethods() {
-  return cursorAdvanceMethods || (cursorAdvanceMethods = [
-    IDBCursor.prototype.advance,
-    IDBCursor.prototype.continue,
-    IDBCursor.prototype.continuePrimaryKey
-  ]);
-}
-const cursorRequestMap = /* @__PURE__ */ new WeakMap();
-const transactionDoneMap = /* @__PURE__ */ new WeakMap();
-const transactionStoreNamesMap = /* @__PURE__ */ new WeakMap();
-const transformCache = /* @__PURE__ */ new WeakMap();
-const reverseTransformCache = /* @__PURE__ */ new WeakMap();
-function promisifyRequest(request2) {
-  const promise = new Promise((resolve, reject) => {
-    const unlisten = () => {
-      request2.removeEventListener("success", success);
-      request2.removeEventListener("error", error);
-    };
-    const success = () => {
-      resolve(wrap(request2.result));
-      unlisten();
-    };
-    const error = () => {
-      reject(request2.error);
-      unlisten();
-    };
-    request2.addEventListener("success", success);
-    request2.addEventListener("error", error);
-  });
-  promise.then((value) => {
-    if (value instanceof IDBCursor) {
-      cursorRequestMap.set(value, request2);
-    }
-  }).catch(() => {
-  });
-  reverseTransformCache.set(promise, request2);
-  return promise;
-}
-function cacheDonePromiseForTransaction(tx) {
-  if (transactionDoneMap.has(tx))
-    return;
-  const done = new Promise((resolve, reject) => {
-    const unlisten = () => {
-      tx.removeEventListener("complete", complete);
-      tx.removeEventListener("error", error);
-      tx.removeEventListener("abort", error);
-    };
-    const complete = () => {
-      resolve();
-      unlisten();
-    };
-    const error = () => {
-      reject(tx.error || new DOMException("AbortError", "AbortError"));
-      unlisten();
-    };
-    tx.addEventListener("complete", complete);
-    tx.addEventListener("error", error);
-    tx.addEventListener("abort", error);
-  });
-  transactionDoneMap.set(tx, done);
-}
-let idbProxyTraps = {
-  get(target, prop, receiver) {
-    if (target instanceof IDBTransaction) {
-      if (prop === "done")
-        return transactionDoneMap.get(target);
-      if (prop === "objectStoreNames") {
-        return target.objectStoreNames || transactionStoreNamesMap.get(target);
-      }
-      if (prop === "store") {
-        return receiver.objectStoreNames[1] ? void 0 : receiver.objectStore(receiver.objectStoreNames[0]);
-      }
-    }
-    return wrap(target[prop]);
-  },
-  set(target, prop, value) {
-    target[prop] = value;
-    return true;
-  },
-  has(target, prop) {
-    if (target instanceof IDBTransaction && (prop === "done" || prop === "store")) {
-      return true;
-    }
-    return prop in target;
-  }
-};
-function replaceTraps(callback) {
-  idbProxyTraps = callback(idbProxyTraps);
-}
-function wrapFunction(func) {
-  if (func === IDBDatabase.prototype.transaction && !("objectStoreNames" in IDBTransaction.prototype)) {
-    return function(storeNames, ...args) {
-      const tx = func.call(unwrap(this), storeNames, ...args);
-      transactionStoreNamesMap.set(tx, storeNames.sort ? storeNames.sort() : [storeNames]);
-      return wrap(tx);
-    };
-  }
-  if (getCursorAdvanceMethods().includes(func)) {
-    return function(...args) {
-      func.apply(unwrap(this), args);
-      return wrap(cursorRequestMap.get(this));
-    };
-  }
-  return function(...args) {
-    return wrap(func.apply(unwrap(this), args));
-  };
-}
-function transformCachableValue(value) {
-  if (typeof value === "function")
-    return wrapFunction(value);
-  if (value instanceof IDBTransaction)
-    cacheDonePromiseForTransaction(value);
-  if (instanceOfAny(value, getIdbProxyableTypes()))
-    return new Proxy(value, idbProxyTraps);
-  return value;
-}
-function wrap(value) {
-  if (value instanceof IDBRequest)
-    return promisifyRequest(value);
-  if (transformCache.has(value))
-    return transformCache.get(value);
-  const newValue = transformCachableValue(value);
-  if (newValue !== value) {
-    transformCache.set(value, newValue);
-    reverseTransformCache.set(newValue, value);
-  }
-  return newValue;
-}
-const unwrap = (value) => reverseTransformCache.get(value);
-function openDB(name, version, { blocked, upgrade, blocking, terminated } = {}) {
-  const request2 = indexedDB.open(name, version);
-  const openPromise = wrap(request2);
-  if (upgrade) {
-    request2.addEventListener("upgradeneeded", (event) => {
-      upgrade(wrap(request2.result), event.oldVersion, event.newVersion, wrap(request2.transaction), event);
-    });
-  }
-  if (blocked) {
-    request2.addEventListener("blocked", (event) => blocked(
-      // Casting due to https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1405
-      event.oldVersion,
-      event.newVersion,
-      event
-    ));
-  }
-  openPromise.then((db) => {
-    if (terminated)
-      db.addEventListener("close", () => terminated());
-    if (blocking) {
-      db.addEventListener("versionchange", (event) => blocking(event.oldVersion, event.newVersion, event));
-    }
-  }).catch(() => {
-  });
-  return openPromise;
-}
-const readMethods = ["get", "getKey", "getAll", "getAllKeys", "count"];
-const writeMethods = ["put", "add", "delete", "clear"];
-const cachedMethods = /* @__PURE__ */ new Map();
-function getMethod(target, prop) {
-  if (!(target instanceof IDBDatabase && !(prop in target) && typeof prop === "string")) {
-    return;
-  }
-  if (cachedMethods.get(prop))
-    return cachedMethods.get(prop);
-  const targetFuncName = prop.replace(/FromIndex$/, "");
-  const useIndex = prop !== targetFuncName;
-  const isWrite = writeMethods.includes(targetFuncName);
-  if (
-    // Bail if the target doesn't exist on the target. Eg, getAll isn't in Edge.
-    !(targetFuncName in (useIndex ? IDBIndex : IDBObjectStore).prototype) || !(isWrite || readMethods.includes(targetFuncName))
-  ) {
-    return;
-  }
-  const method = async function(storeName, ...args) {
-    const tx = this.transaction(storeName, isWrite ? "readwrite" : "readonly");
-    let target2 = tx.store;
-    if (useIndex)
-      target2 = target2.index(args.shift());
-    return (await Promise.all([
-      target2[targetFuncName](...args),
-      isWrite && tx.done
-    ]))[0];
-  };
-  cachedMethods.set(prop, method);
-  return method;
-}
-replaceTraps((oldTraps) => ({
-  ...oldTraps,
-  get: (target, prop, receiver) => getMethod(target, prop) || oldTraps.get(target, prop, receiver),
-  has: (target, prop) => !!getMethod(target, prop) || oldTraps.has(target, prop)
-}));
-const AUTH_DB_NAME = "auth-client-db";
-const OBJECT_STORE_NAME = "ic-keyval";
-const _openDbStore = async (dbName = AUTH_DB_NAME, storeName = OBJECT_STORE_NAME, version) => {
-  if (isBrowser$2 && (localStorage == null ? void 0 : localStorage.getItem(KEY_STORAGE_DELEGATION))) {
-    localStorage.removeItem(KEY_STORAGE_DELEGATION);
-    localStorage.removeItem(KEY_STORAGE_KEY);
-  }
-  return await openDB(dbName, version, {
-    upgrade: (database) => {
-      if (database.objectStoreNames.contains(storeName)) {
-        database.clear(storeName);
-      }
-      database.createObjectStore(storeName);
-    }
-  });
-};
-async function _getValue(db, storeName, key) {
-  return await db.get(storeName, key);
-}
-async function _setValue(db, storeName, key, value) {
-  return await db.put(storeName, value, key);
-}
-async function _removeValue(db, storeName, key) {
-  return await db.delete(storeName, key);
-}
-class IdbKeyVal {
-  // Do not use - instead prefer create
-  constructor(_db, _storeName) {
-    __publicField(this, "_db");
-    __publicField(this, "_storeName");
-    this._db = _db;
-    this._storeName = _storeName;
-  }
-  /**
-   * @param {DBCreateOptions} options - DBCreateOptions
-   * @param {DBCreateOptions['dbName']} options.dbName name for the indexeddb database
-   * @default
-   * @param {DBCreateOptions['storeName']} options.storeName name for the indexeddb Data Store
-   * @default
-   * @param {DBCreateOptions['version']} options.version version of the database. Increment to safely upgrade
-   */
-  static async create(options) {
-    const { dbName = AUTH_DB_NAME, storeName = OBJECT_STORE_NAME, version = DB_VERSION } = options ?? {};
-    const db = await _openDbStore(dbName, storeName, version);
-    return new IdbKeyVal(db, storeName);
-  }
-  /**
-   * Basic setter
-   * @param {IDBValidKey} key string | number | Date | BufferSource | IDBValidKey[]
-   * @param value value to set
-   * @returns void
-   */
-  async set(key, value) {
-    return await _setValue(this._db, this._storeName, key, value);
-  }
-  /**
-   * Basic getter
-   * Pass in a type T for type safety if you know the type the value will have if it is found
-   * @param {IDBValidKey} key string | number | Date | BufferSource | IDBValidKey[]
-   * @returns `Promise<T | null>`
-   * @example
-   * await get<string>('exampleKey') -> 'exampleValue'
-   */
-  async get(key) {
-    return await _getValue(this._db, this._storeName, key) ?? null;
-  }
-  /**
-   * Remove a key
-   * @param key {@link IDBValidKey}
-   * @returns void
-   */
-  async remove(key) {
-    return await _removeValue(this._db, this._storeName, key);
-  }
-}
-const KEY_STORAGE_KEY = "identity";
-const KEY_STORAGE_DELEGATION = "delegation";
-const KEY_VECTOR = "iv";
-const DB_VERSION = 1;
-const isBrowser$2 = typeof window !== "undefined";
-class LocalStorage {
-  constructor(prefix2 = "ic-", _localStorage) {
-    __publicField(this, "prefix");
-    __publicField(this, "_localStorage");
-    this.prefix = prefix2;
-    this._localStorage = _localStorage;
-  }
-  get(key) {
-    return Promise.resolve(this._getLocalStorage().getItem(this.prefix + key));
-  }
-  set(key, value) {
-    this._getLocalStorage().setItem(this.prefix + key, value);
-    return Promise.resolve();
-  }
-  remove(key) {
-    this._getLocalStorage().removeItem(this.prefix + key);
-    return Promise.resolve();
-  }
-  _getLocalStorage() {
-    if (this._localStorage) {
-      return this._localStorage;
-    }
-    const ls = typeof window === "undefined" ? typeof global === "undefined" ? typeof self === "undefined" ? void 0 : self.localStorage : global.localStorage : window.localStorage;
-    if (!ls) {
-      throw new Error("Could not find local storage.");
-    }
-    return ls;
-  }
-}
-class IdbStorage {
-  /**
-   * @param options - DBCreateOptions
-   * @param options.dbName - name for the indexeddb database
-   * @param options.storeName - name for the indexeddb Data Store
-   * @param options.version - version of the database. Increment to safely upgrade
-   * @example
-   * ```ts
-   * const storage = new IdbStorage({ dbName: 'my-db', storeName: 'my-store', version: 2 });
-   * ```
-   */
-  constructor(options) {
-    __privateAdd(this, _options);
-    // Initializes a KeyVal on first request
-    __publicField(this, "initializedDb");
-    __privateSet(this, _options, options ?? {});
-  }
-  get _db() {
-    return new Promise((resolve, reject) => {
-      if (this.initializedDb) {
-        resolve(this.initializedDb);
-        return;
-      }
-      IdbKeyVal.create(__privateGet(this, _options)).then((db) => {
-        this.initializedDb = db;
-        resolve(db);
-      }).catch(reject);
-    });
-  }
-  async get(key) {
-    const db = await this._db;
-    return await db.get(key);
-  }
-  async set(key, value) {
-    const db = await this._db;
-    await db.set(key, value);
-  }
-  async remove(key) {
-    const db = await this._db;
-    await db.remove(key);
-  }
-}
-_options = new WeakMap();
-const NANOSECONDS_PER_SECOND = BigInt(1e9);
-const SECONDS_PER_HOUR = BigInt(3600);
-const NANOSECONDS_PER_HOUR = NANOSECONDS_PER_SECOND * SECONDS_PER_HOUR;
-const IDENTITY_PROVIDER_DEFAULT = "https://identity.internetcomputer.org";
-const IDENTITY_PROVIDER_ENDPOINT = "#authorize";
-const DEFAULT_MAX_TIME_TO_LIVE = BigInt(8) * NANOSECONDS_PER_HOUR;
-const ECDSA_KEY_LABEL = "ECDSA";
-const ED25519_KEY_LABEL = "Ed25519";
-const INTERRUPT_CHECK_INTERVAL = 500;
-const ERROR_USER_INTERRUPT = "UserInterrupt";
-class AuthClient {
-  constructor(_identity2, _key, _chain, _storage, idleManager, _createOptions, _idpWindow, _eventHandler) {
-    __publicField(this, "_identity");
-    __publicField(this, "_key");
-    __publicField(this, "_chain");
-    __publicField(this, "_storage");
-    __publicField(this, "idleManager");
-    __publicField(this, "_createOptions");
-    __publicField(this, "_idpWindow");
-    __publicField(this, "_eventHandler");
-    this._identity = _identity2;
-    this._key = _key;
-    this._chain = _chain;
-    this._storage = _storage;
-    this.idleManager = idleManager;
-    this._createOptions = _createOptions;
-    this._idpWindow = _idpWindow;
-    this._eventHandler = _eventHandler;
-    this._registerDefaultIdleCallback();
-  }
-  /**
-   * Create an AuthClient to manage authentication and identity
-   * @param {AuthClientCreateOptions} options - Options for creating an {@link AuthClient}
-   * @see {@link AuthClientCreateOptions}
-   * @param options.identity Optional Identity to use as the base
-   * @see {@link SignIdentity}
-   * @param options.storage Storage mechanism for delegation credentials
-   * @see {@link AuthClientStorage}
-   * @param options.keyType Type of key to use for the base key
-   * @param {IdleOptions} options.idleOptions Configures an {@link IdleManager}
-   * @see {@link IdleOptions}
-   * Default behavior is to clear stored identity and reload the page when a user goes idle, unless you set the disableDefaultIdleCallback flag or pass in a custom idle callback.
-   * @example
-   * const authClient = await AuthClient.create({
-   *   idleOptions: {
-   *     disableIdle: true
-   *   }
-   * })
-   */
-  static async create(options = {}) {
-    var _a3;
-    const storage = options.storage ?? new IdbStorage();
-    const keyType = options.keyType ?? ECDSA_KEY_LABEL;
-    let key = null;
-    if (options.identity) {
-      key = options.identity;
-    } else {
-      let maybeIdentityStorage = await storage.get(KEY_STORAGE_KEY);
-      if (!maybeIdentityStorage && isBrowser$2) {
-        try {
-          const fallbackLocalStorage = new LocalStorage();
-          const localChain = await fallbackLocalStorage.get(KEY_STORAGE_DELEGATION);
-          const localKey = await fallbackLocalStorage.get(KEY_STORAGE_KEY);
-          if (localChain && localKey && keyType === ECDSA_KEY_LABEL) {
-            console.log("Discovered an identity stored in localstorage. Migrating to IndexedDB");
-            await storage.set(KEY_STORAGE_DELEGATION, localChain);
-            await storage.set(KEY_STORAGE_KEY, localKey);
-            maybeIdentityStorage = localChain;
-            await fallbackLocalStorage.remove(KEY_STORAGE_DELEGATION);
-            await fallbackLocalStorage.remove(KEY_STORAGE_KEY);
-          }
-        } catch (error) {
-          console.error("error while attempting to recover localstorage: " + error);
-        }
-      }
-      if (maybeIdentityStorage) {
-        try {
-          if (typeof maybeIdentityStorage === "object") {
-            if (keyType === ED25519_KEY_LABEL && typeof maybeIdentityStorage === "string") {
-              key = Ed25519KeyIdentity.fromJSON(maybeIdentityStorage);
-            } else {
-              key = await ECDSAKeyIdentity.fromKeyPair(maybeIdentityStorage);
-            }
-          } else if (typeof maybeIdentityStorage === "string") {
-            key = Ed25519KeyIdentity.fromJSON(maybeIdentityStorage);
-          }
-        } catch {
-        }
-      }
-    }
-    let identity = new AnonymousIdentity();
-    let chain2 = null;
-    if (key) {
-      try {
-        const chainStorage = await storage.get(KEY_STORAGE_DELEGATION);
-        if (typeof chainStorage === "object" && chainStorage !== null) {
-          throw new Error("Delegation chain is incorrectly stored. A delegation chain should be stored as a string.");
-        }
-        if (options.identity) {
-          identity = options.identity;
-        } else if (chainStorage) {
-          chain2 = DelegationChain.fromJSON(chainStorage);
-          if (!isDelegationValid(chain2)) {
-            await _deleteStorage(storage);
-            key = null;
-          } else {
-            if ("toDer" in key) {
-              identity = PartialDelegationIdentity.fromDelegation(key, chain2);
-            } else {
-              identity = DelegationIdentity.fromDelegation(key, chain2);
-            }
-          }
-        }
-      } catch (e) {
-        console.error(e);
-        await _deleteStorage(storage);
-        key = null;
-      }
-    }
-    let idleManager;
-    if ((_a3 = options.idleOptions) == null ? void 0 : _a3.disableIdle) {
-      idleManager = void 0;
-    } else if (chain2 || options.identity) {
-      idleManager = IdleManager.create(options.idleOptions);
-    }
-    if (!key) {
-      if (keyType === ED25519_KEY_LABEL) {
-        key = Ed25519KeyIdentity.generate();
-        await storage.set(KEY_STORAGE_KEY, JSON.stringify(key.toJSON()));
-      } else {
-        if (options.storage && keyType === ECDSA_KEY_LABEL) {
-          console.warn(`You are using a custom storage provider that may not support CryptoKey storage. If you are using a custom storage provider that does not support CryptoKey storage, you should use '${ED25519_KEY_LABEL}' as the key type, as it can serialize to a string`);
-        }
-        key = await ECDSAKeyIdentity.generate();
-        await storage.set(KEY_STORAGE_KEY, key.getKeyPair());
-      }
-    }
-    return new this(identity, key, chain2, storage, idleManager, options);
-  }
-  _registerDefaultIdleCallback() {
-    var _a3, _b3;
-    const idleOptions = (_a3 = this._createOptions) == null ? void 0 : _a3.idleOptions;
-    if (!(idleOptions == null ? void 0 : idleOptions.onIdle) && !(idleOptions == null ? void 0 : idleOptions.disableDefaultIdleCallback)) {
-      (_b3 = this.idleManager) == null ? void 0 : _b3.registerCallback(() => {
-        this.logout();
-        location.reload();
-      });
-    }
-  }
-  async _handleSuccess(message, onSuccess) {
-    var _a3, _b3;
-    const delegations = message.delegations.map((signedDelegation) => {
-      return {
-        delegation: new Delegation(signedDelegation.delegation.pubkey, signedDelegation.delegation.expiration, signedDelegation.delegation.targets),
-        signature: signedDelegation.signature
-      };
-    });
-    const delegationChain = DelegationChain.fromDelegations(delegations, message.userPublicKey);
-    const key = this._key;
-    if (!key) {
-      return;
-    }
-    this._chain = delegationChain;
-    if ("toDer" in key) {
-      this._identity = PartialDelegationIdentity.fromDelegation(key, this._chain);
-    } else {
-      this._identity = DelegationIdentity.fromDelegation(key, this._chain);
-    }
-    (_a3 = this._idpWindow) == null ? void 0 : _a3.close();
-    const idleOptions = (_b3 = this._createOptions) == null ? void 0 : _b3.idleOptions;
-    if (!this.idleManager && !(idleOptions == null ? void 0 : idleOptions.disableIdle)) {
-      this.idleManager = IdleManager.create(idleOptions);
-      this._registerDefaultIdleCallback();
-    }
-    this._removeEventListener();
-    delete this._idpWindow;
-    if (this._chain) {
-      await this._storage.set(KEY_STORAGE_DELEGATION, JSON.stringify(this._chain.toJSON()));
-    }
-    onSuccess == null ? void 0 : onSuccess(message);
-  }
-  getIdentity() {
-    return this._identity;
-  }
-  async isAuthenticated() {
-    return !this.getIdentity().getPrincipal().isAnonymous() && this._chain !== null && isDelegationValid(this._chain);
-  }
-  /**
-   * AuthClient Login - Opens up a new window to authenticate with Internet Identity
-   * @param {AuthClientLoginOptions} options - Options for logging in, merged with the options set during creation if any. Note: we only perform a shallow merge for the `customValues` property.
-   * @param options.identityProvider Identity provider
-   * @param options.maxTimeToLive Expiration of the authentication in nanoseconds
-   * @param options.allowPinAuthentication If present, indicates whether or not the Identity Provider should allow the user to authenticate and/or register using a temporary key/PIN identity. Authenticating dapps may want to prevent users from using Temporary keys/PIN identities because Temporary keys/PIN identities are less secure than Passkeys (webauthn credentials) and because Temporary keys/PIN identities generally only live in a browser database (which may get cleared by the browser/OS).
-   * @param options.derivationOrigin Origin for Identity Provider to use while generating the delegated identity
-   * @param options.windowOpenerFeatures Configures the opened authentication window
-   * @param options.onSuccess Callback once login has completed
-   * @param options.onError Callback in case authentication fails
-   * @param options.customValues Extra values to be passed in the login request during the authorize-ready phase. Note: we only perform a shallow merge for the `customValues` property.
-   * @example
-   * const authClient = await AuthClient.create();
-   * authClient.login({
-   *  identityProvider: 'http://<canisterID>.127.0.0.1:8000',
-   *  maxTimeToLive: BigInt (7) * BigInt(24) * BigInt(3_600_000_000_000), // 1 week
-   *  windowOpenerFeatures: "toolbar=0,location=0,menubar=0,width=500,height=500,left=100,top=100",
-   *  onSuccess: () => {
-   *    console.log('Login Successful!');
-   *  },
-   *  onError: (error) => {
-   *    console.error('Login Failed: ', error);
-   *  }
-   * });
-   */
-  async login(options) {
-    var _a3, _b3, _c2;
-    const loginOptions = mergeLoginOptions((_a3 = this._createOptions) == null ? void 0 : _a3.loginOptions, options);
-    const maxTimeToLive = (loginOptions == null ? void 0 : loginOptions.maxTimeToLive) ?? DEFAULT_MAX_TIME_TO_LIVE;
-    const identityProviderUrl = new URL(((_b3 = loginOptions == null ? void 0 : loginOptions.identityProvider) == null ? void 0 : _b3.toString()) || IDENTITY_PROVIDER_DEFAULT);
-    identityProviderUrl.hash = IDENTITY_PROVIDER_ENDPOINT;
-    (_c2 = this._idpWindow) == null ? void 0 : _c2.close();
-    this._removeEventListener();
-    this._eventHandler = this._getEventHandler(identityProviderUrl, {
-      maxTimeToLive,
-      ...loginOptions
-    });
-    window.addEventListener("message", this._eventHandler);
-    this._idpWindow = window.open(identityProviderUrl.toString(), "idpWindow", loginOptions == null ? void 0 : loginOptions.windowOpenerFeatures) ?? void 0;
-    const checkInterruption = () => {
-      if (this._idpWindow) {
-        if (this._idpWindow.closed) {
-          this._handleFailure(ERROR_USER_INTERRUPT, loginOptions == null ? void 0 : loginOptions.onError);
-        } else {
-          setTimeout(checkInterruption, INTERRUPT_CHECK_INTERVAL);
-        }
-      }
-    };
-    checkInterruption();
-  }
-  _getEventHandler(identityProviderUrl, options) {
-    return async (event) => {
-      var _a3, _b3, _c2;
-      if (event.origin !== identityProviderUrl.origin) {
-        return;
-      }
-      const message = event.data;
-      switch (message.kind) {
-        case "authorize-ready": {
-          const request2 = {
-            kind: "authorize-client",
-            sessionPublicKey: new Uint8Array((_a3 = this._key) == null ? void 0 : _a3.getPublicKey().toDer()),
-            maxTimeToLive: options == null ? void 0 : options.maxTimeToLive,
-            allowPinAuthentication: options == null ? void 0 : options.allowPinAuthentication,
-            derivationOrigin: (_b3 = options == null ? void 0 : options.derivationOrigin) == null ? void 0 : _b3.toString(),
-            // Pass any custom values to the IDP.
-            ...options == null ? void 0 : options.customValues
-          };
-          (_c2 = this._idpWindow) == null ? void 0 : _c2.postMessage(request2, identityProviderUrl.origin);
-          break;
-        }
-        case "authorize-client-success":
-          try {
-            await this._handleSuccess(message, options == null ? void 0 : options.onSuccess);
-          } catch (err) {
-            this._handleFailure(err.message, options == null ? void 0 : options.onError);
-          }
-          break;
-        case "authorize-client-failure":
-          this._handleFailure(message.text, options == null ? void 0 : options.onError);
-          break;
-      }
-    };
-  }
-  _handleFailure(errorMessage, onError) {
-    var _a3;
-    (_a3 = this._idpWindow) == null ? void 0 : _a3.close();
-    onError == null ? void 0 : onError(errorMessage);
-    this._removeEventListener();
-    delete this._idpWindow;
-  }
-  _removeEventListener() {
-    if (this._eventHandler) {
-      window.removeEventListener("message", this._eventHandler);
-    }
-    this._eventHandler = void 0;
-  }
-  async logout(options = {}) {
-    await _deleteStorage(this._storage);
-    this._identity = new AnonymousIdentity();
-    this._chain = null;
-    if (options.returnTo) {
-      try {
-        window.history.pushState({}, "", options.returnTo);
-      } catch {
-        window.location.href = options.returnTo;
-      }
-    }
-  }
-}
-async function _deleteStorage(storage) {
-  await storage.remove(KEY_STORAGE_KEY);
-  await storage.remove(KEY_STORAGE_DELEGATION);
-  await storage.remove(KEY_VECTOR);
-}
-function mergeLoginOptions(loginOptions, otherLoginOptions) {
-  if (!loginOptions && !otherLoginOptions) {
-    return void 0;
-  }
-  const customValues = (loginOptions == null ? void 0 : loginOptions.customValues) || (otherLoginOptions == null ? void 0 : otherLoginOptions.customValues) ? {
-    ...loginOptions == null ? void 0 : loginOptions.customValues,
-    ...otherLoginOptions == null ? void 0 : otherLoginOptions.customValues
-  } : void 0;
-  return {
-    ...loginOptions,
-    ...otherLoginOptions,
-    customValues
-  };
-}
 const Question = Record({
   "id": Nat,
   "text": Text,
@@ -37615,6 +36353,1381 @@ async function createActorWithConfig(options) {
     actorOptions
   );
 }
+function storeSessionParameter(key, value) {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch (error) {
+    console.warn(`Failed to store session parameter ${key}:`, error);
+  }
+}
+function getSessionParameter(key) {
+  try {
+    return sessionStorage.getItem(key);
+  } catch (error) {
+    console.warn(`Failed to retrieve session parameter ${key}:`, error);
+    return null;
+  }
+}
+function clearParamFromHash(paramName) {
+  if (!window.history.replaceState) {
+    return;
+  }
+  const hash = window.location.hash;
+  if (!hash || hash.length <= 1) {
+    return;
+  }
+  const hashContent = hash.substring(1);
+  const queryStartIndex = hashContent.indexOf("?");
+  if (queryStartIndex === -1) {
+    return;
+  }
+  const routePath = hashContent.substring(0, queryStartIndex);
+  const queryString = hashContent.substring(queryStartIndex + 1);
+  const params = new URLSearchParams(queryString);
+  params.delete(paramName);
+  const newQueryString = params.toString();
+  let newHash = routePath;
+  if (newQueryString) {
+    newHash += `?${newQueryString}`;
+  }
+  const newUrl = window.location.pathname + window.location.search + (newHash ? `#${newHash}` : "");
+  window.history.replaceState(null, "", newUrl);
+}
+function getSecretFromHash(paramName) {
+  const existingSecret = getSessionParameter(paramName);
+  if (existingSecret !== null) {
+    return existingSecret;
+  }
+  const hash = window.location.hash;
+  if (!hash || hash.length <= 1) {
+    return null;
+  }
+  const hashContent = hash.substring(1);
+  const params = new URLSearchParams(hashContent);
+  const secret = params.get(paramName);
+  if (secret) {
+    storeSessionParameter(paramName, secret);
+    clearParamFromHash(paramName);
+    return secret;
+  }
+  return null;
+}
+function getSecretParameter(paramName) {
+  return getSecretFromHash(paramName);
+}
+function isObject$1(value) {
+  return value !== null && typeof value === "object";
+}
+const _Ed25519PublicKey = class _Ed25519PublicKey {
+  // `fromRaw` and `fromDer` should be used for instantiation, not this constructor.
+  constructor(key) {
+    __privateAdd(this, _rawKey2);
+    __privateAdd(this, _derKey2);
+    if (key.byteLength !== _Ed25519PublicKey.RAW_KEY_LENGTH) {
+      throw new Error("An Ed25519 public key must be exactly 32bytes long");
+    }
+    __privateSet(this, _rawKey2, key);
+    __privateSet(this, _derKey2, _Ed25519PublicKey.derEncode(key));
+  }
+  /**
+   * Construct Ed25519PublicKey from an existing PublicKey
+   * @param {unknown} maybeKey - existing PublicKey, ArrayBuffer, DerEncodedPublicKey, or hex string
+   * @returns {Ed25519PublicKey} Instance of Ed25519PublicKey
+   */
+  static from(maybeKey) {
+    if (typeof maybeKey === "string") {
+      const key = hexToBytes(maybeKey);
+      return this.fromRaw(key);
+    } else if (isObject$1(maybeKey)) {
+      const key = maybeKey;
+      if (isObject$1(key) && Object.hasOwnProperty.call(key, "__derEncodedPublicKey__")) {
+        return this.fromDer(key);
+      } else if (ArrayBuffer.isView(key)) {
+        const view = key;
+        return this.fromRaw(uint8FromBufLike$1(view.buffer));
+      } else if (key instanceof ArrayBuffer) {
+        return this.fromRaw(uint8FromBufLike$1(key));
+      } else if ("rawKey" in key && key.rawKey instanceof Uint8Array) {
+        return this.fromRaw(key.rawKey);
+      } else if ("derKey" in key) {
+        return this.fromDer(key.derKey);
+      } else if ("toDer" in key) {
+        return this.fromDer(key.toDer());
+      }
+    }
+    throw new Error("Cannot construct Ed25519PublicKey from the provided key.");
+  }
+  static fromRaw(rawKey) {
+    return new _Ed25519PublicKey(rawKey);
+  }
+  static fromDer(derKey) {
+    return new _Ed25519PublicKey(this.derDecode(derKey));
+  }
+  static derEncode(publicKey) {
+    const key = wrapDER(publicKey, ED25519_OID);
+    key.__derEncodedPublicKey__ = void 0;
+    return key;
+  }
+  static derDecode(key) {
+    const unwrapped = unwrapDER(key, ED25519_OID);
+    if (unwrapped.length !== this.RAW_KEY_LENGTH) {
+      throw new Error("An Ed25519 public key must be exactly 32bytes long");
+    }
+    return unwrapped;
+  }
+  get rawKey() {
+    return __privateGet(this, _rawKey2);
+  }
+  get derKey() {
+    return __privateGet(this, _derKey2);
+  }
+  toDer() {
+    return this.derKey;
+  }
+  toRaw() {
+    return this.rawKey;
+  }
+};
+_rawKey2 = new WeakMap();
+_derKey2 = new WeakMap();
+_Ed25519PublicKey.RAW_KEY_LENGTH = 32;
+let Ed25519PublicKey = _Ed25519PublicKey;
+const _Ed25519KeyIdentity = class _Ed25519KeyIdentity extends SignIdentity {
+  // `fromRaw` and `fromDer` should be used for instantiation, not this constructor.
+  constructor(publicKey, privateKey) {
+    super();
+    __privateAdd(this, _publicKey);
+    __privateAdd(this, _privateKey);
+    __privateSet(this, _publicKey, Ed25519PublicKey.from(publicKey));
+    __privateSet(this, _privateKey, privateKey);
+  }
+  /**
+   * Generate a new Ed25519KeyIdentity.
+   * @param seed a 32-byte seed for the private key. If not provided, a random seed will be generated.
+   * @returns Ed25519KeyIdentity
+   */
+  static generate(seed) {
+    if (seed && seed.length !== 32) {
+      throw new Error("Ed25519 Seed needs to be 32 bytes long.");
+    }
+    if (!seed)
+      seed = ed25519.utils.randomPrivateKey();
+    if (uint8Equals$1(seed, new Uint8Array(new Array(32).fill(0)))) {
+      console.warn("Seed is all zeros. This is not a secure seed. Please provide a seed with sufficient entropy if this is a production environment.");
+    }
+    const sk = new Uint8Array(32);
+    for (let i = 0; i < 32; i++) {
+      sk[i] = seed[i];
+    }
+    const pk = ed25519.getPublicKey(sk);
+    return _Ed25519KeyIdentity.fromKeyPair(pk, sk);
+  }
+  static fromParsedJson(obj) {
+    const [publicKeyDer, privateKeyRaw] = obj;
+    return new _Ed25519KeyIdentity(Ed25519PublicKey.fromDer(hexToBytes(publicKeyDer)), hexToBytes(privateKeyRaw));
+  }
+  static fromJSON(json) {
+    const parsed = JSON.parse(json);
+    if (Array.isArray(parsed)) {
+      if (typeof parsed[0] === "string" && typeof parsed[1] === "string") {
+        return this.fromParsedJson([parsed[0], parsed[1]]);
+      } else {
+        throw new Error("Deserialization error: JSON must have at least 2 items.");
+      }
+    }
+    throw new Error(`Deserialization error: Invalid JSON type for string: ${JSON.stringify(json)}`);
+  }
+  static fromKeyPair(publicKey, privateKey) {
+    return new _Ed25519KeyIdentity(Ed25519PublicKey.fromRaw(publicKey), privateKey);
+  }
+  static fromSecretKey(secretKey) {
+    const publicKey = ed25519.getPublicKey(secretKey);
+    return _Ed25519KeyIdentity.fromKeyPair(publicKey, secretKey);
+  }
+  /**
+   * Serialize this key to JSON.
+   */
+  toJSON() {
+    return [bytesToHex(__privateGet(this, _publicKey).toDer()), bytesToHex(__privateGet(this, _privateKey))];
+  }
+  /**
+   * Return a copy of the key pair.
+   */
+  getKeyPair() {
+    return {
+      secretKey: __privateGet(this, _privateKey),
+      publicKey: __privateGet(this, _publicKey)
+    };
+  }
+  /**
+   * Return the public key.
+   */
+  getPublicKey() {
+    return __privateGet(this, _publicKey);
+  }
+  /**
+   * Signs a blob of data, with this identity's private key.
+   * @param challenge - challenge to sign with this identity's secretKey, producing a signature
+   */
+  async sign(challenge) {
+    const signature = ed25519.sign(challenge, __privateGet(this, _privateKey).slice(0, 32));
+    Object.defineProperty(signature, "__signature__", {
+      enumerable: false,
+      value: void 0
+    });
+    return signature;
+  }
+  /**
+   * Verify
+   * @param sig - signature to verify
+   * @param msg - message to verify
+   * @param pk - public key
+   * @returns - true if the signature is valid, false otherwise
+   */
+  static verify(sig, msg, pk) {
+    const [signature, message, publicKey] = [sig, msg, pk].map((x2) => {
+      if (typeof x2 === "string") {
+        x2 = hexToBytes(x2);
+      }
+      return uint8FromBufLike$1(x2);
+    });
+    return ed25519.verify(signature, message, publicKey);
+  }
+};
+_publicKey = new WeakMap();
+_privateKey = new WeakMap();
+let Ed25519KeyIdentity = _Ed25519KeyIdentity;
+class CryptoError extends Error {
+  constructor(message) {
+    super(message);
+    this.message = message;
+    Object.setPrototypeOf(this, CryptoError.prototype);
+  }
+}
+function _getEffectiveCrypto(subtleCrypto) {
+  if (typeof global !== "undefined" && global["crypto"] && global["crypto"]["subtle"]) {
+    return global["crypto"]["subtle"];
+  }
+  if (subtleCrypto) {
+    return subtleCrypto;
+  } else if (typeof crypto !== "undefined" && crypto["subtle"]) {
+    return crypto.subtle;
+  } else {
+    throw new CryptoError("Global crypto was not available and none was provided. Please inlcude a SubtleCrypto implementation. See https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto");
+  }
+}
+class ECDSAKeyIdentity extends SignIdentity {
+  /**
+   * Generates a randomly generated identity for use in calls to the Internet Computer.
+   * @param {CryptoKeyOptions} options optional settings
+   * @param {CryptoKeyOptions['extractable']} options.extractable - whether the key should allow itself to be used. Set to false for maximum security.
+   * @param {CryptoKeyOptions['keyUsages']} options.keyUsages - a list of key usages that the key can be used for
+   * @param {CryptoKeyOptions['subtleCrypto']} options.subtleCrypto interface
+   * @returns a {@link ECDSAKeyIdentity}
+   */
+  static async generate(options) {
+    const { extractable = false, keyUsages = ["sign", "verify"], subtleCrypto } = options ?? {};
+    const effectiveCrypto = _getEffectiveCrypto(subtleCrypto);
+    const keyPair = await effectiveCrypto.generateKey({
+      name: "ECDSA",
+      namedCurve: "P-256"
+    }, extractable, keyUsages);
+    const derKey = uint8FromBufLike$1(await effectiveCrypto.exportKey("spki", keyPair.publicKey));
+    Object.assign(derKey, {
+      __derEncodedPublicKey__: void 0
+    });
+    return new this(keyPair, derKey, effectiveCrypto);
+  }
+  /**
+   * generates an identity from a public and private key. Please ensure that you are generating these keys securely and protect the user's private key
+   * @param keyPair a CryptoKeyPair
+   * @param subtleCrypto - a SubtleCrypto interface in case one is not available globally
+   * @returns an {@link ECDSAKeyIdentity}
+   */
+  static async fromKeyPair(keyPair, subtleCrypto) {
+    const effectiveCrypto = _getEffectiveCrypto(subtleCrypto);
+    const derKey = uint8FromBufLike$1(await effectiveCrypto.exportKey("spki", keyPair.publicKey));
+    Object.assign(derKey, {
+      __derEncodedPublicKey__: void 0
+    });
+    return new ECDSAKeyIdentity(keyPair, derKey, effectiveCrypto);
+  }
+  // `fromKeyPair` and `generate` should be used for instantiation, not this constructor.
+  constructor(keyPair, derKey, subtleCrypto) {
+    super();
+    this._keyPair = keyPair;
+    this._derKey = derKey;
+    this._subtleCrypto = subtleCrypto;
+  }
+  /**
+   * Return the internally-used key pair.
+   * @returns a CryptoKeyPair
+   */
+  getKeyPair() {
+    return this._keyPair;
+  }
+  /**
+   * Return the public key.
+   * @returns an {@link PublicKey & DerCryptoKey}
+   */
+  getPublicKey() {
+    const derKey = this._derKey;
+    const key = Object.create(this._keyPair.publicKey);
+    key.toDer = function() {
+      return derKey;
+    };
+    return key;
+  }
+  /**
+   * Signs a blob of data, with this identity's private key.
+   * @param {Uint8Array} challenge - challenge to sign with this identity's secretKey, producing a signature
+   * @returns {Promise<Signature>} signature
+   */
+  async sign(challenge) {
+    const params = {
+      name: "ECDSA",
+      hash: { name: "SHA-256" }
+    };
+    const signature = uint8FromBufLike$1(await this._subtleCrypto.sign(params, this._keyPair.privateKey, challenge));
+    Object.assign(signature, {
+      __signature__: void 0
+    });
+    return signature;
+  }
+}
+class PartialIdentity {
+  constructor(inner) {
+    __privateAdd(this, _inner2);
+    __privateSet(this, _inner2, inner);
+  }
+  /**
+   * The raw public key of this identity.
+   */
+  get rawKey() {
+    return __privateGet(this, _inner2).rawKey;
+  }
+  /**
+   * The DER-encoded public key of this identity.
+   */
+  get derKey() {
+    return __privateGet(this, _inner2).derKey;
+  }
+  /**
+   * The DER-encoded public key of this identity.
+   */
+  toDer() {
+    return __privateGet(this, _inner2).toDer();
+  }
+  /**
+   * The inner {@link PublicKey} used by this identity.
+   */
+  getPublicKey() {
+    return __privateGet(this, _inner2);
+  }
+  /**
+   * The {@link Principal} of this identity.
+   */
+  getPrincipal() {
+    if (!__privateGet(this, _inner2).rawKey) {
+      throw new Error("Cannot get principal from a public key without a raw key.");
+    }
+    return Principal$1.fromUint8Array(new Uint8Array(__privateGet(this, _inner2).rawKey));
+  }
+  /**
+   * Required for the Identity interface, but cannot implemented for just a public key.
+   */
+  transformRequest() {
+    return Promise.reject("Not implemented. You are attempting to use a partial identity to sign calls, but this identity only has access to the public key.To sign calls, use a DelegationIdentity instead.");
+  }
+}
+_inner2 = new WeakMap();
+function safeBytesToHex(data) {
+  if (data instanceof Uint8Array) {
+    return bytesToHex(data);
+  }
+  return bytesToHex(new Uint8Array(data));
+}
+function _parseBlob(value) {
+  if (typeof value !== "string" || value.length < 64) {
+    throw new Error("Invalid public key.");
+  }
+  return hexToBytes(value);
+}
+class Delegation {
+  constructor(pubkey, expiration, targets) {
+    this.pubkey = pubkey;
+    this.expiration = expiration;
+    this.targets = targets;
+  }
+  toCborValue() {
+    return {
+      pubkey: this.pubkey,
+      expiration: this.expiration,
+      ...this.targets && {
+        targets: this.targets
+      }
+    };
+  }
+  toJSON() {
+    return {
+      expiration: this.expiration.toString(16),
+      pubkey: safeBytesToHex(this.pubkey),
+      ...this.targets && { targets: this.targets.map((p2) => p2.toHex()) }
+    };
+  }
+}
+async function _createSingleDelegation(from, to, expiration, targets) {
+  const delegation = new Delegation(
+    to.toDer(),
+    BigInt(+expiration) * BigInt(1e6),
+    // In nanoseconds.
+    targets
+  );
+  const challenge = new Uint8Array([
+    ...IC_REQUEST_AUTH_DELEGATION_DOMAIN_SEPARATOR,
+    ...new Uint8Array(requestIdOf({ ...delegation }))
+  ]);
+  const signature = await from.sign(challenge);
+  return {
+    delegation,
+    signature
+  };
+}
+class DelegationChain {
+  /**
+   * Create a delegation chain between two (or more) keys. By default, the expiration time
+   * will be very short (15 minutes).
+   *
+   * To build a chain of more than 2 identities, this function needs to be called multiple times,
+   * passing the previous delegation chain into the options argument. For example:
+   * @example
+   * const rootKey = createKey();
+   * const middleKey = createKey();
+   * const bottomeKey = createKey();
+   *
+   * const rootToMiddle = await DelegationChain.create(
+   *   root, middle.getPublicKey(), Date.parse('2100-01-01'),
+   * );
+   * const middleToBottom = await DelegationChain.create(
+   *   middle, bottom.getPublicKey(), Date.parse('2100-01-01'), { previous: rootToMiddle },
+   * );
+   *
+   * // We can now use a delegation identity that uses the delegation above:
+   * const identity = DelegationIdentity.fromDelegation(bottomKey, middleToBottom);
+   * @param from The identity that will delegate.
+   * @param to The identity that gets delegated. It can now sign messages as if it was the
+   *           identity above.
+   * @param expiration The length the delegation is valid. By default, 15 minutes from calling
+   *                   this function.
+   * @param options A set of options for this delegation. expiration and previous
+   * @param options.previous - Another DelegationChain that this chain should start with.
+   * @param options.targets - targets that scope the delegation (e.g. Canister Principals)
+   */
+  static async create(from, to, expiration = new Date(Date.now() + 15 * 60 * 1e3), options = {}) {
+    var _a3, _b3;
+    const delegation = await _createSingleDelegation(from, to, expiration, options.targets);
+    return new DelegationChain([...((_a3 = options.previous) == null ? void 0 : _a3.delegations) || [], delegation], ((_b3 = options.previous) == null ? void 0 : _b3.publicKey) || from.getPublicKey().toDer());
+  }
+  /**
+   * Creates a DelegationChain object from a JSON string.
+   * @param json The JSON string to parse.
+   */
+  static fromJSON(json) {
+    const { publicKey, delegations } = typeof json === "string" ? JSON.parse(json) : json;
+    if (!Array.isArray(delegations)) {
+      throw new Error("Invalid delegations.");
+    }
+    const parsedDelegations = delegations.map((signedDelegation) => {
+      const { delegation, signature } = signedDelegation;
+      const { pubkey, expiration, targets } = delegation;
+      if (targets !== void 0 && !Array.isArray(targets)) {
+        throw new Error("Invalid targets.");
+      }
+      return {
+        delegation: new Delegation(
+          _parseBlob(pubkey),
+          BigInt("0x" + expiration),
+          // expiration in JSON is an hexa string (See toJSON() below).
+          targets && targets.map((t) => {
+            if (typeof t !== "string") {
+              throw new Error("Invalid target.");
+            }
+            return Principal$1.fromHex(t);
+          })
+        ),
+        signature: _parseBlob(signature)
+      };
+    });
+    return new this(parsedDelegations, _parseBlob(publicKey));
+  }
+  /**
+   * Creates a DelegationChain object from a list of delegations and a DER-encoded public key.
+   * @param delegations The list of delegations.
+   * @param publicKey The DER-encoded public key of the key-pair signing the first delegation.
+   */
+  static fromDelegations(delegations, publicKey) {
+    return new this(delegations, publicKey);
+  }
+  constructor(delegations, publicKey) {
+    this.delegations = delegations;
+    this.publicKey = publicKey;
+  }
+  toJSON() {
+    return {
+      delegations: this.delegations.map((signedDelegation) => {
+        const { delegation, signature } = signedDelegation;
+        const { targets } = delegation;
+        return {
+          delegation: {
+            expiration: delegation.expiration.toString(16),
+            pubkey: safeBytesToHex(delegation.pubkey),
+            ...targets && {
+              targets: targets.map((t) => t.toHex())
+            }
+          },
+          signature: safeBytesToHex(signature)
+        };
+      }),
+      publicKey: safeBytesToHex(this.publicKey)
+    };
+  }
+}
+class DelegationIdentity extends SignIdentity {
+  /**
+   * Create a delegation without having access to delegateKey.
+   * @param key The key used to sign the requests.
+   * @param delegation A delegation object created using `createDelegation`.
+   */
+  static fromDelegation(key, delegation) {
+    return new this(key, delegation);
+  }
+  constructor(_inner3, _delegation2) {
+    super();
+    this._inner = _inner3;
+    this._delegation = _delegation2;
+  }
+  getDelegation() {
+    return this._delegation;
+  }
+  getPublicKey() {
+    return {
+      derKey: this._delegation.publicKey,
+      toDer: () => this._delegation.publicKey
+    };
+  }
+  sign(blob) {
+    return this._inner.sign(blob);
+  }
+  async transformRequest(request2) {
+    const { body, ...fields } = request2;
+    const requestId = await requestIdOf(body);
+    return {
+      ...fields,
+      body: {
+        content: body,
+        sender_sig: await this.sign(new Uint8Array([...IC_REQUEST_DOMAIN_SEPARATOR, ...new Uint8Array(requestId)])),
+        sender_delegation: this._delegation.delegations,
+        sender_pubkey: this._delegation.publicKey
+      }
+    };
+  }
+}
+const _PartialDelegationIdentity = class _PartialDelegationIdentity extends PartialIdentity {
+  constructor(inner, delegation) {
+    super(inner);
+    __privateAdd(this, _delegation);
+    __privateSet(this, _delegation, delegation);
+  }
+  /**
+   * The Delegation Chain of this identity.
+   */
+  get delegation() {
+    return __privateGet(this, _delegation);
+  }
+  /**
+   * Create a {@link PartialDelegationIdentity} from a {@link PublicKey} and a {@link DelegationChain}.
+   * @param key The {@link PublicKey} to delegate to.
+   * @param delegation a {@link DelegationChain} targeting the inner key.
+   */
+  static fromDelegation(key, delegation) {
+    return new _PartialDelegationIdentity(key, delegation);
+  }
+};
+_delegation = new WeakMap();
+let PartialDelegationIdentity = _PartialDelegationIdentity;
+function isDelegationValid(chain2, checks) {
+  for (const { delegation } of chain2.delegations) {
+    if (+new Date(Number(delegation.expiration / BigInt(1e6))) <= +Date.now()) {
+      return false;
+    }
+  }
+  const scopes = [];
+  for (const s2 of scopes) {
+    const scope = s2.toText();
+    for (const { delegation } of chain2.delegations) {
+      if (delegation.targets === void 0) {
+        continue;
+      }
+      let none = true;
+      for (const target of delegation.targets) {
+        if (target.toText() === scope) {
+          none = false;
+          break;
+        }
+      }
+      if (none) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+const events = ["mousedown", "mousemove", "keydown", "touchstart", "wheel"];
+class IdleManager {
+  /**
+   * @protected
+   * @param options {@link IdleManagerOptions}
+   */
+  constructor(options = {}) {
+    __publicField(this, "callbacks", []);
+    __publicField(this, "idleTimeout", 10 * 60 * 1e3);
+    __publicField(this, "timeoutID");
+    const { onIdle, idleTimeout = 10 * 60 * 1e3 } = options || {};
+    this.callbacks = onIdle ? [onIdle] : [];
+    this.idleTimeout = idleTimeout;
+    const _resetTimer = this._resetTimer.bind(this);
+    window.addEventListener("load", _resetTimer, true);
+    events.forEach(function(name) {
+      document.addEventListener(name, _resetTimer, true);
+    });
+    const debounce = (func, wait) => {
+      let timeout2;
+      return (...args) => {
+        const context = this;
+        const later = function() {
+          timeout2 = void 0;
+          func.apply(context, args);
+        };
+        clearTimeout(timeout2);
+        timeout2 = window.setTimeout(later, wait);
+      };
+    };
+    if (options == null ? void 0 : options.captureScroll) {
+      const scroll = debounce(_resetTimer, (options == null ? void 0 : options.scrollDebounce) ?? 100);
+      window.addEventListener("scroll", scroll, true);
+    }
+    _resetTimer();
+  }
+  /**
+   * Creates an {@link IdleManager}
+   * @param {IdleManagerOptions} options Optional configuration
+   * @see {@link IdleManagerOptions}
+   * @param options.onIdle Callback once user has been idle. Use to prompt for fresh login, and use `Actor.agentOf(your_actor).invalidateIdentity()` to protect the user
+   * @param options.idleTimeout timeout in ms
+   * @param options.captureScroll capture scroll events
+   * @param options.scrollDebounce scroll debounce time in ms
+   */
+  static create(options = {}) {
+    return new this(options);
+  }
+  /**
+   * @param {IdleCB} callback function to be called when user goes idle
+   */
+  registerCallback(callback) {
+    this.callbacks.push(callback);
+  }
+  /**
+   * Cleans up the idle manager and its listeners
+   */
+  exit() {
+    clearTimeout(this.timeoutID);
+    window.removeEventListener("load", this._resetTimer, true);
+    const _resetTimer = this._resetTimer.bind(this);
+    events.forEach(function(name) {
+      document.removeEventListener(name, _resetTimer, true);
+    });
+    this.callbacks.forEach((cb) => cb());
+  }
+  /**
+   * Resets the timeouts during cleanup
+   */
+  _resetTimer() {
+    const exit = this.exit.bind(this);
+    window.clearTimeout(this.timeoutID);
+    this.timeoutID = window.setTimeout(exit, this.idleTimeout);
+  }
+}
+const instanceOfAny = (object, constructors) => constructors.some((c2) => object instanceof c2);
+let idbProxyableTypes;
+let cursorAdvanceMethods;
+function getIdbProxyableTypes() {
+  return idbProxyableTypes || (idbProxyableTypes = [
+    IDBDatabase,
+    IDBObjectStore,
+    IDBIndex,
+    IDBCursor,
+    IDBTransaction
+  ]);
+}
+function getCursorAdvanceMethods() {
+  return cursorAdvanceMethods || (cursorAdvanceMethods = [
+    IDBCursor.prototype.advance,
+    IDBCursor.prototype.continue,
+    IDBCursor.prototype.continuePrimaryKey
+  ]);
+}
+const cursorRequestMap = /* @__PURE__ */ new WeakMap();
+const transactionDoneMap = /* @__PURE__ */ new WeakMap();
+const transactionStoreNamesMap = /* @__PURE__ */ new WeakMap();
+const transformCache = /* @__PURE__ */ new WeakMap();
+const reverseTransformCache = /* @__PURE__ */ new WeakMap();
+function promisifyRequest(request2) {
+  const promise = new Promise((resolve, reject) => {
+    const unlisten = () => {
+      request2.removeEventListener("success", success);
+      request2.removeEventListener("error", error);
+    };
+    const success = () => {
+      resolve(wrap(request2.result));
+      unlisten();
+    };
+    const error = () => {
+      reject(request2.error);
+      unlisten();
+    };
+    request2.addEventListener("success", success);
+    request2.addEventListener("error", error);
+  });
+  promise.then((value) => {
+    if (value instanceof IDBCursor) {
+      cursorRequestMap.set(value, request2);
+    }
+  }).catch(() => {
+  });
+  reverseTransformCache.set(promise, request2);
+  return promise;
+}
+function cacheDonePromiseForTransaction(tx) {
+  if (transactionDoneMap.has(tx))
+    return;
+  const done = new Promise((resolve, reject) => {
+    const unlisten = () => {
+      tx.removeEventListener("complete", complete);
+      tx.removeEventListener("error", error);
+      tx.removeEventListener("abort", error);
+    };
+    const complete = () => {
+      resolve();
+      unlisten();
+    };
+    const error = () => {
+      reject(tx.error || new DOMException("AbortError", "AbortError"));
+      unlisten();
+    };
+    tx.addEventListener("complete", complete);
+    tx.addEventListener("error", error);
+    tx.addEventListener("abort", error);
+  });
+  transactionDoneMap.set(tx, done);
+}
+let idbProxyTraps = {
+  get(target, prop, receiver) {
+    if (target instanceof IDBTransaction) {
+      if (prop === "done")
+        return transactionDoneMap.get(target);
+      if (prop === "objectStoreNames") {
+        return target.objectStoreNames || transactionStoreNamesMap.get(target);
+      }
+      if (prop === "store") {
+        return receiver.objectStoreNames[1] ? void 0 : receiver.objectStore(receiver.objectStoreNames[0]);
+      }
+    }
+    return wrap(target[prop]);
+  },
+  set(target, prop, value) {
+    target[prop] = value;
+    return true;
+  },
+  has(target, prop) {
+    if (target instanceof IDBTransaction && (prop === "done" || prop === "store")) {
+      return true;
+    }
+    return prop in target;
+  }
+};
+function replaceTraps(callback) {
+  idbProxyTraps = callback(idbProxyTraps);
+}
+function wrapFunction(func) {
+  if (func === IDBDatabase.prototype.transaction && !("objectStoreNames" in IDBTransaction.prototype)) {
+    return function(storeNames, ...args) {
+      const tx = func.call(unwrap(this), storeNames, ...args);
+      transactionStoreNamesMap.set(tx, storeNames.sort ? storeNames.sort() : [storeNames]);
+      return wrap(tx);
+    };
+  }
+  if (getCursorAdvanceMethods().includes(func)) {
+    return function(...args) {
+      func.apply(unwrap(this), args);
+      return wrap(cursorRequestMap.get(this));
+    };
+  }
+  return function(...args) {
+    return wrap(func.apply(unwrap(this), args));
+  };
+}
+function transformCachableValue(value) {
+  if (typeof value === "function")
+    return wrapFunction(value);
+  if (value instanceof IDBTransaction)
+    cacheDonePromiseForTransaction(value);
+  if (instanceOfAny(value, getIdbProxyableTypes()))
+    return new Proxy(value, idbProxyTraps);
+  return value;
+}
+function wrap(value) {
+  if (value instanceof IDBRequest)
+    return promisifyRequest(value);
+  if (transformCache.has(value))
+    return transformCache.get(value);
+  const newValue = transformCachableValue(value);
+  if (newValue !== value) {
+    transformCache.set(value, newValue);
+    reverseTransformCache.set(newValue, value);
+  }
+  return newValue;
+}
+const unwrap = (value) => reverseTransformCache.get(value);
+function openDB(name, version, { blocked, upgrade, blocking, terminated } = {}) {
+  const request2 = indexedDB.open(name, version);
+  const openPromise = wrap(request2);
+  if (upgrade) {
+    request2.addEventListener("upgradeneeded", (event) => {
+      upgrade(wrap(request2.result), event.oldVersion, event.newVersion, wrap(request2.transaction), event);
+    });
+  }
+  if (blocked) {
+    request2.addEventListener("blocked", (event) => blocked(
+      // Casting due to https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1405
+      event.oldVersion,
+      event.newVersion,
+      event
+    ));
+  }
+  openPromise.then((db) => {
+    if (terminated)
+      db.addEventListener("close", () => terminated());
+    if (blocking) {
+      db.addEventListener("versionchange", (event) => blocking(event.oldVersion, event.newVersion, event));
+    }
+  }).catch(() => {
+  });
+  return openPromise;
+}
+const readMethods = ["get", "getKey", "getAll", "getAllKeys", "count"];
+const writeMethods = ["put", "add", "delete", "clear"];
+const cachedMethods = /* @__PURE__ */ new Map();
+function getMethod(target, prop) {
+  if (!(target instanceof IDBDatabase && !(prop in target) && typeof prop === "string")) {
+    return;
+  }
+  if (cachedMethods.get(prop))
+    return cachedMethods.get(prop);
+  const targetFuncName = prop.replace(/FromIndex$/, "");
+  const useIndex = prop !== targetFuncName;
+  const isWrite = writeMethods.includes(targetFuncName);
+  if (
+    // Bail if the target doesn't exist on the target. Eg, getAll isn't in Edge.
+    !(targetFuncName in (useIndex ? IDBIndex : IDBObjectStore).prototype) || !(isWrite || readMethods.includes(targetFuncName))
+  ) {
+    return;
+  }
+  const method = async function(storeName, ...args) {
+    const tx = this.transaction(storeName, isWrite ? "readwrite" : "readonly");
+    let target2 = tx.store;
+    if (useIndex)
+      target2 = target2.index(args.shift());
+    return (await Promise.all([
+      target2[targetFuncName](...args),
+      isWrite && tx.done
+    ]))[0];
+  };
+  cachedMethods.set(prop, method);
+  return method;
+}
+replaceTraps((oldTraps) => ({
+  ...oldTraps,
+  get: (target, prop, receiver) => getMethod(target, prop) || oldTraps.get(target, prop, receiver),
+  has: (target, prop) => !!getMethod(target, prop) || oldTraps.has(target, prop)
+}));
+const AUTH_DB_NAME = "auth-client-db";
+const OBJECT_STORE_NAME = "ic-keyval";
+const _openDbStore = async (dbName = AUTH_DB_NAME, storeName = OBJECT_STORE_NAME, version) => {
+  if (isBrowser$2 && (localStorage == null ? void 0 : localStorage.getItem(KEY_STORAGE_DELEGATION))) {
+    localStorage.removeItem(KEY_STORAGE_DELEGATION);
+    localStorage.removeItem(KEY_STORAGE_KEY);
+  }
+  return await openDB(dbName, version, {
+    upgrade: (database) => {
+      if (database.objectStoreNames.contains(storeName)) {
+        database.clear(storeName);
+      }
+      database.createObjectStore(storeName);
+    }
+  });
+};
+async function _getValue(db, storeName, key) {
+  return await db.get(storeName, key);
+}
+async function _setValue(db, storeName, key, value) {
+  return await db.put(storeName, value, key);
+}
+async function _removeValue(db, storeName, key) {
+  return await db.delete(storeName, key);
+}
+class IdbKeyVal {
+  // Do not use - instead prefer create
+  constructor(_db, _storeName) {
+    __publicField(this, "_db");
+    __publicField(this, "_storeName");
+    this._db = _db;
+    this._storeName = _storeName;
+  }
+  /**
+   * @param {DBCreateOptions} options - DBCreateOptions
+   * @param {DBCreateOptions['dbName']} options.dbName name for the indexeddb database
+   * @default
+   * @param {DBCreateOptions['storeName']} options.storeName name for the indexeddb Data Store
+   * @default
+   * @param {DBCreateOptions['version']} options.version version of the database. Increment to safely upgrade
+   */
+  static async create(options) {
+    const { dbName = AUTH_DB_NAME, storeName = OBJECT_STORE_NAME, version = DB_VERSION } = options ?? {};
+    const db = await _openDbStore(dbName, storeName, version);
+    return new IdbKeyVal(db, storeName);
+  }
+  /**
+   * Basic setter
+   * @param {IDBValidKey} key string | number | Date | BufferSource | IDBValidKey[]
+   * @param value value to set
+   * @returns void
+   */
+  async set(key, value) {
+    return await _setValue(this._db, this._storeName, key, value);
+  }
+  /**
+   * Basic getter
+   * Pass in a type T for type safety if you know the type the value will have if it is found
+   * @param {IDBValidKey} key string | number | Date | BufferSource | IDBValidKey[]
+   * @returns `Promise<T | null>`
+   * @example
+   * await get<string>('exampleKey') -> 'exampleValue'
+   */
+  async get(key) {
+    return await _getValue(this._db, this._storeName, key) ?? null;
+  }
+  /**
+   * Remove a key
+   * @param key {@link IDBValidKey}
+   * @returns void
+   */
+  async remove(key) {
+    return await _removeValue(this._db, this._storeName, key);
+  }
+}
+const KEY_STORAGE_KEY = "identity";
+const KEY_STORAGE_DELEGATION = "delegation";
+const KEY_VECTOR = "iv";
+const DB_VERSION = 1;
+const isBrowser$2 = typeof window !== "undefined";
+class LocalStorage {
+  constructor(prefix2 = "ic-", _localStorage) {
+    __publicField(this, "prefix");
+    __publicField(this, "_localStorage");
+    this.prefix = prefix2;
+    this._localStorage = _localStorage;
+  }
+  get(key) {
+    return Promise.resolve(this._getLocalStorage().getItem(this.prefix + key));
+  }
+  set(key, value) {
+    this._getLocalStorage().setItem(this.prefix + key, value);
+    return Promise.resolve();
+  }
+  remove(key) {
+    this._getLocalStorage().removeItem(this.prefix + key);
+    return Promise.resolve();
+  }
+  _getLocalStorage() {
+    if (this._localStorage) {
+      return this._localStorage;
+    }
+    const ls = typeof window === "undefined" ? typeof global === "undefined" ? typeof self === "undefined" ? void 0 : self.localStorage : global.localStorage : window.localStorage;
+    if (!ls) {
+      throw new Error("Could not find local storage.");
+    }
+    return ls;
+  }
+}
+class IdbStorage {
+  /**
+   * @param options - DBCreateOptions
+   * @param options.dbName - name for the indexeddb database
+   * @param options.storeName - name for the indexeddb Data Store
+   * @param options.version - version of the database. Increment to safely upgrade
+   * @example
+   * ```ts
+   * const storage = new IdbStorage({ dbName: 'my-db', storeName: 'my-store', version: 2 });
+   * ```
+   */
+  constructor(options) {
+    __privateAdd(this, _options);
+    // Initializes a KeyVal on first request
+    __publicField(this, "initializedDb");
+    __privateSet(this, _options, options ?? {});
+  }
+  get _db() {
+    return new Promise((resolve, reject) => {
+      if (this.initializedDb) {
+        resolve(this.initializedDb);
+        return;
+      }
+      IdbKeyVal.create(__privateGet(this, _options)).then((db) => {
+        this.initializedDb = db;
+        resolve(db);
+      }).catch(reject);
+    });
+  }
+  async get(key) {
+    const db = await this._db;
+    return await db.get(key);
+  }
+  async set(key, value) {
+    const db = await this._db;
+    await db.set(key, value);
+  }
+  async remove(key) {
+    const db = await this._db;
+    await db.remove(key);
+  }
+}
+_options = new WeakMap();
+const NANOSECONDS_PER_SECOND = BigInt(1e9);
+const SECONDS_PER_HOUR = BigInt(3600);
+const NANOSECONDS_PER_HOUR = NANOSECONDS_PER_SECOND * SECONDS_PER_HOUR;
+const IDENTITY_PROVIDER_DEFAULT = "https://identity.internetcomputer.org";
+const IDENTITY_PROVIDER_ENDPOINT = "#authorize";
+const DEFAULT_MAX_TIME_TO_LIVE = BigInt(8) * NANOSECONDS_PER_HOUR;
+const ECDSA_KEY_LABEL = "ECDSA";
+const ED25519_KEY_LABEL = "Ed25519";
+const INTERRUPT_CHECK_INTERVAL = 500;
+const ERROR_USER_INTERRUPT = "UserInterrupt";
+class AuthClient {
+  constructor(_identity2, _key, _chain, _storage, idleManager, _createOptions, _idpWindow, _eventHandler) {
+    __publicField(this, "_identity");
+    __publicField(this, "_key");
+    __publicField(this, "_chain");
+    __publicField(this, "_storage");
+    __publicField(this, "idleManager");
+    __publicField(this, "_createOptions");
+    __publicField(this, "_idpWindow");
+    __publicField(this, "_eventHandler");
+    this._identity = _identity2;
+    this._key = _key;
+    this._chain = _chain;
+    this._storage = _storage;
+    this.idleManager = idleManager;
+    this._createOptions = _createOptions;
+    this._idpWindow = _idpWindow;
+    this._eventHandler = _eventHandler;
+    this._registerDefaultIdleCallback();
+  }
+  /**
+   * Create an AuthClient to manage authentication and identity
+   * @param {AuthClientCreateOptions} options - Options for creating an {@link AuthClient}
+   * @see {@link AuthClientCreateOptions}
+   * @param options.identity Optional Identity to use as the base
+   * @see {@link SignIdentity}
+   * @param options.storage Storage mechanism for delegation credentials
+   * @see {@link AuthClientStorage}
+   * @param options.keyType Type of key to use for the base key
+   * @param {IdleOptions} options.idleOptions Configures an {@link IdleManager}
+   * @see {@link IdleOptions}
+   * Default behavior is to clear stored identity and reload the page when a user goes idle, unless you set the disableDefaultIdleCallback flag or pass in a custom idle callback.
+   * @example
+   * const authClient = await AuthClient.create({
+   *   idleOptions: {
+   *     disableIdle: true
+   *   }
+   * })
+   */
+  static async create(options = {}) {
+    var _a3;
+    const storage = options.storage ?? new IdbStorage();
+    const keyType = options.keyType ?? ECDSA_KEY_LABEL;
+    let key = null;
+    if (options.identity) {
+      key = options.identity;
+    } else {
+      let maybeIdentityStorage = await storage.get(KEY_STORAGE_KEY);
+      if (!maybeIdentityStorage && isBrowser$2) {
+        try {
+          const fallbackLocalStorage = new LocalStorage();
+          const localChain = await fallbackLocalStorage.get(KEY_STORAGE_DELEGATION);
+          const localKey = await fallbackLocalStorage.get(KEY_STORAGE_KEY);
+          if (localChain && localKey && keyType === ECDSA_KEY_LABEL) {
+            console.log("Discovered an identity stored in localstorage. Migrating to IndexedDB");
+            await storage.set(KEY_STORAGE_DELEGATION, localChain);
+            await storage.set(KEY_STORAGE_KEY, localKey);
+            maybeIdentityStorage = localChain;
+            await fallbackLocalStorage.remove(KEY_STORAGE_DELEGATION);
+            await fallbackLocalStorage.remove(KEY_STORAGE_KEY);
+          }
+        } catch (error) {
+          console.error("error while attempting to recover localstorage: " + error);
+        }
+      }
+      if (maybeIdentityStorage) {
+        try {
+          if (typeof maybeIdentityStorage === "object") {
+            if (keyType === ED25519_KEY_LABEL && typeof maybeIdentityStorage === "string") {
+              key = Ed25519KeyIdentity.fromJSON(maybeIdentityStorage);
+            } else {
+              key = await ECDSAKeyIdentity.fromKeyPair(maybeIdentityStorage);
+            }
+          } else if (typeof maybeIdentityStorage === "string") {
+            key = Ed25519KeyIdentity.fromJSON(maybeIdentityStorage);
+          }
+        } catch {
+        }
+      }
+    }
+    let identity = new AnonymousIdentity();
+    let chain2 = null;
+    if (key) {
+      try {
+        const chainStorage = await storage.get(KEY_STORAGE_DELEGATION);
+        if (typeof chainStorage === "object" && chainStorage !== null) {
+          throw new Error("Delegation chain is incorrectly stored. A delegation chain should be stored as a string.");
+        }
+        if (options.identity) {
+          identity = options.identity;
+        } else if (chainStorage) {
+          chain2 = DelegationChain.fromJSON(chainStorage);
+          if (!isDelegationValid(chain2)) {
+            await _deleteStorage(storage);
+            key = null;
+          } else {
+            if ("toDer" in key) {
+              identity = PartialDelegationIdentity.fromDelegation(key, chain2);
+            } else {
+              identity = DelegationIdentity.fromDelegation(key, chain2);
+            }
+          }
+        }
+      } catch (e) {
+        console.error(e);
+        await _deleteStorage(storage);
+        key = null;
+      }
+    }
+    let idleManager;
+    if ((_a3 = options.idleOptions) == null ? void 0 : _a3.disableIdle) {
+      idleManager = void 0;
+    } else if (chain2 || options.identity) {
+      idleManager = IdleManager.create(options.idleOptions);
+    }
+    if (!key) {
+      if (keyType === ED25519_KEY_LABEL) {
+        key = Ed25519KeyIdentity.generate();
+        await storage.set(KEY_STORAGE_KEY, JSON.stringify(key.toJSON()));
+      } else {
+        if (options.storage && keyType === ECDSA_KEY_LABEL) {
+          console.warn(`You are using a custom storage provider that may not support CryptoKey storage. If you are using a custom storage provider that does not support CryptoKey storage, you should use '${ED25519_KEY_LABEL}' as the key type, as it can serialize to a string`);
+        }
+        key = await ECDSAKeyIdentity.generate();
+        await storage.set(KEY_STORAGE_KEY, key.getKeyPair());
+      }
+    }
+    return new this(identity, key, chain2, storage, idleManager, options);
+  }
+  _registerDefaultIdleCallback() {
+    var _a3, _b3;
+    const idleOptions = (_a3 = this._createOptions) == null ? void 0 : _a3.idleOptions;
+    if (!(idleOptions == null ? void 0 : idleOptions.onIdle) && !(idleOptions == null ? void 0 : idleOptions.disableDefaultIdleCallback)) {
+      (_b3 = this.idleManager) == null ? void 0 : _b3.registerCallback(() => {
+        this.logout();
+        location.reload();
+      });
+    }
+  }
+  async _handleSuccess(message, onSuccess) {
+    var _a3, _b3;
+    const delegations = message.delegations.map((signedDelegation) => {
+      return {
+        delegation: new Delegation(signedDelegation.delegation.pubkey, signedDelegation.delegation.expiration, signedDelegation.delegation.targets),
+        signature: signedDelegation.signature
+      };
+    });
+    const delegationChain = DelegationChain.fromDelegations(delegations, message.userPublicKey);
+    const key = this._key;
+    if (!key) {
+      return;
+    }
+    this._chain = delegationChain;
+    if ("toDer" in key) {
+      this._identity = PartialDelegationIdentity.fromDelegation(key, this._chain);
+    } else {
+      this._identity = DelegationIdentity.fromDelegation(key, this._chain);
+    }
+    (_a3 = this._idpWindow) == null ? void 0 : _a3.close();
+    const idleOptions = (_b3 = this._createOptions) == null ? void 0 : _b3.idleOptions;
+    if (!this.idleManager && !(idleOptions == null ? void 0 : idleOptions.disableIdle)) {
+      this.idleManager = IdleManager.create(idleOptions);
+      this._registerDefaultIdleCallback();
+    }
+    this._removeEventListener();
+    delete this._idpWindow;
+    if (this._chain) {
+      await this._storage.set(KEY_STORAGE_DELEGATION, JSON.stringify(this._chain.toJSON()));
+    }
+    onSuccess == null ? void 0 : onSuccess(message);
+  }
+  getIdentity() {
+    return this._identity;
+  }
+  async isAuthenticated() {
+    return !this.getIdentity().getPrincipal().isAnonymous() && this._chain !== null && isDelegationValid(this._chain);
+  }
+  /**
+   * AuthClient Login - Opens up a new window to authenticate with Internet Identity
+   * @param {AuthClientLoginOptions} options - Options for logging in, merged with the options set during creation if any. Note: we only perform a shallow merge for the `customValues` property.
+   * @param options.identityProvider Identity provider
+   * @param options.maxTimeToLive Expiration of the authentication in nanoseconds
+   * @param options.allowPinAuthentication If present, indicates whether or not the Identity Provider should allow the user to authenticate and/or register using a temporary key/PIN identity. Authenticating dapps may want to prevent users from using Temporary keys/PIN identities because Temporary keys/PIN identities are less secure than Passkeys (webauthn credentials) and because Temporary keys/PIN identities generally only live in a browser database (which may get cleared by the browser/OS).
+   * @param options.derivationOrigin Origin for Identity Provider to use while generating the delegated identity
+   * @param options.windowOpenerFeatures Configures the opened authentication window
+   * @param options.onSuccess Callback once login has completed
+   * @param options.onError Callback in case authentication fails
+   * @param options.customValues Extra values to be passed in the login request during the authorize-ready phase. Note: we only perform a shallow merge for the `customValues` property.
+   * @example
+   * const authClient = await AuthClient.create();
+   * authClient.login({
+   *  identityProvider: 'http://<canisterID>.127.0.0.1:8000',
+   *  maxTimeToLive: BigInt (7) * BigInt(24) * BigInt(3_600_000_000_000), // 1 week
+   *  windowOpenerFeatures: "toolbar=0,location=0,menubar=0,width=500,height=500,left=100,top=100",
+   *  onSuccess: () => {
+   *    console.log('Login Successful!');
+   *  },
+   *  onError: (error) => {
+   *    console.error('Login Failed: ', error);
+   *  }
+   * });
+   */
+  async login(options) {
+    var _a3, _b3, _c2;
+    const loginOptions = mergeLoginOptions((_a3 = this._createOptions) == null ? void 0 : _a3.loginOptions, options);
+    const maxTimeToLive = (loginOptions == null ? void 0 : loginOptions.maxTimeToLive) ?? DEFAULT_MAX_TIME_TO_LIVE;
+    const identityProviderUrl = new URL(((_b3 = loginOptions == null ? void 0 : loginOptions.identityProvider) == null ? void 0 : _b3.toString()) || IDENTITY_PROVIDER_DEFAULT);
+    identityProviderUrl.hash = IDENTITY_PROVIDER_ENDPOINT;
+    (_c2 = this._idpWindow) == null ? void 0 : _c2.close();
+    this._removeEventListener();
+    this._eventHandler = this._getEventHandler(identityProviderUrl, {
+      maxTimeToLive,
+      ...loginOptions
+    });
+    window.addEventListener("message", this._eventHandler);
+    this._idpWindow = window.open(identityProviderUrl.toString(), "idpWindow", loginOptions == null ? void 0 : loginOptions.windowOpenerFeatures) ?? void 0;
+    const checkInterruption = () => {
+      if (this._idpWindow) {
+        if (this._idpWindow.closed) {
+          this._handleFailure(ERROR_USER_INTERRUPT, loginOptions == null ? void 0 : loginOptions.onError);
+        } else {
+          setTimeout(checkInterruption, INTERRUPT_CHECK_INTERVAL);
+        }
+      }
+    };
+    checkInterruption();
+  }
+  _getEventHandler(identityProviderUrl, options) {
+    return async (event) => {
+      var _a3, _b3, _c2;
+      if (event.origin !== identityProviderUrl.origin) {
+        return;
+      }
+      const message = event.data;
+      switch (message.kind) {
+        case "authorize-ready": {
+          const request2 = {
+            kind: "authorize-client",
+            sessionPublicKey: new Uint8Array((_a3 = this._key) == null ? void 0 : _a3.getPublicKey().toDer()),
+            maxTimeToLive: options == null ? void 0 : options.maxTimeToLive,
+            allowPinAuthentication: options == null ? void 0 : options.allowPinAuthentication,
+            derivationOrigin: (_b3 = options == null ? void 0 : options.derivationOrigin) == null ? void 0 : _b3.toString(),
+            // Pass any custom values to the IDP.
+            ...options == null ? void 0 : options.customValues
+          };
+          (_c2 = this._idpWindow) == null ? void 0 : _c2.postMessage(request2, identityProviderUrl.origin);
+          break;
+        }
+        case "authorize-client-success":
+          try {
+            await this._handleSuccess(message, options == null ? void 0 : options.onSuccess);
+          } catch (err) {
+            this._handleFailure(err.message, options == null ? void 0 : options.onError);
+          }
+          break;
+        case "authorize-client-failure":
+          this._handleFailure(message.text, options == null ? void 0 : options.onError);
+          break;
+      }
+    };
+  }
+  _handleFailure(errorMessage, onError) {
+    var _a3;
+    (_a3 = this._idpWindow) == null ? void 0 : _a3.close();
+    onError == null ? void 0 : onError(errorMessage);
+    this._removeEventListener();
+    delete this._idpWindow;
+  }
+  _removeEventListener() {
+    if (this._eventHandler) {
+      window.removeEventListener("message", this._eventHandler);
+    }
+    this._eventHandler = void 0;
+  }
+  async logout(options = {}) {
+    await _deleteStorage(this._storage);
+    this._identity = new AnonymousIdentity();
+    this._chain = null;
+    if (options.returnTo) {
+      try {
+        window.history.pushState({}, "", options.returnTo);
+      } catch {
+        window.location.href = options.returnTo;
+      }
+    }
+  }
+}
+async function _deleteStorage(storage) {
+  await storage.remove(KEY_STORAGE_KEY);
+  await storage.remove(KEY_STORAGE_DELEGATION);
+  await storage.remove(KEY_VECTOR);
+}
+function mergeLoginOptions(loginOptions, otherLoginOptions) {
+  if (!loginOptions && !otherLoginOptions) {
+    return void 0;
+  }
+  const customValues = (loginOptions == null ? void 0 : loginOptions.customValues) || (otherLoginOptions == null ? void 0 : otherLoginOptions.customValues) ? {
+    ...loginOptions == null ? void 0 : loginOptions.customValues,
+    ...otherLoginOptions == null ? void 0 : otherLoginOptions.customValues
+  } : void 0;
+  return {
+    ...loginOptions,
+    ...otherLoginOptions,
+    customValues
+  };
+}
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
 const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
 const InternetIdentityReactContext = reactExports.createContext(
@@ -37766,6 +37879,113 @@ function InternetIdentityProvider({
     value,
     children
   });
+}
+const ACTOR_QUERY_KEY = "actor";
+function useActor() {
+  const { identity } = useInternetIdentity();
+  const queryClient2 = useQueryClient();
+  const actorQuery = useQuery({
+    queryKey: [ACTOR_QUERY_KEY, identity == null ? void 0 : identity.getPrincipal().toString()],
+    queryFn: async () => {
+      const isAuthenticated = !!identity;
+      if (!isAuthenticated) {
+        return await createActorWithConfig();
+      }
+      const actorOptions = {
+        agentOptions: {
+          identity
+        }
+      };
+      const actor = await createActorWithConfig(actorOptions);
+      const adminToken = getSecretParameter("caffeineAdminToken") || "";
+      await actor._initializeAccessControlWithSecret(adminToken);
+      return actor;
+    },
+    // Only refetch when identity changes
+    staleTime: Number.POSITIVE_INFINITY,
+    // This will cause the actor to be recreated when the identity changes
+    enabled: true
+  });
+  reactExports.useEffect(() => {
+    if (actorQuery.data) {
+      queryClient2.invalidateQueries({
+        predicate: (query) => {
+          return !query.queryKey.includes(ACTOR_QUERY_KEY);
+        }
+      });
+      queryClient2.refetchQueries({
+        predicate: (query) => {
+          return !query.queryKey.includes(ACTOR_QUERY_KEY);
+        }
+      });
+    }
+  }, [actorQuery.data, queryClient2]);
+  return {
+    actor: actorQuery.data || null,
+    isFetching: actorQuery.isFetching
+  };
+}
+const OwnerContext = reactExports.createContext({
+  ownerPrincipal: null,
+  isOwner: false,
+  isLoadingOwner: true,
+  claimOwnership: async () => {
+  },
+  refetchOwner: () => {
+  }
+});
+function OwnerProvider({ children }) {
+  const { actor, isFetching } = useActor();
+  const { identity } = useInternetIdentity();
+  const [ownerPrincipal, setOwnerPrincipal] = reactExports.useState(null);
+  const [isOwner, setIsOwner] = reactExports.useState(false);
+  const [isLoadingOwner, setIsLoadingOwner] = reactExports.useState(true);
+  const fetchOwner = reactExports.useCallback(async () => {
+    if (!actor) return;
+    setIsLoadingOwner(true);
+    try {
+      const a2 = actor;
+      const [owner, callerIsOwner] = await Promise.all([
+        a2.getOwner(),
+        identity ? a2.isCallerOwner() : Promise.resolve(false)
+      ]);
+      setOwnerPrincipal(owner);
+      setIsOwner(callerIsOwner);
+    } catch {
+    } finally {
+      setIsLoadingOwner(false);
+    }
+  }, [actor, identity]);
+  reactExports.useEffect(() => {
+    if (actor && !isFetching) {
+      fetchOwner();
+    }
+  }, [actor, isFetching, fetchOwner]);
+  const claimOwnership = reactExports.useCallback(async () => {
+    if (!actor) throw new Error("Not authenticated");
+    await actor.claimOwnership();
+    await fetchOwner();
+  }, [actor, fetchOwner]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    OwnerContext.Provider,
+    {
+      value: {
+        ownerPrincipal,
+        isOwner,
+        isLoadingOwner,
+        claimOwnership,
+        refetchOwner: fetchOwner
+      },
+      children
+    }
+  );
+}
+function useOwner() {
+  return reactExports.useContext(OwnerContext);
+}
+function isOwnerPrincipal(ownerPrincipal, principal) {
+  if (!ownerPrincipal || !principal) return false;
+  return ownerPrincipal.toString() === principal.toString();
 }
 const seedQuizzes = [
   {
@@ -38443,113 +38663,6 @@ const seedQuizzes = [
     ]
   }
 ];
-function storeSessionParameter(key, value) {
-  try {
-    sessionStorage.setItem(key, value);
-  } catch (error) {
-    console.warn(`Failed to store session parameter ${key}:`, error);
-  }
-}
-function getSessionParameter(key) {
-  try {
-    return sessionStorage.getItem(key);
-  } catch (error) {
-    console.warn(`Failed to retrieve session parameter ${key}:`, error);
-    return null;
-  }
-}
-function clearParamFromHash(paramName) {
-  if (!window.history.replaceState) {
-    return;
-  }
-  const hash = window.location.hash;
-  if (!hash || hash.length <= 1) {
-    return;
-  }
-  const hashContent = hash.substring(1);
-  const queryStartIndex = hashContent.indexOf("?");
-  if (queryStartIndex === -1) {
-    return;
-  }
-  const routePath = hashContent.substring(0, queryStartIndex);
-  const queryString = hashContent.substring(queryStartIndex + 1);
-  const params = new URLSearchParams(queryString);
-  params.delete(paramName);
-  const newQueryString = params.toString();
-  let newHash = routePath;
-  if (newQueryString) {
-    newHash += `?${newQueryString}`;
-  }
-  const newUrl = window.location.pathname + window.location.search + (newHash ? `#${newHash}` : "");
-  window.history.replaceState(null, "", newUrl);
-}
-function getSecretFromHash(paramName) {
-  const existingSecret = getSessionParameter(paramName);
-  if (existingSecret !== null) {
-    return existingSecret;
-  }
-  const hash = window.location.hash;
-  if (!hash || hash.length <= 1) {
-    return null;
-  }
-  const hashContent = hash.substring(1);
-  const params = new URLSearchParams(hashContent);
-  const secret = params.get(paramName);
-  if (secret) {
-    storeSessionParameter(paramName, secret);
-    clearParamFromHash(paramName);
-    return secret;
-  }
-  return null;
-}
-function getSecretParameter(paramName) {
-  return getSecretFromHash(paramName);
-}
-const ACTOR_QUERY_KEY = "actor";
-function useActor() {
-  const { identity } = useInternetIdentity();
-  const queryClient2 = useQueryClient();
-  const actorQuery = useQuery({
-    queryKey: [ACTOR_QUERY_KEY, identity == null ? void 0 : identity.getPrincipal().toString()],
-    queryFn: async () => {
-      const isAuthenticated = !!identity;
-      if (!isAuthenticated) {
-        return await createActorWithConfig();
-      }
-      const actorOptions = {
-        agentOptions: {
-          identity
-        }
-      };
-      const actor = await createActorWithConfig(actorOptions);
-      const adminToken = getSecretParameter("caffeineAdminToken") || "";
-      await actor._initializeAccessControlWithSecret(adminToken);
-      return actor;
-    },
-    // Only refetch when identity changes
-    staleTime: Number.POSITIVE_INFINITY,
-    // This will cause the actor to be recreated when the identity changes
-    enabled: true
-  });
-  reactExports.useEffect(() => {
-    if (actorQuery.data) {
-      queryClient2.invalidateQueries({
-        predicate: (query) => {
-          return !query.queryKey.includes(ACTOR_QUERY_KEY);
-        }
-      });
-      queryClient2.refetchQueries({
-        predicate: (query) => {
-          return !query.queryKey.includes(ACTOR_QUERY_KEY);
-        }
-      });
-    }
-  }, [actorQuery.data, queryClient2]);
-  return {
-    actor: actorQuery.data || null,
-    isFetching: actorQuery.isFetching
-  };
-}
 function useGetAllQuizzes() {
   const { actor, isFetching } = useActor();
   return useQuery({
@@ -38832,6 +38945,20 @@ function useSeedQuizzes() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["quizzes"] })
   });
 }
+function useDeleteQuiz() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (quizId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.deleteQuiz(quizId);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["quizzes"] });
+      qc.invalidateQueries({ queryKey: ["posts"] });
+    }
+  });
+}
 function useGetMessages() {
   const { actor, isFetching } = useActor();
   return useQuery({
@@ -38883,10 +39010,48 @@ function usePlayCustomTrivia() {
     }
   });
 }
+function useGetMyConversations() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["myConversations"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getMyConversations();
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 1e4
+  });
+}
+function useGetConversation(otherUser) {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["conversation", (otherUser == null ? void 0 : otherUser.toString()) ?? ""],
+    queryFn: async () => {
+      if (!actor || !otherUser) return [];
+      return actor.getConversation(otherUser);
+    },
+    enabled: !!actor && !isFetching && !!otherUser,
+    refetchInterval: 3e3
+  });
+}
+function useGetUnreadMessageCount() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["unreadMessages"],
+    queryFn: async () => {
+      if (!actor) return 0n;
+      return actor.getUnreadMessageCount();
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 1e4
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const { data: unreadCount = 0n } = useGetUnreadMessageCount();
+  const { isOwner } = useOwner();
   const location2 = useLocation();
   const isActive = (path) => location2.pathname === path || location2.pathname.startsWith(`${path}/`);
   const navLinks = [
@@ -38934,68 +39099,60 @@ function Navbar() {
           },
           link.path
         )) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-auto flex items-center gap-3", children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-8 h-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_b3 = (_a3 = profile == null ? void 0 : profile.username) == null ? void 0 : _a3[0]) == null ? void 0 : _b3.toUpperCase()) ?? "U" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-medium hidden lg:block", children: (profile == null ? void 0 : profile.username) ?? "User" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            Button,
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "ml-auto flex items-center gap-3", children: [
+          identity && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Link,
             {
-              variant: "ghost",
-              size: "sm",
-              onClick: clear,
-              className: "text-muted-foreground hover:text-foreground",
+              to: "/messages",
+              className: "relative p-2 rounded-full hover:bg-secondary/60 transition-colors",
               "data-ocid": "nav.link",
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(LogOut, { className: "w-4 h-4 mr-1" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "Log Out" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-5 h-5 text-muted-foreground" }),
+                unreadCount > 0n && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Badge,
+                  {
+                    className: "absolute -top-0.5 -right-0.5 w-4 h-4 p-0 flex items-center justify-center text-[10px] bg-primary text-white border-0",
+                    "data-ocid": "nav.toast",
+                    children: unreadCount > 9n ? "9+" : unreadCount.toString()
+                  }
+                )
               ]
             }
+          ),
+          identity ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-8 h-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_b3 = (_a3 = profile == null ? void 0 : profile.username) == null ? void 0 : _a3[0]) == null ? void 0 : _b3.toUpperCase()) ?? "U" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium hidden lg:block", children: [
+                (profile == null ? void 0 : profile.username) ?? "User",
+                isOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-1", title: "Owner", children: "👑" })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              Button,
+              {
+                variant: "ghost",
+                size: "sm",
+                onClick: clear,
+                className: "text-muted-foreground hover:text-foreground",
+                "data-ocid": "nav.link",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(LogOut, { className: "w-4 h-4 mr-1" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline", children: "Log Out" })
+                ]
+              }
+            )
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              onClick: login,
+              disabled: loginStatus === "logging-in",
+              className: "gradient-bg border-0 text-white font-semibold rounded-full px-5 glow-cyan",
+              "data-ocid": "nav.primary_button",
+              children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+            }
           )
-        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Button,
-          {
-            onClick: login,
-            disabled: loginStatus === "logging-in",
-            className: "gradient-bg border-0 text-white font-semibold rounded-full px-5 glow-cyan",
-            "data-ocid": "nav.primary_button",
-            children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
-          }
-        ) })
+        ] })
       ] })
-    }
-  );
-}
-const badgeVariants = cva(
-  "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
-  {
-    variants: {
-      variant: {
-        default: "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
-        secondary: "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
-        destructive: "border-transparent bg-destructive text-destructive-foreground [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-        outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground"
-      }
-    },
-    defaultVariants: {
-      variant: "default"
-    }
-  }
-);
-function Badge({
-  className,
-  variant,
-  asChild = false,
-  ...props
-}) {
-  const Comp = asChild ? Slot$1 : "span";
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Comp,
-    {
-      "data-slot": "badge",
-      className: cn(badgeVariants({ variant }), className),
-      ...props
     }
   );
 }
@@ -39619,11 +39776,11 @@ var TabsList$1 = reactExports.forwardRef(
   }
 );
 TabsList$1.displayName = TAB_LIST_NAME;
-var TRIGGER_NAME$1 = "TabsTrigger";
+var TRIGGER_NAME$2 = "TabsTrigger";
 var TabsTrigger$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
-    const context = useTabsContext(TRIGGER_NAME$1, __scopeTabs);
+    const context = useTabsContext(TRIGGER_NAME$2, __scopeTabs);
     const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
     const triggerId = makeTriggerId(context.baseId, value);
     const contentId = makeContentId(context.baseId, value);
@@ -39670,12 +39827,12 @@ var TabsTrigger$1 = reactExports.forwardRef(
     );
   }
 );
-TabsTrigger$1.displayName = TRIGGER_NAME$1;
-var CONTENT_NAME$1 = "TabsContent";
+TabsTrigger$1.displayName = TRIGGER_NAME$2;
+var CONTENT_NAME$2 = "TabsContent";
 var TabsContent$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
-    const context = useTabsContext(CONTENT_NAME$1, __scopeTabs);
+    const context = useTabsContext(CONTENT_NAME$2, __scopeTabs);
     const triggerId = makeTriggerId(context.baseId, value);
     const contentId = makeContentId(context.baseId, value);
     const isSelected = value === context.value;
@@ -39705,14 +39862,14 @@ var TabsContent$1 = reactExports.forwardRef(
     ) });
   }
 );
-TabsContent$1.displayName = CONTENT_NAME$1;
+TabsContent$1.displayName = CONTENT_NAME$2;
 function makeTriggerId(baseId, value) {
   return `${baseId}-trigger-${value}`;
 }
 function makeContentId(baseId, value) {
   return `${baseId}-content-${value}`;
 }
-var Root2 = Tabs$1;
+var Root2$1 = Tabs$1;
 var List = TabsList$1;
 var Trigger$1 = TabsTrigger$1;
 var Content$1 = TabsContent$1;
@@ -39721,7 +39878,7 @@ function Tabs({
   ...props
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root2,
+    Root2$1,
     {
       "data-slot": "tabs",
       className: cn("flex flex-col gap-2", className),
@@ -49025,7 +49182,7 @@ function ScrollBar({
     }
   );
 }
-function formatTime(timestampNs) {
+function formatTime$1(timestampNs) {
   const date = new Date(Number(timestampNs) / 1e6);
   const h2 = date.getHours().toString().padStart(2, "0");
   const m2 = date.getMinutes().toString().padStart(2, "0");
@@ -49038,6 +49195,8 @@ function Chat() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: messages } = useGetMessages();
   const { mutateAsync: sendMessage, isPending } = useSendMessage();
+  const { ownerPrincipal } = useOwner();
+  const navigate = useNavigate();
   const [input, setInput] = reactExports.useState("");
   const bottomRef = reactExports.useRef(null);
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toText();
@@ -49075,7 +49234,7 @@ function Chat() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: "Community Chat" }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground", children: [
               msgCount,
-              " messages \\u00b7 auto-refreshes every 5s"
+              " messages · auto-refreshes every 5s"
             ] })
           ] })
         ] })
@@ -49103,6 +49262,11 @@ function Chat() {
           ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
             messages.map((msg, i) => {
               const isMe = msg.author.toString() === myPrincipal;
+              const authorIsOwner = isOwnerPrincipal(
+                ownerPrincipal,
+                msg.author
+              );
+              const authorStr = msg.author.toString();
               return /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 motion.div,
                 {
@@ -49129,8 +49293,24 @@ function Chat() {
                             {
                               className: `flex items-center gap-2 ${isMe ? "flex-row-reverse" : ""}`,
                               children: [
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground font-medium", children: isMe ? "You" : shortAuthor(msg.author) }),
-                                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground/60", children: formatTime(msg.timestamp) })
+                                isMe ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground font-medium", children: "You" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                                  "button",
+                                  {
+                                    type: "button",
+                                    className: "text-xs text-muted-foreground font-medium hover:text-primary transition-colors cursor-pointer flex items-center gap-0.5",
+                                    onClick: () => navigate({
+                                      to: "/messages/$userId",
+                                      params: { userId: authorStr }
+                                    }),
+                                    title: "Send private message",
+                                    "data-ocid": `chat.item.${i + 1}`,
+                                    children: [
+                                      shortAuthor(msg.author),
+                                      authorIsOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "👑" })
+                                    ]
+                                  }
+                                ),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground/60", children: formatTime$1(msg.timestamp) })
                               ]
                             }
                           ),
@@ -50092,637 +50272,6 @@ function CustomGamePage() {
     isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(CustomTriviaGame, { game, principalStr }) : /* @__PURE__ */ jsxRuntimeExports.jsx(CustomSpinWheelGame, { game, principalStr })
   ] });
 }
-const SKELETON_KEYS$2 = ["sk-a", "sk-b", "sk-c"];
-function Feed() {
-  const { data: posts, isLoading } = useGetAllPosts();
-  const { data: quizzes } = useGetAllQuizzes();
-  const { identity } = useInternetIdentity();
-  const quizMap = /* @__PURE__ */ new Map();
-  for (const q2 of quizzes ?? []) {
-    quizMap.set(q2.id.toString(), q2);
-  }
-  const sorted = [...posts ?? []].sort(
-    (a2, b2) => Number(b2.post.timestamp - a2.post.timestamp)
-  );
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: "absolute top-10 left-10 w-72 h-72 rounded-full opacity-10 pointer-events-none",
-        style: {
-          background: "radial-gradient(circle, oklch(0.73 0.14 215), transparent)"
-        }
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: "absolute top-60 right-10 w-56 h-56 rounded-full opacity-10 pointer-events-none",
-        style: {
-          background: "radial-gradient(circle, oklch(0.56 0.20 290), transparent)"
-        }
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pt-14 pb-6 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.5 },
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "mb-5 gradient-bg border-0 text-white px-4 py-1.5 rounded-full", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-3 h-3 mr-1.5" }),
-            "Social Quiz Feed"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-4xl md:text-5xl font-extrabold mb-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gradient-text", children: "Discover & Share" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground", children: "Quiz Posts" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-base max-w-xl mx-auto mb-6", children: "See what quizzes the community is sharing. Like, comment, and jump in to play." })
-        ]
-      }
-    ) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pb-20 max-w-2xl", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", "data-ocid": "feed.loading_state", children: SKELETON_KEYS$2.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-56 rounded-2xl bg-secondary" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        className: "text-center py-20 glass-card rounded-2xl",
-        "data-ocid": "feed.empty_state",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "w-12 h-12 mx-auto mb-4 text-muted-foreground" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg mb-2", children: "No posts yet!" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-6", children: "Be the first to share a quiz to the feed." }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "gradient-bg border-0 text-white rounded-full", children: "Browse Quizzes" }) })
-        ]
-      }
-    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: sorted.map((pws, i) => {
-      const quiz = quizMap.get(pws.post.quizId.toString());
-      return /* @__PURE__ */ jsxRuntimeExports.jsx(
-        PostCard,
-        {
-          pws,
-          quiz,
-          index: i + 1,
-          isLoggedIn: !!identity
-        },
-        pws.post.id.toString()
-      );
-    }) }) }) })
-  ] });
-}
-function PostCard({
-  pws,
-  quiz,
-  index: index2,
-  isLoggedIn
-}) {
-  var _a3;
-  const [commentsOpen, setCommentsOpen] = reactExports.useState(false);
-  const [liked, setLiked] = reactExports.useState(false);
-  const [commentText, setCommentText] = reactExports.useState("");
-  const likePost = useLikePost();
-  const addComment = useAddComment();
-  const { data: comments, isLoading: commentsLoading } = useGetComments(
-    commentsOpen ? pws.post.id : BigInt(-1)
-  );
-  const authorStr = pws.post.author.toString();
-  const shortAuthor2 = authorStr.length > 12 ? `${authorStr.slice(0, 6)}…${authorStr.slice(-4)}` : authorStr;
-  const likeCount = liked ? Number(pws.likeCount) + 1 : Number(pws.likeCount);
-  function handleLike() {
-    if (!isLoggedIn) return;
-    if (!liked) {
-      likePost.mutate(pws.post.id);
-      setLiked(true);
-    }
-  }
-  function handleComment() {
-    const text = commentText.trim();
-    if (!text || !isLoggedIn) return;
-    addComment.mutate(
-      { postId: pws.post.id, content: text },
-      { onSuccess: () => setCommentText("") }
-    );
-  }
-  const colorAccents = [
-    "from-blue-500 to-cyan-400",
-    "from-purple-500 to-pink-400",
-    "from-green-500 to-teal-400",
-    "from-orange-500 to-yellow-400"
-  ];
-  const accent = colorAccents[(index2 - 1) % colorAccents.length];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    motion.div,
-    {
-      initial: { opacity: 0, y: 24 },
-      animate: { opacity: 1, y: 0 },
-      exit: { opacity: 0, scale: 0.97 },
-      transition: { delay: index2 * 0.04, duration: 0.4 },
-      className: "glass-card rounded-2xl overflow-hidden",
-      "data-ocid": `feed.item.${index2}`,
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1.5 bg-gradient-to-r ${accent}` }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3 mb-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-9 h-9 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                AvatarFallback,
-                {
-                  className: `bg-gradient-to-br ${accent} text-white text-xs font-bold`,
-                  children: ((_a3 = shortAuthor2[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?"
-                }
-              ) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor2 }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: new Date(
-                  Number(pws.post.timestamp / BigInt(1e6))
-                ).toLocaleDateString() })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", className: "text-xs shrink-0", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-2.5 h-2.5 mr-1" }),
-              "Quiz Post"
-            ] })
-          ] }),
-          quiz ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-base mb-0.5 gradient-text", children: quiz.title }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm line-clamp-2", children: quiz.description })
-          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm italic", children: "Quiz not found" }) }),
-          pws.post.message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground/80 mb-4 border-l-2 border-primary/40 pl-3 italic", children: pws.post.message }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mt-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: handleLike,
-                disabled: !isLoggedIn || liked,
-                className: `flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full transition-all duration-200 ${liked ? "bg-pink-500/20 text-pink-400" : "hover:bg-pink-500/10 text-muted-foreground hover:text-pink-400"} disabled:opacity-50 disabled:cursor-not-allowed`,
-                "data-ocid": `feed.toggle.${index2}`,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: `w-4 h-4 ${liked ? "fill-current" : ""}` }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: likeCount })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => setCommentsOpen((v2) => !v2),
-                className: "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full hover:bg-secondary text-muted-foreground hover:text-foreground transition-all duration-200",
-                "data-ocid": `feed.secondary_button.${index2}`,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { className: "w-4 h-4" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: Number(pws.commentCount) }),
-                  commentsOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
-                ]
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1" }),
-            quiz && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: pws.post.quizId.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              Button,
-              {
-                size: "sm",
-                className: "gradient-bg border-0 text-white font-semibold rounded-full text-xs px-4",
-                "data-ocid": `feed.primary_button.${index2}`,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3 h-3 mr-1.5" }),
-                  "Play Quiz"
-                ]
-              }
-            ) })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: commentsOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            motion.div,
-            {
-              initial: { height: 0, opacity: 0 },
-              animate: { height: "auto", opacity: 1 },
-              exit: { height: 0, opacity: 0 },
-              transition: { duration: 0.25 },
-              className: "overflow-hidden",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 pt-4 border-t border-border", children: [
-                commentsLoading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" })
-                ] }) : (comments ?? []).length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm text-center py-2", children: "No comments yet. Be the first!" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3 mb-4 max-h-48 overflow-y-auto pr-1", children: (comments ?? []).map((c2) => {
-                  var _a4;
-                  const cAuthor = c2.author.toString();
-                  const shortC = cAuthor.length > 12 ? `${cAuthor.slice(0, 6)}…${cAuthor.slice(-4)}` : cAuthor;
-                  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2.5", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-6 h-6 shrink-0 mt-0.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_a4 = shortC[0]) == null ? void 0 : _a4.toUpperCase()) ?? "?" }) }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-medium text-foreground/80", children: [
-                        shortC,
-                        " "
-                      ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: c2.content })
-                    ] })
-                  ] }, c2.id.toString());
-                }) }),
-                isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 mt-3", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    Textarea,
-                    {
-                      placeholder: "Write a comment…",
-                      value: commentText,
-                      onChange: (e) => setCommentText(e.target.value),
-                      rows: 2,
-                      className: "flex-1 bg-secondary border-border rounded-xl text-sm resize-none",
-                      "data-ocid": `feed.textarea.${index2}`
-                    }
-                  ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    Button,
-                    {
-                      size: "sm",
-                      onClick: handleComment,
-                      disabled: !commentText.trim() || addComment.isPending,
-                      className: "gradient-bg border-0 text-white rounded-xl self-end px-3",
-                      "data-ocid": `feed.submit_button.${index2}`,
-                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" })
-                    }
-                  )
-                ] }),
-                !isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-xs text-center mt-2", children: "Log in to like and comment." })
-              ] })
-            }
-          ) })
-        ] })
-      ]
-    }
-  );
-}
-function Card({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "card",
-      className: cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      ),
-      ...props
-    }
-  );
-}
-function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "card-header",
-      className: cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className
-      ),
-      ...props
-    }
-  );
-}
-function CardTitle({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "card-title",
-      className: cn("leading-none font-semibold", className),
-      ...props
-    }
-  );
-}
-function CardDescription({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "card-description",
-      className: cn("text-muted-foreground text-sm", className),
-      ...props
-    }
-  );
-}
-function CardContent({ className, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "div",
-    {
-      "data-slot": "card-content",
-      className: cn("px-6", className),
-      ...props
-    }
-  );
-}
-const COOLDOWN_MS$1 = 24 * 60 * 60 * 1e3;
-function formatCountdown$1(ms) {
-  if (ms <= 0) return "";
-  const s2 = Math.floor(ms / 1e3);
-  const days = Math.floor(s2 / 86400);
-  const hours = Math.floor(s2 % 86400 / 3600);
-  const minutes = Math.floor(s2 % 3600 / 60);
-  const seconds = s2 % 60;
-  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
-  if (minutes > 0) return `${minutes}m ${seconds}s`;
-  return `${seconds}s`;
-}
-function useCustomGameCooldown(principalStr, gameId) {
-  const key = `custom_game_cooldown_${principalStr}_${gameId}`;
-  const [cooldownMs, setCooldownMs] = reactExports.useState(() => {
-    if (!principalStr) return 0;
-    const stored = localStorage.getItem(key);
-    if (!stored) return 0;
-    const remaining = COOLDOWN_MS$1 - (Date.now() - Number(stored));
-    return remaining > 0 ? remaining : 0;
-  });
-  reactExports.useEffect(() => {
-    if (cooldownMs <= 0) return;
-    const id2 = setInterval(() => {
-      setCooldownMs((prev) => {
-        const next = prev - 1e3;
-        if (next <= 0) {
-          clearInterval(id2);
-          return 0;
-        }
-        return next;
-      });
-    }, 1e3);
-    return () => clearInterval(id2);
-  }, [cooldownMs]);
-  return cooldownMs;
-}
-function GamesHub() {
-  const { identity, login, loginStatus } = useInternetIdentity();
-  const { data: myPoints } = useGetMyPoints();
-  const { data: customGames } = useGetAllCustomGames();
-  const navigate = useNavigate();
-  const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
-  const games = [
-    {
-      id: "memory",
-      title: "Memory Match",
-      description: "Flip cards to find matching pairs. Earn 10 points per pair!",
-      icon: Brain,
-      path: "/games/memory",
-      gradient: "from-cyan-500 to-blue-600",
-      glowClass: "glow-cyan",
-      badge: "10 pts/pair"
-    },
-    {
-      id: "spinwheel",
-      title: "Spin Wheel",
-      description: "Spin the wheel and win up to 200 bonus points! 1-day cooldown.",
-      icon: RotateCcw,
-      path: "/games/spinwheel",
-      gradient: "from-purple-500 to-pink-600",
-      glowClass: "glow-purple",
-      badge: "Up to 200 pts"
-    }
-  ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-10 max-w-4xl", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, y: -20 },
-        animate: { opacity: 1, y: 0 },
-        className: "text-center mb-10",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 mb-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-8 h-8 text-primary" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold gradient-text", children: "Mini Games" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg", children: "Play games, earn points, and claim the #1 spot!" })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, scale: 0.95 },
-        animate: { opacity: 1, scale: 1 },
-        transition: { delay: 0.1 },
-        className: "glass-card rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-6 h-6 text-white" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Your Total Points" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-3xl font-bold gradient-text", children: identity ? myPoints !== void 0 ? myPoints.toString() : "—" : "Log in to earn" })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/points-leaderboard", "data-ocid": "games.link", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            Button,
-            {
-              variant: "outline",
-              className: "gap-2 border-primary/40 hover:border-primary",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-4 h-4 text-yellow-400" }),
-                "Points Leaderboard"
-              ]
-            }
-          ) })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-6 mb-10", children: games.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      motion.div,
-      {
-        initial: { opacity: 0, y: 30 },
-        animate: { opacity: 1, y: 0 },
-        transition: { delay: 0.2 + i * 0.1 },
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-primary/50 transition-all duration-300 group", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "div",
-                {
-                  className: `w-14 h-14 rounded-2xl bg-gradient-to-br ${game.gradient} flex items-center justify-center ${game.glowClass} mb-3`,
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(game.icon, { className: "w-7 h-7 text-white" })
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "text-xs", children: game.badge })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-xl", children: game.title }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: game.description })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Link,
-            {
-              to: game.path,
-              "data-ocid": `games.${game.id}.primary_button`,
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan group-hover:opacity-90", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
-                "Play Now"
-              ] })
-            }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Button,
-            {
-              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan",
-              onClick: login,
-              disabled: loginStatus === "logging-in",
-              "data-ocid": `games.${game.id}.primary_button`,
-              children: "Log In to Play"
-            }
-          ) })
-        ] })
-      },
-      game.id
-    )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0, y: 20 },
-        animate: { opacity: 1, y: 0 },
-        transition: { delay: 0.4 },
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6 text-yellow-400" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text", children: "Community Games" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "ml-2", children: "By #1 Player" })
-          ] }),
-          !customGames || customGames.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "div",
-            {
-              className: "glass-card rounded-2xl p-8 text-center",
-              "data-ocid": "games.community.empty_state",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-10 h-10 text-yellow-400/50 mx-auto mb-3" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground", children: [
-                  "No community games yet — the #1 player can create them in the",
-                  " ",
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    Link,
-                    {
-                      to: "/admin",
-                      className: "text-primary underline",
-                      "data-ocid": "games.link",
-                      children: "Admin Panel"
-                    }
-                  ),
-                  "."
-                ] })
-              ]
-            }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-5", children: customGames.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            CustomGameCard,
-            {
-              game,
-              index: i + 1,
-              principalStr,
-              isLoggedIn: !!identity,
-              onLogin: login,
-              loginStatus,
-              onPlay: () => navigate({
-                to: "/games/custom/$id",
-                params: { id: game.id.toString() }
-              })
-            },
-            game.id.toString()
-          )) })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      motion.div,
-      {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        transition: { delay: 0.6 },
-        className: "mt-10 glass-card rounded-2xl p-5 flex items-center gap-4",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-8 h-8 text-yellow-400 shrink-0" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-foreground", children: "Become the #1 All-Time Player" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
-              "The player with the most total points unlocks the exclusive",
-              " ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Link,
-                {
-                  to: "/admin",
-                  className: "text-primary underline",
-                  "data-ocid": "games.link",
-                  children: "Admin Panel"
-                }
-              ),
-              " ",
-              "— revealing answers to every quiz and letting you create community games."
-            ] })
-          ] })
-        ]
-      }
-    )
-  ] });
-}
-function CustomGameCard({
-  game,
-  index: index2,
-  principalStr,
-  isLoggedIn,
-  onLogin,
-  loginStatus,
-  onPlay
-}) {
-  const cooldownMs = useCustomGameCooldown(principalStr, game.id.toString());
-  const isTrivia = game.gameType.__kind__ === "customTrivia";
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    motion.div,
-    {
-      initial: { opacity: 0, y: 20 },
-      animate: { opacity: 1, y: 0 },
-      transition: { delay: 0.1 * index2 },
-      "data-ocid": `games.community.item.${index2}`,
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-yellow-400/40 transition-all duration-300 group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "div",
-              {
-                className: `w-12 h-12 rounded-xl flex items-center justify-center mb-2 ${isTrivia ? "bg-gradient-to-br from-amber-500 to-orange-600" : "bg-gradient-to-br from-violet-500 to-fuchsia-600"}`,
-                children: isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-6 h-6 text-white" })
-              }
-            ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              Badge,
-              {
-                variant: "outline",
-                className: `text-xs ${isTrivia ? "border-amber-500/50 text-amber-400" : "border-violet-500/50 text-violet-400"}`,
-                children: isTrivia ? "Trivia" : "Spin Wheel"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-lg", children: game.title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: isTrivia ? `${game.gameType.customTrivia.questions.length} questions — earn points for correct answers` : "Spin to win — community prizes" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "space-y-3", children: [
-          cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 text-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Next play in" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-bold text-primary tabular-nums", children: formatCountdown$1(cooldownMs) })
-          ] }),
-          isLoggedIn ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            Button,
-            {
-              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50",
-              onClick: onPlay,
-              disabled: cooldownMs > 0,
-              "data-ocid": `games.community.primary_button.${index2}`,
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
-                cooldownMs > 0 ? "On Cooldown" : "Play Now"
-              ]
-            }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Button,
-            {
-              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
-              onClick: onLogin,
-              disabled: loginStatus === "logging-in",
-              "data-ocid": `games.community.primary_button.${index2}`,
-              children: "Log In to Play"
-            }
-          )
-        ] })
-      ] })
-    }
-  );
-}
 function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis == null ? void 0 : globalThis.document) {
   const onEscapeKeyDown = useCallbackRef$1(onEscapeKeyDownProp);
   reactExports.useEffect(() => {
@@ -51136,7 +50685,7 @@ function arrayRemove(array, item) {
 function removeLinks(items) {
   return items.filter((item) => item.tagName !== "A");
 }
-var PORTAL_NAME$1 = "Portal";
+var PORTAL_NAME$2 = "Portal";
 var Portal$1 = reactExports.forwardRef((props, forwardedRef) => {
   var _a3;
   const { container: containerProp, ...portalProps } = props;
@@ -51145,7 +50694,7 @@ var Portal$1 = reactExports.forwardRef((props, forwardedRef) => {
   const container = containerProp || mounted && ((_a3 = globalThis == null ? void 0 : globalThis.document) == null ? void 0 : _a3.body);
   return container ? ReactDOM$2.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
 });
-Portal$1.displayName = PORTAL_NAME$1;
+Portal$1.displayName = PORTAL_NAME$2;
 var count = 0;
 function useFocusGuards() {
   reactExports.useEffect(() => {
@@ -51945,7 +51494,7 @@ var hideOthers = function(originalTarget, parentNode, markerName) {
   return applyAttributeToOthers(targets, activeParentNode, markerName, "aria-hidden");
 };
 var DIALOG_NAME = "Dialog";
-var [createDialogContext] = createContextScope(DIALOG_NAME);
+var [createDialogContext, createDialogScope] = createContextScope(DIALOG_NAME);
 var [DialogProvider, useDialogContext] = createDialogContext(DIALOG_NAME);
 var Dialog$1 = (props) => {
   const {
@@ -51982,11 +51531,11 @@ var Dialog$1 = (props) => {
   );
 };
 Dialog$1.displayName = DIALOG_NAME;
-var TRIGGER_NAME = "DialogTrigger";
+var TRIGGER_NAME$1 = "DialogTrigger";
 var DialogTrigger$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...triggerProps } = props;
-    const context = useDialogContext(TRIGGER_NAME, __scopeDialog);
+    const context = useDialogContext(TRIGGER_NAME$1, __scopeDialog);
     const composedTriggerRef = useComposedRefs$1(forwardedRef, context.triggerRef);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
       Primitive.button,
@@ -52003,32 +51552,32 @@ var DialogTrigger$1 = reactExports.forwardRef(
     );
   }
 );
-DialogTrigger$1.displayName = TRIGGER_NAME;
-var PORTAL_NAME = "DialogPortal";
-var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME, {
+DialogTrigger$1.displayName = TRIGGER_NAME$1;
+var PORTAL_NAME$1 = "DialogPortal";
+var [PortalProvider, usePortalContext] = createDialogContext(PORTAL_NAME$1, {
   forceMount: void 0
 });
 var DialogPortal$1 = (props) => {
   const { __scopeDialog, forceMount, children, container } = props;
-  const context = useDialogContext(PORTAL_NAME, __scopeDialog);
+  const context = useDialogContext(PORTAL_NAME$1, __scopeDialog);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(PortalProvider, { scope: __scopeDialog, forceMount, children: reactExports.Children.map(children, (child) => /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Portal$1, { asChild: true, container, children: child }) })) });
 };
-DialogPortal$1.displayName = PORTAL_NAME;
-var OVERLAY_NAME = "DialogOverlay";
+DialogPortal$1.displayName = PORTAL_NAME$1;
+var OVERLAY_NAME$1 = "DialogOverlay";
 var DialogOverlay$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
-    const portalContext = usePortalContext(OVERLAY_NAME, props.__scopeDialog);
+    const portalContext = usePortalContext(OVERLAY_NAME$1, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...overlayProps } = props;
-    const context = useDialogContext(OVERLAY_NAME, props.__scopeDialog);
+    const context = useDialogContext(OVERLAY_NAME$1, props.__scopeDialog);
     return context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(DialogOverlayImpl, { ...overlayProps, ref: forwardedRef }) }) : null;
   }
 );
-DialogOverlay$1.displayName = OVERLAY_NAME;
+DialogOverlay$1.displayName = OVERLAY_NAME$1;
 var Slot = /* @__PURE__ */ createSlot("DialogOverlay.RemoveScroll");
 var DialogOverlayImpl = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...overlayProps } = props;
-    const context = useDialogContext(OVERLAY_NAME, __scopeDialog);
+    const context = useDialogContext(OVERLAY_NAME$1, __scopeDialog);
     return (
       // Make sure `Content` is scrollable even when it doesn't live inside `RemoveScroll`
       // ie. when `Overlay` and `Content` are siblings
@@ -52044,19 +51593,19 @@ var DialogOverlayImpl = reactExports.forwardRef(
     );
   }
 );
-var CONTENT_NAME = "DialogContent";
+var CONTENT_NAME$1 = "DialogContent";
 var DialogContent$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
-    const portalContext = usePortalContext(CONTENT_NAME, props.__scopeDialog);
+    const portalContext = usePortalContext(CONTENT_NAME$1, props.__scopeDialog);
     const { forceMount = portalContext.forceMount, ...contentProps } = props;
-    const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+    const context = useDialogContext(CONTENT_NAME$1, props.__scopeDialog);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || context.open, children: context.modal ? /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentModal, { ...contentProps, ref: forwardedRef }) : /* @__PURE__ */ jsxRuntimeExports.jsx(DialogContentNonModal, { ...contentProps, ref: forwardedRef }) });
   }
 );
-DialogContent$1.displayName = CONTENT_NAME;
+DialogContent$1.displayName = CONTENT_NAME$1;
 var DialogContentModal = reactExports.forwardRef(
   (props, forwardedRef) => {
-    const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+    const context = useDialogContext(CONTENT_NAME$1, props.__scopeDialog);
     const contentRef = reactExports.useRef(null);
     const composedRefs = useComposedRefs$1(forwardedRef, context.contentRef, contentRef);
     reactExports.useEffect(() => {
@@ -52091,7 +51640,7 @@ var DialogContentModal = reactExports.forwardRef(
 );
 var DialogContentNonModal = reactExports.forwardRef(
   (props, forwardedRef) => {
-    const context = useDialogContext(CONTENT_NAME, props.__scopeDialog);
+    const context = useDialogContext(CONTENT_NAME$1, props.__scopeDialog);
     const hasInteractedOutsideRef = reactExports.useRef(false);
     const hasPointerDownOutsideRef = reactExports.useRef(false);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -52134,7 +51683,7 @@ var DialogContentNonModal = reactExports.forwardRef(
 var DialogContentImpl = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, trapFocus, onOpenAutoFocus, onCloseAutoFocus, ...contentProps } = props;
-    const context = useDialogContext(CONTENT_NAME, __scopeDialog);
+    const context = useDialogContext(CONTENT_NAME$1, __scopeDialog);
     const contentRef = reactExports.useRef(null);
     const composedRefs = useComposedRefs$1(forwardedRef, contentRef);
     useFocusGuards();
@@ -52164,29 +51713,29 @@ var DialogContentImpl = reactExports.forwardRef(
       ),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(TitleWarning, { titleId: context.titleId }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(DescriptionWarning, { contentRef, descriptionId: context.descriptionId })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(DescriptionWarning$1, { contentRef, descriptionId: context.descriptionId })
       ] })
     ] });
   }
 );
-var TITLE_NAME = "DialogTitle";
+var TITLE_NAME$1 = "DialogTitle";
 var DialogTitle$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...titleProps } = props;
-    const context = useDialogContext(TITLE_NAME, __scopeDialog);
+    const context = useDialogContext(TITLE_NAME$1, __scopeDialog);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.h2, { id: context.titleId, ...titleProps, ref: forwardedRef });
   }
 );
-DialogTitle$1.displayName = TITLE_NAME;
-var DESCRIPTION_NAME = "DialogDescription";
+DialogTitle$1.displayName = TITLE_NAME$1;
+var DESCRIPTION_NAME$1 = "DialogDescription";
 var DialogDescription$1 = reactExports.forwardRef(
   (props, forwardedRef) => {
     const { __scopeDialog, ...descriptionProps } = props;
-    const context = useDialogContext(DESCRIPTION_NAME, __scopeDialog);
+    const context = useDialogContext(DESCRIPTION_NAME$1, __scopeDialog);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.p, { id: context.descriptionId, ...descriptionProps, ref: forwardedRef });
   }
 );
-DialogDescription$1.displayName = DESCRIPTION_NAME;
+DialogDescription$1.displayName = DESCRIPTION_NAME$1;
 var CLOSE_NAME = "DialogClose";
 var DialogClose = reactExports.forwardRef(
   (props, forwardedRef) => {
@@ -52209,8 +51758,8 @@ function getState(open) {
 }
 var TITLE_WARNING_NAME = "DialogTitleWarning";
 var [WarningProvider, useWarningContext] = createContext2(TITLE_WARNING_NAME, {
-  contentName: CONTENT_NAME,
-  titleName: TITLE_NAME,
+  contentName: CONTENT_NAME$1,
+  titleName: TITLE_NAME$1,
   docsSlug: "dialog"
 });
 var TitleWarning = ({ titleId }) => {
@@ -52229,7 +51778,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${titl
   return null;
 };
 var DESCRIPTION_WARNING_NAME = "DialogDescriptionWarning";
-var DescriptionWarning = ({ contentRef, descriptionId }) => {
+var DescriptionWarning$1 = ({ contentRef, descriptionId }) => {
   const descriptionWarningContext = useWarningContext(DESCRIPTION_WARNING_NAME);
   const MESSAGE = `Warning: Missing \`Description\` or \`aria-describedby={undefined}\` for {${descriptionWarningContext.contentName}}.`;
   reactExports.useEffect(() => {
@@ -52250,6 +51799,959 @@ var Content = DialogContent$1;
 var Title = DialogTitle$1;
 var Description = DialogDescription$1;
 var Close = DialogClose;
+var ROOT_NAME = "AlertDialog";
+var [createAlertDialogContext] = createContextScope(ROOT_NAME, [
+  createDialogScope
+]);
+var useDialogScope = createDialogScope();
+var AlertDialog$1 = (props) => {
+  const { __scopeAlertDialog, ...alertDialogProps } = props;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root$1, { ...dialogScope, ...alertDialogProps, modal: true });
+};
+AlertDialog$1.displayName = ROOT_NAME;
+var TRIGGER_NAME = "AlertDialogTrigger";
+var AlertDialogTrigger = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, ...triggerProps } = props;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Trigger, { ...dialogScope, ...triggerProps, ref: forwardedRef });
+  }
+);
+AlertDialogTrigger.displayName = TRIGGER_NAME;
+var PORTAL_NAME = "AlertDialogPortal";
+var AlertDialogPortal$1 = (props) => {
+  const { __scopeAlertDialog, ...portalProps } = props;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal, { ...dialogScope, ...portalProps });
+};
+AlertDialogPortal$1.displayName = PORTAL_NAME;
+var OVERLAY_NAME = "AlertDialogOverlay";
+var AlertDialogOverlay$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, ...overlayProps } = props;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Overlay, { ...dialogScope, ...overlayProps, ref: forwardedRef });
+  }
+);
+AlertDialogOverlay$1.displayName = OVERLAY_NAME;
+var CONTENT_NAME = "AlertDialogContent";
+var [AlertDialogContentProvider, useAlertDialogContentContext] = createAlertDialogContext(CONTENT_NAME);
+var Slottable = /* @__PURE__ */ createSlottable("AlertDialogContent");
+var AlertDialogContent$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, children, ...contentProps } = props;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    const contentRef = reactExports.useRef(null);
+    const composedRefs = useComposedRefs$1(forwardedRef, contentRef);
+    const cancelRef = reactExports.useRef(null);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      WarningProvider,
+      {
+        contentName: CONTENT_NAME,
+        titleName: TITLE_NAME,
+        docsSlug: "alert-dialog",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogContentProvider, { scope: __scopeAlertDialog, cancelRef, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          Content,
+          {
+            role: "alertdialog",
+            ...dialogScope,
+            ...contentProps,
+            ref: composedRefs,
+            onOpenAutoFocus: composeEventHandlers(contentProps.onOpenAutoFocus, (event) => {
+              var _a3;
+              event.preventDefault();
+              (_a3 = cancelRef.current) == null ? void 0 : _a3.focus({ preventScroll: true });
+            }),
+            onPointerDownOutside: (event) => event.preventDefault(),
+            onInteractOutside: (event) => event.preventDefault(),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Slottable, { children }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(DescriptionWarning, { contentRef })
+            ]
+          }
+        ) })
+      }
+    );
+  }
+);
+AlertDialogContent$1.displayName = CONTENT_NAME;
+var TITLE_NAME = "AlertDialogTitle";
+var AlertDialogTitle$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, ...titleProps } = props;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Title, { ...dialogScope, ...titleProps, ref: forwardedRef });
+  }
+);
+AlertDialogTitle$1.displayName = TITLE_NAME;
+var DESCRIPTION_NAME = "AlertDialogDescription";
+var AlertDialogDescription$1 = reactExports.forwardRef((props, forwardedRef) => {
+  const { __scopeAlertDialog, ...descriptionProps } = props;
+  const dialogScope = useDialogScope(__scopeAlertDialog);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Description, { ...dialogScope, ...descriptionProps, ref: forwardedRef });
+});
+AlertDialogDescription$1.displayName = DESCRIPTION_NAME;
+var ACTION_NAME = "AlertDialogAction";
+var AlertDialogAction$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, ...actionProps } = props;
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Close, { ...dialogScope, ...actionProps, ref: forwardedRef });
+  }
+);
+AlertDialogAction$1.displayName = ACTION_NAME;
+var CANCEL_NAME = "AlertDialogCancel";
+var AlertDialogCancel$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeAlertDialog, ...cancelProps } = props;
+    const { cancelRef } = useAlertDialogContentContext(CANCEL_NAME, __scopeAlertDialog);
+    const dialogScope = useDialogScope(__scopeAlertDialog);
+    const ref = useComposedRefs$1(forwardedRef, cancelRef);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Close, { ...dialogScope, ...cancelProps, ref });
+  }
+);
+AlertDialogCancel$1.displayName = CANCEL_NAME;
+var DescriptionWarning = ({ contentRef }) => {
+  const MESSAGE = `\`${CONTENT_NAME}\` requires a description for the component to be accessible for screen reader users.
+
+You can add a description to the \`${CONTENT_NAME}\` by passing a \`${DESCRIPTION_NAME}\` component as a child, which also benefits sighted users by adding visible context to the dialog.
+
+Alternatively, you can use your own component as a description by assigning it an \`id\` and passing the same value to the \`aria-describedby\` prop in \`${CONTENT_NAME}\`. If the description is confusing or duplicative for sighted users, you can use the \`@radix-ui/react-visually-hidden\` primitive as a wrapper around your description component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/alert-dialog`;
+  reactExports.useEffect(() => {
+    var _a3;
+    const hasDescription = document.getElementById(
+      (_a3 = contentRef.current) == null ? void 0 : _a3.getAttribute("aria-describedby")
+    );
+    if (!hasDescription) console.warn(MESSAGE);
+  }, [MESSAGE, contentRef]);
+  return null;
+};
+var Root2 = AlertDialog$1;
+var Portal2 = AlertDialogPortal$1;
+var Overlay2 = AlertDialogOverlay$1;
+var Content2 = AlertDialogContent$1;
+var Action = AlertDialogAction$1;
+var Cancel = AlertDialogCancel$1;
+var Title2 = AlertDialogTitle$1;
+var Description2 = AlertDialogDescription$1;
+function AlertDialog({
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Root2, { "data-slot": "alert-dialog", ...props });
+}
+function AlertDialogPortal({
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Portal2, { "data-slot": "alert-dialog-portal", ...props });
+}
+function AlertDialogOverlay({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Overlay2,
+    {
+      "data-slot": "alert-dialog-overlay",
+      className: cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function AlertDialogContent({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogPortal, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogOverlay, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Content2,
+      {
+        "data-slot": "alert-dialog-content",
+        className: cn(
+          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
+          className
+        ),
+        ...props
+      }
+    )
+  ] });
+}
+function AlertDialogHeader({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "alert-dialog-header",
+      className: cn("flex flex-col gap-2 text-center sm:text-left", className),
+      ...props
+    }
+  );
+}
+function AlertDialogFooter({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "alert-dialog-footer",
+      className: cn(
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function AlertDialogTitle({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Title2,
+    {
+      "data-slot": "alert-dialog-title",
+      className: cn("text-lg font-semibold", className),
+      ...props
+    }
+  );
+}
+function AlertDialogDescription({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Description2,
+    {
+      "data-slot": "alert-dialog-description",
+      className: cn("text-muted-foreground text-sm", className),
+      ...props
+    }
+  );
+}
+function AlertDialogAction({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Action,
+    {
+      className: cn(buttonVariants(), className),
+      ...props
+    }
+  );
+}
+function AlertDialogCancel({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Cancel,
+    {
+      className: cn(buttonVariants({ variant: "outline" }), className),
+      ...props
+    }
+  );
+}
+const SKELETON_KEYS$2 = ["sk-a", "sk-b", "sk-c"];
+function Feed() {
+  const { data: posts, isLoading } = useGetAllPosts();
+  const { data: quizzes } = useGetAllQuizzes();
+  const { identity } = useInternetIdentity();
+  const { isOwner } = useOwner();
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  const quizMap = /* @__PURE__ */ new Map();
+  for (const q2 of quizzes ?? []) {
+    quizMap.set(q2.id.toString(), q2);
+  }
+  const sorted = [...posts ?? []].sort(
+    (a2, b2) => Number(b2.post.timestamp - a2.post.timestamp)
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute top-10 left-10 w-72 h-72 rounded-full opacity-10 pointer-events-none",
+        style: {
+          background: "radial-gradient(circle, oklch(0.73 0.14 215), transparent)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "absolute top-60 right-10 w-56 h-56 rounded-full opacity-10 pointer-events-none",
+        style: {
+          background: "radial-gradient(circle, oklch(0.56 0.20 290), transparent)"
+        }
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pt-14 pb-6 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.5 },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "mb-5 gradient-bg border-0 text-white px-4 py-1.5 rounded-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-3 h-3 mr-1.5" }),
+            "Social Quiz Feed"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-4xl md:text-5xl font-extrabold mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "gradient-text", children: "Discover & Share" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-foreground", children: "Quiz Posts" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-base max-w-xl mx-auto mb-6", children: "See what quizzes the community is sharing. Like, comment, and jump in to play." })
+        ]
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "container mx-auto px-4 pb-20 max-w-2xl", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", "data-ocid": "feed.loading_state", children: SKELETON_KEYS$2.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-56 rounded-2xl bg-secondary" }, k2)) }) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        className: "text-center py-20 glass-card rounded-2xl",
+        "data-ocid": "feed.empty_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "w-12 h-12 mx-auto mb-4 text-muted-foreground" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg mb-2", children: "No posts yet!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-6", children: "Be the first to share a quiz to the feed." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "gradient-bg border-0 text-white rounded-full", children: "Browse Quizzes" }) })
+        ]
+      }
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: sorted.map((pws, i) => {
+      const quiz = quizMap.get(pws.post.quizId.toString());
+      const canDelete = isOwner || !!myPrincipal && (quiz == null ? void 0 : quiz.creator.toString()) === myPrincipal;
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(
+        PostCard,
+        {
+          pws,
+          quiz,
+          index: i + 1,
+          isLoggedIn: !!identity,
+          canDelete
+        },
+        pws.post.id.toString()
+      );
+    }) }) }) })
+  ] });
+}
+function PostCard({
+  pws,
+  quiz,
+  index: index2,
+  isLoggedIn,
+  canDelete
+}) {
+  var _a3;
+  const [commentsOpen, setCommentsOpen] = reactExports.useState(false);
+  const [liked, setLiked] = reactExports.useState(false);
+  const [commentText, setCommentText] = reactExports.useState("");
+  const [deleteOpen, setDeleteOpen] = reactExports.useState(false);
+  const likePost = useLikePost();
+  const addComment = useAddComment();
+  const deleteQuiz = useDeleteQuiz();
+  const { data: comments, isLoading: commentsLoading } = useGetComments(
+    commentsOpen ? pws.post.id : BigInt(-1)
+  );
+  const authorStr = pws.post.author.toString();
+  const shortAuthor2 = authorStr.length > 12 ? `${authorStr.slice(0, 6)}…${authorStr.slice(-4)}` : authorStr;
+  const likeCount = liked ? Number(pws.likeCount) + 1 : Number(pws.likeCount);
+  function handleLike() {
+    if (!isLoggedIn) return;
+    if (!liked) {
+      likePost.mutate(pws.post.id);
+      setLiked(true);
+    }
+  }
+  function handleComment() {
+    const text = commentText.trim();
+    if (!text || !isLoggedIn) return;
+    addComment.mutate(
+      { postId: pws.post.id, content: text },
+      { onSuccess: () => setCommentText("") }
+    );
+  }
+  function handleDelete() {
+    if (!quiz) return;
+    deleteQuiz.mutate(quiz.id, {
+      onSuccess: () => {
+        ue.success("Quiz deleted.");
+        setDeleteOpen(false);
+      },
+      onError: (err) => ue.error(err.message ?? "Failed to delete quiz.")
+    });
+  }
+  const colorAccents = [
+    "from-blue-500 to-cyan-400",
+    "from-purple-500 to-pink-400",
+    "from-green-500 to-teal-400",
+    "from-orange-500 to-yellow-400"
+  ];
+  const accent = colorAccents[(index2 - 1) % colorAccents.length];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+        exit: { opacity: 0, scale: 0.97 },
+        transition: { delay: index2 * 0.04, duration: 0.4 },
+        className: "glass-card rounded-2xl overflow-hidden",
+        "data-ocid": `feed.item.${index2}`,
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `h-1.5 bg-gradient-to-r ${accent}` }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between gap-3 mb-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-9 h-9 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  AvatarFallback,
+                  {
+                    className: `bg-gradient-to-br ${accent} text-white text-xs font-bold`,
+                    children: ((_a3 = shortAuthor2[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?"
+                  }
+                ) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor2 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: new Date(
+                    Number(pws.post.timestamp / BigInt(1e6))
+                  ).toLocaleDateString() })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { variant: "outline", className: "text-xs shrink-0", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-2.5 h-2.5 mr-1" }),
+                  "Quiz Post"
+                ] }),
+                canDelete && quiz && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => setDeleteOpen(true),
+                    className: "p-1.5 rounded-lg text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors",
+                    title: "Delete quiz",
+                    "data-ocid": `feed.delete_button.${index2}`,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-3.5 h-3.5" })
+                  }
+                )
+              ] })
+            ] }),
+            quiz ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mb-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold text-base mb-0.5 gradient-text", children: quiz.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm line-clamp-2", children: quiz.description })
+            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm italic", children: "Quiz not found" }) }),
+            pws.post.message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-foreground/80 mb-4 border-l-2 border-primary/40 pl-3 italic", children: pws.post.message }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mt-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  onClick: handleLike,
+                  disabled: !isLoggedIn || liked,
+                  className: `flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full transition-all duration-200 ${liked ? "bg-pink-500/20 text-pink-400" : "hover:bg-pink-500/10 text-muted-foreground hover:text-pink-400"} disabled:opacity-50 disabled:cursor-not-allowed`,
+                  "data-ocid": `feed.toggle.${index2}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: `w-4 h-4 ${liked ? "fill-current" : ""}` }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: likeCount })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => setCommentsOpen((v2) => !v2),
+                  className: "flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-full hover:bg-secondary text-muted-foreground hover:text-foreground transition-all duration-200",
+                  "data-ocid": `feed.secondary_button.${index2}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { className: "w-4 h-4" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: Number(pws.commentCount) }),
+                    commentsOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronUp, { className: "w-3 h-3" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronDown, { className: "w-3 h-3" })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1" }),
+              quiz && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: pws.post.quizId.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                Button,
+                {
+                  size: "sm",
+                  className: "gradient-bg border-0 text-white font-semibold rounded-full text-xs px-4",
+                  "data-ocid": `feed.primary_button.${index2}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3 h-3 mr-1.5" }),
+                    "Play Quiz"
+                  ]
+                }
+              ) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: commentsOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              motion.div,
+              {
+                initial: { height: 0, opacity: 0 },
+                animate: { height: "auto", opacity: 1 },
+                exit: { height: 0, opacity: 0 },
+                transition: { duration: 0.25 },
+                className: "overflow-hidden",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-4 pt-4 border-t border-border", children: [
+                  commentsLoading ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 rounded-lg bg-secondary" })
+                  ] }) : (comments ?? []).length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm text-center py-2", children: "No comments yet. Be the first!" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3 mb-4 max-h-48 overflow-y-auto pr-1", children: (comments ?? []).map((c2) => {
+                    var _a4;
+                    const cAuthor = c2.author.toString();
+                    const shortC = cAuthor.length > 12 ? `${cAuthor.slice(0, 6)}…${cAuthor.slice(-4)}` : cAuthor;
+                    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2.5", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-6 h-6 shrink-0 mt-0.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_a4 = shortC[0]) == null ? void 0 : _a4.toUpperCase()) ?? "?" }) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs font-medium text-foreground/80", children: [
+                          shortC,
+                          " "
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: c2.content })
+                      ] })
+                    ] }, c2.id.toString());
+                  }) }),
+                  isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2 mt-3", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Textarea,
+                      {
+                        placeholder: "Write a comment\\u2026",
+                        value: commentText,
+                        onChange: (e) => setCommentText(e.target.value),
+                        rows: 2,
+                        className: "flex-1 bg-secondary border-border rounded-xl text-sm resize-none",
+                        "data-ocid": `feed.textarea.${index2}`
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Button,
+                      {
+                        size: "sm",
+                        onClick: handleComment,
+                        disabled: !commentText.trim() || addComment.isPending,
+                        className: "gradient-bg border-0 text-white rounded-xl self-end px-3",
+                        "data-ocid": `feed.submit_button.${index2}`,
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" })
+                      }
+                    )
+                  ] }),
+                  !isLoggedIn && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-xs text-center mt-2", children: "Log in to like and comment." })
+                ] })
+              }
+            ) })
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialog, { open: deleteOpen, onOpenChange: setDeleteOpen, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogContent, { "data-ocid": `feed.dialog.${index2}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogHeader, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogTitle, { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 text-destructive" }),
+          "Delete this quiz?"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogDescription, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: quiz == null ? void 0 : quiz.title }),
+          " will be permanently deleted. This cannot be undone."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogFooter, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogCancel, { "data-ocid": `feed.cancel_button.${index2}`, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          AlertDialogAction,
+          {
+            onClick: handleDelete,
+            disabled: deleteQuiz.isPending,
+            className: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+            "data-ocid": `feed.delete_button.${index2}`,
+            children: [
+              deleteQuiz.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 mr-1.5" }),
+              "Delete"
+            ]
+          }
+        )
+      ] })
+    ] }) })
+  ] });
+}
+function Card({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card",
+      className: cn(
+        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function CardHeader({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-header",
+      className: cn(
+        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function CardTitle({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-title",
+      className: cn("leading-none font-semibold", className),
+      ...props
+    }
+  );
+}
+function CardDescription({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-description",
+      className: cn("text-muted-foreground text-sm", className),
+      ...props
+    }
+  );
+}
+function CardContent({ className, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "div",
+    {
+      "data-slot": "card-content",
+      className: cn("px-6", className),
+      ...props
+    }
+  );
+}
+const COOLDOWN_MS$1 = 24 * 60 * 60 * 1e3;
+function formatCountdown$1(ms) {
+  if (ms <= 0) return "";
+  const s2 = Math.floor(ms / 1e3);
+  const days = Math.floor(s2 / 86400);
+  const hours = Math.floor(s2 % 86400 / 3600);
+  const minutes = Math.floor(s2 % 3600 / 60);
+  const seconds = s2 % 60;
+  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
+  if (minutes > 0) return `${minutes}m ${seconds}s`;
+  return `${seconds}s`;
+}
+function useCustomGameCooldown(principalStr, gameId) {
+  const key = `custom_game_cooldown_${principalStr}_${gameId}`;
+  const [cooldownMs, setCooldownMs] = reactExports.useState(() => {
+    if (!principalStr) return 0;
+    const stored = localStorage.getItem(key);
+    if (!stored) return 0;
+    const remaining = COOLDOWN_MS$1 - (Date.now() - Number(stored));
+    return remaining > 0 ? remaining : 0;
+  });
+  reactExports.useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id2 = setInterval(() => {
+      setCooldownMs((prev) => {
+        const next = prev - 1e3;
+        if (next <= 0) {
+          clearInterval(id2);
+          return 0;
+        }
+        return next;
+      });
+    }, 1e3);
+    return () => clearInterval(id2);
+  }, [cooldownMs]);
+  return cooldownMs;
+}
+function GamesHub() {
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: myPoints } = useGetMyPoints();
+  const { data: customGames } = useGetAllCustomGames();
+  const navigate = useNavigate();
+  const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
+  const games = [
+    {
+      id: "memory",
+      title: "Memory Match",
+      description: "Flip cards to find matching pairs. Earn 10 points per pair!",
+      icon: Brain,
+      path: "/games/memory",
+      gradient: "from-cyan-500 to-blue-600",
+      glowClass: "glow-cyan",
+      badge: "10 pts/pair"
+    },
+    {
+      id: "spinwheel",
+      title: "Spin Wheel",
+      description: "Spin the wheel and win up to 200 bonus points! 1-day cooldown.",
+      icon: RotateCcw,
+      path: "/games/spinwheel",
+      gradient: "from-purple-500 to-pink-600",
+      glowClass: "glow-purple",
+      badge: "Up to 200 pts"
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-10 max-w-4xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -20 },
+        animate: { opacity: 1, y: 0 },
+        className: "text-center mb-10",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 mb-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-8 h-8 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold gradient-text", children: "Mini Games" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg", children: "Play games, earn points, and claim the #1 spot!" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, scale: 0.95 },
+        animate: { opacity: 1, scale: 1 },
+        transition: { delay: 0.1 },
+        className: "glass-card rounded-2xl p-5 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-6 h-6 text-white" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Your Total Points" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-3xl font-bold gradient-text", children: identity ? myPoints !== void 0 ? myPoints.toString() : "—" : "Log in to earn" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/points-leaderboard", "data-ocid": "games.link", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              variant: "outline",
+              className: "gap-2 border-primary/40 hover:border-primary",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-4 h-4 text-yellow-400" }),
+                "Points Leaderboard"
+              ]
+            }
+          ) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-6 mb-10", children: games.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 30 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.2 + i * 0.1 },
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-primary/50 transition-all duration-300 group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
+                {
+                  className: `w-14 h-14 rounded-2xl bg-gradient-to-br ${game.gradient} flex items-center justify-center ${game.glowClass} mb-3`,
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(game.icon, { className: "w-7 h-7 text-white" })
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "text-xs", children: game.badge })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-xl", children: game.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: game.description })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: game.path,
+              "data-ocid": `games.${game.id}.primary_button`,
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Button, { className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan group-hover:opacity-90", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
+                "Play Now"
+              ] })
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan",
+              onClick: login,
+              disabled: loginStatus === "logging-in",
+              "data-ocid": `games.${game.id}.primary_button`,
+              children: "Log In to Play"
+            }
+          ) })
+        ] })
+      },
+      game.id
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.4 },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6 text-yellow-400" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text", children: "Community Games" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "ml-2", children: "By #1 Player" })
+          ] }),
+          !customGames || customGames.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "glass-card rounded-2xl p-8 text-center",
+              "data-ocid": "games.community.empty_state",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-10 h-10 text-yellow-400/50 mx-auto mb-3" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground", children: [
+                  "No community games yet — the #1 player can create them in the",
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Link,
+                    {
+                      to: "/admin",
+                      className: "text-primary underline",
+                      "data-ocid": "games.link",
+                      children: "Admin Panel"
+                    }
+                  ),
+                  "."
+                ] })
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-5", children: customGames.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CustomGameCard,
+            {
+              game,
+              index: i + 1,
+              principalStr,
+              isLoggedIn: !!identity,
+              onLogin: login,
+              loginStatus,
+              onPlay: () => navigate({
+                to: "/games/custom/$id",
+                params: { id: game.id.toString() }
+              })
+            },
+            game.id.toString()
+          )) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { delay: 0.6 },
+        className: "mt-10 glass-card rounded-2xl p-5 flex items-center gap-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-8 h-8 text-yellow-400 shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-semibold text-foreground", children: "Become the #1 All-Time Player" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
+              "The player with the most total points unlocks the exclusive",
+              " ",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Link,
+                {
+                  to: "/admin",
+                  className: "text-primary underline",
+                  "data-ocid": "games.link",
+                  children: "Admin Panel"
+                }
+              ),
+              " ",
+              "— revealing answers to every quiz and letting you create community games."
+            ] })
+          ] })
+        ]
+      }
+    )
+  ] });
+}
+function CustomGameCard({
+  game,
+  index: index2,
+  principalStr,
+  isLoggedIn,
+  onLogin,
+  loginStatus,
+  onPlay
+}) {
+  const cooldownMs = useCustomGameCooldown(principalStr, game.id.toString());
+  const isTrivia = game.gameType.__kind__ === "customTrivia";
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.1 * index2 },
+      "data-ocid": `games.community.item.${index2}`,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-yellow-400/40 transition-all duration-300 group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: `w-12 h-12 rounded-xl flex items-center justify-center mb-2 ${isTrivia ? "bg-gradient-to-br from-amber-500 to-orange-600" : "bg-gradient-to-br from-violet-500 to-fuchsia-600"}`,
+                children: isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-6 h-6 text-white" })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Badge,
+              {
+                variant: "outline",
+                className: `text-xs ${isTrivia ? "border-amber-500/50 text-amber-400" : "border-violet-500/50 text-violet-400"}`,
+                children: isTrivia ? "Trivia" : "Spin Wheel"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-lg", children: game.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: isTrivia ? `${game.gameType.customTrivia.questions.length} questions — earn points for correct answers` : "Spin to win — community prizes" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "space-y-3", children: [
+          cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 text-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Next play in" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-bold text-primary tabular-nums", children: formatCountdown$1(cooldownMs) })
+          ] }),
+          isLoggedIn ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50",
+              onClick: onPlay,
+              disabled: cooldownMs > 0,
+              "data-ocid": `games.community.primary_button.${index2}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
+                cooldownMs > 0 ? "On Cooldown" : "Play Now"
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
+              onClick: onLogin,
+              disabled: loginStatus === "logging-in",
+              "data-ocid": `games.community.primary_button.${index2}`,
+              children: "Log In to Play"
+            }
+          )
+        ] })
+      ] })
+    }
+  );
+}
 function Dialog({
   ...props
 }) {
@@ -52436,8 +52938,10 @@ function Home() {
   const { data: quizzes, isLoading } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const { isOwner } = useOwner();
   const seedMutation = useSeedQuizzes();
   const showUsernameDialog = !!identity && profile === null;
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
   const filtered = (quizzes ?? []).filter(
     (q2) => q2.title.toLowerCase().includes(search.toLowerCase()) || q2.description.toLowerCase().includes(search.toLowerCase())
   );
@@ -52569,7 +53073,7 @@ function Home() {
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 Input,
                 {
-                  placeholder: "Search quizzes…",
+                  placeholder: "Search quizzes\\u2026",
                   value: search,
                   onChange: (e) => setSearch(e.target.value),
                   className: "pl-9 bg-secondary border-border rounded-full",
@@ -52610,15 +53114,19 @@ function Home() {
                 )
               ]
             }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5", children: filtered.map((quiz, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            QuizCard,
-            {
-              quiz,
-              index: i + 1,
-              isOwner: !!identity && identity.getPrincipal().toString() === quiz.creator.toString()
-            },
-            quiz.id.toString()
-          )) })
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5", children: filtered.map((quiz, i) => {
+            const canDelete = isOwner || !!myPrincipal && quiz.creator.toString() === myPrincipal;
+            return /* @__PURE__ */ jsxRuntimeExports.jsx(
+              QuizCard,
+              {
+                quiz,
+                index: i + 1,
+                isCreator: !!identity && identity.getPrincipal().toString() === quiz.creator.toString(),
+                canDelete
+              },
+              quiz.id.toString()
+            );
+          }) })
         ]
       }
     ) }),
@@ -52628,12 +53136,15 @@ function Home() {
 function QuizCard({
   quiz,
   index: index2,
-  isOwner
+  isCreator,
+  canDelete
 }) {
   const navigate = useNavigate();
-  const [open, setOpen] = reactExports.useState(false);
+  const [postOpen, setPostOpen] = reactExports.useState(false);
+  const [deleteOpen, setDeleteOpen] = reactExports.useState(false);
   const [message, setMessage] = reactExports.useState("");
   const createPost = useCreatePost();
+  const deleteQuiz = useDeleteQuiz();
   const colors = [
     "from-blue-500 to-cyan-400",
     "from-purple-500 to-pink-400",
@@ -52646,7 +53157,7 @@ function QuizCard({
       { quizId: quiz.id, message },
       {
         onSuccess: () => {
-          setOpen(false);
+          setPostOpen(false);
           setMessage("");
           ue.success("Quiz posted to the feed!");
           navigate({ to: "/feed" });
@@ -52655,114 +53166,169 @@ function QuizCard({
       }
     );
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    motion.div,
-    {
-      initial: { opacity: 0, y: 20 },
-      animate: { opacity: 1, y: 0 },
-      transition: { delay: index2 * 0.05 },
-      className: "glass-card rounded-2xl overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:-translate-y-1",
-      "data-ocid": `quiz.item.${index2}`,
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "div",
-          {
-            className: `h-36 bg-gradient-to-br ${color2} flex items-center justify-center`,
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-12 h-12 text-white/80" })
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 flex flex-col flex-1", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-base mb-1 line-clamp-2", children: quiz.title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-3 line-clamp-2 flex-1", children: quiz.description }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: quiz.id.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              Button,
-              {
-                size: "sm",
-                className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
-                "data-ocid": `quiz.primary_button.${index2}`,
-                children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3.5 h-3.5 mr-1.5" }),
-                  "Play Quiz"
-                ]
-              }
-            ) }),
-            isOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs(Dialog, { open, onOpenChange: setOpen, children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  function handleDelete() {
+    deleteQuiz.mutate(quiz.id, {
+      onSuccess: () => {
+        ue.success("Quiz deleted.");
+        setDeleteOpen(false);
+      },
+      onError: (err) => ue.error(err.message ?? "Failed to delete quiz.")
+    });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: index2 * 0.05 },
+        className: "glass-card rounded-2xl overflow-hidden flex flex-col hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 relative",
+        "data-ocid": `quiz.item.${index2}`,
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: `h-36 bg-gradient-to-br ${color2} flex items-center justify-center relative`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-12 h-12 text-white/80" }),
+                canDelete && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: (e) => {
+                      e.preventDefault();
+                      setDeleteOpen(true);
+                    },
+                    className: "absolute top-2 right-2 p-1.5 rounded-lg bg-black/30 hover:bg-destructive/80 text-white transition-colors",
+                    title: "Delete quiz",
+                    "data-ocid": `quiz.delete_button.${index2}`,
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-3.5 h-3.5" })
+                  }
+                )
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 flex flex-col flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold text-base mb-1 line-clamp-2", children: quiz.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm mb-3 line-clamp-2 flex-1", children: quiz.description }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: quiz.id.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 Button,
                 {
                   size: "sm",
-                  variant: "outline",
-                  className: "w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs",
-                  "data-ocid": `quiz.open_modal_button.${index2}`,
+                  className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
+                  "data-ocid": `quiz.primary_button.${index2}`,
                   children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(Share2, { className: "w-3 h-3 mr-1.5" }),
-                    "Post to Feed"
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3.5 h-3.5 mr-1.5" }),
+                    "Play Quiz"
                   ]
                 }
               ) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                DialogContent,
-                {
-                  className: "sm:max-w-md",
-                  "data-ocid": `quiz.dialog.${index2}`,
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogHeader, { children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogTitle, { className: "flex items-center gap-2", children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 text-primary" }),
-                        "Post to Feed"
+              isCreator && /* @__PURE__ */ jsxRuntimeExports.jsxs(Dialog, { open: postOpen, onOpenChange: setPostOpen, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(DialogTrigger, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    size: "sm",
+                    variant: "outline",
+                    className: "w-full rounded-full border-border text-muted-foreground hover:text-foreground text-xs",
+                    "data-ocid": `quiz.open_modal_button.${index2}`,
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Share2, { className: "w-3 h-3 mr-1.5" }),
+                      "Post to Feed"
+                    ]
+                  }
+                ) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  DialogContent,
+                  {
+                    className: "sm:max-w-md",
+                    "data-ocid": `quiz.dialog.${index2}`,
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogHeader, { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogTitle, { className: "flex items-center gap-2", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 text-primary" }),
+                          "Post to Feed"
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogDescription, { children: [
+                          "Share ",
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: quiz.title }),
+                          " with the community. Add an optional message."
+                        ] })
                       ] }),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogDescription, { children: [
-                        "Share ",
-                        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: quiz.title }),
-                        " with the community. Add an optional message."
-                      ] })
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      Textarea,
-                      {
-                        placeholder: "Add a message (optional)…",
-                        value: message,
-                        onChange: (e) => setMessage(e.target.value),
-                        rows: 3,
-                        className: "bg-secondary border-border rounded-xl resize-none",
-                        "data-ocid": `quiz.textarea.${index2}`
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogFooter, { className: "gap-2", children: [
                       /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        Button,
+                        Textarea,
                         {
-                          variant: "outline",
-                          onClick: () => setOpen(false),
-                          className: "rounded-full",
-                          "data-ocid": `quiz.cancel_button.${index2}`,
-                          children: "Cancel"
+                          placeholder: "Add a message (optional)\\u2026",
+                          value: message,
+                          onChange: (e) => setMessage(e.target.value),
+                          rows: 3,
+                          className: "bg-secondary border-border rounded-xl resize-none",
+                          "data-ocid": `quiz.textarea.${index2}`
                         }
                       ),
-                      /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                        Button,
-                        {
-                          onClick: handlePost,
-                          disabled: createPost.isPending,
-                          className: "gradient-bg border-0 text-white rounded-full",
-                          "data-ocid": `quiz.submit_button.${index2}`,
-                          children: [
-                            createPost.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 mr-1.5" }),
-                            "Post to Feed"
-                          ]
-                        }
-                      )
-                    ] })
-                  ]
-                }
-              )
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogFooter, { className: "gap-2", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Button,
+                          {
+                            variant: "outline",
+                            onClick: () => setPostOpen(false),
+                            className: "rounded-full",
+                            "data-ocid": `quiz.cancel_button.${index2}`,
+                            children: "Cancel"
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                          Button,
+                          {
+                            onClick: handlePost,
+                            disabled: createPost.isPending,
+                            className: "gradient-bg border-0 text-white rounded-full",
+                            "data-ocid": `quiz.submit_button.${index2}`,
+                            children: [
+                              createPost.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Rss, { className: "w-4 h-4 mr-1.5" }),
+                              "Post to Feed"
+                            ]
+                          }
+                        )
+                      ] })
+                    ]
+                  }
+                )
+              ] })
             ] })
           ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialog, { open: deleteOpen, onOpenChange: setDeleteOpen, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogContent, { "data-ocid": `quiz.modal.${index2}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogHeader, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogTitle, { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 text-destructive" }),
+          "Delete this quiz?"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogDescription, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: quiz.title }),
+          " will be permanently deleted. This cannot be undone."
         ] })
-      ]
-    }
-  );
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogFooter, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AlertDialogCancel, { "data-ocid": `quiz.cancel_button.${index2}`, children: "Cancel" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          AlertDialogAction,
+          {
+            onClick: handleDelete,
+            disabled: deleteQuiz.isPending,
+            className: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+            "data-ocid": `quiz.delete_button.${index2}`,
+            children: [
+              deleteQuiz.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 mr-1.5" }),
+              "Delete"
+            ]
+          }
+        )
+      ] })
+    ] }) })
+  ] });
 }
 function Table({ className, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -53479,10 +54045,11 @@ function PlayQuiz() {
   ] });
 }
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
-function GivePointsDialog({
+function GiftPointsDialog({
   recipient,
   displayName,
   myPoints,
+  isCallerOwner,
   onSuccess,
   open,
   onOpenChange
@@ -53490,32 +54057,29 @@ function GivePointsDialog({
   const { actor } = useActor();
   const [amount, setAmount] = reactExports.useState("1");
   const [isPending, setIsPending] = reactExports.useState(false);
-  const maxAmount = Number(myPoints);
+  const maxAmount = isCallerOwner ? Number.MAX_SAFE_INTEGER : Number(myPoints);
   const amountNum = Number.parseInt(amount, 10);
-  const isValid = !Number.isNaN(amountNum) && amountNum >= 1 && amountNum <= maxAmount;
+  const isValid = !Number.isNaN(amountNum) && amountNum >= 1 && (isCallerOwner || amountNum <= maxAmount);
   async function handleSend() {
     if (!actor || !isValid) return;
     setIsPending(true);
     try {
-      await actor.givePoints(
-        recipient.player,
-        BigInt(amountNum)
-      );
-      ue.success(`Sent ${amountNum} pts to ${displayName}!`);
+      await actor.giftPoints(recipient.player, BigInt(amountNum));
+      ue.success(`Gifted ${amountNum} pts to ${displayName}!`);
       onOpenChange(false);
       setAmount("1");
       onSuccess();
     } catch (err) {
-      ue.error((err == null ? void 0 : err.message) ?? "Failed to send points");
+      ue.error((err == null ? void 0 : err.message) ?? "Failed to gift points");
     } finally {
       setIsPending(false);
     }
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog, { open, onOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogContent, { className: "sm:max-w-sm", "data-ocid": "give_points.dialog", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Dialog, { open, onOpenChange, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogContent, { className: "sm:max-w-sm", "data-ocid": "gift_points.dialog", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogHeader, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogTitle, { className: "flex items-center gap-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "w-5 h-5 text-primary" }),
-        "Give Points"
+        "Gift Points"
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(DialogDescription, { children: [
         "Send points to",
@@ -53528,34 +54092,31 @@ function GivePointsDialog({
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: "Your balance" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1 font-bold", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-3.5 h-3.5 text-yellow-400" }),
-          myPoints.toString(),
+          isCallerOwner ? "∞" : myPoints.toString(),
           " pts"
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1.5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "give-points-amount", children: "Amount" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "gift-points-amount", children: "Amount" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           Input,
           {
-            id: "give-points-amount",
+            id: "gift-points-amount",
             type: "number",
             min: 1,
-            max: maxAmount,
+            max: isCallerOwner ? void 0 : maxAmount,
             value: amount,
             onChange: (e) => setAmount(e.target.value),
             placeholder: "Enter amount",
-            "data-ocid": "give_points.input"
+            "data-ocid": "gift_points.input"
           }
         ),
-        !isValid && amount !== "" && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        !isValid && amount !== "" && /* @__PURE__ */ jsxRuntimeExports.jsx(
           "p",
           {
             className: "text-xs text-destructive",
-            "data-ocid": "give_points.error_state",
-            children: [
-              "Enter a value between 1 and ",
-              maxAmount
-            ]
+            "data-ocid": "gift_points.error_state",
+            children: isCallerOwner ? "Enter a value greater than 0" : `Enter a value between 1 and ${maxAmount}`
           }
         )
       ] })
@@ -53567,7 +54128,7 @@ function GivePointsDialog({
           variant: "outline",
           onClick: () => onOpenChange(false),
           disabled: isPending,
-          "data-ocid": "give_points.cancel_button",
+          "data-ocid": "gift_points.cancel_button",
           children: "Cancel"
         }
       ),
@@ -53576,13 +54137,13 @@ function GivePointsDialog({
         {
           onClick: handleSend,
           disabled: !isValid || isPending,
-          "data-ocid": "give_points.submit_button",
+          "data-ocid": "gift_points.submit_button",
           children: isPending ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "mr-2 h-4 w-4 animate-spin" }),
             "Sending..."
           ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "mr-2 h-4 w-4" }),
-            "Send Points"
+            "Gift Points"
           ] })
         }
       )
@@ -53593,7 +54154,9 @@ function PointsLeaderboard() {
   const { identity } = useInternetIdentity();
   const { data: entries, isLoading } = useGetAllPlayerPoints();
   const { data: myPoints = 0n } = useGetMyPoints();
+  const { ownerPrincipal, isOwner } = useOwner();
   const qc = useQueryClient();
+  const navigate = useNavigate();
   const [giveTarget, setGiveTarget] = reactExports.useState(null);
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
   const sorted = entries ? [...entries].sort(
@@ -53638,29 +54201,32 @@ function PointsLeaderboard() {
           const rank = i + 1;
           const principal = entry.player.toString();
           const isMe = myPrincipal && principal === myPrincipal;
+          const isEntryOwner = isOwnerPrincipal(
+            ownerPrincipal,
+            entry.player
+          );
           const displayName = `${principal.slice(0, 8)}...${principal.slice(-5)}`;
+          const displayPoints = isEntryOwner ? "∞" : entry.points.toString();
           return /* @__PURE__ */ jsxRuntimeExports.jsxs(
             motion.div,
             {
               initial: { opacity: 0, x: -20 },
               animate: { opacity: 1, x: 0 },
               transition: { delay: i * 0.05 },
-              className: `flex items-center gap-4 px-5 py-4 ${rank === 1 ? "bg-yellow-400/5" : ""} ${isMe ? "bg-primary/10" : ""}`,
+              className: `flex items-center gap-4 px-5 py-4 ${rank === 1 && !isEntryOwner ? "bg-yellow-400/5" : ""} ${isMe ? "bg-primary/10" : ""}`,
               "data-ocid": `leaderboard.item.${rank}`,
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "div",
                   {
                     className: `w-9 h-9 flex items-center justify-center font-bold text-lg shrink-0 ${rankColor(rank)}`,
-                    children: rank === 1 ? /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6" }) : rank
+                    children: isEntryOwner ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Owner", children: "👑" }) : rank === 1 ? /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6" }) : rank
                   }
                 ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium truncate", children: displayName }),
-                  rank === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: [
-                    "👑",
-                    " #1"
-                  ] }),
+                  isEntryOwner && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "Owner" }),
+                  !isEntryOwner && rank === 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "🏆 #1" }),
                   isMe && /* @__PURE__ */ jsxRuntimeExports.jsx(
                     Badge,
                     {
@@ -53672,23 +54238,39 @@ function PointsLeaderboard() {
                 ] }) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 shrink-0", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-lg", children: entry.points.toString() }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-lg", children: displayPoints }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "pts" })
                 ] }),
-                myPrincipal && !isMe && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  Button,
-                  {
-                    size: "sm",
-                    variant: "outline",
-                    className: "shrink-0 border-primary/40 text-primary hover:bg-primary/10 hover:text-primary",
-                    onClick: () => setGiveTarget(entry),
-                    "data-ocid": `leaderboard.give_points.button.${rank}`,
-                    children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "w-3.5 h-3.5 mr-1" }),
-                      "Give"
-                    ]
-                  }
-                )
+                myPrincipal && !isMe && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 shrink-0", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      size: "sm",
+                      variant: "ghost",
+                      className: "text-muted-foreground hover:text-foreground",
+                      onClick: () => navigate({
+                        to: "/messages/$userId",
+                        params: { userId: principal }
+                      }),
+                      "data-ocid": `leaderboard.message.button.${rank}`,
+                      children: /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-3.5 h-3.5" })
+                    }
+                  ),
+                  (isOwner || myPoints > 0n) && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    Button,
+                    {
+                      size: "sm",
+                      variant: "outline",
+                      className: "border-primary/40 text-primary hover:bg-primary/10 hover:text-primary",
+                      onClick: () => setGiveTarget(entry),
+                      "data-ocid": `leaderboard.give_points.button.${rank}`,
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Gift, { className: "w-3.5 h-3.5 mr-1" }),
+                        "Gift"
+                      ]
+                    }
+                  )
+                ] })
               ]
             },
             principal
@@ -53697,11 +54279,12 @@ function PointsLeaderboard() {
       }
     ),
     giveTarget && /* @__PURE__ */ jsxRuntimeExports.jsx(
-      GivePointsDialog,
+      GiftPointsDialog,
       {
         recipient: giveTarget,
         displayName: giveTargetDisplay,
         myPoints,
+        isCallerOwner: isOwner,
         open: !!giveTarget,
         onOpenChange: (open) => {
           if (!open) setGiveTarget(null);
@@ -53711,14 +54294,385 @@ function PointsLeaderboard() {
     )
   ] });
 }
+function formatTime(ns) {
+  const date = new Date(Number(ns) / 1e6);
+  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+}
+function shortP(p2) {
+  const s2 = p2.toString();
+  return `${s2.slice(0, 8)}...${s2.slice(-5)}`;
+}
+function PrivateChat() {
+  var _a3;
+  const { userId } = useParams({ strict: false });
+  const { identity, login } = useInternetIdentity();
+  const { actor } = useActor();
+  const { ownerPrincipal } = useOwner();
+  const otherUser = reactExports.useMemo(() => {
+    try {
+      return Principal$1.fromText(userId);
+    } catch {
+      return null;
+    }
+  }, [userId]);
+  const { data: messages, isLoading } = useGetConversation(otherUser);
+  const [input, setInput] = reactExports.useState("");
+  const [sending, setSending] = reactExports.useState(false);
+  const bottomRef = reactExports.useRef(null);
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  reactExports.useEffect(() => {
+    if (actor && otherUser) {
+      actor.markConversationRead(otherUser).catch(() => {
+      });
+    }
+  }, [actor, otherUser]);
+  const msgCount = (messages == null ? void 0 : messages.length) ?? 0;
+  reactExports.useEffect(() => {
+    var _a4;
+    (_a4 = bottomRef.current) == null ? void 0 : _a4.scrollIntoView({ behavior: "smooth" });
+  }, [msgCount]);
+  const handleSend = async () => {
+    const content = input.trim();
+    if (!content || !actor || !otherUser || !identity) return;
+    setSending(true);
+    setInput("");
+    try {
+      await actor.sendPrivateMessage(otherUser, content);
+    } catch (err) {
+      ue.error((err == null ? void 0 : err.message) ?? "Failed to send");
+      setInput(content);
+    } finally {
+      setSending(false);
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-24 text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "Log in to view messages." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          onClick: login,
+          className: "gradient-bg border-0 text-white rounded-full px-8",
+          "data-ocid": "private_chat.primary_button",
+          children: "Log In"
+        }
+      )
+    ] });
+  }
+  const otherIsOwner = isOwnerPrincipal(ownerPrincipal, otherUser);
+  const otherDisplayName = otherUser ? shortP(otherUser) : "Unknown";
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-6 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -10 },
+        animate: { opacity: 1, y: 0 },
+        className: "flex items-center gap-3 mb-4",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: "/messages",
+              className: "p-2 rounded-full hover:bg-secondary/60 transition-colors",
+              "data-ocid": "private_chat.link",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "w-5 h-5" })
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-9 h-9", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-secondary text-foreground font-bold text-xs", children: (_a3 = otherDisplayName[0]) == null ? void 0 : _a3.toUpperCase() }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-semibold flex items-center gap-1.5", children: [
+              otherDisplayName,
+              otherIsOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Owner", children: "👑" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Private conversation" })
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.1 },
+        className: "glass-card rounded-2xl flex flex-col",
+        style: { height: "calc(100vh - 260px)", minHeight: "400px" },
+        "data-ocid": "private_chat.panel",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "flex-1 px-4 py-4", children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", "data-ocid": "private_chat.loading_state", children: ["a", "b", "c"].map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-10 rounded-xl" }, k2)) }) : !messages || messages.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "flex flex-col items-center justify-center h-40 text-center",
+              "data-ocid": "private_chat.empty_state",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "No messages yet. Say hello!" })
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+            messages.map((msg, i) => {
+              var _a4;
+              const isMe = msg.sender.toString() === myPrincipal;
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                motion.div,
+                {
+                  initial: { opacity: 0, y: 6 },
+                  animate: { opacity: 1, y: 0 },
+                  transition: { delay: i < 10 ? i * 0.03 : 0 },
+                  className: `flex gap-2 ${isMe ? "flex-row-reverse" : "flex-row"}`,
+                  "data-ocid": `private_chat.item.${i + 1}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-7 h-7 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      AvatarFallback,
+                      {
+                        className: `text-xs font-bold ${isMe ? "gradient-bg text-white" : "bg-secondary text-foreground"}`,
+                        children: isMe ? "Y" : (_a4 = otherDisplayName[0]) == null ? void 0 : _a4.toUpperCase()
+                      }
+                    ) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "div",
+                      {
+                        className: `max-w-[70%] flex flex-col gap-0.5 ${isMe ? "items-end" : "items-start"}`,
+                        children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: formatTime(msg.timestamp) }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "div",
+                            {
+                              className: `px-3 py-2 rounded-2xl text-sm ${isMe ? "gradient-bg text-white rounded-tr-sm" : "bg-secondary/60 text-foreground rounded-tl-sm"}`,
+                              children: msg.content
+                            }
+                          )
+                        ]
+                      }
+                    )
+                  ]
+                },
+                msg.id.toString()
+              );
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: bottomRef })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Input,
+              {
+                value: input,
+                onChange: (e) => setInput(e.target.value),
+                onKeyDown: handleKeyDown,
+                placeholder: "Type a message...",
+                className: "flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60",
+                disabled: sending,
+                maxLength: 1e3,
+                "data-ocid": "private_chat.input"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                onClick: handleSend,
+                disabled: !input.trim() || sending,
+                className: "rounded-full gradient-bg border-0 text-white px-4 glow-cyan",
+                "data-ocid": "private_chat.submit_button",
+                children: sending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" })
+              }
+            )
+          ] }) })
+        ]
+      }
+    )
+  ] });
+}
+function formatTimeAgo(ns) {
+  const ms = Number(ns) / 1e6;
+  const diff = Date.now() - ms;
+  const mins = Math.floor(diff / 6e4);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+function PrivateMessages() {
+  const { identity, login } = useInternetIdentity();
+  const { actor } = useActor();
+  const navigate = useNavigate();
+  const { data: conversations, isLoading } = useGetMyConversations();
+  const { ownerPrincipal } = useOwner();
+  const [searchQuery, setSearchQuery] = reactExports.useState("");
+  const [searchResults, setSearchResults] = reactExports.useState([]);
+  const [isSearching, setIsSearching] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    if (!searchQuery.trim() || !actor) {
+      setSearchResults([]);
+      return;
+    }
+    const timer = setTimeout(async () => {
+      setIsSearching(true);
+      try {
+        const results = await actor.searchUsers(searchQuery.trim());
+        setSearchResults(results);
+      } catch {
+        setSearchResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, [searchQuery, actor]);
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-24 text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-16 h-16 text-muted-foreground/30 mx-auto mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-3", children: "Private Messages" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "Log in to view your messages." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          onClick: login,
+          className: "gradient-bg border-0 text-white rounded-full px-8",
+          "data-ocid": "messages.primary_button",
+          children: "Log In"
+        }
+      )
+    ] });
+  }
+  const myPrincipal = identity.getPrincipal().toString();
+  const goToChat = (userId) => {
+    navigate({ to: "/messages/$userId", params: { userId } });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-8 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -10 },
+        animate: { opacity: 1, y: 0 },
+        className: "mb-6",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-5 h-5 text-white" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: "Messages" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Private conversations" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative mb-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Input,
+              {
+                value: searchQuery,
+                onChange: (e) => setSearchQuery(e.target.value),
+                placeholder: "Find a player to message...",
+                className: "pl-9 rounded-full bg-secondary/40 border-border/40",
+                "data-ocid": "messages.search_input"
+              }
+            ),
+            searchQuery.trim() && (isSearching || searchResults.length > 0) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "absolute top-full left-0 right-0 mt-1 glass-card rounded-xl overflow-hidden z-10 border border-border/40",
+                "data-ocid": "messages.popover",
+                children: isSearching ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3 text-center text-sm text-muted-foreground", children: "Searching..." }) : searchResults.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3 text-center text-sm text-muted-foreground", children: "No players found" }) : searchResults.filter(([p2]) => p2.toString() !== myPrincipal).map(([principal, profile]) => {
+                  var _a3;
+                  const pStr = principal.toString();
+                  const isOwner = isOwnerPrincipal(ownerPrincipal, principal);
+                  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                    "button",
+                    {
+                      type: "button",
+                      className: "w-full flex items-center gap-3 px-4 py-3 hover:bg-secondary/40 transition-colors text-left",
+                      onClick: () => {
+                        setSearchQuery("");
+                        setSearchResults([]);
+                        goToChat(pStr);
+                      },
+                      "data-ocid": "messages.item.1",
+                      children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-8 h-8 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-xs", children: ((_a3 = profile.username[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?" }) }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-medium text-sm flex items-center gap-1", children: [
+                            profile.username,
+                            isOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Owner", children: "👑" })
+                          ] }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-xs text-muted-foreground truncate block", children: [
+                            pStr.slice(0, 12),
+                            "..."
+                          ] })
+                        ] }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(MessageSquare, { className: "w-4 h-4 text-muted-foreground" })
+                      ]
+                    },
+                    pStr
+                  );
+                })
+              }
+            )
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.1 },
+        className: "glass-card rounded-2xl overflow-hidden",
+        "data-ocid": "messages.list",
+        children: isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4 space-y-3", "data-ocid": "messages.loading_state", children: ["a", "b", "c"].map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-16 rounded-xl" }, k2)) }) : !conversations || conversations.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-12 text-center", "data-ocid": "messages.empty_state", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "w-12 h-12 text-muted-foreground/30 mx-auto mb-3" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "No conversations yet." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground/60 mt-1", children: "Search for a player above to start chatting." })
+        ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "max-h-[60vh]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "divide-y divide-border/40", children: conversations.map((conv, i) => {
+          var _a3;
+          const pStr = conv.otherUser.toString();
+          const isOwner = isOwnerPrincipal(
+            ownerPrincipal,
+            conv.otherUser
+          );
+          const shortName = `${pStr.slice(0, 8)}...${pStr.slice(-5)}`;
+          return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Link,
+            {
+              to: "/messages/$userId",
+              params: { userId: pStr },
+              className: "flex items-center gap-3 px-4 py-4 hover:bg-secondary/30 transition-colors",
+              "data-ocid": `messages.item.${i + 1}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-10 h-10 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "bg-secondary text-foreground font-bold", children: (_a3 = shortName[0]) == null ? void 0 : _a3.toUpperCase() }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium text-sm", children: shortName }),
+                    isOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { title: "Owner", children: "👑" }),
+                    conv.unreadCount > 0n && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-primary text-white text-xs px-1.5 py-0 h-4 min-w-4", children: conv.unreadCount.toString() })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground truncate mt-0.5", children: conv.lastMessage })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground shrink-0", children: formatTimeAgo(conv.lastTimestamp) })
+              ]
+            },
+            pStr
+          );
+        }) }) })
+      }
+    )
+  ] });
+}
 function Profile() {
   var _a3, _b3;
   const { identity, login } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
   const { data: results, isLoading: loadingResults } = useGetUserQuizResults();
+  const { data: allQuizzes } = useGetAllQuizzes();
   const updateProfile = useUpdateUserProfile();
+  const deleteQuiz = useDeleteQuiz();
+  const { isOwner, ownerPrincipal, claimOwnership, isLoadingOwner } = useOwner();
   const [editing, setEditing] = reactExports.useState(false);
   const [newUsername, setNewUsername] = reactExports.useState("");
+  const [claiming, setClaiming] = reactExports.useState(false);
+  const [deleteTarget, setDeleteTarget] = reactExports.useState(null);
   if (!identity) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-24 text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-4", children: "Login Required" }),
@@ -53734,6 +54688,10 @@ function Profile() {
       )
     ] });
   }
+  const myPrincipal = identity.getPrincipal().toString();
+  const myQuizzes = (allQuizzes ?? []).filter(
+    (q2) => q2.creator.toString() === myPrincipal
+  );
   const startEditing = () => {
     setNewUsername((profile == null ? void 0 : profile.username) ?? "");
     setEditing(true);
@@ -53748,135 +54706,302 @@ function Profile() {
       ue.error("Failed to update username.");
     }
   };
+  const handleClaimOwnership = async () => {
+    setClaiming(true);
+    try {
+      await claimOwnership();
+      ue.success("👑 You are now the Owner! You have infinite points.");
+    } catch (err) {
+      ue.error((err == null ? void 0 : err.message) ?? "Failed to claim ownership");
+    } finally {
+      setClaiming(false);
+    }
+  };
+  function handleDeleteConfirm() {
+    if (!deleteTarget) return;
+    deleteQuiz.mutate(deleteTarget.id, {
+      onSuccess: () => {
+        ue.success("Quiz deleted.");
+        setDeleteTarget(null);
+      },
+      onError: (err) => ue.error(err.message ?? "Failed to delete quiz.")
+    });
+  }
+  const noOwnerYet = !isLoadingOwner && ownerPrincipal === null;
   const sortedResults = results ? [...results].sort((a2, b2) => Number(b2.timestamp) - Number(a2.timestamp)) : [];
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-4 py-12 max-w-3xl", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    motion.div,
-    {
-      initial: { opacity: 0, y: 20 },
-      animate: { opacity: 1, y: 0 },
-      className: "space-y-8",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl p-8 flex items-center gap-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-20 h-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-3xl", children: ((_b3 = (_a3 = profile == null ? void 0 : profile.username) == null ? void 0 : _a3[0]) == null ? void 0 : _b3.toUpperCase()) ?? "U" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
-            editing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Input,
-                {
-                  value: newUsername,
-                  onChange: (e) => setNewUsername(e.target.value),
-                  className: "bg-secondary border-border max-w-xs",
-                  "data-ocid": "profile.input"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  size: "icon",
-                  onClick: saveUsername,
-                  disabled: updateProfile.isPending,
-                  className: "gradient-bg border-0",
-                  "data-ocid": "profile.save_button",
-                  children: updateProfile.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "h-4 w-4 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "h-4 w-4 text-white" })
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  size: "icon",
-                  variant: "ghost",
-                  onClick: () => setEditing(false),
-                  "data-ocid": "profile.cancel_button",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$1, { className: "h-4 w-4" })
-                }
-              )
-            ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold", children: (profile == null ? void 0 : profile.username) ?? "Loading..." }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                Button,
-                {
-                  size: "icon",
-                  variant: "ghost",
-                  onClick: startEditing,
-                  "data-ocid": "profile.edit_button",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Pen, { className: "h-4 w-4" })
-                }
-              )
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-sm mt-1", children: [
-              identity.getPrincipal().toString().slice(0, 20),
-              "..."
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-4 mt-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: sortedResults.length }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "quizzes played" })
-            ] }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-5 h-5 text-primary" }),
-            "Quiz History"
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-12 max-w-3xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        className: "space-y-8",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl p-8 flex items-center gap-6", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Avatar, { className: "w-20 h-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AvatarFallback, { className: "gradient-bg text-white text-3xl", children: ((_b3 = (_a3 = profile == null ? void 0 : profile.username) == null ? void 0 : _a3[0]) == null ? void 0 : _b3.toUpperCase()) ?? "U" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+              editing ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Input,
+                  {
+                    value: newUsername,
+                    onChange: (e) => setNewUsername(e.target.value),
+                    className: "bg-secondary border-border max-w-xs",
+                    "data-ocid": "profile.input"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    size: "icon",
+                    onClick: saveUsername,
+                    disabled: updateProfile.isPending,
+                    className: "gradient-bg border-0",
+                    "data-ocid": "profile.save_button",
+                    children: updateProfile.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "h-4 w-4 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "h-4 w-4 text-white" })
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    size: "icon",
+                    variant: "ghost",
+                    onClick: () => setEditing(false),
+                    "data-ocid": "profile.cancel_button",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(X$1, { className: "h-4 w-4" })
+                  }
+                )
+              ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 flex-wrap", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold", children: (profile == null ? void 0 : profile.username) ?? "Loading..." }),
+                isOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "span",
+                  {
+                    className: "flex items-center gap-1 text-yellow-400 font-semibold text-sm",
+                    title: "Owner rank — infinite points",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-4 h-4" }),
+                      "Owner"
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Button,
+                  {
+                    size: "icon",
+                    variant: "ghost",
+                    onClick: startEditing,
+                    "data-ocid": "profile.edit_button",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Pen, { className: "h-4 w-4" })
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-sm mt-1", children: [
+                identity.getPrincipal().toString().slice(0, 20),
+                "..."
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 mt-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: sortedResults.length }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "quizzes played" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: myQuizzes.length }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "quizzes created" })
+                ] })
+              ] })
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "glass-card rounded-2xl overflow-hidden", children: loadingResults ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
+          noOwnerYet && !isOwner && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            motion.div,
             {
-              className: "flex items-center justify-center py-12",
-              "data-ocid": "profile.loading_state",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-6 h-6 animate-spin text-primary" })
+              initial: { opacity: 0, scale: 0.97 },
+              animate: { opacity: 1, scale: 1 },
+              className: "glass-card rounded-2xl p-6 border border-yellow-400/20",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6 text-yellow-400" }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "text-lg font-bold mb-1 flex items-center gap-2", children: [
+                    "Claim Owner Rank",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-yellow-400", children: "👑" })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground mb-4", children: [
+                    "No owner has been claimed yet. The first person to claim ownership gets the ",
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Owner" }),
+                    " rank — unlimited points and the ability to gift points freely to anyone."
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      onClick: handleClaimOwnership,
+                      disabled: claiming,
+                      className: "bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400/40 rounded-full px-6",
+                      "data-ocid": "profile.primary_button",
+                      children: claiming ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-2 animate-spin" }),
+                        "Claiming..."
+                      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-4 h-4 mr-2" }),
+                        "Claim Owner"
+                      ] })
+                    }
+                  )
+                ] })
+              ] })
             }
-          ) : sortedResults.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "div",
-            {
-              className: "text-center py-12 text-muted-foreground",
-              "data-ocid": "profile.empty_state",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-10 h-10 mx-auto mb-3 opacity-40" }),
-                "No quizzes played yet. Go play your first quiz!"
-              ]
-            }
-          ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Table, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(TableHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(TableRow, { className: "border-border hover:bg-transparent", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground", children: "Quiz" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground text-right", children: "Score" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground text-right", children: "Date" })
-            ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(TableBody, { children: sortedResults.map((r2, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-              TableRow,
+          ),
+          myQuizzes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-5 h-5 text-primary" }),
+              "My Quizzes"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "glass-card rounded-2xl overflow-hidden divide-y divide-border/40", children: myQuizzes.map((quiz, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
               {
-                className: "border-border",
-                "data-ocid": `history.row.${i + 1}`,
+                className: "flex items-center gap-3 px-5 py-4",
+                "data-ocid": `profile.quiz.item.${i + 1}`,
                 children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs(TableCell, { className: "font-medium", children: [
-                    "Quiz #",
-                    Number(r2.quizId)
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium truncate", children: quiz.title }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground truncate", children: quiz.description })
                   ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs(TableCell, { className: "text-right", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "gradient-text font-bold", children: [
-                      Number(r2.score),
-                      "/",
-                      Number(r2.totalQuestions)
-                    ] }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-muted-foreground text-xs ml-2", children: [
-                      "(",
-                      Math.round(
-                        Number(r2.score) / Number(r2.totalQuestions) * 100
-                      ),
-                      "%)"
-                    ] })
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(TableCell, { className: "text-right text-muted-foreground text-sm", children: new Date(
-                    Number(r2.timestamp) / 1e6
-                  ).toLocaleDateString() })
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 shrink-0", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz/$id", params: { id: quiz.id.toString() }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      Button,
+                      {
+                        size: "sm",
+                        variant: "outline",
+                        className: "rounded-full border-primary/40 text-primary hover:bg-primary/10",
+                        "data-ocid": `profile.quiz.primary_button.${i + 1}`,
+                        children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { className: "w-3 h-3 mr-1" }),
+                          "Play"
+                        ]
+                      }
+                    ) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Button,
+                      {
+                        size: "sm",
+                        variant: "ghost",
+                        className: "text-muted-foreground hover:text-destructive hover:bg-destructive/10",
+                        onClick: () => setDeleteTarget({ id: quiz.id, title: quiz.title }),
+                        "data-ocid": `profile.quiz.delete_button.${i + 1}`,
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-3.5 h-3.5" })
+                      }
+                    )
+                  ] })
                 ]
               },
-              `${r2.quizId.toString()}-${r2.timestamp.toString()}`
+              quiz.id.toString()
             )) })
-          ] }) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Trophy, { className: "w-5 h-5 text-primary" }),
+              "Quiz History"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "glass-card rounded-2xl overflow-hidden", children: loadingResults ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "flex items-center justify-center py-12",
+                "data-ocid": "profile.loading_state",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-6 h-6 animate-spin text-primary" })
+              }
+            ) : sortedResults.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                className: "text-center py-12 text-muted-foreground",
+                "data-ocid": "profile.empty_state",
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-10 h-10 mx-auto mb-3 opacity-40" }),
+                  "No quizzes played yet. Go play your first quiz!"
+                ]
+              }
+            ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Table, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(TableHeader, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(TableRow, { className: "border-border hover:bg-transparent", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground", children: "Quiz" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground text-right", children: "Score" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(TableHead, { className: "text-muted-foreground text-right", children: "Date" })
+              ] }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(TableBody, { children: sortedResults.map((r2, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                TableRow,
+                {
+                  className: "border-border",
+                  "data-ocid": `history.row.${i + 1}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(TableCell, { className: "font-medium", children: [
+                      "Quiz #",
+                      Number(r2.quizId)
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(TableCell, { className: "text-right", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "gradient-text font-bold", children: [
+                        Number(r2.score),
+                        "/",
+                        Number(r2.totalQuestions)
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-muted-foreground text-xs ml-2", children: [
+                        "(",
+                        Math.round(
+                          Number(r2.score) / Number(r2.totalQuestions) * 100
+                        ),
+                        "%)"
+                      ] })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(TableCell, { className: "text-right text-muted-foreground text-sm", children: new Date(
+                      Number(r2.timestamp) / 1e6
+                    ).toLocaleDateString() })
+                  ]
+                },
+                `${r2.quizId.toString()}-${r2.timestamp.toString()}`
+              )) })
+            ] }) })
+          ] })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      AlertDialog,
+      {
+        open: !!deleteTarget,
+        onOpenChange: (open) => !open && setDeleteTarget(null),
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogContent, { "data-ocid": "profile.dialog", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogHeader, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogTitle, { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 text-destructive" }),
+              "Delete this quiz?"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogDescription, { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: deleteTarget == null ? void 0 : deleteTarget.title }),
+              " will be permanently deleted. This cannot be undone."
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(AlertDialogFooter, { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              AlertDialogCancel,
+              {
+                onClick: () => setDeleteTarget(null),
+                "data-ocid": "profile.cancel_button",
+                children: "Cancel"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              AlertDialogAction,
+              {
+                onClick: handleDeleteConfirm,
+                disabled: deleteQuiz.isPending,
+                className: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                "data-ocid": "profile.delete_button",
+                children: [
+                  deleteQuiz.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-1.5 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4 mr-1.5" }),
+                  "Delete"
+                ]
+              }
+            )
+          ] })
         ] })
-      ]
-    }
-  ) });
+      }
+    )
+  ] });
 }
 function getMotivation(pct) {
   if (pct === 100)
@@ -54248,7 +55373,7 @@ function SpinWheel() {
   ] });
 }
 const rootRoute = createRootRoute({
-  component: () => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(OwnerProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       className: "min-h-screen flex flex-col",
@@ -54262,7 +55387,7 @@ const rootRoute = createRootRoute({
         /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
       ]
     }
-  )
+  ) })
 });
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -54334,6 +55459,16 @@ const chatRoute = createRoute({
   path: "/chat",
   component: Chat
 });
+const messagesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/messages",
+  component: PrivateMessages
+});
+const privateChatRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/messages/$userId",
+  component: PrivateChat
+});
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -54348,7 +55483,9 @@ const routeTree = rootRoute.addChildren([
   customGameRoute,
   pointsLeaderboardRoute,
   adminRoute,
-  chatRoute
+  chatRoute,
+  messagesRoute,
+  privateChatRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {

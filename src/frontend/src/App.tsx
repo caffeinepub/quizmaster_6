@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-router";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { OwnerProvider } from "./contexts/OwnerContext";
 import AdminPanel from "./pages/AdminPanel";
 import Chat from "./pages/Chat";
 import CreateQuiz from "./pages/CreateQuiz";
@@ -19,26 +20,30 @@ import Leaderboard from "./pages/Leaderboard";
 import MemoryGame from "./pages/MemoryGame";
 import PlayQuiz from "./pages/PlayQuiz";
 import PointsLeaderboard from "./pages/PointsLeaderboard";
+import PrivateChat from "./pages/PrivateChat";
+import PrivateMessages from "./pages/PrivateMessages";
 import Profile from "./pages/Profile";
 import ScoreScreen from "./pages/ScoreScreen";
 import SpinWheel from "./pages/SpinWheel";
 
 const rootRoute = createRootRoute({
   component: () => (
-    <div
-      className="min-h-screen flex flex-col"
-      style={{
-        background:
-          "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))",
-      }}
-    >
-      <Navbar />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
+    <OwnerProvider>
+      <div
+        className="min-h-screen flex flex-col"
+        style={{
+          background:
+            "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))",
+        }}
+      >
+        <Navbar />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <Toaster />
+      </div>
+    </OwnerProvider>
   ),
 });
 
@@ -126,6 +131,18 @@ const chatRoute = createRoute({
   component: Chat,
 });
 
+const messagesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/messages",
+  component: PrivateMessages,
+});
+
+const privateChatRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/messages/$userId",
+  component: PrivateChat,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -141,6 +158,8 @@ const routeTree = rootRoute.addChildren([
   pointsLeaderboardRoute,
   adminRoute,
   chatRoute,
+  messagesRoute,
+  privateChatRoute,
 ]);
 
 const router = createRouter({ routeTree });

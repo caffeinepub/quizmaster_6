@@ -11,7 +11,6 @@ import Time "mo:core/Time";
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
 
-
 actor {
   type PointsEntry = {
     player : Principal;
@@ -77,7 +76,6 @@ actor {
     };
   };
 
-  // Social Feed Types
   type Post = {
     id : Nat;
     author : Principal;
@@ -116,7 +114,6 @@ actor {
     questions : [Question];
   };
 
-  // Mini Games Types
   type MiniGameType = {
     #spinWheel;
     #memoryGame;
@@ -153,14 +150,27 @@ actor {
     };
   };
 
-  // Visitor Tracking Types
   type Visitor = {
     principalId : Principal;
     timestamp : Time.Time;
   };
 
+  type PrivateMessage = {
+    id : Nat;
+    sender : Principal;
+    recipient : Principal;
+    content : Text;
+    timestamp : Time.Time;
+    isRead : Bool;
+  };
 
-  // Chat Types
+  type ConversationSummary = {
+    otherUser : Principal;
+    lastMessage : Text;
+    lastTimestamp : Time.Time;
+    unreadCount : Nat;
+  };
+
   type ChatMessage = {
     id : Nat;
     author : Principal;
@@ -168,7 +178,6 @@ actor {
     timestamp : Time.Time;
   };
 
-  // Key compare modules for sorting
   module Question {
     public func compare(a : Question, b : Question) : Order.Order {
       Nat.compare(a.id, b.id);
@@ -189,7 +198,6 @@ actor {
 
   module QuizStats {
     public func compareByAverageScore(statsA : QuizStats, statsB : QuizStats) : Order.Order {
-      // Avoid division by zero by checking if totalAttemptCount is not zero
       var ratioA = 0;
       var ratioB = 0;
       if (statsA.totalAttemptCount > 0 and statsB.totalAttemptCount > 0) {
@@ -212,52 +220,71 @@ actor {
   let quizResults = Map.empty<Nat, Result>();
   let resultsByQuiz = Map.empty<Nat, [Result]>();
   let userPoints = Map.empty<Principal, Points>();
-
-  // Social Feed state
   let posts = Map.empty<Nat, Post>();
   let likes = Map.empty<Nat, [Like]>();
   let comments = Map.empty<Nat, [Comment]>();
   let postsByQuiz = Map.empty<Nat, [Post]>();
-
-  // Mini Games state
   let miniGameCooldowns = Map.empty<Principal, [MiniGameCooldown]>();
   let customGames = Map.empty<Nat, CustomGame>();
-
-  // Visitors state
   let visitors = Map.empty<Principal, Visitor>();
-
-
-  // Chat state
+  let privateMessages = Map.empty<Nat, PrivateMessage>();
   let chatMessages = Map.empty<Nat, ChatMessage>();
-  var nextChatMessageId = 0;
 
-  // ID Counters
+  var ownerPrincipal : ?Principal = null;
+
+  var nextChatMessageId = 0;
   var nextQuizId = 0;
   var nextQuestionId = 0;
   var nextResultId = 0;
   var nextPostId = 0;
   var nextCommentId = 0;
   var nextCustomGameId = 0;
+  var nextMessageId = 0;
 
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Owner Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func claimOwnership() : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Must be logged in to claim ownership");
+    };
+    switch (ownerPrincipal) {
+      case (?_) { Runtime.trap("Owner already claimed") };
+      case (null) {
+        ownerPrincipal := ?caller;
+        userPoints.add(caller, 999_999_999);
+      };
+    };
+  };
+
+  public query func getOwner() : async ?Principal {
+    ownerPrincipal;
+  };
+
+  public query ({ caller }) func isCallerOwner() : async Bool {
+    switch (ownerPrincipal) {
+      case (null) { false };
+      case (?owner) { caller == owner };
+    };
+  };
 
   /////////////////////////////////////////////////////////////////////////////
   // User Profile Functions
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func createUserProfile(username : Text) : async () {
-    // Only allow authenticated users to create profiles
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create profiles");
     };
     if (userProfiles.containsKey(caller)) { Runtime.trap("User already exists") };
-    let userProfile : UserProfile = { username };
-    userProfiles.add(caller, userProfile);
+    userProfiles.add(caller, { username });
   };
 
   public query ({ caller }) func getCallerUserProfile() : async ?UserProfile {
-    // Only allow authenticated users to view profiles
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can view profiles");
     };
@@ -265,15 +292,10 @@ actor {
   };
 
   public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
-    // Allow users to view their own profiles, or any profile for admins
-    if (caller != user and not AccessControl.isAdmin(accessControlState, caller)) {
-      Runtime.trap("Unauthorized: Can only view your own profile");
-    };
     userProfiles.get(user);
   };
 
   public shared ({ caller }) func saveCallerUserProfile(profile : UserProfile) : async () {
-    // Only allow authenticated users to save profiles
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can save profiles");
     };
@@ -281,11 +303,19 @@ actor {
   };
 
   public shared ({ caller }) func updateUserProfile(username : Text) : async () {
-    // Only allow authenticated users to update profiles
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can update profiles");
     };
     userProfiles.add(caller, { username });
+  };
+
+  public query ({ caller }) func searchUsers(searchQuery : Text) : async [(Principal, UserProfile)] {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    userProfiles.toArray().filter(
+      func((p, u)) { p != caller and u.username.contains(#text searchQuery) }
+    );
   };
 
   /////////////////////////////////////////////////////////////////////////////
@@ -293,10 +323,14 @@ actor {
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func awardPoints(amount : Nat) : async () {
-    // Only allow authenticated users to award points
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can award points");
     };
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (isOwner) { return };
     let currentPoints = switch (userPoints.get(caller)) {
       case (null) { 0 };
       case (?points) { points };
@@ -304,25 +338,27 @@ actor {
     userPoints.add(caller, currentPoints + amount);
   };
 
-  // Give points to another player (deducted from caller's balance)
   public shared ({ caller }) func giftPoints(recipient : Principal, amount : Nat) : async () {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can gift points");
     };
-    if (caller == recipient) {
-      Runtime.trap("Cannot gift points to yourself");
+    if (caller == recipient) { Runtime.trap("Cannot gift points to yourself") };
+    if (amount == 0) { Runtime.trap("Amount must be greater than zero") };
+
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
     };
-    if (amount == 0) {
-      Runtime.trap("Amount must be greater than zero");
+
+    if (not isOwner) {
+      let callerPoints = switch (userPoints.get(caller)) {
+        case (null) { 0 };
+        case (?points) { points };
+      };
+      if (callerPoints < amount) { Runtime.trap("Insufficient points") };
+      userPoints.add(caller, callerPoints - amount);
     };
-    let callerPoints = switch (userPoints.get(caller)) {
-      case (null) { 0 };
-      case (?points) { points };
-    };
-    if (callerPoints < amount) {
-      Runtime.trap("Insufficient points");
-    };
-    userPoints.add(caller, callerPoints - amount);
+
     let recipientPoints = switch (userPoints.get(recipient)) {
       case (null) { 0 };
       case (?points) { points };
@@ -341,12 +377,16 @@ actor {
     var topPlayer : ?PointsEntry = null;
     for (entry in userPoints.entries()) {
       let (player, points) = entry;
-      let current : PointsEntry = { player; points };
-      switch (topPlayer) {
-        case (null) { topPlayer := ?current };
-        case (?top) {
-          if (points > top.points) {
-            topPlayer := ?current;
+      let isOwner = switch (ownerPrincipal) {
+        case (?owner) { player == owner };
+        case (null) { false };
+      };
+      if (not isOwner) {
+        let current : PointsEntry = { player; points };
+        switch (topPlayer) {
+          case (null) { topPlayer := ?current };
+          case (?top) {
+            if (points > top.points) { topPlayer := ?current };
           };
         };
       };
@@ -367,12 +407,16 @@ actor {
     var topPlayer : ?PointsEntry = null;
     for (entry in userPoints.entries()) {
       let (player, points) = entry;
-      let current : PointsEntry = { player; points };
-      switch (topPlayer) {
-        case (null) { topPlayer := ?current };
-        case (?top) {
-          if (points > top.points) {
-            topPlayer := ?current;
+      let isOwner = switch (ownerPrincipal) {
+        case (?owner) { player == owner };
+        case (null) { false };
+      };
+      if (not isOwner) {
+        let current : PointsEntry = { player; points };
+        switch (topPlayer) {
+          case (null) { topPlayer := ?current };
+          case (?top) {
+            if (points > top.points) { topPlayer := ?current };
           };
         };
       };
@@ -388,23 +432,63 @@ actor {
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func createQuiz(title : Text, description : Text) : async Nat {
-    // Only allow authenticated users to create quizzes
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can create quizzes");
     };
     let quizId = nextQuizId;
     nextQuizId += 1;
-
-    let quiz : Quiz = {
-      id = quizId;
-      title;
-      description;
-      creator = caller;
-      timestamp = Time.now();
-    };
-
+    let quiz : Quiz = { id = quizId; title; description; creator = caller; timestamp = Time.now() };
     quizzes.add(quizId, quiz);
     quizId;
+  };
+
+  // Delete a quiz -- owner can delete any quiz; creator can delete their own
+  public shared ({ caller }) func deleteQuiz(quizId : Nat) : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    let quiz = switch (quizzes.get(quizId)) {
+      case (null) { Runtime.trap("Quiz does not exist") };
+      case (?q) { q };
+    };
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner and quiz.creator != caller) {
+      Runtime.trap("Unauthorized: Only the owner or quiz creator can delete this quiz");
+    };
+    // Remove quiz
+    ignore quizzes.remove(quizId);
+    // Remove associated questions (filter them out by keeping only non-matching ones)
+    let remainingQuestions = questions.toArray().filter(func((_, q)) { q.quizId != quizId });
+    for ((k, _) in questions.entries()) {
+      ignore questions.remove(k);
+    };
+    for ((k, v) in remainingQuestions.values()) {
+      questions.add(k, v);
+    };
+    // Remove associated results
+    ignore resultsByQuiz.remove(quizId);
+    let remainingResults = quizResults.toArray().filter(func((_, r)) { r.quizId != quizId });
+    for ((k, _) in quizResults.entries()) {
+      ignore quizResults.remove(k);
+    };
+    for ((k, v) in remainingResults.values()) {
+      quizResults.add(k, v);
+    };
+    // Remove associated posts and their likes/comments
+    switch (postsByQuiz.get(quizId)) {
+      case (null) {};
+      case (?quizPosts) {
+        for (post in quizPosts.values()) {
+          ignore posts.remove(post.id);
+          ignore likes.remove(post.id);
+          ignore comments.remove(post.id);
+        };
+      };
+    };
+    ignore postsByQuiz.remove(quizId);
   };
 
   public shared ({ caller }) func addQuestion(quizId : Nat, question : Question) : async Nat {
@@ -412,27 +496,17 @@ actor {
       case (null) { Runtime.trap("Quiz does not exist") };
       case (?q) { q };
     };
-
-    // Only allow the creator or admin to add questions
     if (quiz.creator != caller and not AccessControl.isAdmin(accessControlState, caller)) {
       Runtime.trap("Unauthorized: Only the quiz creator or admins can add questions");
     };
-
     let questionId = nextQuestionId;
     nextQuestionId += 1;
-
-    let newQuestion : Question = {
-      question with
-      id = questionId;
-      quizId;
-    };
-
+    let newQuestion : Question = { question with id = questionId; quizId };
     questions.add(questionId, newQuestion);
     questionId;
   };
 
   public shared ({ caller }) func submitQuizAnswers(quizId : Nat, answers : [Answer]) : async Nat {
-    // Only allow authenticated users to submit quiz answers
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz answers");
     };
@@ -440,7 +514,6 @@ actor {
       case (null) { Runtime.trap("Quiz does not exist") };
       case (?quiz) { quiz };
     };
-
     var correctCount = 0;
     for (answer in answers.values()) {
       switch (questions.get(answer.questionId)) {
@@ -449,19 +522,13 @@ actor {
           switch (question.questionType) {
             case (#multipleChoice { correctOption }) {
               switch (answer.answer) {
-                case (#multipleChoice val) {
-                  if (correctOption == val) { correctCount += 1 };
-                };
+                case (#multipleChoice val) { if (correctOption == val) { correctCount += 1 } };
                 case (_) {};
               };
             };
             case (#trueFalse { correctAnswer }) {
               switch (answer.answer) {
-                case (#trueFalse val) {
-                  if (correctAnswer == val) {
-                    correctCount += 1;
-                  };
-                };
+                case (#trueFalse val) { if (correctAnswer == val) { correctCount += 1 } };
                 case (_) {};
               };
             };
@@ -469,26 +536,14 @@ actor {
         };
       };
     };
-
     let username = switch (userProfiles.get(caller)) {
       case (null) { "Anonymous" };
       case (?user) { user.username };
     };
-
     let resultId = nextResultId;
     nextResultId += 1;
-
-    let result = {
-      quizId;
-      player = caller;
-      username;
-      score = correctCount;
-      totalQuestions = answers.size();
-      timestamp = Time.now();
-    };
-
+    let result = { quizId; player = caller; username; score = correctCount; totalQuestions = answers.size(); timestamp = Time.now() };
     quizResults.add(resultId, result);
-
     let existingResults = switch (resultsByQuiz.get(quizId)) {
       case (null) { [] };
       case (?r) { r };
@@ -532,48 +587,118 @@ actor {
         };
         let totalAttemptCount = results.size();
         let totalCorrectCount = results.foldLeft(0, func(acc, result) { acc + result.score });
-        {
-          quizId = quiz.id;
-          title = quiz.title;
-          totalAttemptCount;
-          totalCorrectCount;
-        };
+        { quizId = quiz.id; title = quiz.title; totalAttemptCount; totalCorrectCount };
       }
-    ).sort(
-      func(a, b) { QuizStats.compareByAverageScore(b, a) }
-    );
+    ).sort(func(a, b) { QuizStats.compareByAverageScore(b, a) });
   };
 
   public query ({ caller }) func getUserQuizResults() : async [Result] {
-    quizResults.values().toArray().filter(
-      func(result) { result.player == caller }
-    );
+    quizResults.values().toArray().filter(func(result) { result.player == caller });
   };
 
   public query ({ caller }) func getAdminQuizAnswers() : async [QuizWithAnswers] {
-    let topPlayer = getTopPlayerSync();
-    switch (topPlayer) {
-      case (null) {
-        Runtime.trap("Unauthorized: No top player exists yet");
-      };
-      case (?top) {
-        if (caller != top) {
-          Runtime.trap("Unauthorized: Only the player with the most points can access this endpoint");
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner) {
+      let topPlayer = getTopPlayerSync();
+      switch (topPlayer) {
+        case (null) { Runtime.trap("Unauthorized: No top player exists yet") };
+        case (?top) {
+          if (caller != top) {
+            Runtime.trap("Unauthorized: Only the owner or top player can access this");
+          };
         };
       };
     };
-
     quizzes.values().toArray().map(
       func(quiz) {
-        let quizQuestions = questions.values().toArray().filter(
-          func(q) { q.quizId == quiz.id }
-        ).sort();
-        {
-          quiz;
-          questions = quizQuestions;
-        };
+        let quizQuestions = questions.values().toArray().filter(func(q) { q.quizId == quiz.id }).sort();
+        { quiz; questions = quizQuestions };
       }
     );
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Private Messaging Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func sendPrivateMessage(recipient : Principal, content : Text) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    if (content.size() == 0) { Runtime.trap("Message cannot be empty") };
+    if (recipient == caller) { Runtime.trap("Cannot send message to self") };
+    let msgId = nextMessageId;
+    nextMessageId += 1;
+    let message : PrivateMessage = { id = msgId; sender = caller; recipient; content; timestamp = Time.now(); isRead = false };
+    privateMessages.add(msgId, message);
+    msgId;
+  };
+
+  public query ({ caller }) func getConversation(otherUser : Principal) : async [PrivateMessage] {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    privateMessages.values().toArray().filter(
+      func(m) { (m.sender == caller and m.recipient == otherUser) or (m.recipient == caller and m.sender == otherUser) }
+    );
+  };
+
+  public query ({ caller }) func getMyConversations() : async [ConversationSummary] {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    let allMessages = privateMessages.values().toArray().filter(
+      func(m) { m.sender == caller or m.recipient == caller }
+    );
+    let summarized = allMessages.foldLeft(
+      Map.empty<Principal, ConversationSummary>(),
+      func(acc, msg) {
+        let otherUser = if (msg.sender == caller) { msg.recipient } else { msg.sender };
+        switch (acc.get(otherUser)) {
+          case (null) {
+            acc.add(otherUser, {
+              otherUser;
+              lastMessage = msg.content;
+              lastTimestamp = msg.timestamp;
+              unreadCount = if (msg.recipient == caller and not msg.isRead) { 1 } else { 0 };
+            });
+          };
+          case (?existing) {
+            if (msg.timestamp > existing.lastTimestamp) {
+              acc.add(otherUser, {
+                otherUser;
+                lastMessage = msg.content;
+                lastTimestamp = msg.timestamp;
+                unreadCount = existing.unreadCount + (if (msg.recipient == caller and not msg.isRead) { 1 } else { 0 });
+              });
+            };
+          };
+        };
+        acc;
+      },
+    );
+    summarized.values().toArray();
+  };
+
+  public query ({ caller }) func getUnreadMessageCount() : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    privateMessages.values().toArray().filter(func(m) { m.recipient == caller and not m.isRead }).size();
+  };
+
+  public shared ({ caller }) func markConversationRead(otherUser : Principal) : async () {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    for (message in privateMessages.values()) {
+      if (message.sender == otherUser and message.recipient == caller and not message.isRead) {
+        privateMessages.add(message.id, { message with isRead = true });
+      };
+    };
   };
 
   /////////////////////////////////////////////////////////////////////////////
@@ -581,111 +706,50 @@ actor {
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func createPost(quizId : Nat, message : Text) : async Nat {
-    // Only allow authenticated users to create posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can create posts");
+      Runtime.trap("Unauthorized");
     };
-
-    if (not quizzes.containsKey(quizId)) {
-      Runtime.trap("Referenced quiz does not exist");
-    };
-
+    if (not quizzes.containsKey(quizId)) { Runtime.trap("Referenced quiz does not exist") };
     let postId = nextPostId;
     nextPostId += 1;
-
-    let post : Post = {
-      id = postId;
-      author = caller;
-      quizId;
-      message;
-      timestamp = Time.now();
-    };
-
+    let post : Post = { id = postId; author = caller; quizId; message; timestamp = Time.now() };
     posts.add(postId, post);
-
     let existingPosts = switch (postsByQuiz.get(quizId)) {
       case (null) { [] };
       case (?p) { p };
     };
-
     postsByQuiz.add(quizId, existingPosts.concat([post]));
     postId;
   };
 
   public shared ({ caller }) func likePost(postId : Nat) : async () {
-    // Only allow authenticated users to like posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can like posts");
+      Runtime.trap("Unauthorized");
     };
-
-    if (not posts.containsKey(postId)) {
-      Runtime.trap("Post does not exist");
-    };
-
-    let existingLikes = switch (likes.get(postId)) {
-      case (null) { [] };
-      case (?l) { l };
-    };
-
-    let alreadyLiked = existingLikes.any(func(l) { l.user == caller });
-    if (alreadyLiked) {
-      Runtime.trap("User already liked this post");
-    };
-
-    let newLike = {
-      postId;
-      user = caller;
-      timestamp = Time.now();
-    };
-
-    likes.add(postId, existingLikes.concat([newLike]));
+    if (not posts.containsKey(postId)) { Runtime.trap("Post does not exist") };
+    let existingLikes = switch (likes.get(postId)) { case (null) { [] }; case (?l) { l } };
+    if (existingLikes.any(func(l) { l.user == caller })) { Runtime.trap("User already liked this post") };
+    likes.add(postId, existingLikes.concat([{ postId; user = caller; timestamp = Time.now() }]));
   };
 
   public shared ({ caller }) func unlikePost(postId : Nat) : async () {
-    // Only allow authenticated users to unlike posts
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can unlike posts");
+      Runtime.trap("Unauthorized");
     };
-
-    if (not posts.containsKey(postId)) {
-      Runtime.trap("Post does not exist");
-    };
-
-    let existingLikes = switch (likes.get(postId)) {
-      case (null) { [] };
-      case (?l) { l };
-    };
-
-    let remainingLikes = existingLikes.filter(func(l) { l.user != caller });
-    likes.add(postId, remainingLikes);
+    if (not posts.containsKey(postId)) { Runtime.trap("Post does not exist") };
+    let existingLikes = switch (likes.get(postId)) { case (null) { [] }; case (?l) { l } };
+    likes.add(postId, existingLikes.filter(func(l) { l.user != caller }));
   };
 
   public shared ({ caller }) func addComment(postId : Nat, content : Text) : async Nat {
-    // Only allow authenticated users to add comments
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can add comments");
+      Runtime.trap("Unauthorized");
     };
-
-    if (not posts.containsKey(postId)) {
-      Runtime.trap("Post does not exist");
-    };
-
+    if (not posts.containsKey(postId)) { Runtime.trap("Post does not exist") };
     let commentId = nextCommentId;
     nextCommentId += 1;
-
-    let comment : Comment = {
-      id = commentId;
-      postId;
-      author = caller;
-      content;
-      timestamp = Time.now();
-    };
-
-    let existingComments = switch (comments.get(postId)) {
-      case (null) { [] };
-      case (?c) { c };
-    };
-
+    let comment : Comment = { id = commentId; postId; author = caller; content; timestamp = Time.now() };
+    let existingComments = switch (comments.get(postId)) { case (null) { [] }; case (?c) { c } };
     comments.add(postId, existingComments.concat([comment]));
     commentId;
   };
@@ -693,19 +757,9 @@ actor {
   public query func getAllPostsWithStats() : async [PostWithStats] {
     posts.values().toArray().map(
       func(post) {
-        let likeCount = switch (likes.get(post.id)) {
-          case (null) { 0 };
-          case (?l) { l.size() };
-        };
-        let commentCount = switch (comments.get(post.id)) {
-          case (null) { 0 };
-          case (?c) { c.size() };
-        };
-        {
-          post;
-          likeCount;
-          commentCount;
-        };
+        let likeCount = switch (likes.get(post.id)) { case (null) { 0 }; case (?l) { l.size() } };
+        let commentCount = switch (comments.get(post.id)) { case (null) { 0 }; case (?c) { c.size() } };
+        { post; likeCount; commentCount };
       }
     ).sort();
   };
@@ -716,19 +770,9 @@ actor {
       case (?quizPosts) {
         quizPosts.map(
           func(post) {
-            let likeCount = switch (likes.get(post.id)) {
-              case (null) { 0 };
-              case (?l) { l.size() };
-            };
-            let commentCount = switch (comments.get(post.id)) {
-              case (null) { 0 };
-              case (?c) { c.size() };
-            };
-            {
-              post;
-              likeCount;
-              commentCount;
-            };
+            let likeCount = switch (likes.get(post.id)) { case (null) { 0 }; case (?l) { l.size() } };
+            let commentCount = switch (comments.get(post.id)) { case (null) { 0 }; case (?c) { c.size() } };
+            { post; likeCount; commentCount };
           }
         );
       };
@@ -736,46 +780,25 @@ actor {
   };
 
   public query func getCommentsByPostId(postId : Nat) : async [Comment] {
-    switch (comments.get(postId)) {
-      case (null) { [] };
-      case (?c) { c };
-    };
+    switch (comments.get(postId)) { case (null) { [] }; case (?c) { c } };
   };
 
   public query func getPostWithComments(postId : Nat) : async ?PostWithComment {
     switch (posts.get(postId)) {
       case (null) { null };
       case (?post) {
-        let postComments = switch (comments.get(postId)) {
-          case (null) { [] };
-          case (?c) { c };
-        };
-        ?{
-          post;
-          comments = postComments;
-        };
+        let postComments = switch (comments.get(postId)) { case (null) { [] }; case (?c) { c } };
+        ?{ post; comments = postComments };
       };
     };
   };
 
   public query func getUserPosts(user : Principal) : async [PostWithStats] {
-    posts.values().toArray().filter(
-      func(post) { post.author == user }
-    ).map(
+    posts.values().toArray().filter(func(post) { post.author == user }).map(
       func(post) {
-        let likeCount = switch (likes.get(post.id)) {
-          case (null) { 0 };
-          case (?l) { l.size() };
-        };
-        let commentCount = switch (comments.get(post.id)) {
-          case (null) { 0 };
-          case (?c) { c.size() };
-        };
-        {
-          post;
-          likeCount;
-          commentCount;
-        };
+        let likeCount = switch (likes.get(post.id)) { case (null) { 0 }; case (?l) { l.size() } };
+        let commentCount = switch (comments.get(post.id)) { case (null) { 0 }; case (?c) { c.size() } };
+        { post; likeCount; commentCount };
       }
     ).sort();
   };
@@ -785,9 +808,7 @@ actor {
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func recordSpinWheelPlay() : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can record mini game plays");
-    };
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
     recordMiniGamePlay(caller, #spinWheel);
   };
 
@@ -796,9 +817,7 @@ actor {
   };
 
   public shared ({ caller }) func recordMemoryGamePlay() : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can record mini game plays");
-    };
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
     recordMiniGamePlay(caller, #memoryGame);
   };
 
@@ -806,34 +825,22 @@ actor {
     getMiniGameCooldown(caller, #memoryGame);
   };
 
-  // Helper functions for mini games
   func recordMiniGamePlay(player : Principal, gameType : MiniGameType) {
-    let existingCooldowns = switch (miniGameCooldowns.get(player)) {
-      case (null) { [] };
-      case (?c) { c };
-    };
-
-    let filteredCooldowns = existingCooldowns.filter(func(c) { N.not_equal(c.gameType, gameType) });
-
-    let newCooldown = {
-      lastPlayed = Time.now();
-      gameType;
-    };
-
-    miniGameCooldowns.add(player, filteredCooldowns.concat([newCooldown]));
+    let existingCooldowns = switch (miniGameCooldowns.get(player)) { case (null) { [] }; case (?c) { c } };
+    let filtered = existingCooldowns.filter(func(c) { N.not_equal(c.gameType, gameType) });
+    miniGameCooldowns.add(player, filtered.concat([{ lastPlayed = Time.now(); gameType }]));
   };
 
   func getMiniGameCooldown(player : Principal, gameType : MiniGameType) : ?Time.Time {
     switch (miniGameCooldowns.get(player)) {
       case (null) { null };
       case (?cooldowns) {
-        let matchingCooldowns = cooldowns.filter(func(c) { N.equal(c.gameType, gameType) });
-        if (matchingCooldowns.size() > 0) { ?matchingCooldowns[0].lastPlayed } else { null };
+        let matching = cooldowns.filter(func(c) { N.equal(c.gameType, gameType) });
+        if (matching.size() > 0) { ?matching[0].lastPlayed } else { null };
       };
     };
   };
 
-  // Generic function for comparing MiniGameType values
   module N {
     public func equal(a : MiniGameType, b : MiniGameType) : Bool {
       switch (a, b) {
@@ -842,164 +849,80 @@ actor {
         case (_, _) { false };
       };
     };
-    public func not_equal(a : MiniGameType, b : MiniGameType) : Bool {
-      not equal(a, b);
-    };
+    public func not_equal(a : MiniGameType, b : MiniGameType) : Bool { not equal(a, b) };
   };
 
   /////////////////////////////////////////////////////////////////////////////
-  // Visitor Tracking Functions
+  // Visitor Tracking
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func trackVisit() : async () {
-    // Allow any authenticated principal (including guests) to track visits
-    let visitor : Visitor = {
-      principalId = caller;
-      timestamp = Time.now();
-    };
-    visitors.add(caller, visitor);
+    visitors.add(caller, { principalId = caller; timestamp = Time.now() });
   };
 
-  public query func getTotalVisitors() : async Nat {
-    visitors.size();
-  };
+  public query func getTotalVisitors() : async Nat { visitors.size() };
 
   /////////////////////////////////////////////////////////////////////////////
   // Custom Games Functions
   /////////////////////////////////////////////////////////////////////////////
 
-  public shared ({ caller }) func createCustomTrivia(title : Text, questions : [CustomTriviaQuestion]) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can create custom games");
+  func isTopPlayerOrOwner(caller : Principal) : Bool {
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
     };
-    
-    // Check if caller is the top player
-    let topPlayer = getTopPlayerSync();
-    switch (topPlayer) {
-      case (null) {
-        Runtime.trap("Unauthorized: No top player exists yet");
-      };
-      case (?top) {
-        if (caller != top) {
-          Runtime.trap("Unauthorized: Only the top player can create custom games");
-        };
-      };
+    if (isOwner) { return true };
+    switch (getTopPlayerSync()) {
+      case (null) { false };
+      case (?top) { caller == top };
     };
+  };
 
+  public shared ({ caller }) func createCustomTrivia(title : Text, questions : [CustomTriviaQuestion]) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
+    if (not isTopPlayerOrOwner(caller)) { Runtime.trap("Unauthorized: Only the owner or top player can create custom games") };
     let gameId = nextCustomGameId;
     nextCustomGameId += 1;
-
-    let customGame : CustomGame = {
-      id = gameId;
-      title;
-      creator = caller;
-      gameType = #customTrivia({ questions });
-    };
-
-    customGames.add(gameId, customGame);
+    customGames.add(gameId, { id = gameId; title; creator = caller; gameType = #customTrivia({ questions }) });
     gameId;
   };
 
   public shared ({ caller }) func createCustomSpinWheel(title : Text, segments : [SpinWheelSegment]) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can create custom games");
-    };
-    
-    // Check if caller is the top player
-    let topPlayer = getTopPlayerSync();
-    switch (topPlayer) {
-      case (null) {
-        Runtime.trap("Unauthorized: No top player exists yet");
-      };
-      case (?top) {
-        if (caller != top) {
-          Runtime.trap("Unauthorized: Only the top player can create custom games");
-        };
-      };
-    };
-
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
+    if (not isTopPlayerOrOwner(caller)) { Runtime.trap("Unauthorized: Only the owner or top player can create custom games") };
     let gameId = nextCustomGameId;
     nextCustomGameId += 1;
-
-    let customGame : CustomGame = {
-      id = gameId;
-      title;
-      creator = caller;
-      gameType = #customSpinWheel({ segments });
-    };
-
-    customGames.add(gameId, customGame);
+    customGames.add(gameId, { id = gameId; title; creator = caller; gameType = #customSpinWheel({ segments }) });
     gameId;
   };
 
-  public query func getAllCustomGames() : async [CustomGame] {
-    customGames.values().toArray();
-  };
+  public query func getAllCustomGames() : async [CustomGame] { customGames.values().toArray() };
 
   public shared ({ caller }) func playCustomTrivia(gameId : Nat, answers : [{ questionId : Nat; answerIndex : Nat }]) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can play custom games");
-    };
-
-    let game = switch (customGames.get(gameId)) {
-      case (null) { Runtime.trap("Custom game does not exist") };
-      case (?g) { g };
-    };
-
-    let questions = switch (game.gameType) {
-      case (#customTrivia({ questions })) { questions };
-      case (_) { Runtime.trap("Invalid game type") };
-    };
-
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
+    let game = switch (customGames.get(gameId)) { case (null) { Runtime.trap("Custom game does not exist") }; case (?g) { g } };
+    let qs = switch (game.gameType) { case (#customTrivia({ questions })) { questions }; case (_) { Runtime.trap("Invalid game type") } };
     var score = 0;
-
     for (answer in answers.values()) {
-      let matchingQuestions = questions.filter(func(q) { q.correctOption == answer.questionId });
-      if (matchingQuestions.size() > 0) {
-        let question = matchingQuestions[0];
-        if (question.correctOption == answer.answerIndex) {
-          score += question.pointsReward;
-        };
+      if (answer.questionId < qs.size()) {
+        let question = qs[answer.questionId];
+        if (question.correctOption == answer.answerIndex) { score += question.pointsReward };
       };
     };
-
-    let currentPoints = switch (userPoints.get(caller)) {
-      case (null) { 0 };
-      case (?points) { points };
-    };
-
+    let currentPoints = switch (userPoints.get(caller)) { case (null) { 0 }; case (?p) { p } };
     userPoints.add(caller, currentPoints + score);
     score;
   };
 
   public shared ({ caller }) func playCustomSpinWheel(gameId : Nat) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can play custom games");
-    };
-
-    let game = switch (customGames.get(gameId)) {
-      case (null) { Runtime.trap("Custom game does not exist") };
-      case (?g) { g };
-    };
-
-    let segments = switch (game.gameType) {
-      case (#customSpinWheel({ segments })) { segments };
-      case (_) { Runtime.trap("Invalid game type") };
-    };
-
-    if (segments.size() == 0) {
-      return 0;
-    };
-
-    let nowNat = Time.now().toNat();
-    let randomIndex = nowNat % segments.size();
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
+    let game = switch (customGames.get(gameId)) { case (null) { Runtime.trap("Custom game does not exist") }; case (?g) { g } };
+    let segments = switch (game.gameType) { case (#customSpinWheel({ segments })) { segments }; case (_) { Runtime.trap("Invalid game type") } };
+    if (segments.size() == 0) { return 0 };
+    // Use Int.abs to safely convert Time.now() to Nat
+    let randomIndex = Int.abs(Time.now()) % segments.size();
     let pointsWon = segments[randomIndex].points;
-
-    let currentPoints = switch (userPoints.get(caller)) {
-      case (null) { 0 };
-      case (?points) { points };
-    };
-
+    let currentPoints = switch (userPoints.get(caller)) { case (null) { 0 }; case (?p) { p } };
     userPoints.add(caller, currentPoints + pointsWon);
     pointsWon;
   };
@@ -1009,28 +932,15 @@ actor {
   /////////////////////////////////////////////////////////////////////////////
 
   public shared ({ caller }) func sendMessage(content : Text) : async Nat {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Only users can send messages");
-    };
-    if (content.size() == 0) {
-      Runtime.trap("Message cannot be empty");
-    };
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) { Runtime.trap("Unauthorized") };
+    if (content.size() == 0) { Runtime.trap("Message cannot be empty") };
     let msgId = nextChatMessageId;
     nextChatMessageId += 1;
-    let msg : ChatMessage = {
-      id = msgId;
-      author = caller;
-      content;
-      timestamp = Time.now();
-    };
-    chatMessages.add(msgId, msg);
+    chatMessages.add(msgId, { id = msgId; author = caller; content; timestamp = Time.now() });
     msgId;
   };
 
   public query func getMessages() : async [ChatMessage] {
-    chatMessages.values().toArray().sort(
-      func(a, b) { Int.compare(a.timestamp, b.timestamp) }
-    );
+    chatMessages.values().toArray().sort(func(a, b) { Int.compare(a.timestamp, b.timestamp) });
   };
-
 };

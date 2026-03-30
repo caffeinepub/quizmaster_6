@@ -23,6 +23,7 @@ import PointsLeaderboard from "./pages/PointsLeaderboard";
 import PrivateChat from "./pages/PrivateChat";
 import PrivateMessages from "./pages/PrivateMessages";
 import Profile from "./pages/Profile";
+import RanksLeaderboard from "./pages/RanksLeaderboard";
 import ScoreScreen from "./pages/ScoreScreen";
 import SpinWheel from "./pages/SpinWheel";
 
@@ -119,6 +120,12 @@ const pointsLeaderboardRoute = createRoute({
   component: PointsLeaderboard,
 });
 
+const ranksLeaderboardRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/ranks-leaderboard",
+  component: RanksLeaderboard,
+});
+
 const adminRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/admin",
@@ -156,6 +163,7 @@ const routeTree = rootRoute.addChildren([
   spinWheelRoute,
   customGameRoute,
   pointsLeaderboardRoute,
+  ranksLeaderboardRoute,
   adminRoute,
   chatRoute,
   messagesRoute,

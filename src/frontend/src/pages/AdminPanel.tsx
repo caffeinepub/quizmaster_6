@@ -793,8 +793,10 @@ export default function AdminPanel() {
   const myRank =
     sorted.findIndex((e) => e.player.toString() === myPrincipal) + 1;
 
+  const hasAdminAccess = isTopPlayer || isCallerOwner;
+
   const { data: quizAnswers, isLoading: loadingAnswers } =
-    useGetAdminQuizAnswers(isTopPlayer);
+    useGetAdminQuizAnswers(hasAdminAccess);
 
   const isLoading = loadingPoints || loadingAll;
 
@@ -831,7 +833,7 @@ export default function AdminPanel() {
     );
   }
 
-  if (!isTopPlayer) {
+  if (!isTopPlayer && !isCallerOwner) {
     return (
       <div
         className="container mx-auto px-4 py-20 max-w-md text-center"
@@ -891,12 +893,13 @@ export default function AdminPanel() {
           <h1 className="text-3xl font-bold gradient-text">Admin Panel</h1>
           <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40">
             <Crown className="w-3 h-3 mr-1" />
-            #1 Player
+            {isCallerOwner ? "Owner" : "#1 Player"}
           </Badge>
         </div>
         <p className="text-muted-foreground">
-          You are the #1 all-time points leader. View all quiz answers and
-          create custom mini games.
+          {isCallerOwner
+            ? "You have Owner access. View all quiz answers, create custom mini games, and manage player ranks."
+            : "You are the #1 all-time points leader. View all quiz answers and create custom mini games."}
         </p>
       </motion.div>
 

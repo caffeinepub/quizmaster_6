@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
   BookOpen,
+  Database,
   Loader2,
   Play,
   Plus,
@@ -35,6 +36,7 @@ import {
   useCreatePost,
   useGetAllQuizzes,
   useGetUserProfile,
+  useSeedQuizzes,
 } from "../hooks/useQueries";
 
 const SKELETON_KEYS = [
@@ -53,6 +55,7 @@ export default function Home() {
   const { data: quizzes, isLoading } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const seedMutation = useSeedQuizzes();
 
   const showUsernameDialog = !!identity && profile === null;
 
@@ -61,6 +64,13 @@ export default function Home() {
       q.title.toLowerCase().includes(search.toLowerCase()) ||
       q.description.toLowerCase().includes(search.toLowerCase()),
   );
+
+  function handleSeedQuizzes() {
+    seedMutation.mutate(undefined, {
+      onSuccess: () => toast.success("Sample quizzes loaded!"),
+      onError: () => toast.error("Failed to load sample quizzes."),
+    });
+  }
 
   return (
     <div className="relative overflow-hidden">
@@ -205,6 +215,24 @@ export default function Home() {
                   Create the first quiz!
                 </Button>
               </Link>
+              {!!identity && (
+                <Button
+                  className="mt-3 rounded-full border-border"
+                  variant="outline"
+                  onClick={handleSeedQuizzes}
+                  disabled={seedMutation.isPending}
+                  data-ocid="quiz.secondary_button"
+                >
+                  {seedMutation.isPending ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Database className="w-4 h-4 mr-2" />
+                  )}
+                  {seedMutation.isPending
+                    ? "Loading quizzes…"
+                    : "Load Sample Quizzes"}
+                </Button>
+              )}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">

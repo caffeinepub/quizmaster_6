@@ -7,11 +7,11 @@ import Principal "mo:core/Principal";
 import Runtime "mo:core/Runtime";
 import Int "mo:core/Int";
 import Time "mo:core/Time";
-import Migration "migration";
+
 import MixinAuthorization "authorization/MixinAuthorization";
 import AccessControl "authorization/access-control";
 
-(with migration = Migration.run)
+
 actor {
   type PointsEntry = {
     player : Principal;

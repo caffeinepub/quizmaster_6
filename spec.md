@@ -1,51 +1,30 @@
 # QuizMaster
 
 ## Current State
-Fresh rebuild of QuizMaster social quiz app.
+The app has full quiz creation, play, social feed, mini games, leaderboard, and admin functionality. Currently there are no pre-loaded quizzes -- users see an empty quiz list until someone creates one.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Full app rebuild with all features from previous versions
+- A `seedData.ts` file containing 4 pre-built quiz datasets, each with 50 true/false questions:
+  1. General Knowledge (50 questions)
+  2. Science & Nature (50 questions)
+  3. History & Geography (50 questions)
+  4. Movies & Pop Culture (50 questions)
+- A `useSeedQuizzes` hook that uses the actor to create the 4 quizzes and add all questions sequentially
+- A seed trigger in the Home page: when quizzes list is empty AND user is logged in, show a "Load Sample Quizzes" button that runs the seed. While seeding, show a loading state. After completion, invalidate the quizzes query.
 
 ### Modify
-- N/A (fresh build)
+- `Home.tsx`: add the seed trigger UI near the empty quiz state section. Only show it when `quizzes.length === 0` and user is authenticated.
+- `useQueries.ts`: add `useSeedQuizzes` hook
 
 ### Remove
-- N/A
+- Nothing
 
 ## Implementation Plan
-
-### Backend (Motoko)
-- User authentication via Internet Identity
-- User profiles with username
-- Role-based access control (admin, user, guest)
-- Quiz CRUD: create quiz, add questions (multiple choice + true/false)
-- Quiz play: submit answers, score calculation
-- Per-quiz leaderboard
-- Social feed: posts linked to quizzes, likes, comments
-- Points system: awardPoints, getMyPoints, getAllPlayerPoints
-- Gift points: giftPoints(recipient: Principal, amount: Nat)
-- Top player detection: getTopPlayer returns Principal with most points
-- Admin panel: getAdminQuizAnswers (only for top player)
-- Spin Wheel cooldown: 3-day cooldown tracked per user in backend
-- Memory Game cooldown: 1-day cooldown tracked per user in backend
-- Visitor/player counter: track total registered users
-- Custom mini game creator: top player can create custom trivia challenges or spin wheel games
-- Mini game timers: countdown shown in UI for both cooldowns
-
-### Frontend (React/TypeScript)
-- Landing/Feed page: social feed cards with quiz info, play button, like/comment
-- Navigation: Home, Create Quiz, Mini Games, Leaderboard, Admin Panel, Profile
-- Quiz creation form with dynamic question builder
-- Quiz play flow: one question at a time, score at end
-- Per-quiz leaderboard modal/page
-- Mini Games Hub page with Memory Game and Spin Wheel
-  - Memory Game: 4x4 card grid, flip pairs, earn 10pts per match, 1-day cooldown timer
-  - Spin Wheel: animated spin wheel, random point prizes, 3-day cooldown timer
-- Points Leaderboard page: all players ranked, gift points button
-- Admin Panel: visible only to #1 points player, shows all quiz answers
-- Custom Mini Game Creator in Admin Panel: create trivia challenge or custom spin wheel
-- Community Mini Games section: shows custom games created by #1 player
-- Player counter on homepage showing total registered users
-- Cooldown countdowns visible on Games Hub before entering mini games
+1. Create `src/frontend/src/data/seedData.ts` with 4 quiz objects, each containing title, description, and 50 true/false questions with their correct answers.
+2. Create `useSeedQuizzes` mutation hook in `useQueries.ts` that:
+   - Creates each quiz via `actor.createQuiz(title, description)`
+   - For each quiz, calls `actor.addQuestion` for all 50 questions with `#trueFalse` question type
+   - Returns the mutation state so UI can show loading/done
+3. In `Home.tsx`, when `filtered.length === 0 && !isLoading && !!identity`, show a "Load Sample Quizzes" button in the empty state. On click, run the seed mutation. Show a spinner while running. On success, toast a success message and invalidate quizzes query.

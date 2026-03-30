@@ -3049,10 +3049,10 @@ react_production.version = "19.1.1";
   react.exports = react_production;
 }
 var reactExports = react.exports;
-const React__default = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+const React2 = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
 const React$4 = /* @__PURE__ */ _mergeNamespaces({
   __proto__: null,
-  default: React__default
+  default: React2
 }, [reactExports]);
 var QueryClientContext = reactExports.createContext(
   void 0
@@ -14788,10 +14788,10 @@ var jt = (n) => {
     default:
       return null;
   }
-}, te = Array(12).fill(0), Yt = ({ visible: n, className: e }) => React__default.createElement("div", { className: ["sonner-loading-wrapper", e].filter(Boolean).join(" "), "data-visible": n }, React__default.createElement("div", { className: "sonner-spinner" }, te.map((t, a2) => React__default.createElement("div", { className: "sonner-loading-bar", key: `spinner-bar-${a2}` })))), ee = React__default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React__default.createElement("path", { fillRule: "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z", clipRule: "evenodd" })), oe = React__default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", height: "20", width: "20" }, React__default.createElement("path", { fillRule: "evenodd", d: "M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z", clipRule: "evenodd" })), ae = React__default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React__default.createElement("path", { fillRule: "evenodd", d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z", clipRule: "evenodd" })), se = React__default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React__default.createElement("path", { fillRule: "evenodd", d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z", clipRule: "evenodd" })), Ot = React__default.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }, React__default.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), React__default.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" }));
+}, te = Array(12).fill(0), Yt = ({ visible: n, className: e }) => React2.createElement("div", { className: ["sonner-loading-wrapper", e].filter(Boolean).join(" "), "data-visible": n }, React2.createElement("div", { className: "sonner-spinner" }, te.map((t, a2) => React2.createElement("div", { className: "sonner-loading-bar", key: `spinner-bar-${a2}` })))), ee = React2.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React2.createElement("path", { fillRule: "evenodd", d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z", clipRule: "evenodd" })), oe = React2.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", height: "20", width: "20" }, React2.createElement("path", { fillRule: "evenodd", d: "M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z", clipRule: "evenodd" })), ae = React2.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React2.createElement("path", { fillRule: "evenodd", d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z", clipRule: "evenodd" })), se = React2.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", height: "20", width: "20" }, React2.createElement("path", { fillRule: "evenodd", d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z", clipRule: "evenodd" })), Ot = React2.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }, React2.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), React2.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" }));
 var Ft = () => {
-  let [n, e] = React__default.useState(document.hidden);
-  return React__default.useEffect(() => {
+  let [n, e] = React2.useState(document.hidden);
+  return React2.useEffect(() => {
     let t = () => {
       e(document.hidden);
     };
@@ -14829,7 +14829,7 @@ var bt = 1, yt = class {
       let a2;
       t.loading !== void 0 && (a2 = this.create({ ...t, promise: e, type: "loading", message: t.loading, description: typeof t.description != "function" ? t.description : void 0 }));
       let u = e instanceof Promise ? e : e(), f = a2 !== void 0, w2, S2 = u.then(async (i) => {
-        if (w2 = ["resolve", i], React__default.isValidElement(i)) f = false, this.create({ id: a2, type: "default", message: i });
+        if (w2 = ["resolve", i], React2.isValidElement(i)) f = false, this.create({ id: a2, type: "default", message: i });
         else if (ie(i) && !i.ok) {
           f = false;
           let T2 = typeof t.error == "function" ? await t.error(`HTTP error! status: ${i.status}`) : t.error, F2 = typeof t.description == "function" ? await t.description(`HTTP error! status: ${i.status}`) : t.description;
@@ -14882,33 +14882,33 @@ function xe(n) {
 }
 var ve = (n) => {
   var Dt, Pt, Nt, Bt, Ct, kt, It, Mt, Ht, At, Lt;
-  let { invert: e, toast: t, unstyled: a2, interacting: u, setHeights: f, visibleToasts: w2, heights: S2, index: g2, toasts: i, expanded: D, removeToast: T2, defaultRichColors: F2, closeButton: et2, style: ut2, cancelButtonStyle: ft2, actionButtonStyle: l, className: ot2 = "", descriptionClassName: at = "", duration: X2, position: st2, gap: pt, loadingIcon: rt, expandByDefault: B2, classNames: s2, icons: P2, closeButtonAriaLabel: nt2 = "Close toast", pauseWhenPageIsHidden: it2 } = n, [Y2, C2] = React__default.useState(null), [lt, J2] = React__default.useState(null), [W2, H2] = React__default.useState(false), [A2, mt] = React__default.useState(false), [L2, z2] = React__default.useState(false), [ct2, d2] = React__default.useState(false), [h2, y2] = React__default.useState(false), [R2, j2] = React__default.useState(0), [p2, _2] = React__default.useState(0), O2 = React__default.useRef(t.duration || X2 || Wt), G2 = React__default.useRef(null), k2 = React__default.useRef(null), Vt = g2 === 0, Ut = g2 + 1 <= w2, N2 = t.type, V2 = t.dismissible !== false, Kt = t.className || "", Xt = t.descriptionClassName || "", dt2 = React__default.useMemo(() => S2.findIndex((r2) => r2.toastId === t.id) || 0, [S2, t.id]), Jt = React__default.useMemo(() => {
+  let { invert: e, toast: t, unstyled: a2, interacting: u, setHeights: f, visibleToasts: w2, heights: S2, index: g2, toasts: i, expanded: D, removeToast: T2, defaultRichColors: F2, closeButton: et2, style: ut2, cancelButtonStyle: ft2, actionButtonStyle: l, className: ot2 = "", descriptionClassName: at = "", duration: X2, position: st2, gap: pt, loadingIcon: rt, expandByDefault: B2, classNames: s2, icons: P2, closeButtonAriaLabel: nt2 = "Close toast", pauseWhenPageIsHidden: it2 } = n, [Y2, C2] = React2.useState(null), [lt, J2] = React2.useState(null), [W2, H2] = React2.useState(false), [A2, mt] = React2.useState(false), [L2, z2] = React2.useState(false), [ct2, d2] = React2.useState(false), [h2, y2] = React2.useState(false), [R2, j2] = React2.useState(0), [p2, _2] = React2.useState(0), O2 = React2.useRef(t.duration || X2 || Wt), G2 = React2.useRef(null), k2 = React2.useRef(null), Vt = g2 === 0, Ut = g2 + 1 <= w2, N2 = t.type, V2 = t.dismissible !== false, Kt = t.className || "", Xt = t.descriptionClassName || "", dt2 = React2.useMemo(() => S2.findIndex((r2) => r2.toastId === t.id) || 0, [S2, t.id]), Jt = React2.useMemo(() => {
     var r2;
     return (r2 = t.closeButton) != null ? r2 : et2;
-  }, [t.closeButton, et2]), Tt = React__default.useMemo(() => t.duration || X2 || Wt, [t.duration, X2]), gt = React__default.useRef(0), U2 = React__default.useRef(0), St = React__default.useRef(0), K2 = React__default.useRef(null), [Gt, Qt] = st2.split("-"), Rt = React__default.useMemo(() => S2.reduce((r2, m2, c2) => c2 >= dt2 ? r2 : r2 + m2.height, 0), [S2, dt2]), Et = Ft(), qt = t.invert || e, ht = N2 === "loading";
-  U2.current = React__default.useMemo(() => dt2 * pt + Rt, [dt2, Rt]), React__default.useEffect(() => {
+  }, [t.closeButton, et2]), Tt = React2.useMemo(() => t.duration || X2 || Wt, [t.duration, X2]), gt = React2.useRef(0), U2 = React2.useRef(0), St = React2.useRef(0), K2 = React2.useRef(null), [Gt, Qt] = st2.split("-"), Rt = React2.useMemo(() => S2.reduce((r2, m2, c2) => c2 >= dt2 ? r2 : r2 + m2.height, 0), [S2, dt2]), Et = Ft(), qt = t.invert || e, ht = N2 === "loading";
+  U2.current = React2.useMemo(() => dt2 * pt + Rt, [dt2, Rt]), React2.useEffect(() => {
     O2.current = Tt;
-  }, [Tt]), React__default.useEffect(() => {
+  }, [Tt]), React2.useEffect(() => {
     H2(true);
-  }, []), React__default.useEffect(() => {
+  }, []), React2.useEffect(() => {
     let r2 = k2.current;
     if (r2) {
       let m2 = r2.getBoundingClientRect().height;
       return _2(m2), f((c2) => [{ toastId: t.id, height: m2, position: t.position }, ...c2]), () => f((c2) => c2.filter((b2) => b2.toastId !== t.id));
     }
-  }, [f, t.id]), React__default.useLayoutEffect(() => {
+  }, [f, t.id]), React2.useLayoutEffect(() => {
     if (!W2) return;
     let r2 = k2.current, m2 = r2.style.height;
     r2.style.height = "auto";
     let c2 = r2.getBoundingClientRect().height;
     r2.style.height = m2, _2(c2), f((b2) => b2.find((x2) => x2.toastId === t.id) ? b2.map((x2) => x2.toastId === t.id ? { ...x2, height: c2 } : x2) : [{ toastId: t.id, height: c2, position: t.position }, ...b2]);
   }, [W2, t.title, t.description, f, t.id]);
-  let $2 = React__default.useCallback(() => {
+  let $2 = React2.useCallback(() => {
     mt(true), j2(U2.current), f((r2) => r2.filter((m2) => m2.toastId !== t.id)), setTimeout(() => {
       T2(t);
     }, we);
   }, [t, T2, f, U2]);
-  React__default.useEffect(() => {
+  React2.useEffect(() => {
     if (t.promise && N2 === "loading" || t.duration === 1 / 0 || t.type === "loading") return;
     let r2;
     return D || u || it2 && Et ? (() => {
@@ -14923,14 +14923,14 @@ var ve = (n) => {
         (b2 = t.onAutoClose) == null || b2.call(t, t), $2();
       }, O2.current));
     })(), () => clearTimeout(r2);
-  }, [D, u, t, N2, it2, Et, $2]), React__default.useEffect(() => {
+  }, [D, u, t, N2, it2, Et, $2]), React2.useEffect(() => {
     t.delete && $2();
   }, [$2, t.delete]);
   function Zt() {
     var r2, m2, c2;
-    return P2 != null && P2.loading ? React__default.createElement("div", { className: M$1(s2 == null ? void 0 : s2.loader, (r2 = t == null ? void 0 : t.classNames) == null ? void 0 : r2.loader, "sonner-loader"), "data-visible": N2 === "loading" }, P2.loading) : rt ? React__default.createElement("div", { className: M$1(s2 == null ? void 0 : s2.loader, (m2 = t == null ? void 0 : t.classNames) == null ? void 0 : m2.loader, "sonner-loader"), "data-visible": N2 === "loading" }, rt) : React__default.createElement(Yt, { className: M$1(s2 == null ? void 0 : s2.loader, (c2 = t == null ? void 0 : t.classNames) == null ? void 0 : c2.loader), visible: N2 === "loading" });
+    return P2 != null && P2.loading ? React2.createElement("div", { className: M$1(s2 == null ? void 0 : s2.loader, (r2 = t == null ? void 0 : t.classNames) == null ? void 0 : r2.loader, "sonner-loader"), "data-visible": N2 === "loading" }, P2.loading) : rt ? React2.createElement("div", { className: M$1(s2 == null ? void 0 : s2.loader, (m2 = t == null ? void 0 : t.classNames) == null ? void 0 : m2.loader, "sonner-loader"), "data-visible": N2 === "loading" }, rt) : React2.createElement(Yt, { className: M$1(s2 == null ? void 0 : s2.loader, (c2 = t == null ? void 0 : t.classNames) == null ? void 0 : c2.loader), visible: N2 === "loading" });
   }
-  return React__default.createElement("li", { tabIndex: 0, ref: k2, className: M$1(ot2, Kt, s2 == null ? void 0 : s2.toast, (Dt = t == null ? void 0 : t.classNames) == null ? void 0 : Dt.toast, s2 == null ? void 0 : s2.default, s2 == null ? void 0 : s2[N2], (Pt = t == null ? void 0 : t.classNames) == null ? void 0 : Pt[N2]), "data-sonner-toast": "", "data-rich-colors": (Nt = t.richColors) != null ? Nt : F2, "data-styled": !(t.jsx || t.unstyled || a2), "data-mounted": W2, "data-promise": !!t.promise, "data-swiped": h2, "data-removed": A2, "data-visible": Ut, "data-y-position": Gt, "data-x-position": Qt, "data-index": g2, "data-front": Vt, "data-swiping": L2, "data-dismissible": V2, "data-type": N2, "data-invert": qt, "data-swipe-out": ct2, "data-swipe-direction": lt, "data-expanded": !!(D || B2 && W2), style: { "--index": g2, "--toasts-before": g2, "--z-index": i.length - g2, "--offset": `${A2 ? R2 : U2.current}px`, "--initial-height": B2 ? "auto" : `${p2}px`, ...ut2, ...t.style }, onDragEnd: () => {
+  return React2.createElement("li", { tabIndex: 0, ref: k2, className: M$1(ot2, Kt, s2 == null ? void 0 : s2.toast, (Dt = t == null ? void 0 : t.classNames) == null ? void 0 : Dt.toast, s2 == null ? void 0 : s2.default, s2 == null ? void 0 : s2[N2], (Pt = t == null ? void 0 : t.classNames) == null ? void 0 : Pt[N2]), "data-sonner-toast": "", "data-rich-colors": (Nt = t.richColors) != null ? Nt : F2, "data-styled": !(t.jsx || t.unstyled || a2), "data-mounted": W2, "data-promise": !!t.promise, "data-swiped": h2, "data-removed": A2, "data-visible": Ut, "data-y-position": Gt, "data-x-position": Qt, "data-index": g2, "data-front": Vt, "data-swiping": L2, "data-dismissible": V2, "data-type": N2, "data-invert": qt, "data-swipe-out": ct2, "data-swipe-direction": lt, "data-expanded": !!(D || B2 && W2), style: { "--index": g2, "--toasts-before": g2, "--z-index": i.length - g2, "--offset": `${A2 ? R2 : U2.current}px`, "--initial-height": B2 ? "auto" : `${p2}px`, ...ut2, ...t.style }, onDragEnd: () => {
     z2(false), C2(null), K2.current = null;
   }, onPointerDown: (r2) => {
     ht || !V2 || (G2.current = /* @__PURE__ */ new Date(), j2(U2.current), r2.target.setPointerCapture(r2.pointerId), r2.target.tagName !== "BUTTON" && (z2(true), K2.current = { x: r2.clientX, y: r2.clientY }));
@@ -14951,14 +14951,14 @@ var ve = (n) => {
     !Y2 && (Math.abs(b2) > 1 || Math.abs(c2) > 1) && C2(Math.abs(b2) > Math.abs(c2) ? "x" : "y");
     let x2 = { x: 0, y: 0 };
     Y2 === "y" ? (I2.includes("top") || I2.includes("bottom")) && (I2.includes("top") && c2 < 0 || I2.includes("bottom") && c2 > 0) && (x2.y = c2) : Y2 === "x" && (I2.includes("left") || I2.includes("right")) && (I2.includes("left") && b2 < 0 || I2.includes("right") && b2 > 0) && (x2.x = b2), (Math.abs(x2.x) > 0 || Math.abs(x2.y) > 0) && y2(true), (Z2 = k2.current) == null || Z2.style.setProperty("--swipe-amount-x", `${x2.x}px`), (zt = k2.current) == null || zt.style.setProperty("--swipe-amount-y", `${x2.y}px`);
-  } }, Jt && !t.jsx ? React__default.createElement("button", { "aria-label": nt2, "data-disabled": ht, "data-close-button": true, onClick: ht || !V2 ? () => {
+  } }, Jt && !t.jsx ? React2.createElement("button", { "aria-label": nt2, "data-disabled": ht, "data-close-button": true, onClick: ht || !V2 ? () => {
   } : () => {
     var r2;
     $2(), (r2 = t.onDismiss) == null || r2.call(t, t);
-  }, className: M$1(s2 == null ? void 0 : s2.closeButton, (Bt = t == null ? void 0 : t.classNames) == null ? void 0 : Bt.closeButton) }, (Ct = P2 == null ? void 0 : P2.close) != null ? Ct : Ot) : null, t.jsx || reactExports.isValidElement(t.title) ? t.jsx ? t.jsx : typeof t.title == "function" ? t.title() : t.title : React__default.createElement(React__default.Fragment, null, N2 || t.icon || t.promise ? React__default.createElement("div", { "data-icon": "", className: M$1(s2 == null ? void 0 : s2.icon, (kt = t == null ? void 0 : t.classNames) == null ? void 0 : kt.icon) }, t.promise || t.type === "loading" && !t.icon ? t.icon || Zt() : null, t.type !== "loading" ? t.icon || (P2 == null ? void 0 : P2[N2]) || jt(N2) : null) : null, React__default.createElement("div", { "data-content": "", className: M$1(s2 == null ? void 0 : s2.content, (It = t == null ? void 0 : t.classNames) == null ? void 0 : It.content) }, React__default.createElement("div", { "data-title": "", className: M$1(s2 == null ? void 0 : s2.title, (Mt = t == null ? void 0 : t.classNames) == null ? void 0 : Mt.title) }, typeof t.title == "function" ? t.title() : t.title), t.description ? React__default.createElement("div", { "data-description": "", className: M$1(at, Xt, s2 == null ? void 0 : s2.description, (Ht = t == null ? void 0 : t.classNames) == null ? void 0 : Ht.description) }, typeof t.description == "function" ? t.description() : t.description) : null), reactExports.isValidElement(t.cancel) ? t.cancel : t.cancel && tt$1(t.cancel) ? React__default.createElement("button", { "data-button": true, "data-cancel": true, style: t.cancelButtonStyle || ft2, onClick: (r2) => {
+  }, className: M$1(s2 == null ? void 0 : s2.closeButton, (Bt = t == null ? void 0 : t.classNames) == null ? void 0 : Bt.closeButton) }, (Ct = P2 == null ? void 0 : P2.close) != null ? Ct : Ot) : null, t.jsx || reactExports.isValidElement(t.title) ? t.jsx ? t.jsx : typeof t.title == "function" ? t.title() : t.title : React2.createElement(React2.Fragment, null, N2 || t.icon || t.promise ? React2.createElement("div", { "data-icon": "", className: M$1(s2 == null ? void 0 : s2.icon, (kt = t == null ? void 0 : t.classNames) == null ? void 0 : kt.icon) }, t.promise || t.type === "loading" && !t.icon ? t.icon || Zt() : null, t.type !== "loading" ? t.icon || (P2 == null ? void 0 : P2[N2]) || jt(N2) : null) : null, React2.createElement("div", { "data-content": "", className: M$1(s2 == null ? void 0 : s2.content, (It = t == null ? void 0 : t.classNames) == null ? void 0 : It.content) }, React2.createElement("div", { "data-title": "", className: M$1(s2 == null ? void 0 : s2.title, (Mt = t == null ? void 0 : t.classNames) == null ? void 0 : Mt.title) }, typeof t.title == "function" ? t.title() : t.title), t.description ? React2.createElement("div", { "data-description": "", className: M$1(at, Xt, s2 == null ? void 0 : s2.description, (Ht = t == null ? void 0 : t.classNames) == null ? void 0 : Ht.description) }, typeof t.description == "function" ? t.description() : t.description) : null), reactExports.isValidElement(t.cancel) ? t.cancel : t.cancel && tt$1(t.cancel) ? React2.createElement("button", { "data-button": true, "data-cancel": true, style: t.cancelButtonStyle || ft2, onClick: (r2) => {
     var m2, c2;
     tt$1(t.cancel) && V2 && ((c2 = (m2 = t.cancel).onClick) == null || c2.call(m2, r2), $2());
-  }, className: M$1(s2 == null ? void 0 : s2.cancelButton, (At = t == null ? void 0 : t.classNames) == null ? void 0 : At.cancelButton) }, t.cancel.label) : null, reactExports.isValidElement(t.action) ? t.action : t.action && tt$1(t.action) ? React__default.createElement("button", { "data-button": true, "data-action": true, style: t.actionButtonStyle || l, onClick: (r2) => {
+  }, className: M$1(s2 == null ? void 0 : s2.cancelButton, (At = t == null ? void 0 : t.classNames) == null ? void 0 : At.cancelButton) }, t.cancel.label) : null, reactExports.isValidElement(t.action) ? t.action : t.action && tt$1(t.action) ? React2.createElement("button", { "data-button": true, "data-action": true, style: t.actionButtonStyle || l, onClick: (r2) => {
     var m2, c2;
     tt$1(t.action) && ((c2 = (m2 = t.action).onClick) == null || c2.call(m2, r2), !r2.defaultPrevented && $2());
   }, className: M$1(s2 == null ? void 0 : s2.actionButton, (Lt = t == null ? void 0 : t.classNames) == null ? void 0 : Lt.actionButton) }, t.action.label) : null));
@@ -14983,13 +14983,13 @@ function Te(n, e) {
   }), t;
 }
 var $e = reactExports.forwardRef(function(e, t) {
-  let { invert: a2, position: u = "bottom-right", hotkey: f = ["altKey", "KeyT"], expand: w2, closeButton: S2, className: g2, offset: i, mobileOffset: D, theme: T2 = "light", richColors: F2, duration: et2, style: ut2, visibleToasts: ft2 = pe, toastOptions: l, dir: ot2 = _t(), gap: at = be, loadingIcon: X2, icons: st2, containerAriaLabel: pt = "Notifications", pauseWhenPageIsHidden: rt } = e, [B2, s2] = React__default.useState([]), P2 = React__default.useMemo(() => Array.from(new Set([u].concat(B2.filter((d2) => d2.position).map((d2) => d2.position)))), [B2, u]), [nt2, it2] = React__default.useState([]), [Y2, C2] = React__default.useState(false), [lt, J2] = React__default.useState(false), [W2, H2] = React__default.useState(T2 !== "system" ? T2 : typeof window != "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"), A2 = React__default.useRef(null), mt = f.join("+").replace(/Key/g, "").replace(/Digit/g, ""), L2 = React__default.useRef(null), z2 = React__default.useRef(false), ct2 = React__default.useCallback((d2) => {
+  let { invert: a2, position: u = "bottom-right", hotkey: f = ["altKey", "KeyT"], expand: w2, closeButton: S2, className: g2, offset: i, mobileOffset: D, theme: T2 = "light", richColors: F2, duration: et2, style: ut2, visibleToasts: ft2 = pe, toastOptions: l, dir: ot2 = _t(), gap: at = be, loadingIcon: X2, icons: st2, containerAriaLabel: pt = "Notifications", pauseWhenPageIsHidden: rt } = e, [B2, s2] = React2.useState([]), P2 = React2.useMemo(() => Array.from(new Set([u].concat(B2.filter((d2) => d2.position).map((d2) => d2.position)))), [B2, u]), [nt2, it2] = React2.useState([]), [Y2, C2] = React2.useState(false), [lt, J2] = React2.useState(false), [W2, H2] = React2.useState(T2 !== "system" ? T2 : typeof window != "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"), A2 = React2.useRef(null), mt = f.join("+").replace(/Key/g, "").replace(/Digit/g, ""), L2 = React2.useRef(null), z2 = React2.useRef(false), ct2 = React2.useCallback((d2) => {
     s2((h2) => {
       var y2;
       return (y2 = h2.find((R2) => R2.id === d2.id)) != null && y2.delete || v$1.dismiss(d2.id), h2.filter(({ id: R2 }) => R2 !== d2.id);
     });
   }, []);
-  return React__default.useEffect(() => v$1.subscribe((d2) => {
+  return React2.useEffect(() => v$1.subscribe((d2) => {
     if (d2.dismiss) {
       s2((h2) => h2.map((y2) => y2.id === d2.id ? { ...y2, delete: true } : y2));
       return;
@@ -15002,7 +15002,7 @@ var $e = reactExports.forwardRef(function(e, t) {
         });
       });
     });
-  }), []), React__default.useEffect(() => {
+  }), []), React2.useEffect(() => {
     if (T2 !== "system") {
       H2(T2);
       return;
@@ -15022,22 +15022,22 @@ var $e = reactExports.forwardRef(function(e, t) {
         }
       });
     }
-  }, [T2]), React__default.useEffect(() => {
+  }, [T2]), React2.useEffect(() => {
     B2.length <= 1 && C2(false);
-  }, [B2]), React__default.useEffect(() => {
+  }, [B2]), React2.useEffect(() => {
     let d2 = (h2) => {
       var R2, j2;
       f.every((p2) => h2[p2] || h2.code === p2) && (C2(true), (R2 = A2.current) == null || R2.focus()), h2.code === "Escape" && (document.activeElement === A2.current || (j2 = A2.current) != null && j2.contains(document.activeElement)) && C2(false);
     };
     return document.addEventListener("keydown", d2), () => document.removeEventListener("keydown", d2);
-  }, [f]), React__default.useEffect(() => {
+  }, [f]), React2.useEffect(() => {
     if (A2.current) return () => {
       L2.current && (L2.current.focus({ preventScroll: true }), L2.current = null, z2.current = false);
     };
-  }, [A2.current]), React__default.createElement("section", { ref: t, "aria-label": `${pt} ${mt}`, tabIndex: -1, "aria-live": "polite", "aria-relevant": "additions text", "aria-atomic": "false", suppressHydrationWarning: true }, P2.map((d2, h2) => {
+  }, [A2.current]), React2.createElement("section", { ref: t, "aria-label": `${pt} ${mt}`, tabIndex: -1, "aria-live": "polite", "aria-relevant": "additions text", "aria-atomic": "false", suppressHydrationWarning: true }, P2.map((d2, h2) => {
     var j2;
     let [y2, R2] = d2.split("-");
-    return B2.length ? React__default.createElement("ol", { key: d2, dir: ot2 === "auto" ? _t() : ot2, tabIndex: -1, ref: A2, className: g2, "data-sonner-toaster": true, "data-theme": W2, "data-y-position": y2, "data-lifted": Y2 && B2.length > 1 && !w2, "data-x-position": R2, style: { "--front-toast-height": `${((j2 = nt2[0]) == null ? void 0 : j2.height) || 0}px`, "--width": `${he}px`, "--gap": `${at}px`, ...ut2, ...Te(i, D) }, onBlur: (p2) => {
+    return B2.length ? React2.createElement("ol", { key: d2, dir: ot2 === "auto" ? _t() : ot2, tabIndex: -1, ref: A2, className: g2, "data-sonner-toaster": true, "data-theme": W2, "data-y-position": y2, "data-lifted": Y2 && B2.length > 1 && !w2, "data-x-position": R2, style: { "--front-toast-height": `${((j2 = nt2[0]) == null ? void 0 : j2.height) || 0}px`, "--width": `${he}px`, "--gap": `${at}px`, ...ut2, ...Te(i, D) }, onBlur: (p2) => {
       z2.current && !p2.currentTarget.contains(p2.relatedTarget) && (z2.current = false, L2.current && (L2.current.focus({ preventScroll: true }), L2.current = null));
     }, onFocus: (p2) => {
       p2.target instanceof HTMLElement && p2.target.dataset.dismissible === "false" || z2.current || (z2.current = true, L2.current = p2.relatedTarget);
@@ -15047,7 +15047,7 @@ var $e = reactExports.forwardRef(function(e, t) {
       p2.target instanceof HTMLElement && p2.target.dataset.dismissible === "false" || J2(true);
     }, onPointerUp: () => J2(false) }, B2.filter((p2) => !p2.position && h2 === 0 || p2.position === d2).map((p2, _2) => {
       var O2, G2;
-      return React__default.createElement(ve, { key: p2.id, icons: st2, index: _2, toast: p2, defaultRichColors: F2, duration: (O2 = l == null ? void 0 : l.duration) != null ? O2 : et2, className: l == null ? void 0 : l.className, descriptionClassName: l == null ? void 0 : l.descriptionClassName, invert: a2, visibleToasts: ft2, closeButton: (G2 = l == null ? void 0 : l.closeButton) != null ? G2 : S2, interacting: lt, position: d2, style: l == null ? void 0 : l.style, unstyled: l == null ? void 0 : l.unstyled, classNames: l == null ? void 0 : l.classNames, cancelButtonStyle: l == null ? void 0 : l.cancelButtonStyle, actionButtonStyle: l == null ? void 0 : l.actionButtonStyle, removeToast: ct2, toasts: B2.filter((k2) => k2.position == p2.position), heights: nt2.filter((k2) => k2.position == p2.position), setHeights: it2, expandByDefault: w2, gap: at, loadingIcon: X2, expanded: Y2, pauseWhenPageIsHidden: rt, swipeDirections: e.swipeDirections });
+      return React2.createElement(ve, { key: p2.id, icons: st2, index: _2, toast: p2, defaultRichColors: F2, duration: (O2 = l == null ? void 0 : l.duration) != null ? O2 : et2, className: l == null ? void 0 : l.className, descriptionClassName: l == null ? void 0 : l.descriptionClassName, invert: a2, visibleToasts: ft2, closeButton: (G2 = l == null ? void 0 : l.closeButton) != null ? G2 : S2, interacting: lt, position: d2, style: l == null ? void 0 : l.style, unstyled: l == null ? void 0 : l.unstyled, classNames: l == null ? void 0 : l.classNames, cancelButtonStyle: l == null ? void 0 : l.cancelButtonStyle, actionButtonStyle: l == null ? void 0 : l.actionButtonStyle, removeToast: ct2, toasts: B2.filter((k2) => k2.position == p2.position), heights: nt2.filter((k2) => k2.position == p2.position), setHeights: it2, expandByDefault: w2, gap: at, loadingIcon: X2, expanded: Y2, pauseWhenPageIsHidden: rt, swipeDirections: e.swipeDirections });
     })) : null;
   }));
 });
@@ -18984,10 +18984,10 @@ function ErrorComponent({ error }) {
   ] });
 }
 function ClientOnly({ children, fallback = null }) {
-  return useHydrated() ? /* @__PURE__ */ jsxRuntimeExports.jsx(React__default.Fragment, { children }) : /* @__PURE__ */ jsxRuntimeExports.jsx(React__default.Fragment, { children: fallback });
+  return useHydrated() ? /* @__PURE__ */ jsxRuntimeExports.jsx(React2.Fragment, { children }) : /* @__PURE__ */ jsxRuntimeExports.jsx(React2.Fragment, { children: fallback });
 }
 function useHydrated() {
-  return React__default.useSyncExternalStore(
+  return React2.useSyncExternalStore(
     subscribe$1,
     () => true,
     () => false
@@ -19671,7 +19671,7 @@ class Route extends BaseRoute {
     this.useNavigate = () => {
       return useNavigate({ from: this.fullPath });
     };
-    this.Link = React__default.forwardRef(
+    this.Link = React2.forwardRef(
       (props, ref) => {
         return /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { ref, from: this.fullPath, ...props });
       }
@@ -19725,7 +19725,7 @@ class RootRoute extends BaseRootRoute {
     this.useNavigate = () => {
       return useNavigate({ from: this.fullPath });
     };
-    this.Link = React__default.forwardRef(
+    this.Link = React2.forwardRef(
       (props, ref) => {
         return /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { ref, from: this.fullPath, ...props });
       }
@@ -20390,7 +20390,7 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$A = [
+const __iconNode$B = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20400,14 +20400,14 @@ const __iconNode$A = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$A);
+const BookOpen = createLucideIcon("book-open", __iconNode$B);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$z = [
+const __iconNode$A = [
   [
     "path",
     {
@@ -20430,39 +20430,50 @@ const __iconNode$z = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$z);
+const Brain = createLucideIcon("brain", __iconNode$A);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$y = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$y);
+const __iconNode$z = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$x = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$x);
+const __iconNode$y = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$y);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$w = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$w);
+const __iconNode$x = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$x);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$v = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$v);
+const __iconNode$w = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$w);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$v = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$v);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20471,9 +20482,9 @@ const ChevronUp = createLucideIcon("chevron-up", __iconNode$v);
  */
 const __iconNode$u = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$u);
+const Clock = createLucideIcon("clock", __iconNode$u);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20481,17 +20492,6 @@ const CircleCheck = createLucideIcon("circle-check", __iconNode$u);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$t = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
-];
-const Clock = createLucideIcon("clock", __iconNode$t);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$s = [
   [
     "path",
     {
@@ -20501,7 +20501,19 @@ const __iconNode$s = [
   ],
   ["path", { d: "M5 21h14", key: "11awu3" }]
 ];
-const Crown = createLucideIcon("crown", __iconNode$s);
+const Crown = createLucideIcon("crown", __iconNode$t);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$s = [
+  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
+  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
+  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
+];
+const Database = createLucideIcon("database", __iconNode$s);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20600,7 +20612,7 @@ const __iconNode$m = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List = createLucideIcon("list", __iconNode$m);
+const List$1 = createLucideIcon("list", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -21339,7 +21351,7 @@ function useImageLoadingStatus(src, { referrerPolicy, crossOrigin }) {
   }, [image, crossOrigin, referrerPolicy]);
   return loadingStatus;
 }
-var Root$3 = Avatar$1;
+var Root$4 = Avatar$1;
 var Fallback = AvatarFallback$1;
 function r$1(e) {
   var t, f, n = "";
@@ -23821,7 +23833,7 @@ function Avatar({
   ...props
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root$3,
+    Root$4,
     {
       "data-slot": "avatar",
       className: cn(
@@ -37717,6 +37729,682 @@ function InternetIdentityProvider({
     children
   });
 }
+const seedQuizzes = [
+  {
+    title: "General Knowledge",
+    description: "A broad mix of trivia spanning history, science, culture, and everyday facts. Test how much you really know!",
+    questions: [
+      {
+        text: "The Great Wall of China is visible from space with the naked eye.",
+        correctAnswer: false
+      },
+      {
+        text: "A group of flamingos is called a flamboyance.",
+        correctAnswer: true
+      },
+      {
+        text: "Water boils at 100°C (212°F) at sea level.",
+        correctAnswer: true
+      },
+      {
+        text: "The Eiffel Tower was originally intended to be a permanent structure.",
+        correctAnswer: false
+      },
+      {
+        text: "Bananas are technically berries in botanical classification.",
+        correctAnswer: true
+      },
+      { text: "The human body has 206 bones.", correctAnswer: true },
+      {
+        text: "Napoleon Bonaparte was unusually short for his era.",
+        correctAnswer: false
+      },
+      {
+        text: "Lightning never strikes the same place twice.",
+        correctAnswer: false
+      },
+      {
+        text: "The Amazon River flows into the Atlantic Ocean.",
+        correctAnswer: true
+      },
+      {
+        text: "A day on Venus is longer than a year on Venus.",
+        correctAnswer: true
+      },
+      {
+        text: "Goldfish have a memory span of only three seconds.",
+        correctAnswer: false
+      },
+      { text: "The capital of Australia is Sydney.", correctAnswer: false },
+      {
+        text: "Honey never spoils — archaeologists have found 3000-year-old honey still edible.",
+        correctAnswer: true
+      },
+      {
+        text: "The human eye can distinguish about 10 million different colors.",
+        correctAnswer: true
+      },
+      {
+        text: "Mount Everest is the tallest mountain on Earth measured from sea level.",
+        correctAnswer: true
+      },
+      { text: "All deserts are hot and sandy.", correctAnswer: false },
+      {
+        text: "The original Olympic Games were held in Athens, Greece.",
+        correctAnswer: false
+      },
+      { text: "A snail can sleep for up to three years.", correctAnswer: true },
+      {
+        text: "The Pacific Ocean is larger than all of Earth's landmasses combined.",
+        correctAnswer: true
+      },
+      { text: "Diamonds are made of carbon.", correctAnswer: true },
+      {
+        text: "The shortest war in history lasted 38 minutes.",
+        correctAnswer: true
+      },
+      {
+        text: "Humans share 50% of their DNA with bananas.",
+        correctAnswer: true
+      },
+      {
+        text: "The speed of light in a vacuum is approximately 300,000 km/s.",
+        correctAnswer: true
+      },
+      { text: "Chess was invented in China.", correctAnswer: false },
+      {
+        text: "The Sahara Desert is the world's largest desert.",
+        correctAnswer: false
+      },
+      {
+        text: "There are more stars in the universe than grains of sand on Earth's beaches.",
+        correctAnswer: true
+      },
+      {
+        text: "Turtles breathe air and must surface regularly.",
+        correctAnswer: true
+      },
+      { text: "The Mona Lisa has no eyebrows.", correctAnswer: true },
+      {
+        text: "A full moon occurs approximately every 29.5 days.",
+        correctAnswer: true
+      },
+      {
+        text: "The tallest animal in the world is the elephant.",
+        correctAnswer: false
+      },
+      {
+        text: "Cleopatra lived closer in time to the Moon landing than to the construction of the Great Pyramid.",
+        correctAnswer: true
+      },
+      {
+        text: "Rubber ducks were originally made of rubber.",
+        correctAnswer: false
+      },
+      { text: "The human brain is about 75% water.", correctAnswer: true },
+      {
+        text: "Switzerland has never been at war with any country.",
+        correctAnswer: false
+      },
+      {
+        text: "The platypus is one of the few mammals that lays eggs.",
+        correctAnswer: true
+      },
+      {
+        text: "Windex is safe to drink in small quantities.",
+        correctAnswer: false
+      },
+      {
+        text: "Oxford University is older than the Aztec Empire.",
+        correctAnswer: true
+      },
+      { text: "The moon has its own atmosphere.", correctAnswer: false },
+      {
+        text: "A cockroach can survive for weeks without its head.",
+        correctAnswer: true
+      },
+      {
+        text: "There are more possible iterations of a game of chess than atoms in the observable universe.",
+        correctAnswer: true
+      },
+      {
+        text: "The first commercial flight took place in 1914.",
+        correctAnswer: true
+      },
+      {
+        text: "Cats always land on their feet, no exceptions.",
+        correctAnswer: false
+      },
+      {
+        text: "Crows can recognize and remember human faces.",
+        correctAnswer: true
+      },
+      {
+        text: "Blood is blue inside the body before it hits oxygen.",
+        correctAnswer: false
+      },
+      { text: "The symbol for the element gold is Au.", correctAnswer: true },
+      {
+        text: "A jiffy is an actual unit of time (1/100th of a second).",
+        correctAnswer: true
+      },
+      {
+        text: "Hot water freezes faster than cold water under certain conditions (Mpemba effect).",
+        correctAnswer: true
+      },
+      {
+        text: "Elephants are the only animals that cannot jump.",
+        correctAnswer: false
+      },
+      {
+        text: "The longest place name in the world is in New Zealand.",
+        correctAnswer: true
+      },
+      {
+        text: "Human fingernails grow faster than toenails.",
+        correctAnswer: true
+      }
+    ]
+  },
+  {
+    title: "Science & Nature",
+    description: "Explore the wonders of biology, physics, chemistry, space, and the natural world. How science-savvy are you?",
+    questions: [
+      { text: "DNA stands for Deoxyribonucleic Acid.", correctAnswer: true },
+      {
+        text: "The speed of light is faster than the speed of sound.",
+        correctAnswer: true
+      },
+      {
+        text: "The sun is a star classified as a red dwarf.",
+        correctAnswer: false
+      },
+      {
+        text: "Black holes can emit radiation (Hawking radiation).",
+        correctAnswer: true
+      },
+      {
+        text: "Atoms are the smallest possible unit of matter.",
+        correctAnswer: false
+      },
+      {
+        text: "The periodic table was largely organized by Dmitri Mendeleev.",
+        correctAnswer: true
+      },
+      {
+        text: "Humans have more bacteria cells than human cells in their body.",
+        correctAnswer: true
+      },
+      {
+        text: "The boiling point of water decreases at higher altitudes.",
+        correctAnswer: true
+      },
+      { text: "Electrons have a positive charge.", correctAnswer: false },
+      {
+        text: "Photosynthesis converts light energy into chemical energy.",
+        correctAnswer: true
+      },
+      { text: "The chemical symbol for iron is Ir.", correctAnswer: false },
+      {
+        text: "Saturn is the least dense planet in our solar system — it could float in water.",
+        correctAnswer: true
+      },
+      {
+        text: "Viruses are classified as living organisms.",
+        correctAnswer: false
+      },
+      {
+        text: "Mitochondria is known as the powerhouse of the cell.",
+        correctAnswer: true
+      },
+      {
+        text: "Sound travels faster in air than in water.",
+        correctAnswer: false
+      },
+      {
+        text: "The human brain continues to develop until around age 25.",
+        correctAnswer: true
+      },
+      { text: "Jupiter has more than 90 known moons.", correctAnswer: true },
+      { text: "All mammals are warm-blooded.", correctAnswer: true },
+      {
+        text: "Newton's first law states that objects in motion stay in motion unless acted upon by an external force.",
+        correctAnswer: true
+      },
+      {
+        text: "Antibiotics are effective against viral infections.",
+        correctAnswer: false
+      },
+      {
+        text: "The ozone layer is located in the stratosphere.",
+        correctAnswer: true
+      },
+      {
+        text: "Plants release carbon dioxide during photosynthesis.",
+        correctAnswer: false
+      },
+      {
+        text: "The human genome contains approximately 3 billion base pairs.",
+        correctAnswer: true
+      },
+      {
+        text: "Mars has the largest volcano in the solar system (Olympus Mons).",
+        correctAnswer: true
+      },
+      {
+        text: "The speed of sound is approximately 343 m/s in air at room temperature.",
+        correctAnswer: true
+      },
+      { text: "All insects have six legs.", correctAnswer: true },
+      {
+        text: "Humans can see ultraviolet light with the naked eye.",
+        correctAnswer: false
+      },
+      {
+        text: "The nucleus of an atom contains protons and neutrons.",
+        correctAnswer: true
+      },
+      { text: "A light-year is a measure of time.", correctAnswer: false },
+      {
+        text: "The theory of evolution by natural selection was proposed by Charles Darwin.",
+        correctAnswer: true
+      },
+      { text: "The pH of pure water is 7 (neutral).", correctAnswer: true },
+      { text: "Sharks are mammals.", correctAnswer: false },
+      {
+        text: "Einstein's E=mc² shows that mass and energy are interchangeable.",
+        correctAnswer: true
+      },
+      { text: "Bats are blind.", correctAnswer: false },
+      {
+        text: "The appendix has no known function in the human body.",
+        correctAnswer: false
+      },
+      { text: "An electron has less mass than a proton.", correctAnswer: true },
+      {
+        text: "Neptune was the first planet discovered using mathematics before observation.",
+        correctAnswer: true
+      },
+      {
+        text: "Carbon dioxide makes up about 21% of Earth's atmosphere.",
+        correctAnswer: false
+      },
+      {
+        text: "Trees are the longest-living organisms on Earth.",
+        correctAnswer: false
+      },
+      {
+        text: "Identical twins always have the same fingerprints.",
+        correctAnswer: false
+      },
+      { text: "The human liver can regenerate itself.", correctAnswer: true },
+      { text: "Absolute zero is −273.15°C.", correctAnswer: true },
+      { text: "Whales are fish.", correctAnswer: false },
+      {
+        text: "The Milky Way galaxy is part of a group of galaxies called the Local Group.",
+        correctAnswer: true
+      },
+      { text: "All matter is made of atoms.", correctAnswer: true },
+      { text: "Penguins live in the Arctic.", correctAnswer: false },
+      {
+        text: "Gold is the most electrically conductive metal.",
+        correctAnswer: false
+      },
+      { text: "Cows have four stomachs.", correctAnswer: true },
+      {
+        text: "The Big Bang occurred approximately 13.8 billion years ago.",
+        correctAnswer: true
+      },
+      {
+        text: "Coral reefs are made of animal skeletons.",
+        correctAnswer: true
+      }
+    ]
+  },
+  {
+    title: "History & Geography",
+    description: "Journey through world history and global geography. From ancient civilizations to modern borders, how much do you know?",
+    questions: [
+      { text: "World War II ended in 1945.", correctAnswer: true },
+      { text: "The Roman Empire fell in 476 AD.", correctAnswer: true },
+      { text: "The Berlin Wall fell in 1989.", correctAnswer: true },
+      {
+        text: "Christopher Columbus was the first European to reach North America.",
+        correctAnswer: false
+      },
+      { text: "The French Revolution began in 1789.", correctAnswer: true },
+      {
+        text: "Russia is the largest country in the world by land area.",
+        correctAnswer: true
+      },
+      {
+        text: "The Nile is the longest river in the world.",
+        correctAnswer: true
+      },
+      {
+        text: "The United States declared independence in 1776.",
+        correctAnswer: true
+      },
+      {
+        text: "The Great Wall of China was built in one continuous construction effort.",
+        correctAnswer: false
+      },
+      {
+        text: "Ancient Egypt existed for over 3000 years.",
+        correctAnswer: true
+      },
+      { text: "The Titanic sank in 1912.", correctAnswer: true },
+      {
+        text: "The Ottoman Empire was one of the longest-lasting empires in history.",
+        correctAnswer: true
+      },
+      {
+        text: "Brazil is the only country in South America where Portuguese is the official language.",
+        correctAnswer: false
+      },
+      { text: "The Moon landing first occurred in 1969.", correctAnswer: true },
+      {
+        text: "Vatican City is the smallest country in the world.",
+        correctAnswer: true
+      },
+      {
+        text: "Canada has more lakes than all other countries combined.",
+        correctAnswer: true
+      },
+      { text: "The first World War started in 1914.", correctAnswer: true },
+      {
+        text: "India gained independence from Britain in 1947.",
+        correctAnswer: true
+      },
+      { text: "Alexander the Great was born in Rome.", correctAnswer: false },
+      {
+        text: "Africa is the world's second-largest continent by area.",
+        correctAnswer: true
+      },
+      {
+        text: "The Aztec Empire was conquered by Hernán Cortés.",
+        correctAnswer: true
+      },
+      {
+        text: "Antarctica is a continent with no permanent human population.",
+        correctAnswer: true
+      },
+      {
+        text: "The Black Death killed roughly one-third of Europe's population.",
+        correctAnswer: true
+      },
+      {
+        text: "The Suez Canal connects the Red Sea to the Mediterranean Sea.",
+        correctAnswer: true
+      },
+      {
+        text: "New Zealand was the first country to give women the right to vote.",
+        correctAnswer: true
+      },
+      {
+        text: "The Cold War ended in 1991 with the dissolution of the Soviet Union.",
+        correctAnswer: true
+      },
+      {
+        text: "China has the largest population of any country in the world (as of 2023).",
+        correctAnswer: false
+      },
+      { text: "The Magna Carta was signed in 1215.", correctAnswer: true },
+      { text: "The capital of Canada is Toronto.", correctAnswer: false },
+      {
+        text: "The Mongol Empire was the largest contiguous land empire in history.",
+        correctAnswer: true
+      },
+      {
+        text: "The Korean War ended with a peace treaty.",
+        correctAnswer: false
+      },
+      {
+        text: "The Amazon rainforest is located primarily in Brazil.",
+        correctAnswer: true
+      },
+      {
+        text: "Julius Caesar was the first Roman Emperor.",
+        correctAnswer: false
+      },
+      {
+        text: "Hawaii became the 50th U.S. state in 1959.",
+        correctAnswer: true
+      },
+      {
+        text: "The Himalayas were formed by a collision between the Indian and Eurasian tectonic plates.",
+        correctAnswer: true
+      },
+      { text: "Apartheid ended in South Africa in 1994.", correctAnswer: true },
+      {
+        text: "The Silk Road was a single road connecting China to Europe.",
+        correctAnswer: false
+      },
+      {
+        text: "Japan attacked Pearl Harbor on December 7, 1941.",
+        correctAnswer: true
+      },
+      {
+        text: "The Sahara Desert spans across more than 10 countries in Africa.",
+        correctAnswer: true
+      },
+      { text: "The Renaissance began in France.", correctAnswer: false },
+      {
+        text: "The Seven Wonders of the Ancient World all still exist today.",
+        correctAnswer: false
+      },
+      {
+        text: "The Pacific Ring of Fire is a region known for frequent earthquakes and volcanic activity.",
+        correctAnswer: true
+      },
+      {
+        text: "The first human to walk on the moon was Neil Armstrong.",
+        correctAnswer: true
+      },
+      {
+        text: "Australia is both a country and a continent.",
+        correctAnswer: true
+      },
+      {
+        text: "The Colosseum in Rome could hold up to 80,000 spectators.",
+        correctAnswer: true
+      },
+      {
+        text: "Iceland is the world's most geothermally active country.",
+        correctAnswer: true
+      },
+      {
+        text: "The Spanish Armada was defeated by France.",
+        correctAnswer: false
+      },
+      {
+        text: "The United Nations was founded after World War II.",
+        correctAnswer: true
+      },
+      {
+        text: "The Danube River flows through more countries than any other river in the world.",
+        correctAnswer: true
+      },
+      { text: "Stonehenge is located in Scotland.", correctAnswer: false }
+    ]
+  },
+  {
+    title: "Movies & Pop Culture",
+    description: "Lights, camera, trivia! Test your knowledge of Hollywood blockbusters, iconic TV shows, chart-topping music, and celebrity culture.",
+    questions: [
+      {
+        text: "'The Godfather' (1972) won the Academy Award for Best Picture.",
+        correctAnswer: true
+      },
+      {
+        text: "Michael Jackson's 'Thriller' is the best-selling album of all time.",
+        correctAnswer: true
+      },
+      {
+        text: "The character of James Bond was created by author Ian Fleming.",
+        correctAnswer: true
+      },
+      {
+        text: "'Titanic' was the first film to gross $1 billion worldwide.",
+        correctAnswer: false
+      },
+      {
+        text: "Marilyn Monroe was born Norma Jeane Mortenson.",
+        correctAnswer: true
+      },
+      {
+        text: "The TV show 'Friends' ran for ten seasons.",
+        correctAnswer: true
+      },
+      {
+        text: "Walt Disney personally voiced Mickey Mouse in the early cartoons.",
+        correctAnswer: true
+      },
+      {
+        text: "'Star Wars: Episode IV – A New Hope' was the first Star Wars film released.",
+        correctAnswer: true
+      },
+      {
+        text: "The Beatles were originally from London.",
+        correctAnswer: false
+      },
+      {
+        text: "'The Lion King' (1994) was based on Shakespeare's Hamlet.",
+        correctAnswer: true
+      },
+      {
+        text: "Taylor Swift started her music career as a country artist.",
+        correctAnswer: true
+      },
+      {
+        text: "'Avatar' (2009) is the highest-grossing film of all time (adjusted for inflation).",
+        correctAnswer: false
+      },
+      {
+        text: "'Breaking Bad' is set in Albuquerque, New Mexico.",
+        correctAnswer: true
+      },
+      { text: "Audrey Hepburn was born in Belgium.", correctAnswer: true },
+      {
+        text: "Elvis Presley was called the 'King of Rock and Roll'.",
+        correctAnswer: true
+      },
+      {
+        text: "'Harry Potter and the Philosopher's Stone' was published in 1997.",
+        correctAnswer: true
+      },
+      {
+        text: "The Marvel Cinematic Universe began with 'Iron Man' in 2008.",
+        correctAnswer: true
+      },
+      {
+        text: "Meryl Streep has won more Academy Awards than any other actor.",
+        correctAnswer: true
+      },
+      {
+        text: "The TV series 'Game of Thrones' is based on books by George R.R. Martin.",
+        correctAnswer: true
+      },
+      {
+        text: "Beyoncé was a solo artist before joining Destiny's Child.",
+        correctAnswer: false
+      },
+      {
+        text: "'Schindler's List' was directed by Steven Spielberg.",
+        correctAnswer: true
+      },
+      { text: "Eminem's real name is Marshall Mathers.", correctAnswer: true },
+      {
+        text: "'The Simpsons' is the longest-running animated TV series in the US.",
+        correctAnswer: true
+      },
+      {
+        text: "Lady Gaga's real name is Stefani Germanotta.",
+        correctAnswer: true
+      },
+      {
+        text: "'Jurassic Park' (1993) was based on a novel by Michael Crichton.",
+        correctAnswer: true
+      },
+      {
+        text: "Bruce Lee was primarily a basketball player before turning to acting.",
+        correctAnswer: false
+      },
+      {
+        text: "'The Dark Knight' (2008) features Heath Ledger as the Joker.",
+        correctAnswer: true
+      },
+      { text: "Adele's debut album was called '19'.", correctAnswer: true },
+      {
+        text: "'Forrest Gump' won the Academy Award for Best Picture in 1995.",
+        correctAnswer: true
+      },
+      { text: "Cardi B and Offset are siblings.", correctAnswer: false },
+      {
+        text: "The TV show 'Seinfeld' was famously described as 'a show about nothing'.",
+        correctAnswer: true
+      },
+      {
+        text: "Prince's real name was Prince Rogers Nelson.",
+        correctAnswer: true
+      },
+      {
+        text: "'Inception' (2010) was directed by Christopher Nolan.",
+        correctAnswer: true
+      },
+      { text: "Shakira is originally from Colombia.", correctAnswer: true },
+      {
+        text: "'The Sopranos' ended with Tony Soprano being killed on screen.",
+        correctAnswer: false
+      },
+      { text: "Rihanna is from Barbados.", correctAnswer: true },
+      {
+        text: "'Lord of the Rings: Return of the King' swept all 11 of its Oscar nominations.",
+        correctAnswer: true
+      },
+      {
+        text: "Michael Jackson and Paul McCartney collaborated on the song 'Say Say Say'.",
+        correctAnswer: true
+      },
+      {
+        text: "'Parasite' (2019) was the first non-English-language film to win Best Picture at the Oscars.",
+        correctAnswer: true
+      },
+      {
+        text: "The TV show 'The Office' (US) was based on a UK show.",
+        correctAnswer: true
+      },
+      {
+        text: "Katy Perry's real name is Katheryn Hudson.",
+        correctAnswer: true
+      },
+      {
+        text: "'Pulp Fiction' was Quentin Tarantino's directorial debut.",
+        correctAnswer: false
+      },
+      {
+        text: "David Bowie's alter ego was called Ziggy Stardust.",
+        correctAnswer: true
+      },
+      {
+        text: "'Avengers: Endgame' became the highest-grossing film of all time.",
+        correctAnswer: true
+      },
+      { text: "Jennifer Lopez's nickname is 'J.Lo'.", correctAnswer: true },
+      {
+        text: "'The Shawshank Redemption' won the Academy Award for Best Picture.",
+        correctAnswer: false
+      },
+      { text: "Keanu Reeves is from Canada.", correctAnswer: true },
+      { text: "'Breaking Bad' has five seasons.", correctAnswer: true },
+      { text: "Madonna is known as the 'Queen of Pop'.", correctAnswer: true },
+      {
+        text: "'Titanic' is the only film to win 11 Oscars.",
+        correctAnswer: false
+      }
+    ]
+  }
+];
 function storeSessionParameter(key, value) {
   try {
     sessionStorage.setItem(key, value);
@@ -38045,6 +38733,67 @@ function useGetAdminQuizAnswers(enabled) {
     enabled: !!actor && !isFetching && enabled
   });
 }
+function useGetAllCustomGames() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["customGames"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllCustomGames();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useCreateCustomTrivia() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ title, questions }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createCustomTrivia(title, questions);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["customGames"] })
+  });
+}
+function useCreateCustomSpinWheel() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ title, segments }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createCustomSpinWheel(title, segments);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["customGames"] })
+  });
+}
+function useSeedQuizzes() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async () => {
+      if (!actor) throw new Error("Not authenticated");
+      for (const seedQuiz of seedQuizzes) {
+        const quizId = await actor.createQuiz(
+          seedQuiz.title,
+          seedQuiz.description
+        );
+        for (const q2 of seedQuiz.questions) {
+          const question = {
+            id: 0n,
+            text: q2.text,
+            questionType: {
+              __kind__: "trueFalse",
+              trueFalse: { correctAnswer: q2.correctAnswer }
+            },
+            quizId: 0n
+          };
+          await actor.addQuestion(quizId, question);
+        }
+      }
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["quizzes"] })
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
@@ -38052,7 +38801,7 @@ function Navbar() {
   const location2 = useLocation();
   const isActive = (path) => location2.pathname === path || location2.pathname.startsWith(`${path}/`);
   const navLinks = [
-    { path: "/", label: "Quizzes", icon: List },
+    { path: "/", label: "Quizzes", icon: List$1 },
     { path: "/feed", label: "Feed", icon: Rss },
     { path: "/games", label: "Games", icon: Gamepad2 },
     { path: "/points-leaderboard", label: "Leaderboard", icon: Trophy },
@@ -38160,12 +38909,777 @@ function Badge({
     }
   );
 }
+function Input({ className, type, ...props }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "input",
+    {
+      type,
+      "data-slot": "input",
+      className: cn(
+        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+        className
+      ),
+      ...props
+    }
+  );
+}
+var NAME = "Label";
+var Label$1 = reactExports.forwardRef((props, forwardedRef) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Primitive.label,
+    {
+      ...props,
+      ref: forwardedRef,
+      onMouseDown: (event) => {
+        var _a3;
+        const target = event.target;
+        if (target.closest("button, input, select, textarea")) return;
+        (_a3 = props.onMouseDown) == null ? void 0 : _a3.call(props, event);
+        if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
+      }
+    }
+  );
+});
+Label$1.displayName = NAME;
+var Root$3 = Label$1;
+function Label({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Root$3,
+    {
+      "data-slot": "label",
+      className: cn(
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+        className
+      ),
+      ...props
+    }
+  );
+}
 function Skeleton({ className, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
     {
       "data-slot": "skeleton",
       className: cn("bg-accent animate-pulse rounded-md", className),
+      ...props
+    }
+  );
+}
+function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
+  return function handleEvent(event) {
+    originalEventHandler == null ? void 0 : originalEventHandler(event);
+    if (checkForDefaultPrevented === false || !event.defaultPrevented) {
+      return ourEventHandler == null ? void 0 : ourEventHandler(event);
+    }
+  };
+}
+function createCollection(name) {
+  const PROVIDER_NAME = name + "CollectionProvider";
+  const [createCollectionContext, createCollectionScope2] = createContextScope(PROVIDER_NAME);
+  const [CollectionProviderImpl, useCollectionContext] = createCollectionContext(
+    PROVIDER_NAME,
+    { collectionRef: { current: null }, itemMap: /* @__PURE__ */ new Map() }
+  );
+  const CollectionProvider = (props) => {
+    const { scope, children } = props;
+    const ref = React2.useRef(null);
+    const itemMap = React2.useRef(/* @__PURE__ */ new Map()).current;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionProviderImpl, { scope, itemMap, collectionRef: ref, children });
+  };
+  CollectionProvider.displayName = PROVIDER_NAME;
+  const COLLECTION_SLOT_NAME = name + "CollectionSlot";
+  const CollectionSlotImpl = /* @__PURE__ */ createSlot(COLLECTION_SLOT_NAME);
+  const CollectionSlot = React2.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children } = props;
+      const context = useCollectionContext(COLLECTION_SLOT_NAME, scope);
+      const composedRefs = useComposedRefs$1(forwardedRef, context.collectionRef);
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionSlotImpl, { ref: composedRefs, children });
+    }
+  );
+  CollectionSlot.displayName = COLLECTION_SLOT_NAME;
+  const ITEM_SLOT_NAME = name + "CollectionItemSlot";
+  const ITEM_DATA_ATTR = "data-radix-collection-item";
+  const CollectionItemSlotImpl = /* @__PURE__ */ createSlot(ITEM_SLOT_NAME);
+  const CollectionItemSlot = React2.forwardRef(
+    (props, forwardedRef) => {
+      const { scope, children, ...itemData } = props;
+      const ref = React2.useRef(null);
+      const composedRefs = useComposedRefs$1(forwardedRef, ref);
+      const context = useCollectionContext(ITEM_SLOT_NAME, scope);
+      React2.useEffect(() => {
+        context.itemMap.set(ref, { ref, ...itemData });
+        return () => void context.itemMap.delete(ref);
+      });
+      return /* @__PURE__ */ jsxRuntimeExports.jsx(CollectionItemSlotImpl, { ...{ [ITEM_DATA_ATTR]: "" }, ref: composedRefs, children });
+    }
+  );
+  CollectionItemSlot.displayName = ITEM_SLOT_NAME;
+  function useCollection2(scope) {
+    const context = useCollectionContext(name + "CollectionConsumer", scope);
+    const getItems = React2.useCallback(() => {
+      const collectionNode = context.collectionRef.current;
+      if (!collectionNode) return [];
+      const orderedNodes = Array.from(collectionNode.querySelectorAll(`[${ITEM_DATA_ATTR}]`));
+      const items = Array.from(context.itemMap.values());
+      const orderedItems = items.sort(
+        (a2, b2) => orderedNodes.indexOf(a2.ref.current) - orderedNodes.indexOf(b2.ref.current)
+      );
+      return orderedItems;
+    }, [context.collectionRef, context.itemMap]);
+    return getItems;
+  }
+  return [
+    { Provider: CollectionProvider, Slot: CollectionSlot, ItemSlot: CollectionItemSlot },
+    useCollection2,
+    createCollectionScope2
+  ];
+}
+var useReactId = React$4[" useId ".trim().toString()] || (() => void 0);
+var count$1 = 0;
+function useId(deterministicId) {
+  const [id2, setId] = reactExports.useState(useReactId());
+  useLayoutEffect2(() => {
+    setId((reactId) => reactId ?? String(count$1++));
+  }, [deterministicId]);
+  return deterministicId || (id2 ? `radix-${id2}` : "");
+}
+var useInsertionEffect = React$4[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
+function useControllableState({
+  prop,
+  defaultProp,
+  onChange = () => {
+  },
+  caller
+}) {
+  const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
+    defaultProp,
+    onChange
+  });
+  const isControlled = prop !== void 0;
+  const value = isControlled ? prop : uncontrolledProp;
+  {
+    const isControlledRef = reactExports.useRef(prop !== void 0);
+    reactExports.useEffect(() => {
+      const wasControlled = isControlledRef.current;
+      if (wasControlled !== isControlled) {
+        const from = wasControlled ? "controlled" : "uncontrolled";
+        const to = isControlled ? "controlled" : "uncontrolled";
+        console.warn(
+          `${caller} is changing from ${from} to ${to}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
+        );
+      }
+      isControlledRef.current = isControlled;
+    }, [isControlled, caller]);
+  }
+  const setValue = reactExports.useCallback(
+    (nextValue) => {
+      var _a3;
+      if (isControlled) {
+        const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
+        if (value2 !== prop) {
+          (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value2);
+        }
+      } else {
+        setUncontrolledProp(nextValue);
+      }
+    },
+    [isControlled, prop, setUncontrolledProp, onChangeRef]
+  );
+  return [value, setValue];
+}
+function useUncontrolledState({
+  defaultProp,
+  onChange
+}) {
+  const [value, setValue] = reactExports.useState(defaultProp);
+  const prevValueRef = reactExports.useRef(value);
+  const onChangeRef = reactExports.useRef(onChange);
+  useInsertionEffect(() => {
+    onChangeRef.current = onChange;
+  }, [onChange]);
+  reactExports.useEffect(() => {
+    var _a3;
+    if (prevValueRef.current !== value) {
+      (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value);
+      prevValueRef.current = value;
+    }
+  }, [value, prevValueRef]);
+  return [value, setValue, onChangeRef];
+}
+function isFunction(value) {
+  return typeof value === "function";
+}
+var DirectionContext = reactExports.createContext(void 0);
+function useDirection(localDir) {
+  const globalDir = reactExports.useContext(DirectionContext);
+  return localDir || globalDir || "ltr";
+}
+var ENTRY_FOCUS = "rovingFocusGroup.onEntryFocus";
+var EVENT_OPTIONS$1 = { bubbles: false, cancelable: true };
+var GROUP_NAME = "RovingFocusGroup";
+var [Collection, useCollection, createCollectionScope] = createCollection(GROUP_NAME);
+var [createRovingFocusGroupContext, createRovingFocusGroupScope] = createContextScope(
+  GROUP_NAME,
+  [createCollectionScope]
+);
+var [RovingFocusProvider, useRovingFocusContext] = createRovingFocusGroupContext(GROUP_NAME);
+var RovingFocusGroup = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Provider, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Collection.Slot, { scope: props.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(RovingFocusGroupImpl, { ...props, ref: forwardedRef }) }) });
+  }
+);
+RovingFocusGroup.displayName = GROUP_NAME;
+var RovingFocusGroupImpl = reactExports.forwardRef((props, forwardedRef) => {
+  const {
+    __scopeRovingFocusGroup,
+    orientation,
+    loop = false,
+    dir,
+    currentTabStopId: currentTabStopIdProp,
+    defaultCurrentTabStopId,
+    onCurrentTabStopIdChange,
+    onEntryFocus,
+    preventScrollOnEntryFocus = false,
+    ...groupProps
+  } = props;
+  const ref = reactExports.useRef(null);
+  const composedRefs = useComposedRefs$1(forwardedRef, ref);
+  const direction = useDirection(dir);
+  const [currentTabStopId, setCurrentTabStopId] = useControllableState({
+    prop: currentTabStopIdProp,
+    defaultProp: defaultCurrentTabStopId ?? null,
+    onChange: onCurrentTabStopIdChange,
+    caller: GROUP_NAME
+  });
+  const [isTabbingBackOut, setIsTabbingBackOut] = reactExports.useState(false);
+  const handleEntryFocus = useCallbackRef$1(onEntryFocus);
+  const getItems = useCollection(__scopeRovingFocusGroup);
+  const isClickFocusRef = reactExports.useRef(false);
+  const [focusableItemsCount, setFocusableItemsCount] = reactExports.useState(0);
+  reactExports.useEffect(() => {
+    const node = ref.current;
+    if (node) {
+      node.addEventListener(ENTRY_FOCUS, handleEntryFocus);
+      return () => node.removeEventListener(ENTRY_FOCUS, handleEntryFocus);
+    }
+  }, [handleEntryFocus]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    RovingFocusProvider,
+    {
+      scope: __scopeRovingFocusGroup,
+      orientation,
+      dir: direction,
+      loop,
+      currentTabStopId,
+      onItemFocus: reactExports.useCallback(
+        (tabStopId) => setCurrentTabStopId(tabStopId),
+        [setCurrentTabStopId]
+      ),
+      onItemShiftTab: reactExports.useCallback(() => setIsTabbingBackOut(true), []),
+      onFocusableItemAdd: reactExports.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount + 1),
+        []
+      ),
+      onFocusableItemRemove: reactExports.useCallback(
+        () => setFocusableItemsCount((prevCount) => prevCount - 1),
+        []
+      ),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          tabIndex: isTabbingBackOut || focusableItemsCount === 0 ? -1 : 0,
+          "data-orientation": orientation,
+          ...groupProps,
+          ref: composedRefs,
+          style: { outline: "none", ...props.style },
+          onMouseDown: composeEventHandlers(props.onMouseDown, () => {
+            isClickFocusRef.current = true;
+          }),
+          onFocus: composeEventHandlers(props.onFocus, (event) => {
+            const isKeyboardFocus = !isClickFocusRef.current;
+            if (event.target === event.currentTarget && isKeyboardFocus && !isTabbingBackOut) {
+              const entryFocusEvent = new CustomEvent(ENTRY_FOCUS, EVENT_OPTIONS$1);
+              event.currentTarget.dispatchEvent(entryFocusEvent);
+              if (!entryFocusEvent.defaultPrevented) {
+                const items = getItems().filter((item) => item.focusable);
+                const activeItem = items.find((item) => item.active);
+                const currentItem = items.find((item) => item.id === currentTabStopId);
+                const candidateItems = [activeItem, currentItem, ...items].filter(
+                  Boolean
+                );
+                const candidateNodes = candidateItems.map((item) => item.ref.current);
+                focusFirst$1(candidateNodes, preventScrollOnEntryFocus);
+              }
+            }
+            isClickFocusRef.current = false;
+          }),
+          onBlur: composeEventHandlers(props.onBlur, () => setIsTabbingBackOut(false))
+        }
+      )
+    }
+  );
+});
+var ITEM_NAME = "RovingFocusGroupItem";
+var RovingFocusGroupItem = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeRovingFocusGroup,
+      focusable = true,
+      active = false,
+      tabStopId,
+      children,
+      ...itemProps
+    } = props;
+    const autoId = useId();
+    const id2 = tabStopId || autoId;
+    const context = useRovingFocusContext(ITEM_NAME, __scopeRovingFocusGroup);
+    const isCurrentTabStop = context.currentTabStopId === id2;
+    const getItems = useCollection(__scopeRovingFocusGroup);
+    const { onFocusableItemAdd, onFocusableItemRemove, currentTabStopId } = context;
+    reactExports.useEffect(() => {
+      if (focusable) {
+        onFocusableItemAdd();
+        return () => onFocusableItemRemove();
+      }
+    }, [focusable, onFocusableItemAdd, onFocusableItemRemove]);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Collection.ItemSlot,
+      {
+        scope: __scopeRovingFocusGroup,
+        id: id2,
+        focusable,
+        active,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.span,
+          {
+            tabIndex: isCurrentTabStop ? 0 : -1,
+            "data-orientation": context.orientation,
+            ...itemProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!focusable) event.preventDefault();
+              else context.onItemFocus(id2);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => context.onItemFocus(id2)),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if (event.key === "Tab" && event.shiftKey) {
+                context.onItemShiftTab();
+                return;
+              }
+              if (event.target !== event.currentTarget) return;
+              const focusIntent = getFocusIntent(event, context.orientation, context.dir);
+              if (focusIntent !== void 0) {
+                if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+                event.preventDefault();
+                const items = getItems().filter((item) => item.focusable);
+                let candidateNodes = items.map((item) => item.ref.current);
+                if (focusIntent === "last") candidateNodes.reverse();
+                else if (focusIntent === "prev" || focusIntent === "next") {
+                  if (focusIntent === "prev") candidateNodes.reverse();
+                  const currentIndex = candidateNodes.indexOf(event.currentTarget);
+                  candidateNodes = context.loop ? wrapArray(candidateNodes, currentIndex + 1) : candidateNodes.slice(currentIndex + 1);
+                }
+                setTimeout(() => focusFirst$1(candidateNodes));
+              }
+            }),
+            children: typeof children === "function" ? children({ isCurrentTabStop, hasTabStop: currentTabStopId != null }) : children
+          }
+        )
+      }
+    );
+  }
+);
+RovingFocusGroupItem.displayName = ITEM_NAME;
+var MAP_KEY_TO_FOCUS_INTENT = {
+  ArrowLeft: "prev",
+  ArrowUp: "prev",
+  ArrowRight: "next",
+  ArrowDown: "next",
+  PageUp: "first",
+  Home: "first",
+  PageDown: "last",
+  End: "last"
+};
+function getDirectionAwareKey(key, dir) {
+  if (dir !== "rtl") return key;
+  return key === "ArrowLeft" ? "ArrowRight" : key === "ArrowRight" ? "ArrowLeft" : key;
+}
+function getFocusIntent(event, orientation, dir) {
+  const key = getDirectionAwareKey(event.key, dir);
+  if (orientation === "vertical" && ["ArrowLeft", "ArrowRight"].includes(key)) return void 0;
+  if (orientation === "horizontal" && ["ArrowUp", "ArrowDown"].includes(key)) return void 0;
+  return MAP_KEY_TO_FOCUS_INTENT[key];
+}
+function focusFirst$1(candidates, preventScroll = false) {
+  const PREVIOUSLY_FOCUSED_ELEMENT = document.activeElement;
+  for (const candidate of candidates) {
+    if (candidate === PREVIOUSLY_FOCUSED_ELEMENT) return;
+    candidate.focus({ preventScroll });
+    if (document.activeElement !== PREVIOUSLY_FOCUSED_ELEMENT) return;
+  }
+}
+function wrapArray(array, startIndex) {
+  return array.map((_2, index2) => array[(startIndex + index2) % array.length]);
+}
+var Root$2 = RovingFocusGroup;
+var Item = RovingFocusGroupItem;
+function useStateMachine(initialState, machine) {
+  return reactExports.useReducer((state, event) => {
+    const nextState = machine[state][event];
+    return nextState ?? state;
+  }, initialState);
+}
+var Presence = (props) => {
+  const { present, children } = props;
+  const presence = usePresence$1(present);
+  const child = typeof children === "function" ? children({ present: presence.isPresent }) : reactExports.Children.only(children);
+  const ref = useComposedRefs$1(presence.ref, getElementRef(child));
+  const forceMount = typeof children === "function";
+  return forceMount || presence.isPresent ? reactExports.cloneElement(child, { ref }) : null;
+};
+Presence.displayName = "Presence";
+function usePresence$1(present) {
+  const [node, setNode] = reactExports.useState();
+  const stylesRef = reactExports.useRef(null);
+  const prevPresentRef = reactExports.useRef(present);
+  const prevAnimationNameRef = reactExports.useRef("none");
+  const initialState = present ? "mounted" : "unmounted";
+  const [state, send] = useStateMachine(initialState, {
+    mounted: {
+      UNMOUNT: "unmounted",
+      ANIMATION_OUT: "unmountSuspended"
+    },
+    unmountSuspended: {
+      MOUNT: "mounted",
+      ANIMATION_END: "unmounted"
+    },
+    unmounted: {
+      MOUNT: "mounted"
+    }
+  });
+  reactExports.useEffect(() => {
+    const currentAnimationName = getAnimationName(stylesRef.current);
+    prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
+  }, [state]);
+  useLayoutEffect2(() => {
+    const styles = stylesRef.current;
+    const wasPresent = prevPresentRef.current;
+    const hasPresentChanged = wasPresent !== present;
+    if (hasPresentChanged) {
+      const prevAnimationName = prevAnimationNameRef.current;
+      const currentAnimationName = getAnimationName(styles);
+      if (present) {
+        send("MOUNT");
+      } else if (currentAnimationName === "none" || (styles == null ? void 0 : styles.display) === "none") {
+        send("UNMOUNT");
+      } else {
+        const isAnimating = prevAnimationName !== currentAnimationName;
+        if (wasPresent && isAnimating) {
+          send("ANIMATION_OUT");
+        } else {
+          send("UNMOUNT");
+        }
+      }
+      prevPresentRef.current = present;
+    }
+  }, [present, send]);
+  useLayoutEffect2(() => {
+    if (node) {
+      let timeoutId;
+      const ownerWindow = node.ownerDocument.defaultView ?? window;
+      const handleAnimationEnd = (event) => {
+        const currentAnimationName = getAnimationName(stylesRef.current);
+        const isCurrentAnimation = currentAnimationName.includes(CSS.escape(event.animationName));
+        if (event.target === node && isCurrentAnimation) {
+          send("ANIMATION_END");
+          if (!prevPresentRef.current) {
+            const currentFillMode = node.style.animationFillMode;
+            node.style.animationFillMode = "forwards";
+            timeoutId = ownerWindow.setTimeout(() => {
+              if (node.style.animationFillMode === "forwards") {
+                node.style.animationFillMode = currentFillMode;
+              }
+            });
+          }
+        }
+      };
+      const handleAnimationStart = (event) => {
+        if (event.target === node) {
+          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
+        }
+      };
+      node.addEventListener("animationstart", handleAnimationStart);
+      node.addEventListener("animationcancel", handleAnimationEnd);
+      node.addEventListener("animationend", handleAnimationEnd);
+      return () => {
+        ownerWindow.clearTimeout(timeoutId);
+        node.removeEventListener("animationstart", handleAnimationStart);
+        node.removeEventListener("animationcancel", handleAnimationEnd);
+        node.removeEventListener("animationend", handleAnimationEnd);
+      };
+    } else {
+      send("ANIMATION_END");
+    }
+  }, [node, send]);
+  return {
+    isPresent: ["mounted", "unmountSuspended"].includes(state),
+    ref: reactExports.useCallback((node2) => {
+      stylesRef.current = node2 ? getComputedStyle(node2) : null;
+      setNode(node2);
+    }, [])
+  };
+}
+function getAnimationName(styles) {
+  return (styles == null ? void 0 : styles.animationName) || "none";
+}
+function getElementRef(element) {
+  var _a3, _b3;
+  let getter = (_a3 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a3.get;
+  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.ref;
+  }
+  getter = (_b3 = Object.getOwnPropertyDescriptor(element, "ref")) == null ? void 0 : _b3.get;
+  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
+  if (mayWarn) {
+    return element.props.ref;
+  }
+  return element.props.ref || element.ref;
+}
+var TABS_NAME = "Tabs";
+var [createTabsContext] = createContextScope(TABS_NAME, [
+  createRovingFocusGroupScope
+]);
+var useRovingFocusGroupScope = createRovingFocusGroupScope();
+var [TabsProvider, useTabsContext] = createTabsContext(TABS_NAME);
+var Tabs$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeTabs,
+      value: valueProp,
+      onValueChange,
+      defaultValue,
+      orientation = "horizontal",
+      dir,
+      activationMode = "automatic",
+      ...tabsProps
+    } = props;
+    const direction = useDirection(dir);
+    const [value, setValue] = useControllableState({
+      prop: valueProp,
+      onChange: onValueChange,
+      defaultProp: defaultValue ?? "",
+      caller: TABS_NAME
+    });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      TabsProvider,
+      {
+        scope: __scopeTabs,
+        baseId: useId(),
+        value,
+        onValueChange: setValue,
+        orientation,
+        dir: direction,
+        activationMode,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            dir: direction,
+            "data-orientation": orientation,
+            ...tabsProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+Tabs$1.displayName = TABS_NAME;
+var TAB_LIST_NAME = "TabsList";
+var TabsList$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, loop = true, ...listProps } = props;
+    const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Root$2,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        orientation: context.orientation,
+        dir: context.dir,
+        loop,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            role: "tablist",
+            "aria-orientation": context.orientation,
+            ...listProps,
+            ref: forwardedRef
+          }
+        )
+      }
+    );
+  }
+);
+TabsList$1.displayName = TAB_LIST_NAME;
+var TRIGGER_NAME$1 = "TabsTrigger";
+var TabsTrigger$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, disabled = false, ...triggerProps } = props;
+    const context = useTabsContext(TRIGGER_NAME$1, __scopeTabs);
+    const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Item,
+      {
+        asChild: true,
+        ...rovingFocusGroupScope,
+        focusable: !disabled,
+        active: isSelected,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.button,
+          {
+            type: "button",
+            role: "tab",
+            "aria-selected": isSelected,
+            "aria-controls": contentId,
+            "data-state": isSelected ? "active" : "inactive",
+            "data-disabled": disabled ? "" : void 0,
+            disabled,
+            id: triggerId,
+            ...triggerProps,
+            ref: forwardedRef,
+            onMouseDown: composeEventHandlers(props.onMouseDown, (event) => {
+              if (!disabled && event.button === 0 && event.ctrlKey === false) {
+                context.onValueChange(value);
+              } else {
+                event.preventDefault();
+              }
+            }),
+            onKeyDown: composeEventHandlers(props.onKeyDown, (event) => {
+              if ([" ", "Enter"].includes(event.key)) context.onValueChange(value);
+            }),
+            onFocus: composeEventHandlers(props.onFocus, () => {
+              const isAutomaticActivation = context.activationMode !== "manual";
+              if (!isSelected && !disabled && isAutomaticActivation) {
+                context.onValueChange(value);
+              }
+            })
+          }
+        )
+      }
+    );
+  }
+);
+TabsTrigger$1.displayName = TRIGGER_NAME$1;
+var CONTENT_NAME$1 = "TabsContent";
+var TabsContent$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeTabs, value, forceMount, children, ...contentProps } = props;
+    const context = useTabsContext(CONTENT_NAME$1, __scopeTabs);
+    const triggerId = makeTriggerId(context.baseId, value);
+    const contentId = makeContentId(context.baseId, value);
+    const isSelected = value === context.value;
+    const isMountAnimationPreventedRef = reactExports.useRef(isSelected);
+    reactExports.useEffect(() => {
+      const rAF = requestAnimationFrame(() => isMountAnimationPreventedRef.current = false);
+      return () => cancelAnimationFrame(rAF);
+    }, []);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || isSelected, children: ({ present }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "data-state": isSelected ? "active" : "inactive",
+        "data-orientation": context.orientation,
+        role: "tabpanel",
+        "aria-labelledby": triggerId,
+        hidden: !present,
+        id: contentId,
+        tabIndex: 0,
+        ...contentProps,
+        ref: forwardedRef,
+        style: {
+          ...props.style,
+          animationDuration: isMountAnimationPreventedRef.current ? "0s" : void 0
+        },
+        children: present && children
+      }
+    ) });
+  }
+);
+TabsContent$1.displayName = CONTENT_NAME$1;
+function makeTriggerId(baseId, value) {
+  return `${baseId}-trigger-${value}`;
+}
+function makeContentId(baseId, value) {
+  return `${baseId}-content-${value}`;
+}
+var Root2 = Tabs$1;
+var List = TabsList$1;
+var Trigger$1 = TabsTrigger$1;
+var Content$1 = TabsContent$1;
+function Tabs({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Root2,
+    {
+      "data-slot": "tabs",
+      className: cn("flex flex-col gap-2", className),
+      ...props
+    }
+  );
+}
+function TabsList({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    List,
+    {
+      "data-slot": "tabs-list",
+      className: cn(
+        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function TabsTrigger({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Trigger$1,
+    {
+      "data-slot": "tabs-trigger",
+      className: cn(
+        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        className
+      ),
+      ...props
+    }
+  );
+}
+function TabsContent({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Content$1,
+    {
+      "data-slot": "tabs-content",
+      className: cn("flex-1 outline-none", className),
       ...props
     }
   );
@@ -44285,7 +45799,7 @@ const PresenceChild = ({ children, initial, isPresent, onExitComplete, custom, p
 function newChildrenMap() {
   return /* @__PURE__ */ new Map();
 }
-function usePresence$1(subscribe2 = true) {
+function usePresence(subscribe2 = true) {
   const context = reactExports.useContext(PresenceContext);
   if (context === null)
     return [true, null];
@@ -44309,7 +45823,7 @@ function onlyElements(children) {
   return filtered;
 }
 const AnimatePresence = ({ children, custom, initial = true, onExitComplete, presenceAffectsLayout = true, mode = "sync", propagate = false, anchorX = "left", anchorY = "top", root: root2 }) => {
-  const [isParentPresent, safeToRemove] = usePresence$1(propagate);
+  const [isParentPresent, safeToRemove] = usePresence(propagate);
   const presentChildren = reactExports.useMemo(() => onlyElements(children), [children]);
   const presentKeys = propagate && !isParentPresent ? [] : presentChildren.map(getChildKey);
   const isInitialRender = reactExports.useRef(true);
@@ -45847,7 +47361,7 @@ class MeasureLayoutWithContext extends reactExports.Component {
   }
 }
 function MeasureLayout(props) {
-  const [isPresent, safeToRemove] = usePresence$1();
+  const [isPresent, safeToRemove] = usePresence();
   const layoutGroup = reactExports.useContext(LayoutGroupContext);
   return jsxRuntimeExports.jsx(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: reactExports.useContext(SwitchLayoutGroupContext), isPresent, safeToRemove });
 }
@@ -46089,6 +47603,425 @@ function AnswerDisplay({ q: q2 }) {
     );
   }) });
 }
+function MiniGameCreator() {
+  const createTrivia = useCreateCustomTrivia();
+  const createSpin = useCreateCustomSpinWheel();
+  const { data: customGames, isLoading: loadingGames } = useGetAllCustomGames();
+  const qIdRef = reactExports.useRef(1);
+  const sIdRef = reactExports.useRef(3);
+  const [triviaTitle, setTriviaTitle] = reactExports.useState("");
+  const [triviaQuestions, setTriviaQuestions] = reactExports.useState(
+    [
+      {
+        id: 0,
+        text: "",
+        options: ["", "", "", ""],
+        correctOption: 0,
+        pointsReward: 10
+      }
+    ]
+  );
+  const [spinTitle, setSpinTitle] = reactExports.useState("");
+  const [spinSegments, setSpinSegments] = reactExports.useState([
+    { id: 1, segmentLabel: "", points: 50 },
+    { id: 2, segmentLabel: "", points: 100 }
+  ]);
+  function addTriviaQuestion() {
+    const id2 = qIdRef.current++;
+    setTriviaQuestions((prev) => [
+      ...prev,
+      {
+        id: id2,
+        text: "",
+        options: ["", "", "", ""],
+        correctOption: 0,
+        pointsReward: 10
+      }
+    ]);
+  }
+  function removeTriviaQuestion(id2) {
+    setTriviaQuestions((prev) => prev.filter((q2) => q2.id !== id2));
+  }
+  function updateTriviaQuestion(id2, field, value) {
+    setTriviaQuestions(
+      (prev) => prev.map((q2) => q2.id === id2 ? { ...q2, [field]: value } : q2)
+    );
+  }
+  function updateTriviaOption(id2, optIdx, value) {
+    setTriviaQuestions(
+      (prev) => prev.map((q2) => {
+        if (q2.id !== id2) return q2;
+        const opts = [...q2.options];
+        opts[optIdx] = value;
+        return { ...q2, options: opts };
+      })
+    );
+  }
+  function addSpinSegment() {
+    const id2 = sIdRef.current++;
+    setSpinSegments((prev) => [...prev, { id: id2, segmentLabel: "", points: 50 }]);
+  }
+  function removeSpinSegment(id2) {
+    setSpinSegments((prev) => prev.filter((s2) => s2.id !== id2));
+  }
+  function updateSpinSegment(id2, field, value) {
+    setSpinSegments(
+      (prev) => prev.map((s2) => s2.id === id2 ? { ...s2, [field]: value } : s2)
+    );
+  }
+  async function handleCreateTrivia() {
+    if (!triviaTitle.trim()) {
+      ue.error("Please enter a game title.");
+      return;
+    }
+    if (triviaQuestions.some((q2) => !q2.text.trim())) {
+      ue.error("All questions must have text.");
+      return;
+    }
+    const questions = triviaQuestions.map((q2) => ({
+      text: q2.text,
+      options: q2.options,
+      correctOption: BigInt(q2.correctOption),
+      pointsReward: BigInt(q2.pointsReward)
+    }));
+    try {
+      await createTrivia.mutateAsync({ title: triviaTitle, questions });
+      ue.success("Trivia game created!");
+      setTriviaTitle("");
+      qIdRef.current = 1;
+      setTriviaQuestions([
+        {
+          id: 0,
+          text: "",
+          options: ["", "", "", ""],
+          correctOption: 0,
+          pointsReward: 10
+        }
+      ]);
+    } catch (_e2) {
+      ue.error("Failed to create trivia game.");
+    }
+  }
+  async function handleCreateSpin() {
+    if (!spinTitle.trim()) {
+      ue.error("Please enter a game title.");
+      return;
+    }
+    if (spinSegments.some((s2) => !s2.segmentLabel.trim())) {
+      ue.error("All segments must have a label.");
+      return;
+    }
+    if (spinSegments.length < 2) {
+      ue.error("Add at least 2 segments.");
+      return;
+    }
+    const segments = spinSegments.map((s2) => ({
+      segmentLabel: s2.segmentLabel,
+      points: BigInt(s2.points)
+    }));
+    try {
+      await createSpin.mutateAsync({ title: spinTitle, segments });
+      ue.success("Spin Wheel game created!");
+      setSpinTitle("");
+      sIdRef.current = 3;
+      setSpinSegments([
+        { id: 1, segmentLabel: "", points: 50 },
+        { id: 2, segmentLabel: "", points: 100 }
+      ]);
+    } catch (_e2) {
+      ue.error("Failed to create spin wheel game.");
+    }
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        className: "glass-card rounded-2xl overflow-hidden",
+        "data-ocid": "admin.panel",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-4 border-b border-border/40 flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-5 h-5 text-primary" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold", children: "Create Mini Game" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "#1 Exclusive" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-6 py-5", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { defaultValue: "trivia", "data-ocid": "admin.tab", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsList, { className: "mb-6 rounded-xl bg-secondary/50", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "trivia", "data-ocid": "admin.tab", children: "Trivia Challenge" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "spinwheel", "data-ocid": "admin.tab", children: "Custom Spin Wheel" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsContent, { value: "trivia", className: "space-y-5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "trivia-title", className: "text-sm mb-1.5 block", children: "Game Title" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Input,
+                  {
+                    id: "trivia-title",
+                    value: triviaTitle,
+                    onChange: (e) => setTriviaTitle(e.target.value),
+                    placeholder: "e.g. Ultimate Science Challenge",
+                    className: "bg-secondary/30 border-border/50",
+                    "data-ocid": "admin.input"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: triviaQuestions.map((q2, qi) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "div",
+                {
+                  className: "rounded-xl border border-border/40 bg-secondary/20 p-4 space-y-3",
+                  "data-ocid": `admin.item.${qi + 1}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-medium text-muted-foreground", children: [
+                        "Question ",
+                        qi + 1
+                      ] }),
+                      triviaQuestions.length > 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "button",
+                        {
+                          type: "button",
+                          onClick: () => removeTriviaQuestion(q2.id),
+                          className: "text-destructive hover:opacity-70 transition-opacity",
+                          "data-ocid": `admin.delete_button.${qi + 1}`,
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4" })
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        value: q2.text,
+                        onChange: (e) => updateTriviaQuestion(q2.id, "text", e.target.value),
+                        placeholder: "Question text",
+                        className: "bg-secondary/30 border-border/50",
+                        "data-ocid": "admin.input"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 gap-2", children: q2.options.map((opt, oi) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        value: opt,
+                        onChange: (e) => updateTriviaOption(q2.id, oi, e.target.value),
+                        placeholder: `Option ${String.fromCharCode(65 + oi)}`,
+                        className: "bg-secondary/30 border-border/50 text-sm",
+                        "data-ocid": "admin.input"
+                      },
+                      String.fromCharCode(65 + oi)
+                    )) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { className: "text-xs text-muted-foreground mb-1 block", children: "Correct Answer" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                          "select",
+                          {
+                            value: q2.correctOption,
+                            onChange: (e) => updateTriviaQuestion(
+                              q2.id,
+                              "correctOption",
+                              Number(e.target.value)
+                            ),
+                            className: "w-full rounded-lg border border-border/50 bg-secondary/30 px-3 py-2 text-sm text-foreground",
+                            "data-ocid": "admin.select",
+                            children: [
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 0, children: "A" }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 1, children: "B" }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 2, children: "C" }),
+                              /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: 3, children: "D" })
+                            ]
+                          }
+                        )
+                      ] }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { className: "text-xs text-muted-foreground mb-1 block", children: "Points Reward" }),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          Input,
+                          {
+                            type: "number",
+                            min: 1,
+                            value: q2.pointsReward,
+                            onChange: (e) => updateTriviaQuestion(
+                              q2.id,
+                              "pointsReward",
+                              Number(e.target.value)
+                            ),
+                            className: "bg-secondary/30 border-border/50",
+                            "data-ocid": "admin.input"
+                          }
+                        )
+                      ] })
+                    ] })
+                  ]
+                },
+                q2.id
+              )) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    type: "button",
+                    variant: "outline",
+                    onClick: addTriviaQuestion,
+                    className: "rounded-full flex items-center gap-2",
+                    "data-ocid": "admin.secondary_button",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-4 h-4" }),
+                      "Add Question"
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    type: "button",
+                    onClick: handleCreateTrivia,
+                    disabled: createTrivia.isPending,
+                    className: "gradient-bg border-0 text-white rounded-full glow-cyan flex items-center gap-2",
+                    "data-ocid": "admin.primary_button",
+                    children: [
+                      createTrivia.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 animate-spin" }) : null,
+                      createTrivia.isPending ? "Creating..." : "Create Trivia Game"
+                    ]
+                  }
+                )
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsContent, { value: "spinwheel", className: "space-y-5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Label, { htmlFor: "spin-title", className: "text-sm mb-1.5 block", children: "Game Title" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  Input,
+                  {
+                    id: "spin-title",
+                    value: spinTitle,
+                    onChange: (e) => setSpinTitle(e.target.value),
+                    placeholder: "e.g. Community Bonus Wheel",
+                    className: "bg-secondary/30 border-border/50",
+                    "data-ocid": "admin.input"
+                  }
+                )
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: spinSegments.map((seg, si) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "div",
+                {
+                  className: "flex items-center gap-3 rounded-xl border border-border/40 bg-secondary/20 p-3",
+                  "data-ocid": `admin.item.${si + 1}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        value: seg.segmentLabel,
+                        onChange: (e) => updateSpinSegment(
+                          seg.id,
+                          "segmentLabel",
+                          e.target.value
+                        ),
+                        placeholder: `Segment ${si + 1} label (e.g. 50 Points)`,
+                        className: "bg-secondary/30 border-border/50",
+                        "data-ocid": "admin.input"
+                      }
+                    ) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        type: "number",
+                        min: 0,
+                        value: seg.points,
+                        onChange: (e) => updateSpinSegment(
+                          seg.id,
+                          "points",
+                          Number(e.target.value)
+                        ),
+                        placeholder: "Points",
+                        className: "bg-secondary/30 border-border/50",
+                        "data-ocid": "admin.input"
+                      }
+                    ) }),
+                    spinSegments.length > 2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        onClick: () => removeSpinSegment(seg.id),
+                        className: "text-destructive hover:opacity-70 transition-opacity shrink-0",
+                        "data-ocid": `admin.delete_button.${si + 1}`,
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Trash2, { className: "w-4 h-4" })
+                      }
+                    )
+                  ]
+                },
+                seg.id
+              )) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    type: "button",
+                    variant: "outline",
+                    onClick: addSpinSegment,
+                    className: "rounded-full flex items-center gap-2",
+                    "data-ocid": "admin.secondary_button",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(Plus, { className: "w-4 h-4" }),
+                      "Add Segment"
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    type: "button",
+                    onClick: handleCreateSpin,
+                    disabled: createSpin.isPending,
+                    className: "gradient-bg border-0 text-white rounded-full glow-cyan flex items-center gap-2",
+                    "data-ocid": "admin.primary_button",
+                    children: [
+                      createSpin.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 animate-spin" }) : null,
+                      createSpin.isPending ? "Creating..." : "Create Spin Wheel"
+                    ]
+                  }
+                )
+              ] })
+            ] })
+          ] }) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "text-base font-semibold mb-3 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 text-primary" }),
+        "Community Mini Games"
+      ] }),
+      loadingGames ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", "data-ocid": "admin.loading_state", children: ["g1", "g2"].map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-14 rounded-xl" }, k2)) }) : !customGames || customGames.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "div",
+        {
+          className: "glass-card rounded-xl p-6 text-center text-muted-foreground text-sm",
+          "data-ocid": "admin.empty_state",
+          children: "No custom games yet. Create one above!"
+        }
+      ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: customGames.map((g2, gi) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: "glass-card rounded-xl px-5 py-3 flex items-center justify-between",
+          "data-ocid": `admin.item.${gi + 1}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-medium", children: g2.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground mt-0.5", children: g2.gameType.__kind__ === "customTrivia" ? `Trivia · ${g2.gameType.customTrivia.questions.length} questions` : `Spin Wheel · ${g2.gameType.customSpinWheel.segments.length} segments` })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Badge,
+              {
+                className: g2.gameType.__kind__ === "customTrivia" ? "bg-blue-500/20 text-blue-400 border-blue-500/40" : "bg-purple-500/20 text-purple-400 border-purple-500/40",
+                children: g2.gameType.__kind__ === "customTrivia" ? "Trivia" : "Spin Wheel"
+              }
+            )
+          ]
+        },
+        g2.id.toString()
+      )) })
+    ] })
+  ] });
+}
 function AdminPanel() {
   var _a3;
   const { identity, login, loginStatus } = useInternetIdentity();
@@ -46196,18 +48129,19 @@ function AdminPanel() {
               "#1 Player"
             ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "You are the #1 all-time points leader. Here are all quiz answers." })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "You are the #1 all-time points leader. View all quiz answers and create custom mini games." })
         ]
       }
     ),
-    loadingAnswers ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", "data-ocid": "admin.loading_state", children: SKELETON_KEYS$3.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-32 rounded-2xl" }, k2)) }) : !quizAnswers || quizAnswers.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold mb-4", children: "All Quiz Answers" }),
+    loadingAnswers ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4 mb-10", "data-ocid": "admin.loading_state", children: SKELETON_KEYS$3.map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-32 rounded-2xl" }, k2)) }) : !quizAnswers || quizAnswers.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
-        className: "glass-card rounded-2xl p-12 text-center",
+        className: "glass-card rounded-2xl p-12 text-center mb-10",
         "data-ocid": "admin.empty_state",
         children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "No quizzes found." })
       }
-    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-6", "data-ocid": "admin.panel", children: quizAnswers.map((qwa, qi) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-6 mb-10", "data-ocid": "admin.panel", children: quizAnswers.map((qwa, qi) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
       motion.div,
       {
         initial: { opacity: 0, y: 20 },
@@ -46234,59 +48168,10 @@ function AdminPanel() {
         ]
       },
       qwa.quiz.id.toString()
-    )) })
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold mb-4", children: "Mini Game Creator" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(MiniGameCreator, {})
   ] });
-}
-function Input({ className, type, ...props }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "input",
-    {
-      type,
-      "data-slot": "input",
-      className: cn(
-        "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        className
-      ),
-      ...props
-    }
-  );
-}
-var NAME = "Label";
-var Label$1 = reactExports.forwardRef((props, forwardedRef) => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Primitive.label,
-    {
-      ...props,
-      ref: forwardedRef,
-      onMouseDown: (event) => {
-        var _a3;
-        const target = event.target;
-        if (target.closest("button, input, select, textarea")) return;
-        (_a3 = props.onMouseDown) == null ? void 0 : _a3.call(props, event);
-        if (!event.defaultPrevented && event.detail > 1) event.preventDefault();
-      }
-    }
-  );
-});
-Label$1.displayName = NAME;
-var Root$2 = Label$1;
-function Label({
-  className,
-  ...props
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root$2,
-    {
-      "data-slot": "label",
-      className: cn(
-        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
-        className
-      ),
-      ...props
-    }
-  );
 }
 function Textarea({ className, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -47084,89 +48969,6 @@ function GamesHub() {
     )
   ] });
 }
-function composeEventHandlers(originalEventHandler, ourEventHandler, { checkForDefaultPrevented = true } = {}) {
-  return function handleEvent(event) {
-    originalEventHandler == null ? void 0 : originalEventHandler(event);
-    if (checkForDefaultPrevented === false || !event.defaultPrevented) {
-      return ourEventHandler == null ? void 0 : ourEventHandler(event);
-    }
-  };
-}
-var useReactId = React$4[" useId ".trim().toString()] || (() => void 0);
-var count$1 = 0;
-function useId(deterministicId) {
-  const [id2, setId] = reactExports.useState(useReactId());
-  useLayoutEffect2(() => {
-    setId((reactId) => reactId ?? String(count$1++));
-  }, [deterministicId]);
-  return deterministicId || (id2 ? `radix-${id2}` : "");
-}
-var useInsertionEffect = React$4[" useInsertionEffect ".trim().toString()] || useLayoutEffect2;
-function useControllableState({
-  prop,
-  defaultProp,
-  onChange = () => {
-  },
-  caller
-}) {
-  const [uncontrolledProp, setUncontrolledProp, onChangeRef] = useUncontrolledState({
-    defaultProp,
-    onChange
-  });
-  const isControlled = prop !== void 0;
-  const value = isControlled ? prop : uncontrolledProp;
-  {
-    const isControlledRef = reactExports.useRef(prop !== void 0);
-    reactExports.useEffect(() => {
-      const wasControlled = isControlledRef.current;
-      if (wasControlled !== isControlled) {
-        const from = wasControlled ? "controlled" : "uncontrolled";
-        const to = isControlled ? "controlled" : "uncontrolled";
-        console.warn(
-          `${caller} is changing from ${from} to ${to}. Components should not switch from controlled to uncontrolled (or vice versa). Decide between using a controlled or uncontrolled value for the lifetime of the component.`
-        );
-      }
-      isControlledRef.current = isControlled;
-    }, [isControlled, caller]);
-  }
-  const setValue = reactExports.useCallback(
-    (nextValue) => {
-      var _a3;
-      if (isControlled) {
-        const value2 = isFunction(nextValue) ? nextValue(prop) : nextValue;
-        if (value2 !== prop) {
-          (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value2);
-        }
-      } else {
-        setUncontrolledProp(nextValue);
-      }
-    },
-    [isControlled, prop, setUncontrolledProp, onChangeRef]
-  );
-  return [value, setValue];
-}
-function useUncontrolledState({
-  defaultProp,
-  onChange
-}) {
-  const [value, setValue] = reactExports.useState(defaultProp);
-  const prevValueRef = reactExports.useRef(value);
-  const onChangeRef = reactExports.useRef(onChange);
-  useInsertionEffect(() => {
-    onChangeRef.current = onChange;
-  }, [onChange]);
-  reactExports.useEffect(() => {
-    var _a3;
-    if (prevValueRef.current !== value) {
-      (_a3 = onChangeRef.current) == null ? void 0 : _a3.call(onChangeRef, value);
-      prevValueRef.current = value;
-    }
-  }, [value, prevValueRef]);
-  return [value, setValue, onChangeRef];
-}
-function isFunction(value) {
-  return typeof value === "function";
-}
 function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis == null ? void 0 : globalThis.document) {
   const onEscapeKeyDown = useCallbackRef$1(onEscapeKeyDownProp);
   reactExports.useEffect(() => {
@@ -47590,129 +49392,6 @@ var Portal$1 = reactExports.forwardRef((props, forwardedRef) => {
   return container ? ReactDOM$2.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(Primitive.div, { ...portalProps, ref: forwardedRef }), container) : null;
 });
 Portal$1.displayName = PORTAL_NAME$1;
-function useStateMachine(initialState, machine) {
-  return reactExports.useReducer((state, event) => {
-    const nextState = machine[state][event];
-    return nextState ?? state;
-  }, initialState);
-}
-var Presence = (props) => {
-  const { present, children } = props;
-  const presence = usePresence(present);
-  const child = typeof children === "function" ? children({ present: presence.isPresent }) : reactExports.Children.only(children);
-  const ref = useComposedRefs$1(presence.ref, getElementRef(child));
-  const forceMount = typeof children === "function";
-  return forceMount || presence.isPresent ? reactExports.cloneElement(child, { ref }) : null;
-};
-Presence.displayName = "Presence";
-function usePresence(present) {
-  const [node, setNode] = reactExports.useState();
-  const stylesRef = reactExports.useRef(null);
-  const prevPresentRef = reactExports.useRef(present);
-  const prevAnimationNameRef = reactExports.useRef("none");
-  const initialState = present ? "mounted" : "unmounted";
-  const [state, send] = useStateMachine(initialState, {
-    mounted: {
-      UNMOUNT: "unmounted",
-      ANIMATION_OUT: "unmountSuspended"
-    },
-    unmountSuspended: {
-      MOUNT: "mounted",
-      ANIMATION_END: "unmounted"
-    },
-    unmounted: {
-      MOUNT: "mounted"
-    }
-  });
-  reactExports.useEffect(() => {
-    const currentAnimationName = getAnimationName(stylesRef.current);
-    prevAnimationNameRef.current = state === "mounted" ? currentAnimationName : "none";
-  }, [state]);
-  useLayoutEffect2(() => {
-    const styles = stylesRef.current;
-    const wasPresent = prevPresentRef.current;
-    const hasPresentChanged = wasPresent !== present;
-    if (hasPresentChanged) {
-      const prevAnimationName = prevAnimationNameRef.current;
-      const currentAnimationName = getAnimationName(styles);
-      if (present) {
-        send("MOUNT");
-      } else if (currentAnimationName === "none" || (styles == null ? void 0 : styles.display) === "none") {
-        send("UNMOUNT");
-      } else {
-        const isAnimating = prevAnimationName !== currentAnimationName;
-        if (wasPresent && isAnimating) {
-          send("ANIMATION_OUT");
-        } else {
-          send("UNMOUNT");
-        }
-      }
-      prevPresentRef.current = present;
-    }
-  }, [present, send]);
-  useLayoutEffect2(() => {
-    if (node) {
-      let timeoutId;
-      const ownerWindow = node.ownerDocument.defaultView ?? window;
-      const handleAnimationEnd = (event) => {
-        const currentAnimationName = getAnimationName(stylesRef.current);
-        const isCurrentAnimation = currentAnimationName.includes(CSS.escape(event.animationName));
-        if (event.target === node && isCurrentAnimation) {
-          send("ANIMATION_END");
-          if (!prevPresentRef.current) {
-            const currentFillMode = node.style.animationFillMode;
-            node.style.animationFillMode = "forwards";
-            timeoutId = ownerWindow.setTimeout(() => {
-              if (node.style.animationFillMode === "forwards") {
-                node.style.animationFillMode = currentFillMode;
-              }
-            });
-          }
-        }
-      };
-      const handleAnimationStart = (event) => {
-        if (event.target === node) {
-          prevAnimationNameRef.current = getAnimationName(stylesRef.current);
-        }
-      };
-      node.addEventListener("animationstart", handleAnimationStart);
-      node.addEventListener("animationcancel", handleAnimationEnd);
-      node.addEventListener("animationend", handleAnimationEnd);
-      return () => {
-        ownerWindow.clearTimeout(timeoutId);
-        node.removeEventListener("animationstart", handleAnimationStart);
-        node.removeEventListener("animationcancel", handleAnimationEnd);
-        node.removeEventListener("animationend", handleAnimationEnd);
-      };
-    } else {
-      send("ANIMATION_END");
-    }
-  }, [node, send]);
-  return {
-    isPresent: ["mounted", "unmountSuspended"].includes(state),
-    ref: reactExports.useCallback((node2) => {
-      stylesRef.current = node2 ? getComputedStyle(node2) : null;
-      setNode(node2);
-    }, [])
-  };
-}
-function getAnimationName(styles) {
-  return (styles == null ? void 0 : styles.animationName) || "none";
-}
-function getElementRef(element) {
-  var _a3, _b3;
-  let getter = (_a3 = Object.getOwnPropertyDescriptor(element.props, "ref")) == null ? void 0 : _a3.get;
-  let mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.ref;
-  }
-  getter = (_b3 = Object.getOwnPropertyDescriptor(element, "ref")) == null ? void 0 : _b3.get;
-  mayWarn = getter && "isReactWarning" in getter && getter.isReactWarning;
-  if (mayWarn) {
-    return element.props.ref;
-  }
-  return element.props.ref || element.ref;
-}
 var count = 0;
 function useFocusGuards() {
   reactExports.useEffect(() => {
@@ -49003,10 +50682,17 @@ function Home() {
   const { data: quizzes, isLoading } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
   const { data: profile } = useGetUserProfile();
+  const seedMutation = useSeedQuizzes();
   const showUsernameDialog = !!identity && profile === null;
   const filtered = (quizzes ?? []).filter(
     (q2) => q2.title.toLowerCase().includes(search.toLowerCase()) || q2.description.toLowerCase().includes(search.toLowerCase())
   );
+  function handleSeedQuizzes() {
+    seedMutation.mutate(void 0, {
+      onSuccess: () => ue.success("Sample quizzes loaded!"),
+      onError: () => ue.error("Failed to load sample quizzes.")
+    });
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative overflow-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
@@ -49153,7 +50839,21 @@ function Home() {
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-12 h-12 mx-auto mb-4 text-muted-foreground" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-lg", children: "No quizzes found." }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "mt-4 gradient-bg border-0 text-white rounded-full", children: "Create the first quiz!" }) })
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "mt-4 gradient-bg border-0 text-white rounded-full", children: "Create the first quiz!" }) }),
+                !!identity && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  Button,
+                  {
+                    className: "mt-3 rounded-full border-border",
+                    variant: "outline",
+                    onClick: handleSeedQuizzes,
+                    disabled: seedMutation.isPending,
+                    "data-ocid": "quiz.secondary_button",
+                    children: [
+                      seedMutation.isPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-2 animate-spin" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Database, { className: "w-4 h-4 mr-2" }),
+                      seedMutation.isPending ? "Loading quizzes…" : "Load Sample Quizzes"
+                    ]
+                  }
+                )
               ]
             }
           ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5", children: filtered.map((quiz, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -50497,7 +52197,7 @@ function ScoreScreen() {
               className: "rounded-full px-8 border-border",
               "data-ocid": "score.secondary_button",
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(List, { className: "w-4 h-4 mr-2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(List$1, { className: "w-4 h-4 mr-2" }),
                 "Back to Quizzes"
               ]
             }

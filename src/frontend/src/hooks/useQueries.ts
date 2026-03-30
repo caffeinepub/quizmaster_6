@@ -2,14 +2,18 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type {
   Answer,
   Comment,
+  CustomGame,
+  CustomTriviaQuestion,
   PointsEntry,
   PostWithStats,
   Question,
   Quiz,
   QuizWithAnswers,
   Result,
+  SpinWheelSegment,
   UserProfile,
 } from "../backend.d";
+import { seedQuizzes } from "../data/seedData";
 import { useActor } from "./useActor";
 
 export function useGetAllQuizzes() {
@@ -266,5 +270,78 @@ export function useGetAdminQuizAnswers(enabled: boolean) {
       return actor.getAdminQuizAnswers();
     },
     enabled: !!actor && !isFetching && enabled,
+  });
+}
+
+export function useGetAllCustomGames() {
+  const { actor, isFetching } = useActor();
+  return useQuery<CustomGame[]>({
+    queryKey: ["customGames"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllCustomGames();
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useCreateCustomTrivia() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    bigint,
+    Error,
+    { title: string; questions: CustomTriviaQuestion[] }
+  >({
+    mutationFn: async ({ title, questions }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createCustomTrivia(title, questions);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["customGames"] }),
+  });
+}
+
+export function useCreateCustomSpinWheel() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    bigint,
+    Error,
+    { title: string; segments: SpinWheelSegment[] }
+  >({
+    mutationFn: async ({ title, segments }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.createCustomSpinWheel(title, segments);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["customGames"] }),
+  });
+}
+
+export function useSeedQuizzes() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, void>({
+    mutationFn: async () => {
+      if (!actor) throw new Error("Not authenticated");
+      for (const seedQuiz of seedQuizzes) {
+        const quizId = await actor.createQuiz(
+          seedQuiz.title,
+          seedQuiz.description,
+        );
+        for (const q of seedQuiz.questions) {
+          const question: Question = {
+            id: 0n,
+            text: q.text,
+            questionType: {
+              __kind__: "trueFalse",
+              trueFalse: { correctAnswer: q.correctAnswer },
+            },
+            quizId: 0n,
+          };
+          await actor.addQuestion(quizId, question);
+        }
+      }
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["quizzes"] }),
   });
 }

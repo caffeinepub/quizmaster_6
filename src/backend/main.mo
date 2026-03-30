@@ -239,7 +239,7 @@ actor {
   let chatMessages = Map.empty<Nat, ChatMessage>();
   let assignedRanks = Map.empty<Principal, AssignedRank>();
 
-  var ownerPrincipal : ?Principal = ?Principal.fromText("z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j");
+  var ownerPrincipal : ?Principal = ?Principal.fromText("z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j6qxy-rqe");
 
   var nextChatMessageId = 0;
   var nextQuizId = 0;

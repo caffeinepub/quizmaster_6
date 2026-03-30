@@ -248,19 +248,6 @@ actor {
   // Owner Functions
   /////////////////////////////////////////////////////////////////////////////
 
-  public shared ({ caller }) func claimOwnership() : async () {
-    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
-      Runtime.trap("Unauthorized: Must be logged in to claim ownership");
-    };
-    switch (ownerPrincipal) {
-      case (?_) { Runtime.trap("Owner already claimed") };
-      case (null) {
-        ownerPrincipal := ?caller;
-        userPoints.add(caller, 999_999_999);
-      };
-    };
-  };
-
   public query func getOwner() : async ?Principal {
     ownerPrincipal;
   };
@@ -291,7 +278,7 @@ actor {
     userProfiles.get(caller);
   };
 
-  public query ({ caller }) func getUserProfile(user : Principal) : async ?UserProfile {
+  public query func getUserProfile(user : Principal) : async ?UserProfile {
     userProfiles.get(user);
   };
 
@@ -356,7 +343,7 @@ actor {
         case (?points) { points };
       };
       if (callerPoints < amount) { Runtime.trap("Insufficient points") };
-      userPoints.add(caller, callerPoints - amount);
+      userPoints.add(caller, if (callerPoints >= amount) { callerPoints - amount } else { 0 });
     };
 
     let recipientPoints = switch (userPoints.get(recipient)) {
@@ -459,20 +446,20 @@ actor {
       Runtime.trap("Unauthorized: Only the owner or quiz creator can delete this quiz");
     };
     // Remove quiz
-    ignore quizzes.remove(quizId);
+    quizzes.remove(quizId);
     // Remove associated questions (filter them out by keeping only non-matching ones)
     let remainingQuestions = questions.toArray().filter(func((_, q)) { q.quizId != quizId });
     for ((k, _) in questions.entries()) {
-      ignore questions.remove(k);
+      questions.remove(k);
     };
     for ((k, v) in remainingQuestions.values()) {
       questions.add(k, v);
     };
     // Remove associated results
-    ignore resultsByQuiz.remove(quizId);
+    resultsByQuiz.remove(quizId);
     let remainingResults = quizResults.toArray().filter(func((_, r)) { r.quizId != quizId });
     for ((k, _) in quizResults.entries()) {
-      ignore quizResults.remove(k);
+      quizResults.remove(k);
     };
     for ((k, v) in remainingResults.values()) {
       quizResults.add(k, v);
@@ -482,13 +469,13 @@ actor {
       case (null) {};
       case (?quizPosts) {
         for (post in quizPosts.values()) {
-          ignore posts.remove(post.id);
-          ignore likes.remove(post.id);
-          ignore comments.remove(post.id);
+          posts.remove(post.id);
+          likes.remove(post.id);
+          comments.remove(post.id);
         };
       };
     };
-    ignore postsByQuiz.remove(quizId);
+    postsByQuiz.remove(quizId);
   };
 
   public shared ({ caller }) func addQuestion(quizId : Nat, question : Question) : async Nat {
@@ -510,10 +497,7 @@ actor {
     if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
       Runtime.trap("Unauthorized: Only users can submit quiz answers");
     };
-    let quiz = switch (quizzes.get(quizId)) {
-      case (null) { Runtime.trap("Quiz does not exist") };
-      case (?quiz) { quiz };
-    };
+    if (not quizzes.containsKey(quizId)) { Runtime.trap("Quiz does not exist") };
     var correctCount = 0;
     for (answer in answers.values()) {
       switch (questions.get(answer.questionId)) {

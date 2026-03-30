@@ -2045,10 +2045,6 @@ body{
   border-color: rgb(139 92 246 / 0.5);
 }
 
-.border-yellow-400\/20{
-  border-color: rgb(250 204 21 / 0.2);
-}
-
 .border-yellow-400\/40{
   border-color: rgb(250 204 21 / 0.4);
 }
@@ -2184,10 +2180,6 @@ body{
 
 .bg-transparent{
   background-color: transparent;
-}
-
-.bg-yellow-400\/10{
-  background-color: rgb(250 204 21 / 0.1);
 }
 
 .bg-yellow-400\/20{
@@ -3364,10 +3356,6 @@ body{
 
 .hover\:bg-transparent:hover{
   background-color: transparent;
-}
-
-.hover\:bg-yellow-400\/30:hover{
-  background-color: rgb(250 204 21 / 0.3);
 }
 
 .hover\:text-accent-foreground:hover{

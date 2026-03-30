@@ -54668,10 +54668,8 @@ function Profile() {
   const { data: allQuizzes } = useGetAllQuizzes();
   const updateProfile = useUpdateUserProfile();
   const deleteQuiz = useDeleteQuiz();
-  const { isOwner, ownerPrincipal, claimOwnership, isLoadingOwner } = useOwner();
   const [editing, setEditing] = reactExports.useState(false);
   const [newUsername, setNewUsername] = reactExports.useState("");
-  const [claiming, setClaiming] = reactExports.useState(false);
   const [deleteTarget, setDeleteTarget] = reactExports.useState(null);
   if (!identity) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-24 text-center", children: [
@@ -54706,17 +54704,6 @@ function Profile() {
       ue.error("Failed to update username.");
     }
   };
-  const handleClaimOwnership = async () => {
-    setClaiming(true);
-    try {
-      await claimOwnership();
-      ue.success("👑 You are now the Owner! You have infinite points.");
-    } catch (err) {
-      ue.error((err == null ? void 0 : err.message) ?? "Failed to claim ownership");
-    } finally {
-      setClaiming(false);
-    }
-  };
   function handleDeleteConfirm() {
     if (!deleteTarget) return;
     deleteQuiz.mutate(deleteTarget.id, {
@@ -54727,7 +54714,6 @@ function Profile() {
       onError: (err) => ue.error(err.message ?? "Failed to delete quiz.")
     });
   }
-  const noOwnerYet = !isLoadingOwner && ownerPrincipal === null;
   const sortedResults = results ? [...results].sort((a2, b2) => Number(b2.timestamp) - Number(a2.timestamp)) : [];
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-12 max-w-3xl", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -54773,17 +54759,6 @@ function Profile() {
                 )
               ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 flex-wrap", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold", children: (profile == null ? void 0 : profile.username) ?? "Loading..." }),
-                isOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                  "span",
-                  {
-                    className: "flex items-center gap-1 text-yellow-400 font-semibold text-sm",
-                    title: "Owner rank — infinite points",
-                    children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-4 h-4" }),
-                      "Owner"
-                    ]
-                  }
-                ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   Button,
                   {
@@ -54811,44 +54786,6 @@ function Profile() {
               ] })
             ] })
           ] }),
-          noOwnerYet && !isOwner && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            motion.div,
-            {
-              initial: { opacity: 0, scale: 0.97 },
-              animate: { opacity: 1, scale: 1 },
-              className: "glass-card rounded-2xl p-6 border border-yellow-400/20",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6 text-yellow-400" }) }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "text-lg font-bold mb-1 flex items-center gap-2", children: [
-                    "Claim Owner Rank",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-yellow-400", children: "👑" })
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground mb-4", children: [
-                    "No owner has been claimed yet. The first person to claim ownership gets the ",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Owner" }),
-                    " rank — unlimited points and the ability to gift points freely to anyone."
-                  ] }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    Button,
-                    {
-                      onClick: handleClaimOwnership,
-                      disabled: claiming,
-                      className: "bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400/40 rounded-full px-6",
-                      "data-ocid": "profile.primary_button",
-                      children: claiming ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-4 h-4 mr-2 animate-spin" }),
-                        "Claiming..."
-                      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-                        /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-4 h-4 mr-2" }),
-                        "Claim Owner"
-                      ] })
-                    }
-                  )
-                ] })
-              ] })
-            }
-          ),
           myQuizzes.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-bold mb-4 flex items-center gap-2", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "w-5 h-5 text-primary" }),

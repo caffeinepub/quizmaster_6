@@ -23,7 +23,6 @@ import { Link } from "@tanstack/react-router";
 import {
   BookOpen,
   Check,
-  Crown,
   Edit2,
   Loader2,
   Play,
@@ -34,7 +33,6 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useDeleteQuiz,
@@ -51,12 +49,9 @@ export default function Profile() {
   const { data: allQuizzes } = useGetAllQuizzes();
   const updateProfile = useUpdateUserProfile();
   const deleteQuiz = useDeleteQuiz();
-  const { isOwner, ownerPrincipal, claimOwnership, isLoadingOwner } =
-    useOwner();
 
   const [editing, setEditing] = useState(false);
   const [newUsername, setNewUsername] = useState("");
-  const [claiming, setClaiming] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<{
     id: bigint;
     title: string;
@@ -102,18 +97,6 @@ export default function Profile() {
     }
   };
 
-  const handleClaimOwnership = async () => {
-    setClaiming(true);
-    try {
-      await claimOwnership();
-      toast.success("👑 You are now the Owner! You have infinite points.");
-    } catch (err: any) {
-      toast.error(err?.message ?? "Failed to claim ownership");
-    } finally {
-      setClaiming(false);
-    }
-  };
-
   function handleDeleteConfirm() {
     if (!deleteTarget) return;
     deleteQuiz.mutate(deleteTarget.id, {
@@ -124,8 +107,6 @@ export default function Profile() {
       onError: (err) => toast.error(err.message ?? "Failed to delete quiz."),
     });
   }
-
-  const noOwnerYet = !isLoadingOwner && ownerPrincipal === null;
 
   const sortedResults = results
     ? [...results].sort((a, b) => Number(b.timestamp) - Number(a.timestamp))
@@ -181,15 +162,6 @@ export default function Profile() {
                 <h1 className="text-2xl font-bold">
                   {profile?.username ?? "Loading..."}
                 </h1>
-                {isOwner && (
-                  <span
-                    className="flex items-center gap-1 text-yellow-400 font-semibold text-sm"
-                    title="Owner rank — infinite points"
-                  >
-                    <Crown className="w-4 h-4" />
-                    Owner
-                  </span>
-                )}
                 <Button
                   size="icon"
                   variant="ghost"
@@ -223,50 +195,6 @@ export default function Profile() {
             </div>
           </div>
         </div>
-
-        {/* Claim Owner section */}
-        {noOwnerYet && !isOwner && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="glass-card rounded-2xl p-6 border border-yellow-400/20"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center shrink-0">
-                <Crown className="w-6 h-6 text-yellow-400" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold mb-1 flex items-center gap-2">
-                  Claim Owner Rank
-                  <span className="text-yellow-400">👑</span>
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  No owner has been claimed yet. The first person to claim
-                  ownership gets the <strong>Owner</strong> rank — unlimited
-                  points and the ability to gift points freely to anyone.
-                </p>
-                <Button
-                  onClick={handleClaimOwnership}
-                  disabled={claiming}
-                  className="bg-yellow-400/20 hover:bg-yellow-400/30 text-yellow-400 border border-yellow-400/40 rounded-full px-6"
-                  data-ocid="profile.primary_button"
-                >
-                  {claiming ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Claiming...
-                    </>
-                  ) : (
-                    <>
-                      <Crown className="w-4 h-4 mr-2" />
-                      Claim Owner
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        )}
 
         {/* My Quizzes */}
         {myQuizzes.length > 0 && (

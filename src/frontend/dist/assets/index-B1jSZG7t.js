@@ -37869,6 +37869,10 @@ function useActor() {
     isFetching: actorQuery.isFetching
   };
 }
+const OWNER_PRINCIPAL_IDS = [
+  "z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j6qxy-rqe",
+  "z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j"
+];
 const OwnerContext = reactExports.createContext({
   ownerPrincipal: null,
   isOwner: false,
@@ -37889,12 +37893,25 @@ function OwnerProvider({ children }) {
     setIsLoadingOwner(true);
     try {
       const a2 = actor;
-      const [owner, callerIsOwner] = await Promise.all([
-        a2.getOwner(),
-        identity ? a2.isCallerOwner() : Promise.resolve(false)
-      ]);
+      const ownerResult = await a2.getOwner();
+      const owner = Array.isArray(ownerResult) && ownerResult.length > 0 ? ownerResult[0] : null;
       setOwnerPrincipal(owner);
-      setIsOwner(callerIsOwner);
+      if (identity) {
+        const callerPrincipal = identity.getPrincipal().toString();
+        const isHardcodedOwner = OWNER_PRINCIPAL_IDS.includes(callerPrincipal);
+        if (isHardcodedOwner) {
+          setIsOwner(true);
+        } else {
+          try {
+            const callerIsOwner = await a2.isCallerOwner();
+            setIsOwner(callerIsOwner);
+          } catch {
+            setIsOwner(false);
+          }
+        }
+      } else {
+        setIsOwner(false);
+      }
     } catch {
     } finally {
       setIsLoadingOwner(false);
@@ -37907,7 +37924,7 @@ function OwnerProvider({ children }) {
   }, [actor, isFetching, fetchOwner]);
   const claimOwnership = reactExports.useCallback(async () => {
     if (!actor) throw new Error("Not authenticated");
-    await actor.claimOwnership();
+    await actor.claimOwner();
     await fetchOwner();
   }, [actor, fetchOwner]);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -37928,7 +37945,9 @@ function useOwner() {
   return reactExports.useContext(OwnerContext);
 }
 function isOwnerPrincipal(ownerPrincipal, principal) {
-  if (!ownerPrincipal || !principal) return false;
+  if (!principal) return false;
+  if (OWNER_PRINCIPAL_IDS.includes(principal.toString())) return true;
+  if (!ownerPrincipal) return false;
   return ownerPrincipal.toString() === principal.toString();
 }
 const seedQuizzes = [

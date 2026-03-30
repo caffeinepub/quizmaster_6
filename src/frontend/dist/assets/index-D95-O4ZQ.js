@@ -20390,18 +20390,18 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$E = [
+const __iconNode$G = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$E);
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$G);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$D = [
+const __iconNode$F = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20411,14 +20411,14 @@ const __iconNode$D = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$D);
+const BookOpen = createLucideIcon("book-open", __iconNode$F);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$C = [
+const __iconNode$E = [
   [
     "path",
     {
@@ -20441,39 +20441,61 @@ const __iconNode$C = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$C);
+const Brain = createLucideIcon("brain", __iconNode$E);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$B = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$B);
+const __iconNode$D = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$D);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$A = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$A);
+const __iconNode$C = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$C);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$z = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$z);
+const __iconNode$B = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$B);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$y = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$y);
+const __iconNode$A = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$A);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$z = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$z);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$y = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$y);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20481,10 +20503,10 @@ const ChevronUp = createLucideIcon("chevron-up", __iconNode$y);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$x = [
-  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
-  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$x);
+const Clock = createLucideIcon("clock", __iconNode$x);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20492,10 +20514,10 @@ const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$x);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$w = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$w);
+const Copy = createLucideIcon("copy", __iconNode$w);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20503,17 +20525,6 @@ const CircleCheck = createLucideIcon("circle-check", __iconNode$w);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$v = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
-];
-const Clock = createLucideIcon("clock", __iconNode$v);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$u = [
   [
     "path",
     {
@@ -20523,7 +20534,19 @@ const __iconNode$u = [
   ],
   ["path", { d: "M5 21h14", key: "11awu3" }]
 ];
-const Crown = createLucideIcon("crown", __iconNode$u);
+const Crown = createLucideIcon("crown", __iconNode$v);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$u = [
+  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
+  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
+  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
+];
+const Database = createLucideIcon("database", __iconNode$u);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20531,18 +20554,6 @@ const Crown = createLucideIcon("crown", __iconNode$u);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$t = [
-  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
-  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
-  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
-];
-const Database = createLucideIcon("database", __iconNode$t);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$s = [
   ["line", { x1: "6", x2: "10", y1: "11", y2: "11", key: "1gktln" }],
   ["line", { x1: "8", x2: "8", y1: "9", y2: "13", key: "qnk9ow" }],
   ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12", key: "krot7o" }],
@@ -20555,14 +20566,14 @@ const __iconNode$s = [
     }
   ]
 ];
-const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$s);
+const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$t);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$r = [
+const __iconNode$s = [
   ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
   ["path", { d: "M12 8v13", key: "1c76mn" }],
   ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
@@ -20574,14 +20585,14 @@ const __iconNode$r = [
     }
   ]
 ];
-const Gift = createLucideIcon("gift", __iconNode$r);
+const Gift = createLucideIcon("gift", __iconNode$s);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$q = [
+const __iconNode$r = [
   [
     "path",
     {
@@ -20591,7 +20602,19 @@ const __iconNode$q = [
   ],
   ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
 ];
-const Github = createLucideIcon("github", __iconNode$q);
+const Github = createLucideIcon("github", __iconNode$r);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$q = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }]
+];
+const Globe = createLucideIcon("globe", __iconNode$q);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20599,18 +20622,6 @@ const Github = createLucideIcon("github", __iconNode$q);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$p = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
-  ["path", { d: "M2 12h20", key: "9i4pu4" }]
-];
-const Globe = createLucideIcon("globe", __iconNode$p);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$o = [
   [
     "path",
     {
@@ -20619,14 +20630,14 @@ const __iconNode$o = [
     }
   ]
 ];
-const Heart = createLucideIcon("heart", __iconNode$o);
+const Heart = createLucideIcon("heart", __iconNode$p);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$n = [
+const __iconNode$o = [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
   ["path", { d: "M3 6h.01", key: "1rqtza" }],
@@ -20634,15 +20645,26 @@ const __iconNode$n = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List$1 = createLucideIcon("list", __iconNode$n);
+const List$1 = createLucideIcon("list", __iconNode$o);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$m);
+const __iconNode$n = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$n);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$m = [
+  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+];
+const Lock = createLucideIcon("lock", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20650,10 +20672,11 @@ const LoaderCircle = createLucideIcon("loader-circle", __iconNode$m);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$l = [
-  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
-  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+  ["path", { d: "M21 12H9", key: "dn1m92" }],
+  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
 ];
-const Lock = createLucideIcon("lock", __iconNode$l);
+const LogOut = createLucideIcon("log-out", __iconNode$l);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20661,11 +20684,9 @@ const Lock = createLucideIcon("lock", __iconNode$l);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$k = [
-  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
-  ["path", { d: "M21 12H9", key: "dn1m92" }],
-  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
 ];
-const LogOut = createLucideIcon("log-out", __iconNode$k);
+const MessageCircle = createLucideIcon("message-circle", __iconNode$k);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20673,9 +20694,9 @@ const LogOut = createLucideIcon("log-out", __iconNode$k);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$j = [
-  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
 ];
-const MessageCircle = createLucideIcon("message-circle", __iconNode$j);
+const MessageSquare = createLucideIcon("message-square", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20683,16 +20704,6 @@ const MessageCircle = createLucideIcon("message-circle", __iconNode$j);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$i = [
-  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
-];
-const MessageSquare = createLucideIcon("message-square", __iconNode$i);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$h = [
   [
     "path",
     {
@@ -20701,15 +20712,26 @@ const __iconNode$h = [
     }
   ]
 ];
-const Pen = createLucideIcon("pen", __iconNode$h);
+const Pen = createLucideIcon("pen", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
-const Play = createLucideIcon("play", __iconNode$g);
+const __iconNode$h = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("play", __iconNode$h);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$g = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode$g);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20717,10 +20739,12 @@ const Play = createLucideIcon("play", __iconNode$g);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$f = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$f);
+const RefreshCw = createLucideIcon("refresh-cw", __iconNode$f);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20728,12 +20752,10 @@ const Plus = createLucideIcon("plus", __iconNode$f);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$e = [
-  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
-  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
-  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
-  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
 ];
-const RefreshCw = createLucideIcon("refresh-cw", __iconNode$e);
+const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$e);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20741,10 +20763,11 @@ const RefreshCw = createLucideIcon("refresh-cw", __iconNode$e);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$d = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
+  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
+  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
 ];
-const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$d);
+const Rss = createLucideIcon("rss", __iconNode$d);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20752,11 +20775,10 @@ const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$d);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$c = [
-  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
-  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
-  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const Rss = createLucideIcon("rss", __iconNode$c);
+const Search = createLucideIcon("search", __iconNode$c);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20764,17 +20786,6 @@ const Rss = createLucideIcon("rss", __iconNode$c);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$b = [
-  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
-];
-const Search = createLucideIcon("search", __iconNode$b);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$a = [
   [
     "path",
     {
@@ -20784,7 +20795,21 @@ const __iconNode$a = [
   ],
   ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const Send = createLucideIcon("send", __iconNode$a);
+const Send = createLucideIcon("send", __iconNode$b);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$a = [
+  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
+  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
+  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
+  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
+  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
+];
+const Share2 = createLucideIcon("share-2", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20792,13 +20817,16 @@ const Send = createLucideIcon("send", __iconNode$a);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$9 = [
-  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
-  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
-  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
-  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
-  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
+  [
+    "path",
+    {
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
+    }
+  ],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const Share2 = createLucideIcon("share-2", __iconNode$9);
+const ShieldCheck = createLucideIcon("shield-check", __iconNode$9);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20812,10 +20840,9 @@ const __iconNode$8 = [
       d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
       key: "oel41y"
     }
-  ],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ]
 ];
-const ShieldCheck = createLucideIcon("shield-check", __iconNode$8);
+const Shield = createLucideIcon("shield", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34630,23 +34657,13 @@ const Question = Record({
   "id": Nat,
   "text": Text,
   "questionType": Variant({
-    "multipleChoice": Record({
-      "correctOption": Nat,
-      "options": Vec(Text)
-    }),
+    "multipleChoice": Record({ "correctOption": Nat, "options": Vec(Text) }),
     "trueFalse": Record({ "correctAnswer": Bool })
   }),
   "quizId": Nat
 });
-const UserRole = Variant({
-  "admin": Null,
-  "user": Null,
-  "guest": Null
-});
-const SpinWheelSegment = Record({
-  "segmentLabel": Text,
-  "points": Nat
-});
+const UserRole = Variant({ "admin": Null, "user": Null, "guest": Null });
+const SpinWheelSegment = Record({ "segmentLabel": Text, "points": Nat });
 const CustomTriviaQuestion = Record({
   "correctOption": Nat,
   "text": Text,
@@ -34661,25 +34678,18 @@ const Quiz = Record({
   "description": Text,
   "timestamp": Time
 });
-const QuizWithAnswers = Record({
-  "quiz": Quiz,
-  "questions": Vec(Question)
-});
+const QuizWithAnswers = Record({ "quiz": Quiz, "questions": Vec(Question) });
 const CustomGame = Record({
   "id": Nat,
   "title": Text,
   "creator": Principal2,
   "gameType": Variant({
     "customSpinWheel": Record({ "segments": Vec(SpinWheelSegment) }),
-    "customTrivia": Record({
-      "questions": Vec(CustomTriviaQuestion)
-    })
+    "customTrivia": Record({ "questions": Vec(CustomTriviaQuestion) })
   })
 });
-const PointsEntry = Record({
-  "player": Principal2,
-  "points": Nat
-});
+const PointsEntry = Record({ "player": Principal2, "points": Nat });
+const PlayerRankEntry = Record({ "player": Principal2, "rank": Text });
 const Post = Record({
   "id": Nat,
   "author": Principal2,
@@ -34687,11 +34697,7 @@ const Post = Record({
   "timestamp": Time,
   "quizId": Nat
 });
-const PostWithStats = Record({
-  "likeCount": Nat,
-  "post": Post,
-  "commentCount": Nat
-});
+const PostWithStats = Record({ "likeCount": Nat, "post": Post, "commentCount": Nat });
 const UserProfile = Record({ "username": Text });
 const Comment = Record({
   "id": Nat,
@@ -34700,10 +34706,7 @@ const Comment = Record({
   "timestamp": Time,
   "postId": Nat
 });
-const PostWithComment = Record({
-  "post": Post,
-  "comments": Vec(Comment)
-});
+const PostWithComment = Record({ "post": Post, "comments": Vec(Comment) });
 const Result = Record({
   "username": Text,
   "player": Principal2,
@@ -34719,10 +34722,7 @@ const QuizStats = Record({
   "totalCorrectCount": Nat
 });
 const Answer = Record({
-  "answer": Variant({
-    "multipleChoice": Nat,
-    "trueFalse": Bool
-  }),
+  "answer": Variant({ "multipleChoice": Nat, "trueFalse": Bool }),
   "questionId": Nat
 });
 const ChatMessage = Record({
@@ -34736,21 +34736,17 @@ Service({
   "addComment": Func([Nat, Text], [Nat], []),
   "addQuestion": Func([Nat, Question], [Nat], []),
   "assignCallerUserRole": Func([Principal2, UserRole], [], []),
+  "assignPlayerRank": Func([Principal2, Text], [], []),
   "awardPoints": Func([Nat], [], []),
-  "createCustomSpinWheel": Func(
-    [Text, Vec(SpinWheelSegment)],
-    [Nat],
-    []
-  ),
-  "createCustomTrivia": Func(
-    [Text, Vec(CustomTriviaQuestion)],
-    [Nat],
-    []
-  ),
+  "claimOwner": Func([], [], []),
+  "createCustomSpinWheel": Func([Text, Vec(SpinWheelSegment)], [Nat], []),
+  "createCustomTrivia": Func([Text, Vec(CustomTriviaQuestion)], [Nat], []),
   "createPost": Func([Nat, Text], [Nat], []),
   "createQuiz": Func([Text, Text], [Nat], []),
   "createUserProfile": Func([Text], [], []),
+  "deleteQuiz": Func([Nat], [], []),
   "getAdminQuizAnswers": Func([], [Vec(QuizWithAnswers)], ["query"]),
+  "getAllAssignedRanks": Func([], [Vec(PlayerRankEntry)], ["query"]),
   "getAllCustomGames": Func([], [Vec(CustomGame)], ["query"]),
   "getAllPlayerPoints": Func([], [Vec(PointsEntry)], ["query"]),
   "getAllPostsWithStats": Func([], [Vec(PostWithStats)], ["query"]),
@@ -34759,57 +34755,39 @@ Service({
   "getCallerUserRole": Func([], [UserRole], ["query"]),
   "getCommentsByPostId": Func([Nat], [Vec(Comment)], ["query"]),
   "getMemoryGameCooldown": Func([], [Opt(Time)], ["query"]),
+  "getMessages": Func([], [Vec(ChatMessage)], ["query"]),
   "getMyPoints": Func([], [Nat], ["query"]),
-  "getPostWithComments": Func(
-    [Nat],
-    [Opt(PostWithComment)],
-    ["query"]
-  ),
+  "getOwner": Func([], [Opt(Principal2)], ["query"]),
+  "getPlayerAssignedRank": Func([Principal2], [Opt(Text)], ["query"]),
+  "getPostWithComments": Func([Nat], [Opt(PostWithComment)], ["query"]),
   "getPostsByQuizId": Func([Nat], [Vec(PostWithStats)], ["query"]),
   "getQuiz": Func([Nat], [Quiz], ["query"]),
-  "getQuizLeaderboard": Func(
-    [Nat],
-    [Opt(Vec(Result))],
-    ["query"]
-  ),
+  "getQuizLeaderboard": Func([Nat], [Opt(Vec(Result))], ["query"]),
   "getQuizQuestions": Func([Nat], [Vec(Question)], ["query"]),
   "getQuizStats": Func([], [Vec(QuizStats)], ["query"]),
   "getSpinWheelCooldown": Func([], [Opt(Time)], ["query"]),
   "getTopPlayer": Func([], [Opt(Principal2)], ["query"]),
   "getTotalVisitors": Func([], [Nat], ["query"]),
-  "getUserPosts": Func(
-    [Principal2],
-    [Vec(PostWithStats)],
-    ["query"]
-  ),
-  "getUserProfile": Func(
-    [Principal2],
-    [Opt(UserProfile)],
-    ["query"]
-  ),
+  "getUserPosts": Func([Principal2], [Vec(PostWithStats)], ["query"]),
+  "getUserProfile": Func([Principal2], [Opt(UserProfile)], ["query"]),
   "getUserQuizResults": Func([], [Vec(Result)], ["query"]),
   "giftPoints": Func([Principal2, Nat], [], []),
   "isCallerAdmin": Func([], [Bool], ["query"]),
+  "isCallerOwner": Func([], [Bool], ["query"]),
   "likePost": Func([Nat], [], []),
   "playCustomSpinWheel": Func([Nat], [Nat], []),
   "playCustomTrivia": Func(
-    [
-      Nat,
-      Vec(
-        Record({ "answerIndex": Nat, "questionId": Nat })
-      )
-    ],
+    [Nat, Vec(Record({ "answerIndex": Nat, "questionId": Nat }))],
     [Nat],
     []
   ),
   "recordMemoryGamePlay": Func([], [], []),
   "recordSpinWheelPlay": Func([], [], []),
   "saveCallerUserProfile": Func([UserProfile], [], []),
+  "sendMessage": Func([Text], [Nat], []),
   "submitQuizAnswers": Func([Nat, Vec(Answer)], [Nat], []),
   "trackVisit": Func([], [], []),
-  "getMessages": Func([], [Vec(ChatMessage)], ["query"]),
-  "sendMessage": Func([Text], [Nat], []),
-  "unlikePost": Func([Nat], [], []),
+  "unlikePost": Func([], [], []),
   "updateUserProfile": Func([Text], [], [])
 });
 const idlFactory = ({ IDL: IDL2 }) => {
@@ -34817,23 +34795,13 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "id": IDL2.Nat,
     "text": IDL2.Text,
     "questionType": IDL2.Variant({
-      "multipleChoice": IDL2.Record({
-        "correctOption": IDL2.Nat,
-        "options": IDL2.Vec(IDL2.Text)
-      }),
+      "multipleChoice": IDL2.Record({ "correctOption": IDL2.Nat, "options": IDL2.Vec(IDL2.Text) }),
       "trueFalse": IDL2.Record({ "correctAnswer": IDL2.Bool })
     }),
     "quizId": IDL2.Nat
   });
-  const UserRole2 = IDL2.Variant({
-    "admin": IDL2.Null,
-    "user": IDL2.Null,
-    "guest": IDL2.Null
-  });
-  const SpinWheelSegment2 = IDL2.Record({
-    "segmentLabel": IDL2.Text,
-    "points": IDL2.Nat
-  });
+  const UserRole2 = IDL2.Variant({ "admin": IDL2.Null, "user": IDL2.Null, "guest": IDL2.Null });
+  const SpinWheelSegment2 = IDL2.Record({ "segmentLabel": IDL2.Text, "points": IDL2.Nat });
   const CustomTriviaQuestion2 = IDL2.Record({
     "correctOption": IDL2.Nat,
     "text": IDL2.Text,
@@ -34848,27 +34816,18 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "description": IDL2.Text,
     "timestamp": Time2
   });
-  const QuizWithAnswers2 = IDL2.Record({
-    "quiz": Quiz2,
-    "questions": IDL2.Vec(Question2)
-  });
+  const QuizWithAnswers2 = IDL2.Record({ "quiz": Quiz2, "questions": IDL2.Vec(Question2) });
   const CustomGame2 = IDL2.Record({
     "id": IDL2.Nat,
     "title": IDL2.Text,
     "creator": IDL2.Principal,
     "gameType": IDL2.Variant({
-      "customSpinWheel": IDL2.Record({
-        "segments": IDL2.Vec(SpinWheelSegment2)
-      }),
-      "customTrivia": IDL2.Record({
-        "questions": IDL2.Vec(CustomTriviaQuestion2)
-      })
+      "customSpinWheel": IDL2.Record({ "segments": IDL2.Vec(SpinWheelSegment2) }),
+      "customTrivia": IDL2.Record({ "questions": IDL2.Vec(CustomTriviaQuestion2) })
     })
   });
-  const PointsEntry2 = IDL2.Record({
-    "player": IDL2.Principal,
-    "points": IDL2.Nat
-  });
+  const PointsEntry2 = IDL2.Record({ "player": IDL2.Principal, "points": IDL2.Nat });
+  const PlayerRankEntry2 = IDL2.Record({ "player": IDL2.Principal, "rank": IDL2.Text });
   const Post2 = IDL2.Record({
     "id": IDL2.Nat,
     "author": IDL2.Principal,
@@ -34876,11 +34835,7 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "timestamp": Time2,
     "quizId": IDL2.Nat
   });
-  const PostWithStats2 = IDL2.Record({
-    "likeCount": IDL2.Nat,
-    "post": Post2,
-    "commentCount": IDL2.Nat
-  });
+  const PostWithStats2 = IDL2.Record({ "likeCount": IDL2.Nat, "post": Post2, "commentCount": IDL2.Nat });
   const UserProfile2 = IDL2.Record({ "username": IDL2.Text });
   const Comment2 = IDL2.Record({
     "id": IDL2.Nat,
@@ -34889,10 +34844,7 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "timestamp": Time2,
     "postId": IDL2.Nat
   });
-  const PostWithComment2 = IDL2.Record({
-    "post": Post2,
-    "comments": IDL2.Vec(Comment2)
-  });
+  const PostWithComment2 = IDL2.Record({ "post": Post2, "comments": IDL2.Vec(Comment2) });
   const Result2 = IDL2.Record({
     "username": IDL2.Text,
     "player": IDL2.Principal,
@@ -34908,10 +34860,7 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "totalCorrectCount": IDL2.Nat
   });
   const Answer2 = IDL2.Record({
-    "answer": IDL2.Variant({
-      "multipleChoice": IDL2.Nat,
-      "trueFalse": IDL2.Bool
-    }),
+    "answer": IDL2.Variant({ "multipleChoice": IDL2.Nat, "trueFalse": IDL2.Bool }),
     "questionId": IDL2.Nat
   });
   const ChatMessage2 = IDL2.Record({
@@ -34925,21 +34874,17 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "addComment": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "addQuestion": IDL2.Func([IDL2.Nat, Question2], [IDL2.Nat], []),
     "assignCallerUserRole": IDL2.Func([IDL2.Principal, UserRole2], [], []),
+    "assignPlayerRank": IDL2.Func([IDL2.Principal, IDL2.Text], [], []),
     "awardPoints": IDL2.Func([IDL2.Nat], [], []),
-    "createCustomSpinWheel": IDL2.Func(
-      [IDL2.Text, IDL2.Vec(SpinWheelSegment2)],
-      [IDL2.Nat],
-      []
-    ),
-    "createCustomTrivia": IDL2.Func(
-      [IDL2.Text, IDL2.Vec(CustomTriviaQuestion2)],
-      [IDL2.Nat],
-      []
-    ),
+    "claimOwner": IDL2.Func([], [], []),
+    "createCustomSpinWheel": IDL2.Func([IDL2.Text, IDL2.Vec(SpinWheelSegment2)], [IDL2.Nat], []),
+    "createCustomTrivia": IDL2.Func([IDL2.Text, IDL2.Vec(CustomTriviaQuestion2)], [IDL2.Nat], []),
     "createPost": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
     "createQuiz": IDL2.Func([IDL2.Text, IDL2.Text], [IDL2.Nat], []),
     "createUserProfile": IDL2.Func([IDL2.Text], [], []),
+    "deleteQuiz": IDL2.Func([IDL2.Nat], [], []),
     "getAdminQuizAnswers": IDL2.Func([], [IDL2.Vec(QuizWithAnswers2)], ["query"]),
+    "getAllAssignedRanks": IDL2.Func([], [IDL2.Vec(PlayerRankEntry2)], ["query"]),
     "getAllCustomGames": IDL2.Func([], [IDL2.Vec(CustomGame2)], ["query"]),
     "getAllPlayerPoints": IDL2.Func([], [IDL2.Vec(PointsEntry2)], ["query"]),
     "getAllPostsWithStats": IDL2.Func([], [IDL2.Vec(PostWithStats2)], ["query"]),
@@ -34948,60 +34893,38 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "getCallerUserRole": IDL2.Func([], [UserRole2], ["query"]),
     "getCommentsByPostId": IDL2.Func([IDL2.Nat], [IDL2.Vec(Comment2)], ["query"]),
     "getMemoryGameCooldown": IDL2.Func([], [IDL2.Opt(Time2)], ["query"]),
+    "getMessages": IDL2.Func([], [IDL2.Vec(ChatMessage2)], ["query"]),
     "getMyPoints": IDL2.Func([], [IDL2.Nat], ["query"]),
-    "getPostWithComments": IDL2.Func(
-      [IDL2.Nat],
-      [IDL2.Opt(PostWithComment2)],
-      ["query"]
-    ),
-    "getPostsByQuizId": IDL2.Func(
-      [IDL2.Nat],
-      [IDL2.Vec(PostWithStats2)],
-      ["query"]
-    ),
+    "getOwner": IDL2.Func([], [IDL2.Opt(IDL2.Principal)], ["query"]),
+    "getPlayerAssignedRank": IDL2.Func([IDL2.Principal], [IDL2.Opt(IDL2.Text)], ["query"]),
+    "getPostWithComments": IDL2.Func([IDL2.Nat], [IDL2.Opt(PostWithComment2)], ["query"]),
+    "getPostsByQuizId": IDL2.Func([IDL2.Nat], [IDL2.Vec(PostWithStats2)], ["query"]),
     "getQuiz": IDL2.Func([IDL2.Nat], [Quiz2], ["query"]),
-    "getQuizLeaderboard": IDL2.Func(
-      [IDL2.Nat],
-      [IDL2.Opt(IDL2.Vec(Result2))],
-      ["query"]
-    ),
+    "getQuizLeaderboard": IDL2.Func([IDL2.Nat], [IDL2.Opt(IDL2.Vec(Result2))], ["query"]),
     "getQuizQuestions": IDL2.Func([IDL2.Nat], [IDL2.Vec(Question2)], ["query"]),
     "getQuizStats": IDL2.Func([], [IDL2.Vec(QuizStats2)], ["query"]),
     "getSpinWheelCooldown": IDL2.Func([], [IDL2.Opt(Time2)], ["query"]),
     "getTopPlayer": IDL2.Func([], [IDL2.Opt(IDL2.Principal)], ["query"]),
     "getTotalVisitors": IDL2.Func([], [IDL2.Nat], ["query"]),
-    "getUserPosts": IDL2.Func(
-      [IDL2.Principal],
-      [IDL2.Vec(PostWithStats2)],
-      ["query"]
-    ),
-    "getUserProfile": IDL2.Func(
-      [IDL2.Principal],
-      [IDL2.Opt(UserProfile2)],
-      ["query"]
-    ),
+    "getUserPosts": IDL2.Func([IDL2.Principal], [IDL2.Vec(PostWithStats2)], ["query"]),
+    "getUserProfile": IDL2.Func([IDL2.Principal], [IDL2.Opt(UserProfile2)], ["query"]),
     "getUserQuizResults": IDL2.Func([], [IDL2.Vec(Result2)], ["query"]),
     "giftPoints": IDL2.Func([IDL2.Principal, IDL2.Nat], [], []),
     "isCallerAdmin": IDL2.Func([], [IDL2.Bool], ["query"]),
+    "isCallerOwner": IDL2.Func([], [IDL2.Bool], ["query"]),
     "likePost": IDL2.Func([IDL2.Nat], [], []),
     "playCustomSpinWheel": IDL2.Func([IDL2.Nat], [IDL2.Nat], []),
     "playCustomTrivia": IDL2.Func(
-      [
-        IDL2.Nat,
-        IDL2.Vec(
-          IDL2.Record({ "answerIndex": IDL2.Nat, "questionId": IDL2.Nat })
-        )
-      ],
+      [IDL2.Nat, IDL2.Vec(IDL2.Record({ "answerIndex": IDL2.Nat, "questionId": IDL2.Nat }))],
       [IDL2.Nat],
       []
     ),
     "recordMemoryGamePlay": IDL2.Func([], [], []),
     "recordSpinWheelPlay": IDL2.Func([], [], []),
     "saveCallerUserProfile": IDL2.Func([UserProfile2], [], []),
+    "sendMessage": IDL2.Func([IDL2.Text], [IDL2.Nat], []),
     "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(Answer2)], [IDL2.Nat], []),
     "trackVisit": IDL2.Func([], [], []),
-    "getMessages": IDL2.Func([], [IDL2.Vec(ChatMessage2)], ["query"]),
-    "sendMessage": IDL2.Func([IDL2.Text], [IDL2.Nat], []),
     "unlikePost": IDL2.Func([IDL2.Nat], [], []),
     "updateUserProfile": IDL2.Func([IDL2.Text], [], [])
   });
@@ -39044,6 +38967,28 @@ function useGetUnreadMessageCount() {
     },
     enabled: !!actor && !isFetching,
     refetchInterval: 1e4
+  });
+}
+function useGetAllAssignedRanks() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["assignedRanks"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getAllAssignedRanks();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useAssignPlayerRank() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ player, rank }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.assignPlayerRank(player, rank);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["assignedRanks"] })
   });
 }
 function Navbar() {
@@ -47819,7 +47764,95 @@ const featureBundle = {
   ...layout
 };
 const motion = /* @__PURE__ */ createMotionProxy(featureBundle, createDomVisualElement);
+const RANK_MAP = {
+  Owner: {
+    name: "Owner",
+    emoji: "👑",
+    color: "text-yellow-400",
+    bgColor: "bg-yellow-400/20",
+    borderColor: "border-yellow-400/40"
+  },
+  Admin: {
+    name: "Admin",
+    emoji: "⚡",
+    color: "text-orange-400",
+    bgColor: "bg-orange-400/20",
+    borderColor: "border-orange-400/40"
+  },
+  Hacker: {
+    name: "Hacker",
+    emoji: "💀",
+    color: "text-green-400",
+    bgColor: "bg-green-400/20",
+    borderColor: "border-green-400/40"
+  },
+  God: {
+    name: "God",
+    emoji: "✨",
+    color: "text-purple-400",
+    bgColor: "bg-purple-400/20",
+    borderColor: "border-purple-400/40"
+  },
+  Pro: {
+    name: "Pro",
+    emoji: "⭐",
+    color: "text-blue-400",
+    bgColor: "bg-blue-400/20",
+    borderColor: "border-blue-400/40"
+  },
+  Noob: {
+    name: "Noob",
+    emoji: "🌱",
+    color: "text-gray-400",
+    bgColor: "bg-gray-400/20",
+    borderColor: "border-gray-400/40"
+  }
+};
+function getRank(points, isOwner) {
+  if (isOwner) return RANK_MAP.Owner;
+  if (points >= 2e6) return RANK_MAP.Admin;
+  if (points >= 1e5) return RANK_MAP.Hacker;
+  if (points >= 2e3) return RANK_MAP.God;
+  if (points >= 500) return RANK_MAP.Pro;
+  return RANK_MAP.Noob;
+}
+function getRankFromAssigned(assignedRank, points, isOwner) {
+  if (assignedRank && assignedRank in RANK_MAP) {
+    return RANK_MAP[assignedRank];
+  }
+  return getRank(points, isOwner);
+}
+function RankBadge({
+  points,
+  isOwner = false,
+  assignedRank,
+  size = "sm"
+}) {
+  const rank = getRankFromAssigned(assignedRank, points, isOwner);
+  const sizeClass = size === "sm" ? "text-[10px] px-1.5 py-0.5" : "text-xs px-2 py-1";
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "span",
+    {
+      className: `inline-flex items-center gap-0.5 rounded-full font-semibold border ${sizeClass} ${rank.color} ${rank.bgColor} ${rank.borderColor} shrink-0`,
+      title: `${rank.name} rank`,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: rank.emoji }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: rank.name })
+      ]
+    }
+  );
+}
 const SKELETON_KEYS$3 = ["sk1", "sk2", "sk3"];
+const RANK_OPTIONS = ["", "Noob", "Pro", "God", "Hacker", "Admin", "Owner"];
+const RANK_LABELS = {
+  "": "Auto (points-based)",
+  Noob: "🌱 Noob",
+  Pro: "⭐ Pro",
+  God: "✨ God",
+  Hacker: "💀 Hacker",
+  Admin: "⚡ Admin",
+  Owner: "👑 Owner"
+};
 function AnswerDisplay({ q: q2 }) {
   if (q2.questionType.__kind__ === "trueFalse") {
     const ans = q2.questionType.trueFalse.correctAnswer;
@@ -48269,12 +48302,167 @@ function MiniGameCreator() {
     ] })
   ] });
 }
+function ManagePlayerRanks() {
+  const { data: allPoints, isLoading: loadingPoints } = useGetAllPlayerPoints();
+  const { data: assignedRanks, isLoading: loadingRanks } = useGetAllAssignedRanks();
+  const { ownerPrincipal } = useOwner();
+  const assignRank = useAssignPlayerRank();
+  const [drafts, setDrafts] = reactExports.useState({});
+  const [saving, setSaving] = reactExports.useState({});
+  const assignedRankMap = reactExports.useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    for (const e of assignedRanks ?? []) {
+      if (e.rank) map.set(e.player.toString(), e.rank);
+    }
+    return map;
+  }, [assignedRanks]);
+  const sorted = reactExports.useMemo(
+    () => [...allPoints ?? []].sort(
+      (a2, b2) => b2.points > a2.points ? 1 : b2.points < a2.points ? -1 : 0
+    ),
+    [allPoints]
+  );
+  function getDraft(principal) {
+    if (principal in drafts) return drafts[principal];
+    return assignedRankMap.get(principal) ?? "";
+  }
+  async function handleSet(player, principal) {
+    const rank = getDraft(principal);
+    setSaving((prev) => ({ ...prev, [principal]: true }));
+    try {
+      await assignRank.mutateAsync({ player, rank });
+      ue.success(
+        rank ? `Rank set to ${rank} for ${principal.slice(0, 8)}...` : `Rank reset to auto for ${principal.slice(0, 8)}...`
+      );
+      setDrafts((prev) => {
+        const next = { ...prev };
+        delete next[principal];
+        return next;
+      });
+    } catch (e) {
+      ue.error((e == null ? void 0 : e.message) ?? "Failed to assign rank");
+    } finally {
+      setSaving((prev) => ({ ...prev, [principal]: false }));
+    }
+  }
+  const isLoading = loadingPoints || loadingRanks;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      className: "glass-card rounded-2xl overflow-hidden border border-yellow-400/20",
+      "data-ocid": "admin.rank_manager.panel",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-4 border-b border-yellow-400/20 flex items-center gap-3 bg-yellow-400/5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "w-5 h-5 text-yellow-400" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold text-yellow-400", children: "Manage Player Ranks" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "\\ud83d\\udc51 Owner Only" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-5", children: "Override any player\\u2019s rank badge. Select \\u201cAuto\\u201d to revert to points-based rank." }),
+          isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "space-y-3",
+              "data-ocid": "admin.rank_manager.loading_state",
+              children: ["r1", "r2", "r3"].map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-14 rounded-xl" }, k2))
+            }
+          ) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "text-center py-8 text-muted-foreground text-sm",
+              "data-ocid": "admin.rank_manager.empty_state",
+              children: "No players found."
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: sorted.map((entry, i) => {
+            const principal = entry.player.toString();
+            const points = Number(entry.points);
+            const isEntryOwner = isOwnerPrincipal(
+              ownerPrincipal,
+              entry.player
+            );
+            const currentAssigned = assignedRankMap.get(principal);
+            const draftValue = getDraft(principal);
+            const isSaving = saving[principal] ?? false;
+            const shortPrincipal = `${principal.slice(0, 10)}...${principal.slice(-6)}`;
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                className: "flex items-center gap-3 rounded-xl border border-border/30 bg-secondary/20 px-4 py-3",
+                "data-ocid": `admin.rank_manager.item.${i + 1}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 flex-wrap", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs text-muted-foreground truncate", children: shortPrincipal }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        RankBadge,
+                        {
+                          points,
+                          isOwner: isEntryOwner,
+                          assignedRank: currentAssigned
+                        }
+                      )
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground mt-0.5", children: [
+                      isEntryOwner ? "∞" : points.toLocaleString(),
+                      " pts",
+                      currentAssigned ? /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "ml-2 text-yellow-400/70", children: [
+                        "(override: ",
+                        currentAssigned,
+                        ")"
+                      ] }) : null
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "select",
+                    {
+                      value: draftValue,
+                      onChange: (e) => setDrafts((prev) => ({
+                        ...prev,
+                        [principal]: e.target.value
+                      })),
+                      className: "rounded-lg border border-border/50 bg-secondary/40 px-2 py-1.5 text-xs text-foreground shrink-0 w-40",
+                      "data-ocid": `admin.rank_manager.select.${i + 1}`,
+                      children: RANK_OPTIONS.map((r2) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: r2, children: RANK_LABELS[r2] }, r2))
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      size: "sm",
+                      onClick: () => handleSet(entry.player, principal),
+                      disabled: isSaving,
+                      className: "bg-yellow-400/20 border border-yellow-400/40 text-yellow-400 hover:bg-yellow-400/30 rounded-full shrink-0 text-xs px-3",
+                      "data-ocid": `admin.rank_manager.save_button.${i + 1}`,
+                      children: isSaving ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-3 h-3 animate-spin" }) : "Set"
+                    }
+                  )
+                ]
+              },
+              principal
+            );
+          }) })
+        ] })
+      ]
+    }
+  );
+}
 function AdminPanel() {
   var _a3;
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { actor } = useActor();
   const { data: myPoints, isLoading: loadingPoints } = useGetMyPoints();
   const { data: allPoints, isLoading: loadingAll } = useGetAllPlayerPoints();
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  const [isCallerOwner, setIsCallerOwner] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    if (!actor || !identity) {
+      setIsCallerOwner(false);
+      return;
+    }
+    actor.isCallerOwner().then(setIsCallerOwner).catch(() => setIsCallerOwner(false));
+  }, [actor, identity]);
   const sorted = allPoints ? [...allPoints].sort(
     (a2, b2) => b2.points > a2.points ? 1 : b2.points < a2.points ? -1 : 0
   ) : [];
@@ -48417,7 +48605,14 @@ function AdminPanel() {
       qwa.quiz.id.toString()
     )) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-semibold mb-4", children: "Mini Game Creator" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(MiniGameCreator, {})
+    /* @__PURE__ */ jsxRuntimeExports.jsx(MiniGameCreator, {}),
+    isCallerOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-10", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-semibold mb-4 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "w-5 h-5 text-yellow-400" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-yellow-400", children: "Manage Player Ranks" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ManagePlayerRanks, {})
+    ] })
   ] });
 }
 function clamp(value, [min, max]) {
@@ -49196,11 +49391,19 @@ function Chat() {
   const { data: messages } = useGetMessages();
   const { mutateAsync: sendMessage, isPending } = useSendMessage();
   const { ownerPrincipal } = useOwner();
+  const { data: allPoints } = useGetAllPlayerPoints();
   const navigate = useNavigate();
   const [input, setInput] = reactExports.useState("");
   const bottomRef = reactExports.useRef(null);
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toText();
   const msgCount = (messages == null ? void 0 : messages.length) ?? 0;
+  const pointsMap = reactExports.useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    for (const e of allPoints ?? []) {
+      map.set(e.player.toString(), Number(e.points));
+    }
+    return map;
+  }, [allPoints]);
   reactExports.useEffect(() => {
     var _a3;
     (_a3 = bottomRef.current) == null ? void 0 : _a3.scrollIntoView({ behavior: "smooth" });
@@ -49267,6 +49470,7 @@ function Chat() {
                 msg.author
               );
               const authorStr = msg.author.toString();
+              const authorPoints = pointsMap.get(authorStr) ?? 0;
               return /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 motion.div,
                 {
@@ -49291,23 +49495,27 @@ function Chat() {
                           /* @__PURE__ */ jsxRuntimeExports.jsxs(
                             "div",
                             {
-                              className: `flex items-center gap-2 ${isMe ? "flex-row-reverse" : ""}`,
+                              className: `flex items-center gap-1.5 ${isMe ? "flex-row-reverse" : ""}`,
                               children: [
-                                isMe ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground font-medium", children: "You" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                                isMe ? /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground font-medium", children: "You" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
                                   "button",
                                   {
                                     type: "button",
-                                    className: "text-xs text-muted-foreground font-medium hover:text-primary transition-colors cursor-pointer flex items-center gap-0.5",
+                                    className: "text-xs text-muted-foreground font-medium hover:text-primary transition-colors cursor-pointer",
                                     onClick: () => navigate({
                                       to: "/messages/$userId",
                                       params: { userId: authorStr }
                                     }),
                                     title: "Send private message",
                                     "data-ocid": `chat.item.${i + 1}`,
-                                    children: [
-                                      shortAuthor(msg.author),
-                                      authorIsOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "👑" })
-                                    ]
+                                    children: shortAuthor(msg.author)
+                                  }
+                                ),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                                  RankBadge,
+                                  {
+                                    points: isMe ? pointsMap.get(myPrincipal ?? "") ?? 0 : authorPoints,
+                                    isOwner: isMe ? false : authorIsOwner
                                   }
                                 ),
                                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground/60", children: formatTime$1(msg.timestamp) })
@@ -52066,7 +52274,15 @@ function Feed() {
   const { data: posts, isLoading } = useGetAllPosts();
   const { data: quizzes } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
-  const { isOwner } = useOwner();
+  const { isOwner, ownerPrincipal } = useOwner();
+  const { data: allPoints } = useGetAllPlayerPoints();
+  const pointsMap = reactExports.useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    for (const e of allPoints ?? []) {
+      map.set(e.player.toString(), Number(e.points));
+    }
+    return map;
+  }, [allPoints]);
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
   const quizMap = /* @__PURE__ */ new Map();
   for (const q2 of quizzes ?? []) {
@@ -52138,7 +52354,9 @@ function Feed() {
           quiz,
           index: i + 1,
           isLoggedIn: !!identity,
-          canDelete
+          canDelete,
+          pointsMap,
+          ownerPrincipal
         },
         pws.post.id.toString()
       );
@@ -52150,7 +52368,9 @@ function PostCard({
   quiz,
   index: index2,
   isLoggedIn,
-  canDelete
+  canDelete,
+  pointsMap,
+  ownerPrincipal
 }) {
   var _a3;
   const [commentsOpen, setCommentsOpen] = reactExports.useState(false);
@@ -52221,7 +52441,16 @@ function PostCard({
                   }
                 ) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor2 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 flex-wrap", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor2 }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      RankBadge,
+                      {
+                        points: pointsMap.get(authorStr) ?? 0,
+                        isOwner: (ownerPrincipal == null ? void 0 : ownerPrincipal.toString()) === authorStr
+                      }
+                    )
+                  ] }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: new Date(
                     Number(pws.post.timestamp / BigInt(1e6))
                   ).toLocaleDateString() })
@@ -54155,6 +54384,14 @@ function PointsLeaderboard() {
   const { data: entries, isLoading } = useGetAllPlayerPoints();
   const { data: myPoints = 0n } = useGetMyPoints();
   const { ownerPrincipal, isOwner } = useOwner();
+  const { data: assignedRanks } = useGetAllAssignedRanks();
+  const assignedRankMap = reactExports.useMemo(() => {
+    const map = /* @__PURE__ */ new Map();
+    for (const e of assignedRanks ?? []) {
+      if (e.rank) map.set(e.player.toString(), e.rank);
+    }
+    return map;
+  }, [assignedRanks]);
   const qc = useQueryClient();
   const navigate = useNavigate();
   const [giveTarget, setGiveTarget] = reactExports.useState(null);
@@ -54206,6 +54443,7 @@ function PointsLeaderboard() {
             entry.player
           );
           const displayName = `${principal.slice(0, 8)}...${principal.slice(-5)}`;
+          const entryPoints = Number(entry.points);
           const displayPoints = isEntryOwner ? "∞" : entry.points.toString();
           return /* @__PURE__ */ jsxRuntimeExports.jsxs(
             motion.div,
@@ -54225,8 +54463,14 @@ function PointsLeaderboard() {
                 ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 min-w-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium truncate", children: displayName }),
-                  isEntryOwner && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "Owner" }),
-                  !isEntryOwner && rank === 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "🏆 #1" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    RankBadge,
+                    {
+                      points: entryPoints,
+                      isOwner: isEntryOwner,
+                      assignedRank: assignedRankMap.get(principal)
+                    }
+                  ),
                   isMe && /* @__PURE__ */ jsxRuntimeExports.jsx(
                     Badge,
                     {
@@ -54234,7 +54478,8 @@ function PointsLeaderboard() {
                       className: "border-primary/60 text-primary text-xs",
                       children: "You"
                     }
-                  )
+                  ),
+                  !isEntryOwner && rank === 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs", children: "🏆 #1" })
                 ] }) }),
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 shrink-0", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
@@ -54666,6 +54911,8 @@ function Profile() {
   const { data: profile } = useGetUserProfile();
   const { data: results, isLoading: loadingResults } = useGetUserQuizResults();
   const { data: allQuizzes } = useGetAllQuizzes();
+  const { data: allPoints } = useGetAllPlayerPoints();
+  const { isOwner } = useOwner();
   const updateProfile = useUpdateUserProfile();
   const deleteQuiz = useDeleteQuiz();
   const [editing, setEditing] = reactExports.useState(false);
@@ -54690,6 +54937,10 @@ function Profile() {
   const myQuizzes = (allQuizzes ?? []).filter(
     (q2) => q2.creator.toString() === myPrincipal
   );
+  const myPointsEntry = (allPoints ?? []).find(
+    (e) => e.player.toString() === myPrincipal
+  );
+  const myPoints = myPointsEntry ? Number(myPointsEntry.points) : 0;
   const startEditing = () => {
     setNewUsername((profile == null ? void 0 : profile.username) ?? "");
     setEditing(true);
@@ -54703,6 +54954,11 @@ function Profile() {
     } catch {
       ue.error("Failed to update username.");
     }
+  };
+  const copyPrincipal = () => {
+    navigator.clipboard.writeText(myPrincipal).then(() => {
+      ue.success("Principal ID copied!");
+    });
   };
   function handleDeleteConfirm() {
     if (!deleteTarget) return;
@@ -54759,6 +55015,7 @@ function Profile() {
                 )
               ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 flex-wrap", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold", children: (profile == null ? void 0 : profile.username) ?? "Loading..." }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(RankBadge, { points: myPoints, isOwner, size: "md" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   Button,
                   {
@@ -54770,11 +55027,24 @@ function Profile() {
                   }
                 )
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-sm mt-1", children: [
-                identity.getPrincipal().toString().slice(0, 20),
-                "..."
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mt-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground text-sm font-mono text-xs", children: [
+                  myPrincipal.slice(0, 24),
+                  "..."
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: copyPrincipal,
+                    className: "text-muted-foreground hover:text-foreground transition-colors",
+                    title: "Copy Principal ID",
+                    "data-ocid": "profile.secondary_button",
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "w-3.5 h-3.5" })
+                  }
+                )
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 mt-3", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 mt-3 flex-wrap", children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: sortedResults.length }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "quizzes played" })
@@ -54782,6 +55052,10 @@ function Profile() {
                 /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: myQuizzes.length }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "quizzes created" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold text-primary", children: isOwner ? "∞" : myPoints.toLocaleString() }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground ml-1", children: "points" })
                 ] })
               ] })
             ] })

@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import type { Principal } from "@icp-sdk/core/principal";
 import { Link } from "@tanstack/react-router";
 import {
   CheckCircle2,
@@ -12,28 +13,44 @@ import {
   Loader2,
   Lock,
   Plus,
+  Shield,
   ShieldCheck,
   Trash2,
 } from "lucide-react";
 import { motion } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import type {
   CustomTriviaQuestion,
   Question,
   SpinWheelSegment,
 } from "../backend.d";
+import { RankBadge } from "../components/RankBadge";
+import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
+  useAssignPlayerRank,
   useCreateCustomSpinWheel,
   useCreateCustomTrivia,
   useGetAdminQuizAnswers,
+  useGetAllAssignedRanks,
   useGetAllCustomGames,
   useGetAllPlayerPoints,
   useGetMyPoints,
 } from "../hooks/useQueries";
 
 const SKELETON_KEYS = ["sk1", "sk2", "sk3"];
+const RANK_OPTIONS = ["", "Noob", "Pro", "God", "Hacker", "Admin", "Owner"];
+const RANK_LABELS: Record<string, string> = {
+  "": "Auto (points-based)",
+  Noob: "\ud83c\udf31 Noob",
+  Pro: "\u2b50 Pro",
+  God: "\u2728 God",
+  Hacker: "\ud83d\udc80 Hacker",
+  Admin: "\u26a1 Admin",
+  Owner: "\ud83d\udc51 Owner",
+};
 
 function AnswerDisplay({ q }: { q: Question }) {
   if (q.questionType.__kind__ === "trueFalse") {
@@ -100,7 +117,6 @@ function MiniGameCreator() {
   const qIdRef = useRef(1);
   const sIdRef = useRef(3);
 
-  // Trivia state
   const [triviaTitle, setTriviaTitle] = useState("");
   const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestionDraft[]>(
     [
@@ -114,7 +130,6 @@ function MiniGameCreator() {
     ],
   );
 
-  // Spin wheel state
   const [spinTitle, setSpinTitle] = useState("");
   const [spinSegments, setSpinSegments] = useState<SpinSegmentDraft[]>([
     { id: 1, segmentLabel: "", points: 50 },
@@ -251,7 +266,6 @@ function MiniGameCreator() {
 
   return (
     <div className="space-y-8">
-      {/* Creator section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -277,7 +291,6 @@ function MiniGameCreator() {
               </TabsTrigger>
             </TabsList>
 
-            {/* Trivia Tab */}
             <TabsContent value="trivia" className="space-y-5">
               <div>
                 <Label htmlFor="trivia-title" className="text-sm mb-1.5 block">
@@ -416,7 +429,6 @@ function MiniGameCreator() {
               </div>
             </TabsContent>
 
-            {/* Spin Wheel Tab */}
             <TabsContent value="spinwheel" className="space-y-5">
               <div>
                 <Label htmlFor="spin-title" className="text-sm mb-1.5 block">
@@ -514,7 +526,6 @@ function MiniGameCreator() {
         </div>
       </motion.div>
 
-      {/* Existing custom games */}
       <div>
         <h3 className="text-base font-semibold mb-3 flex items-center gap-2">
           <Gamepad2 className="w-4 h-4 text-primary" />
@@ -545,8 +556,8 @@ function MiniGameCreator() {
                   <p className="font-medium">{g.title}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     {g.gameType.__kind__ === "customTrivia"
-                      ? `Trivia · ${g.gameType.customTrivia.questions.length} questions`
-                      : `Spin Wheel · ${g.gameType.customSpinWheel.segments.length} segments`}
+                      ? `Trivia \u00b7 ${g.gameType.customTrivia.questions.length} questions`
+                      : `Spin Wheel \u00b7 ${g.gameType.customSpinWheel.segments.length} segments`}
                   </p>
                 </div>
                 <Badge
@@ -569,13 +580,207 @@ function MiniGameCreator() {
   );
 }
 
+function ManagePlayerRanks() {
+  const { data: allPoints, isLoading: loadingPoints } = useGetAllPlayerPoints();
+  const { data: assignedRanks, isLoading: loadingRanks } =
+    useGetAllAssignedRanks();
+  const { ownerPrincipal } = useOwner();
+  const assignRank = useAssignPlayerRank();
+
+  // Local state: principal -> selected rank draft
+  const [drafts, setDrafts] = useState<Record<string, string>>({});
+  const [saving, setSaving] = useState<Record<string, boolean>>({});
+
+  const assignedRankMap = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const e of assignedRanks ?? []) {
+      if (e.rank) map.set(e.player.toString(), e.rank);
+    }
+    return map;
+  }, [assignedRanks]);
+
+  const sorted = useMemo(
+    () =>
+      [...(allPoints ?? [])].sort((a, b) =>
+        b.points > a.points ? 1 : b.points < a.points ? -1 : 0,
+      ),
+    [allPoints],
+  );
+
+  function getDraft(principal: string): string {
+    if (principal in drafts) return drafts[principal];
+    return assignedRankMap.get(principal) ?? "";
+  }
+
+  async function handleSet(player: Principal, principal: string) {
+    const rank = getDraft(principal);
+    setSaving((prev) => ({ ...prev, [principal]: true }));
+    try {
+      await assignRank.mutateAsync({ player, rank });
+      toast.success(
+        rank
+          ? `Rank set to ${rank} for ${principal.slice(0, 8)}...`
+          : `Rank reset to auto for ${principal.slice(0, 8)}...`,
+      );
+      // Clear draft after save
+      setDrafts((prev) => {
+        const next = { ...prev };
+        delete next[principal];
+        return next;
+      });
+    } catch (e: any) {
+      toast.error(e?.message ?? "Failed to assign rank");
+    } finally {
+      setSaving((prev) => ({ ...prev, [principal]: false }));
+    }
+  }
+
+  const isLoading = loadingPoints || loadingRanks;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="glass-card rounded-2xl overflow-hidden border border-yellow-400/20"
+      data-ocid="admin.rank_manager.panel"
+    >
+      <div className="px-6 py-4 border-b border-yellow-400/20 flex items-center gap-3 bg-yellow-400/5">
+        <Shield className="w-5 h-5 text-yellow-400" />
+        <h2 className="text-lg font-semibold text-yellow-400">
+          Manage Player Ranks
+        </h2>
+        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
+          \ud83d\udc51 Owner Only
+        </Badge>
+      </div>
+
+      <div className="px-6 py-5">
+        <p className="text-sm text-muted-foreground mb-5">
+          Override any player\u2019s rank badge. Select \u201cAuto\u201d to
+          revert to points-based rank.
+        </p>
+
+        {isLoading ? (
+          <div
+            className="space-y-3"
+            data-ocid="admin.rank_manager.loading_state"
+          >
+            {["r1", "r2", "r3"].map((k) => (
+              <Skeleton key={k} className="h-14 rounded-xl" />
+            ))}
+          </div>
+        ) : sorted.length === 0 ? (
+          <div
+            className="text-center py-8 text-muted-foreground text-sm"
+            data-ocid="admin.rank_manager.empty_state"
+          >
+            No players found.
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {sorted.map((entry, i) => {
+              const principal = entry.player.toString();
+              const points = Number(entry.points);
+              const isEntryOwner = isOwnerPrincipal(
+                ownerPrincipal,
+                entry.player,
+              );
+              const currentAssigned = assignedRankMap.get(principal);
+              const draftValue = getDraft(principal);
+              const isSaving = saving[principal] ?? false;
+              const shortPrincipal = `${principal.slice(0, 10)}...${principal.slice(-6)}`;
+
+              return (
+                <div
+                  key={principal}
+                  className="flex items-center gap-3 rounded-xl border border-border/30 bg-secondary/20 px-4 py-3"
+                  data-ocid={`admin.rank_manager.item.${i + 1}`}
+                >
+                  {/* Player info */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-mono text-xs text-muted-foreground truncate">
+                        {shortPrincipal}
+                      </span>
+                      <RankBadge
+                        points={points}
+                        isOwner={isEntryOwner}
+                        assignedRank={currentAssigned}
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {isEntryOwner ? "\u221e" : points.toLocaleString()} pts
+                      {currentAssigned ? (
+                        <span className="ml-2 text-yellow-400/70">
+                          (override: {currentAssigned})
+                        </span>
+                      ) : null}
+                    </p>
+                  </div>
+
+                  {/* Rank selector */}
+                  <select
+                    value={draftValue}
+                    onChange={(e) =>
+                      setDrafts((prev) => ({
+                        ...prev,
+                        [principal]: e.target.value,
+                      }))
+                    }
+                    className="rounded-lg border border-border/50 bg-secondary/40 px-2 py-1.5 text-xs text-foreground shrink-0 w-40"
+                    data-ocid={`admin.rank_manager.select.${i + 1}`}
+                  >
+                    {RANK_OPTIONS.map((r) => (
+                      <option key={r} value={r}>
+                        {RANK_LABELS[r]}
+                      </option>
+                    ))}
+                  </select>
+
+                  {/* Set button */}
+                  <Button
+                    size="sm"
+                    onClick={() => handleSet(entry.player, principal)}
+                    disabled={isSaving}
+                    className="bg-yellow-400/20 border border-yellow-400/40 text-yellow-400 hover:bg-yellow-400/30 rounded-full shrink-0 text-xs px-3"
+                    data-ocid={`admin.rank_manager.save_button.${i + 1}`}
+                  >
+                    {isSaving ? (
+                      <Loader2 className="w-3 h-3 animate-spin" />
+                    ) : (
+                      "Set"
+                    )}
+                  </Button>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
 export default function AdminPanel() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { actor } = useActor();
   const { data: myPoints, isLoading: loadingPoints } = useGetMyPoints();
   const { data: allPoints, isLoading: loadingAll } = useGetAllPlayerPoints();
   const myPrincipal = identity?.getPrincipal().toString();
 
-  // Determine if caller is #1
+  const [isCallerOwner, setIsCallerOwner] = useState(false);
+
+  useEffect(() => {
+    if (!actor || !identity) {
+      setIsCallerOwner(false);
+      return;
+    }
+    (actor as any)
+      .isCallerOwner()
+      .then(setIsCallerOwner)
+      .catch(() => setIsCallerOwner(false));
+  }, [actor, identity]);
+
   const sorted = allPoints
     ? [...allPoints].sort((a, b) =>
         b.points > a.points ? 1 : b.points < a.points ? -1 : 0,
@@ -750,6 +955,17 @@ export default function AdminPanel() {
       {/* Mini Game Creator Section */}
       <h2 className="text-xl font-semibold mb-4">Mini Game Creator</h2>
       <MiniGameCreator />
+
+      {/* Manage Player Ranks — Owner only */}
+      {isCallerOwner && (
+        <div className="mt-10">
+          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+            <Shield className="w-5 h-5 text-yellow-400" />
+            <span className="text-yellow-400">Manage Player Ranks</span>
+          </h2>
+          <ManagePlayerRanks />
+        </div>
+      )}
     </div>
   );
 }

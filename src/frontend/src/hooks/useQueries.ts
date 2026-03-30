@@ -492,3 +492,36 @@ export function useGiftPoints() {
     },
   });
 }
+
+export interface PlayerRankEntry {
+  player: { toString(): string };
+  rank: string;
+}
+
+export function useGetAllAssignedRanks() {
+  const { actor, isFetching } = useActor();
+  return useQuery<PlayerRankEntry[]>({
+    queryKey: ["assignedRanks"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getAllAssignedRanks() as Promise<PlayerRankEntry[]>;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useAssignPlayerRank() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    void,
+    Error,
+    { player: import("@icp-sdk/core/principal").Principal; rank: string }
+  >({
+    mutationFn: async ({ player, rank }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).assignPlayerRank(player, rank);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["assignedRanks"] }),
+  });
+}

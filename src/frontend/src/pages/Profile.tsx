@@ -23,6 +23,7 @@ import { Link } from "@tanstack/react-router";
 import {
   BookOpen,
   Check,
+  Copy,
   Edit2,
   Loader2,
   Play,
@@ -33,9 +34,12 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { RankBadge } from "../components/RankBadge";
+import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useDeleteQuiz,
+  useGetAllPlayerPoints,
   useGetAllQuizzes,
   useGetUserProfile,
   useGetUserQuizResults,
@@ -47,6 +51,8 @@ export default function Profile() {
   const { data: profile } = useGetUserProfile();
   const { data: results, isLoading: loadingResults } = useGetUserQuizResults();
   const { data: allQuizzes } = useGetAllQuizzes();
+  const { data: allPoints } = useGetAllPlayerPoints();
+  const { isOwner } = useOwner();
   const updateProfile = useUpdateUserProfile();
   const deleteQuiz = useDeleteQuiz();
 
@@ -81,6 +87,11 @@ export default function Profile() {
     (q) => q.creator.toString() === myPrincipal,
   );
 
+  const myPointsEntry = (allPoints ?? []).find(
+    (e) => e.player.toString() === myPrincipal,
+  );
+  const myPoints = myPointsEntry ? Number(myPointsEntry.points) : 0;
+
   const startEditing = () => {
     setNewUsername(profile?.username ?? "");
     setEditing(true);
@@ -95,6 +106,12 @@ export default function Profile() {
     } catch {
       toast.error("Failed to update username.");
     }
+  };
+
+  const copyPrincipal = () => {
+    navigator.clipboard.writeText(myPrincipal).then(() => {
+      toast.success("Principal ID copied!");
+    });
   };
 
   function handleDeleteConfirm() {
@@ -162,6 +179,7 @@ export default function Profile() {
                 <h1 className="text-2xl font-bold">
                   {profile?.username ?? "Loading..."}
                 </h1>
+                <RankBadge points={myPoints} isOwner={isOwner} size="md" />
                 <Button
                   size="icon"
                   variant="ghost"
@@ -172,10 +190,21 @@ export default function Profile() {
                 </Button>
               </div>
             )}
-            <p className="text-muted-foreground text-sm mt-1">
-              {identity.getPrincipal().toString().slice(0, 20)}...
-            </p>
-            <div className="flex gap-4 mt-3">
+            <div className="flex items-center gap-2 mt-1">
+              <p className="text-muted-foreground text-sm font-mono text-xs">
+                {myPrincipal.slice(0, 24)}...
+              </p>
+              <button
+                type="button"
+                onClick={copyPrincipal}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                title="Copy Principal ID"
+                data-ocid="profile.secondary_button"
+              >
+                <Copy className="w-3.5 h-3.5" />
+              </button>
+            </div>
+            <div className="flex gap-4 mt-3 flex-wrap">
               <div className="text-sm">
                 <span className="font-bold text-primary">
                   {sortedResults.length}
@@ -191,6 +220,12 @@ export default function Profile() {
                 <span className="text-muted-foreground ml-1">
                   quizzes created
                 </span>
+              </div>
+              <div className="text-sm">
+                <span className="font-bold text-primary">
+                  {isOwner ? "\u221e" : myPoints.toLocaleString()}
+                </span>
+                <span className="text-muted-foreground ml-1">points</span>
               </div>
             </div>
           </div>

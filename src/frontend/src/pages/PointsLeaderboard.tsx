@@ -1,3 +1,4 @@
+import { RankBadge } from "@/components/RankBadge";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,12 +18,16 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { Crown, Gift, Loader2, MessageSquare, Trophy, Zap } from "lucide-react";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import type { PointsEntry } from "../backend.d";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
-import { useGetAllPlayerPoints, useGetMyPoints } from "../hooks/useQueries";
+import {
+  useGetAllAssignedRanks,
+  useGetAllPlayerPoints,
+  useGetMyPoints,
+} from "../hooks/useQueries";
 
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 
@@ -155,6 +160,15 @@ export default function PointsLeaderboard() {
   const { data: entries, isLoading } = useGetAllPlayerPoints();
   const { data: myPoints = 0n } = useGetMyPoints();
   const { ownerPrincipal, isOwner } = useOwner();
+  const { data: assignedRanks } = useGetAllAssignedRanks();
+
+  const assignedRankMap = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const e of assignedRanks ?? []) {
+      if (e.rank) map.set(e.player.toString(), e.rank);
+    }
+    return map;
+  }, [assignedRanks]);
   const qc = useQueryClient();
   const navigate = useNavigate();
 
@@ -230,6 +244,7 @@ export default function PointsLeaderboard() {
                 entry.player,
               );
               const displayName = `${principal.slice(0, 8)}...${principal.slice(-5)}`;
+              const entryPoints = Number(entry.points);
               const displayPoints = isEntryOwner
                 ? "∞"
                 : entry.points.toString();
@@ -264,22 +279,22 @@ export default function PointsLeaderboard() {
                       <span className="font-medium truncate">
                         {displayName}
                       </span>
-                      {isEntryOwner && (
-                        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
-                          Owner
-                        </Badge>
-                      )}
-                      {!isEntryOwner && rank === 1 && (
-                        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
-                          🏆 #1
-                        </Badge>
-                      )}
+                      <RankBadge
+                        points={entryPoints}
+                        isOwner={isEntryOwner}
+                        assignedRank={assignedRankMap.get(principal)}
+                      />
                       {isMe && (
                         <Badge
                           variant="outline"
                           className="border-primary/60 text-primary text-xs"
                         >
                           You
+                        </Badge>
+                      )}
+                      {!isEntryOwner && rank === 1 && (
+                        <Badge className="bg-yellow-400/20 text-yellow-400 border-yellow-400/40 text-xs">
+                          🏆 #1
                         </Badge>
                       )}
                     </div>

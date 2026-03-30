@@ -28,14 +28,16 @@ import {
   Trash2,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import type { PostWithStats, Quiz } from "../backend.d";
+import { RankBadge } from "../components/RankBadge";
 import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useAddComment,
   useDeleteQuiz,
+  useGetAllPlayerPoints,
   useGetAllPosts,
   useGetAllQuizzes,
   useGetComments,
@@ -48,7 +50,16 @@ export default function Feed() {
   const { data: posts, isLoading } = useGetAllPosts();
   const { data: quizzes } = useGetAllQuizzes();
   const { identity } = useInternetIdentity();
-  const { isOwner } = useOwner();
+  const { isOwner, ownerPrincipal } = useOwner();
+  const { data: allPoints } = useGetAllPlayerPoints();
+
+  const pointsMap = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const e of allPoints ?? []) {
+      map.set(e.player.toString(), Number(e.points));
+    }
+    return map;
+  }, [allPoints]);
 
   const myPrincipal = identity?.getPrincipal().toString();
 
@@ -142,6 +153,8 @@ export default function Feed() {
                     index={i + 1}
                     isLoggedIn={!!identity}
                     canDelete={canDelete}
+                    pointsMap={pointsMap}
+                    ownerPrincipal={ownerPrincipal}
                   />
                 );
               })}
@@ -159,12 +172,16 @@ function PostCard({
   index,
   isLoggedIn,
   canDelete,
+  pointsMap,
+  ownerPrincipal,
 }: {
   pws: PostWithStats;
   quiz: Quiz | undefined;
   index: number;
   isLoggedIn: boolean;
   canDelete: boolean;
+  pointsMap: Map<string, number>;
+  ownerPrincipal: { toString(): string } | null;
 }) {
   const [commentsOpen, setCommentsOpen] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -246,9 +263,15 @@ function PostCard({
                 </AvatarFallback>
               </Avatar>
               <div>
-                <p className="text-sm font-semibold text-foreground">
-                  {shortAuthor}
-                </p>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <p className="text-sm font-semibold text-foreground">
+                    {shortAuthor}
+                  </p>
+                  <RankBadge
+                    points={pointsMap.get(authorStr) ?? 0}
+                    isOwner={ownerPrincipal?.toString() === authorStr}
+                  />
+                </div>
                 <p className="text-xs text-muted-foreground">
                   {new Date(
                     Number(pws.post.timestamp / BigInt(1_000_000)),

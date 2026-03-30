@@ -20390,7 +20390,18 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$B = [
+const __iconNode$D = [
+  ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
+  ["path", { d: "M19 12H5", key: "x3x0zl" }]
+];
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$D);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$C = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20400,14 +20411,14 @@ const __iconNode$B = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$B);
+const BookOpen = createLucideIcon("book-open", __iconNode$C);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$A = [
+const __iconNode$B = [
   [
     "path",
     {
@@ -20430,39 +20441,50 @@ const __iconNode$A = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$A);
+const Brain = createLucideIcon("brain", __iconNode$B);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$z = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$z);
+const __iconNode$A = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$A);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$y = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$y);
+const __iconNode$z = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$x = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$x);
+const __iconNode$y = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$y);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$w = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$w);
+const __iconNode$x = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$x);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$w = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$w);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -21351,7 +21373,7 @@ function useImageLoadingStatus(src, { referrerPolicy, crossOrigin }) {
   }, [image, crossOrigin, referrerPolicy]);
   return loadingStatus;
 }
-var Root$4 = Avatar$1;
+var Root$5 = Avatar$1;
 var Fallback = AvatarFallback$1;
 function r$1(e) {
   var t, f, n = "";
@@ -23833,7 +23855,7 @@ function Avatar({
   ...props
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root$4,
+    Root$5,
     {
       "data-slot": "avatar",
       className: cn(
@@ -35965,6 +35987,12 @@ const Answer = Record({
   }),
   "questionId": Nat
 });
+const ChatMessage = Record({
+  "id": Nat,
+  "author": Principal2,
+  "content": Text,
+  "timestamp": Time
+});
 Service({
   "_initializeAccessControlWithSecret": Func([Text], [], []),
   "addComment": Func([Nat, Text], [Nat], []),
@@ -36041,6 +36069,8 @@ Service({
   "saveCallerUserProfile": Func([UserProfile], [], []),
   "submitQuizAnswers": Func([Nat, Vec(Answer)], [Nat], []),
   "trackVisit": Func([], [], []),
+  "getMessages": Func([], [Vec(ChatMessage)], ["query"]),
+  "sendMessage": Func([Text], [Nat], []),
   "unlikePost": Func([Nat], [], []),
   "updateUserProfile": Func([Text], [], [])
 });
@@ -36146,6 +36176,12 @@ const idlFactory = ({ IDL: IDL2 }) => {
     }),
     "questionId": IDL2.Nat
   });
+  const ChatMessage2 = IDL2.Record({
+    "id": IDL2.Nat,
+    "author": IDL2.Principal,
+    "content": IDL2.Text,
+    "timestamp": Time2
+  });
   return IDL2.Service({
     "_initializeAccessControlWithSecret": IDL2.Func([IDL2.Text], [], []),
     "addComment": IDL2.Func([IDL2.Nat, IDL2.Text], [IDL2.Nat], []),
@@ -36226,6 +36262,8 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "saveCallerUserProfile": IDL2.Func([UserProfile2], [], []),
     "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(Answer2)], [IDL2.Nat], []),
     "trackVisit": IDL2.Func([], [], []),
+    "getMessages": IDL2.Func([], [IDL2.Vec(ChatMessage2)], ["query"]),
+    "sendMessage": IDL2.Func([IDL2.Text], [IDL2.Nat], []),
     "unlikePost": IDL2.Func([IDL2.Nat], [], []),
     "updateUserProfile": IDL2.Func([IDL2.Text], [], [])
   });
@@ -38794,6 +38832,57 @@ function useSeedQuizzes() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ["quizzes"] })
   });
 }
+function useGetMessages() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["chatMessages"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getMessages();
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 5e3
+  });
+}
+function useSendMessage() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (content) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.sendMessage(content);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["chatMessages"] })
+  });
+}
+function usePlayCustomSpinWheel() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (gameId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.playCustomSpinWheel(gameId);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    }
+  });
+}
+function usePlayCustomTrivia() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ gameId, answers }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.playCustomTrivia(gameId, answers);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    }
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
@@ -38804,6 +38893,7 @@ function Navbar() {
     { path: "/", label: "Quizzes", icon: List$1 },
     { path: "/feed", label: "Feed", icon: Rss },
     { path: "/games", label: "Games", icon: Gamepad2 },
+    { path: "/chat", label: "Chat", icon: MessageCircle },
     { path: "/points-leaderboard", label: "Leaderboard", icon: Trophy },
     { path: "/create", label: "Create", icon: Plus },
     { path: "/profile", label: "Profile", icon: User },
@@ -38943,13 +39033,13 @@ var Label$1 = reactExports.forwardRef((props, forwardedRef) => {
   );
 });
 Label$1.displayName = NAME;
-var Root$3 = Label$1;
+var Root$4 = Label$1;
 function Label({
   className,
   ...props
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    Root$3,
+    Root$4,
     {
       "data-slot": "label",
       className: cn(
@@ -39327,9 +39417,9 @@ function focusFirst$1(candidates, preventScroll = false) {
 function wrapArray(array, startIndex) {
   return array.map((_2, index2) => array[(startIndex + index2) % array.length]);
 }
-var Root$2 = RovingFocusGroup;
+var Root$3 = RovingFocusGroup;
 var Item = RovingFocusGroupItem;
-function useStateMachine(initialState, machine) {
+function useStateMachine$1(initialState, machine) {
   return reactExports.useReducer((state, event) => {
     const nextState = machine[state][event];
     return nextState ?? state;
@@ -39350,7 +39440,7 @@ function usePresence$1(present) {
   const prevPresentRef = reactExports.useRef(present);
   const prevAnimationNameRef = reactExports.useRef("none");
   const initialState = present ? "mounted" : "unmounted";
-  const [state, send] = useStateMachine(initialState, {
+  const [state, send] = useStateMachine$1(initialState, {
     mounted: {
       UNMOUNT: "unmounted",
       ANIMATION_OUT: "unmountSuspended"
@@ -39508,7 +39598,7 @@ var TabsList$1 = reactExports.forwardRef(
     const context = useTabsContext(TAB_LIST_NAME, __scopeTabs);
     const rovingFocusGroupScope = useRovingFocusGroupScope(__scopeTabs);
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Root$2,
+      Root$3,
       {
         asChild: true,
         ...rovingFocusGroupScope,
@@ -39704,7 +39794,7 @@ function removeItem(arr, item) {
   if (index2 > -1)
     arr.splice(index2, 1);
 }
-const clamp = (min, max, v2) => {
+const clamp$1 = (min, max, v2) => {
   if (v2 > max)
     return max;
   if (v2 < min)
@@ -40011,7 +40101,7 @@ const number = {
 };
 const alpha = {
   ...number,
-  transform: (v2) => clamp(0, 1, v2)
+  transform: (v2) => clamp$1(0, 1, v2)
 };
 const scale = {
   ...number,
@@ -40037,7 +40127,7 @@ const splitColor = (aName, bName, cName) => (v2) => {
     alpha: alpha2 !== void 0 ? parseFloat(alpha2) : 1
   };
 };
-const clampRgbUnit = (v2) => clamp(0, 255, v2);
+const clampRgbUnit = (v2) => clamp$1(0, 255, v2);
 const rgbUnit = {
   ...number,
   transform: (v2) => Math.round(clampRgbUnit(v2))
@@ -40435,8 +40525,8 @@ function findSpring({ duration = springDefaults.duration, bounce = springDefault
   let envelope;
   let derivative;
   let dampingRatio = 1 - bounce;
-  dampingRatio = clamp(springDefaults.minDamping, springDefaults.maxDamping, dampingRatio);
-  duration = clamp(springDefaults.minDuration, springDefaults.maxDuration, /* @__PURE__ */ millisecondsToSeconds(duration));
+  dampingRatio = clamp$1(springDefaults.minDamping, springDefaults.maxDamping, dampingRatio);
+  duration = clamp$1(springDefaults.minDuration, springDefaults.maxDuration, /* @__PURE__ */ millisecondsToSeconds(duration));
   if (dampingRatio < 1) {
     envelope = (undampedFreq2) => {
       const exponentialDecay = undampedFreq2 * dampingRatio;
@@ -40517,7 +40607,7 @@ function getSpringOptions(options) {
       const visualDuration = options.visualDuration;
       const root2 = 2 * Math.PI / (visualDuration * 1.2);
       const stiffness = root2 * root2;
-      const damping = 2 * clamp(0.05, 1, 1 - (options.bounce || 0)) * Math.sqrt(stiffness);
+      const damping = 2 * clamp$1(0.05, 1, 1 - (options.bounce || 0)) * Math.sqrt(stiffness);
       springOptions = {
         ...springOptions,
         mass: springDefaults.mass,
@@ -40712,7 +40802,7 @@ function interpolate(input, output, { clamp: isClamp = true, ease: ease2, mixer 
     const progressInRange = /* @__PURE__ */ progress(input[i], input[i + 1], v2);
     return mixers[i](progressInRange);
   };
-  return isClamp ? (v2) => interpolator(clamp(input[0], input[inputLength - 1], v2)) : interpolator;
+  return isClamp ? (v2) => interpolator(clamp$1(input[0], input[inputLength - 1], v2)) : interpolator;
 }
 function fillOffset(offset, remaining) {
   const min = offset[offset.length - 1];
@@ -40905,7 +40995,7 @@ class JSAnimation extends WithPromise {
           frameGenerator = mirroredGenerator;
         }
       }
-      elapsed = clamp(0, 1, iterationProgress) * resolvedDuration;
+      elapsed = clamp$1(0, 1, iterationProgress) * resolvedDuration;
     }
     const state = isInDelayPhase ? { done: false, value: keyframes2[0] } : frameGenerator.next(elapsed);
     if (mixKeyframes) {
@@ -41568,7 +41658,7 @@ class NativeAnimationExtended extends NativeAnimation {
       autoplay: false
     });
     const sampleTime = Math.max(sampleDelta, time.now() - this.startTime);
-    const delta = clamp(0, sampleDelta, sampleTime - sampleDelta);
+    const delta = clamp$1(0, sampleDelta, sampleTime - sampleDelta);
     motionValue2.setWithVelocity(sampleAnimation.sample(Math.max(0, sampleTime - delta)).value, sampleAnimation.sample(sampleTime).value, delta);
     sampleAnimation.stop();
   }
@@ -44823,7 +44913,7 @@ function createProjectionNode$1({ attachResizeListener, defaultParent, measureSc
       }
       this.clearAllSnapshots();
       const now2 = time.now();
-      frameData.delta = clamp(0, 1e3 / 60, now2 - frameData.timestamp);
+      frameData.delta = clamp$1(0, 1e3 / 60, now2 - frameData.timestamp);
       frameData.timestamp = now2;
       frameData.isProcessing = true;
       frameSteps.update.process(frameData);
@@ -46758,7 +46848,7 @@ function calcOrigin(source, target) {
   } else if (sourceLength > targetLength) {
     origin = /* @__PURE__ */ progress(source.min, source.max - targetLength, target.min);
   }
-  return clamp(0, 1, origin);
+  return clamp$1(0, 1, origin);
 }
 function rebaseAxisConstraints(layout2, constraints) {
   const relativeConstraints = {};
@@ -48173,6 +48263,936 @@ function AdminPanel() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(MiniGameCreator, {})
   ] });
 }
+function clamp(value, [min, max]) {
+  return Math.min(max, Math.max(min, value));
+}
+function useStateMachine(initialState, machine) {
+  return reactExports.useReducer((state, event) => {
+    const nextState = machine[state][event];
+    return nextState ?? state;
+  }, initialState);
+}
+var SCROLL_AREA_NAME = "ScrollArea";
+var [createScrollAreaContext] = createContextScope(SCROLL_AREA_NAME);
+var [ScrollAreaProvider, useScrollAreaContext] = createScrollAreaContext(SCROLL_AREA_NAME);
+var ScrollArea$1 = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const {
+      __scopeScrollArea,
+      type = "hover",
+      dir,
+      scrollHideDelay = 600,
+      ...scrollAreaProps
+    } = props;
+    const [scrollArea, setScrollArea] = reactExports.useState(null);
+    const [viewport, setViewport] = reactExports.useState(null);
+    const [content, setContent] = reactExports.useState(null);
+    const [scrollbarX, setScrollbarX] = reactExports.useState(null);
+    const [scrollbarY, setScrollbarY] = reactExports.useState(null);
+    const [cornerWidth, setCornerWidth] = reactExports.useState(0);
+    const [cornerHeight, setCornerHeight] = reactExports.useState(0);
+    const [scrollbarXEnabled, setScrollbarXEnabled] = reactExports.useState(false);
+    const [scrollbarYEnabled, setScrollbarYEnabled] = reactExports.useState(false);
+    const composedRefs = useComposedRefs$1(forwardedRef, (node) => setScrollArea(node));
+    const direction = useDirection(dir);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ScrollAreaProvider,
+      {
+        scope: __scopeScrollArea,
+        type,
+        dir: direction,
+        scrollHideDelay,
+        scrollArea,
+        viewport,
+        onViewportChange: setViewport,
+        content,
+        onContentChange: setContent,
+        scrollbarX,
+        onScrollbarXChange: setScrollbarX,
+        scrollbarXEnabled,
+        onScrollbarXEnabledChange: setScrollbarXEnabled,
+        scrollbarY,
+        onScrollbarYChange: setScrollbarY,
+        scrollbarYEnabled,
+        onScrollbarYEnabledChange: setScrollbarYEnabled,
+        onCornerWidthChange: setCornerWidth,
+        onCornerHeightChange: setCornerHeight,
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Primitive.div,
+          {
+            dir: direction,
+            ...scrollAreaProps,
+            ref: composedRefs,
+            style: {
+              position: "relative",
+              // Pass corner sizes as CSS vars to reduce re-renders of context consumers
+              ["--radix-scroll-area-corner-width"]: cornerWidth + "px",
+              ["--radix-scroll-area-corner-height"]: cornerHeight + "px",
+              ...props.style
+            }
+          }
+        )
+      }
+    );
+  }
+);
+ScrollArea$1.displayName = SCROLL_AREA_NAME;
+var VIEWPORT_NAME = "ScrollAreaViewport";
+var ScrollAreaViewport = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeScrollArea, children, nonce, ...viewportProps } = props;
+    const context = useScrollAreaContext(VIEWPORT_NAME, __scopeScrollArea);
+    const ref = reactExports.useRef(null);
+    const composedRefs = useComposedRefs$1(forwardedRef, ref, context.onViewportChange);
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "style",
+        {
+          dangerouslySetInnerHTML: {
+            __html: `[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}`
+          },
+          nonce
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          "data-radix-scroll-area-viewport": "",
+          ...viewportProps,
+          ref: composedRefs,
+          style: {
+            /**
+             * We don't support `visible` because the intention is to have at least one scrollbar
+             * if this component is used and `visible` will behave like `auto` in that case
+             * https://developer.mozilla.org/en-US/docs/Web/CSS/overflow#description
+             *
+             * We don't handle `auto` because the intention is for the native implementation
+             * to be hidden if using this component. We just want to ensure the node is scrollable
+             * so could have used either `scroll` or `auto` here. We picked `scroll` to prevent
+             * the browser from having to work out whether to render native scrollbars or not,
+             * we tell it to with the intention of hiding them in CSS.
+             */
+            overflowX: context.scrollbarXEnabled ? "scroll" : "hidden",
+            overflowY: context.scrollbarYEnabled ? "scroll" : "hidden",
+            ...props.style
+          },
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: context.onContentChange, style: { minWidth: "100%", display: "table" }, children })
+        }
+      )
+    ] });
+  }
+);
+ScrollAreaViewport.displayName = VIEWPORT_NAME;
+var SCROLLBAR_NAME = "ScrollAreaScrollbar";
+var ScrollAreaScrollbar = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { forceMount, ...scrollbarProps } = props;
+    const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+    const { onScrollbarXEnabledChange, onScrollbarYEnabledChange } = context;
+    const isHorizontal = props.orientation === "horizontal";
+    reactExports.useEffect(() => {
+      isHorizontal ? onScrollbarXEnabledChange(true) : onScrollbarYEnabledChange(true);
+      return () => {
+        isHorizontal ? onScrollbarXEnabledChange(false) : onScrollbarYEnabledChange(false);
+      };
+    }, [isHorizontal, onScrollbarXEnabledChange, onScrollbarYEnabledChange]);
+    return context.type === "hover" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaScrollbarHover, { ...scrollbarProps, ref: forwardedRef, forceMount }) : context.type === "scroll" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaScrollbarScroll, { ...scrollbarProps, ref: forwardedRef, forceMount }) : context.type === "auto" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaScrollbarAuto, { ...scrollbarProps, ref: forwardedRef, forceMount }) : context.type === "always" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaScrollbarVisible, { ...scrollbarProps, ref: forwardedRef }) : null;
+  }
+);
+ScrollAreaScrollbar.displayName = SCROLLBAR_NAME;
+var ScrollAreaScrollbarHover = reactExports.forwardRef((props, forwardedRef) => {
+  const { forceMount, ...scrollbarProps } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const [visible, setVisible] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    const scrollArea = context.scrollArea;
+    let hideTimer = 0;
+    if (scrollArea) {
+      const handlePointerEnter = () => {
+        window.clearTimeout(hideTimer);
+        setVisible(true);
+      };
+      const handlePointerLeave = () => {
+        hideTimer = window.setTimeout(() => setVisible(false), context.scrollHideDelay);
+      };
+      scrollArea.addEventListener("pointerenter", handlePointerEnter);
+      scrollArea.addEventListener("pointerleave", handlePointerLeave);
+      return () => {
+        window.clearTimeout(hideTimer);
+        scrollArea.removeEventListener("pointerenter", handlePointerEnter);
+        scrollArea.removeEventListener("pointerleave", handlePointerLeave);
+      };
+    }
+  }, [context.scrollArea, context.scrollHideDelay]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || visible, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbarAuto,
+    {
+      "data-state": visible ? "visible" : "hidden",
+      ...scrollbarProps,
+      ref: forwardedRef
+    }
+  ) });
+});
+var ScrollAreaScrollbarScroll = reactExports.forwardRef((props, forwardedRef) => {
+  const { forceMount, ...scrollbarProps } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const isHorizontal = props.orientation === "horizontal";
+  const debounceScrollEnd = useDebounceCallback(() => send("SCROLL_END"), 100);
+  const [state, send] = useStateMachine("hidden", {
+    hidden: {
+      SCROLL: "scrolling"
+    },
+    scrolling: {
+      SCROLL_END: "idle",
+      POINTER_ENTER: "interacting"
+    },
+    interacting: {
+      SCROLL: "interacting",
+      POINTER_LEAVE: "idle"
+    },
+    idle: {
+      HIDE: "hidden",
+      SCROLL: "scrolling",
+      POINTER_ENTER: "interacting"
+    }
+  });
+  reactExports.useEffect(() => {
+    if (state === "idle") {
+      const hideTimer = window.setTimeout(() => send("HIDE"), context.scrollHideDelay);
+      return () => window.clearTimeout(hideTimer);
+    }
+  }, [state, context.scrollHideDelay, send]);
+  reactExports.useEffect(() => {
+    const viewport = context.viewport;
+    const scrollDirection = isHorizontal ? "scrollLeft" : "scrollTop";
+    if (viewport) {
+      let prevScrollPos = viewport[scrollDirection];
+      const handleScroll2 = () => {
+        const scrollPos = viewport[scrollDirection];
+        const hasScrollInDirectionChanged = prevScrollPos !== scrollPos;
+        if (hasScrollInDirectionChanged) {
+          send("SCROLL");
+          debounceScrollEnd();
+        }
+        prevScrollPos = scrollPos;
+      };
+      viewport.addEventListener("scroll", handleScroll2);
+      return () => viewport.removeEventListener("scroll", handleScroll2);
+    }
+  }, [context.viewport, isHorizontal, send, debounceScrollEnd]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || state !== "hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbarVisible,
+    {
+      "data-state": state === "hidden" ? "hidden" : "visible",
+      ...scrollbarProps,
+      ref: forwardedRef,
+      onPointerEnter: composeEventHandlers(props.onPointerEnter, () => send("POINTER_ENTER")),
+      onPointerLeave: composeEventHandlers(props.onPointerLeave, () => send("POINTER_LEAVE"))
+    }
+  ) });
+});
+var ScrollAreaScrollbarAuto = reactExports.forwardRef((props, forwardedRef) => {
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const { forceMount, ...scrollbarProps } = props;
+  const [visible, setVisible] = reactExports.useState(false);
+  const isHorizontal = props.orientation === "horizontal";
+  const handleResize = useDebounceCallback(() => {
+    if (context.viewport) {
+      const isOverflowX = context.viewport.offsetWidth < context.viewport.scrollWidth;
+      const isOverflowY = context.viewport.offsetHeight < context.viewport.scrollHeight;
+      setVisible(isHorizontal ? isOverflowX : isOverflowY);
+    }
+  }, 10);
+  useResizeObserver(context.viewport, handleResize);
+  useResizeObserver(context.content, handleResize);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || visible, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbarVisible,
+    {
+      "data-state": visible ? "visible" : "hidden",
+      ...scrollbarProps,
+      ref: forwardedRef
+    }
+  ) });
+});
+var ScrollAreaScrollbarVisible = reactExports.forwardRef((props, forwardedRef) => {
+  const { orientation = "vertical", ...scrollbarProps } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const thumbRef = reactExports.useRef(null);
+  const pointerOffsetRef = reactExports.useRef(0);
+  const [sizes, setSizes] = reactExports.useState({
+    content: 0,
+    viewport: 0,
+    scrollbar: { size: 0, paddingStart: 0, paddingEnd: 0 }
+  });
+  const thumbRatio = getThumbRatio(sizes.viewport, sizes.content);
+  const commonProps = {
+    ...scrollbarProps,
+    sizes,
+    onSizesChange: setSizes,
+    hasThumb: Boolean(thumbRatio > 0 && thumbRatio < 1),
+    onThumbChange: (thumb) => thumbRef.current = thumb,
+    onThumbPointerUp: () => pointerOffsetRef.current = 0,
+    onThumbPointerDown: (pointerPos) => pointerOffsetRef.current = pointerPos
+  };
+  function getScrollPosition(pointerPos, dir) {
+    return getScrollPositionFromPointer(pointerPos, pointerOffsetRef.current, sizes, dir);
+  }
+  if (orientation === "horizontal") {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ScrollAreaScrollbarX,
+      {
+        ...commonProps,
+        ref: forwardedRef,
+        onThumbPositionChange: () => {
+          if (context.viewport && thumbRef.current) {
+            const scrollPos = context.viewport.scrollLeft;
+            const offset = getThumbOffsetFromScroll(scrollPos, sizes, context.dir);
+            thumbRef.current.style.transform = `translate3d(${offset}px, 0, 0)`;
+          }
+        },
+        onWheelScroll: (scrollPos) => {
+          if (context.viewport) context.viewport.scrollLeft = scrollPos;
+        },
+        onDragScroll: (pointerPos) => {
+          if (context.viewport) {
+            context.viewport.scrollLeft = getScrollPosition(pointerPos, context.dir);
+          }
+        }
+      }
+    );
+  }
+  if (orientation === "vertical") {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      ScrollAreaScrollbarY,
+      {
+        ...commonProps,
+        ref: forwardedRef,
+        onThumbPositionChange: () => {
+          if (context.viewport && thumbRef.current) {
+            const scrollPos = context.viewport.scrollTop;
+            const offset = getThumbOffsetFromScroll(scrollPos, sizes);
+            thumbRef.current.style.transform = `translate3d(0, ${offset}px, 0)`;
+          }
+        },
+        onWheelScroll: (scrollPos) => {
+          if (context.viewport) context.viewport.scrollTop = scrollPos;
+        },
+        onDragScroll: (pointerPos) => {
+          if (context.viewport) context.viewport.scrollTop = getScrollPosition(pointerPos);
+        }
+      }
+    );
+  }
+  return null;
+});
+var ScrollAreaScrollbarX = reactExports.forwardRef((props, forwardedRef) => {
+  const { sizes, onSizesChange, ...scrollbarProps } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const [computedStyle, setComputedStyle] = reactExports.useState();
+  const ref = reactExports.useRef(null);
+  const composeRefs2 = useComposedRefs$1(forwardedRef, ref, context.onScrollbarXChange);
+  reactExports.useEffect(() => {
+    if (ref.current) setComputedStyle(getComputedStyle(ref.current));
+  }, [ref]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbarImpl,
+    {
+      "data-orientation": "horizontal",
+      ...scrollbarProps,
+      ref: composeRefs2,
+      sizes,
+      style: {
+        bottom: 0,
+        left: context.dir === "rtl" ? "var(--radix-scroll-area-corner-width)" : 0,
+        right: context.dir === "ltr" ? "var(--radix-scroll-area-corner-width)" : 0,
+        ["--radix-scroll-area-thumb-width"]: getThumbSize(sizes) + "px",
+        ...props.style
+      },
+      onThumbPointerDown: (pointerPos) => props.onThumbPointerDown(pointerPos.x),
+      onDragScroll: (pointerPos) => props.onDragScroll(pointerPos.x),
+      onWheelScroll: (event, maxScrollPos) => {
+        if (context.viewport) {
+          const scrollPos = context.viewport.scrollLeft + event.deltaX;
+          props.onWheelScroll(scrollPos);
+          if (isScrollingWithinScrollbarBounds(scrollPos, maxScrollPos)) {
+            event.preventDefault();
+          }
+        }
+      },
+      onResize: () => {
+        if (ref.current && context.viewport && computedStyle) {
+          onSizesChange({
+            content: context.viewport.scrollWidth,
+            viewport: context.viewport.offsetWidth,
+            scrollbar: {
+              size: ref.current.clientWidth,
+              paddingStart: toInt(computedStyle.paddingLeft),
+              paddingEnd: toInt(computedStyle.paddingRight)
+            }
+          });
+        }
+      }
+    }
+  );
+});
+var ScrollAreaScrollbarY = reactExports.forwardRef((props, forwardedRef) => {
+  const { sizes, onSizesChange, ...scrollbarProps } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, props.__scopeScrollArea);
+  const [computedStyle, setComputedStyle] = reactExports.useState();
+  const ref = reactExports.useRef(null);
+  const composeRefs2 = useComposedRefs$1(forwardedRef, ref, context.onScrollbarYChange);
+  reactExports.useEffect(() => {
+    if (ref.current) setComputedStyle(getComputedStyle(ref.current));
+  }, [ref]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbarImpl,
+    {
+      "data-orientation": "vertical",
+      ...scrollbarProps,
+      ref: composeRefs2,
+      sizes,
+      style: {
+        top: 0,
+        right: context.dir === "ltr" ? 0 : void 0,
+        left: context.dir === "rtl" ? 0 : void 0,
+        bottom: "var(--radix-scroll-area-corner-height)",
+        ["--radix-scroll-area-thumb-height"]: getThumbSize(sizes) + "px",
+        ...props.style
+      },
+      onThumbPointerDown: (pointerPos) => props.onThumbPointerDown(pointerPos.y),
+      onDragScroll: (pointerPos) => props.onDragScroll(pointerPos.y),
+      onWheelScroll: (event, maxScrollPos) => {
+        if (context.viewport) {
+          const scrollPos = context.viewport.scrollTop + event.deltaY;
+          props.onWheelScroll(scrollPos);
+          if (isScrollingWithinScrollbarBounds(scrollPos, maxScrollPos)) {
+            event.preventDefault();
+          }
+        }
+      },
+      onResize: () => {
+        if (ref.current && context.viewport && computedStyle) {
+          onSizesChange({
+            content: context.viewport.scrollHeight,
+            viewport: context.viewport.offsetHeight,
+            scrollbar: {
+              size: ref.current.clientHeight,
+              paddingStart: toInt(computedStyle.paddingTop),
+              paddingEnd: toInt(computedStyle.paddingBottom)
+            }
+          });
+        }
+      }
+    }
+  );
+});
+var [ScrollbarProvider, useScrollbarContext] = createScrollAreaContext(SCROLLBAR_NAME);
+var ScrollAreaScrollbarImpl = reactExports.forwardRef((props, forwardedRef) => {
+  const {
+    __scopeScrollArea,
+    sizes,
+    hasThumb,
+    onThumbChange,
+    onThumbPointerUp,
+    onThumbPointerDown,
+    onThumbPositionChange,
+    onDragScroll,
+    onWheelScroll,
+    onResize,
+    ...scrollbarProps
+  } = props;
+  const context = useScrollAreaContext(SCROLLBAR_NAME, __scopeScrollArea);
+  const [scrollbar, setScrollbar] = reactExports.useState(null);
+  const composeRefs2 = useComposedRefs$1(forwardedRef, (node) => setScrollbar(node));
+  const rectRef = reactExports.useRef(null);
+  const prevWebkitUserSelectRef = reactExports.useRef("");
+  const viewport = context.viewport;
+  const maxScrollPos = sizes.content - sizes.viewport;
+  const handleWheelScroll = useCallbackRef$1(onWheelScroll);
+  const handleThumbPositionChange = useCallbackRef$1(onThumbPositionChange);
+  const handleResize = useDebounceCallback(onResize, 10);
+  function handleDragScroll(event) {
+    if (rectRef.current) {
+      const x2 = event.clientX - rectRef.current.left;
+      const y2 = event.clientY - rectRef.current.top;
+      onDragScroll({ x: x2, y: y2 });
+    }
+  }
+  reactExports.useEffect(() => {
+    const handleWheel = (event) => {
+      const element = event.target;
+      const isScrollbarWheel = scrollbar == null ? void 0 : scrollbar.contains(element);
+      if (isScrollbarWheel) handleWheelScroll(event, maxScrollPos);
+    };
+    document.addEventListener("wheel", handleWheel, { passive: false });
+    return () => document.removeEventListener("wheel", handleWheel, { passive: false });
+  }, [viewport, scrollbar, maxScrollPos, handleWheelScroll]);
+  reactExports.useEffect(handleThumbPositionChange, [sizes, handleThumbPositionChange]);
+  useResizeObserver(scrollbar, handleResize);
+  useResizeObserver(context.content, handleResize);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollbarProvider,
+    {
+      scope: __scopeScrollArea,
+      scrollbar,
+      hasThumb,
+      onThumbChange: useCallbackRef$1(onThumbChange),
+      onThumbPointerUp: useCallbackRef$1(onThumbPointerUp),
+      onThumbPositionChange: handleThumbPositionChange,
+      onThumbPointerDown: useCallbackRef$1(onThumbPointerDown),
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Primitive.div,
+        {
+          ...scrollbarProps,
+          ref: composeRefs2,
+          style: { position: "absolute", ...scrollbarProps.style },
+          onPointerDown: composeEventHandlers(props.onPointerDown, (event) => {
+            const mainPointer = 0;
+            if (event.button === mainPointer) {
+              const element = event.target;
+              element.setPointerCapture(event.pointerId);
+              rectRef.current = scrollbar.getBoundingClientRect();
+              prevWebkitUserSelectRef.current = document.body.style.webkitUserSelect;
+              document.body.style.webkitUserSelect = "none";
+              if (context.viewport) context.viewport.style.scrollBehavior = "auto";
+              handleDragScroll(event);
+            }
+          }),
+          onPointerMove: composeEventHandlers(props.onPointerMove, handleDragScroll),
+          onPointerUp: composeEventHandlers(props.onPointerUp, (event) => {
+            const element = event.target;
+            if (element.hasPointerCapture(event.pointerId)) {
+              element.releasePointerCapture(event.pointerId);
+            }
+            document.body.style.webkitUserSelect = prevWebkitUserSelectRef.current;
+            if (context.viewport) context.viewport.style.scrollBehavior = "";
+            rectRef.current = null;
+          })
+        }
+      )
+    }
+  );
+});
+var THUMB_NAME = "ScrollAreaThumb";
+var ScrollAreaThumb = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { forceMount, ...thumbProps } = props;
+    const scrollbarContext = useScrollbarContext(THUMB_NAME, props.__scopeScrollArea);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Presence, { present: forceMount || scrollbarContext.hasThumb, children: /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaThumbImpl, { ref: forwardedRef, ...thumbProps }) });
+  }
+);
+var ScrollAreaThumbImpl = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const { __scopeScrollArea, style: style2, ...thumbProps } = props;
+    const scrollAreaContext = useScrollAreaContext(THUMB_NAME, __scopeScrollArea);
+    const scrollbarContext = useScrollbarContext(THUMB_NAME, __scopeScrollArea);
+    const { onThumbPositionChange } = scrollbarContext;
+    const composedRef = useComposedRefs$1(
+      forwardedRef,
+      (node) => scrollbarContext.onThumbChange(node)
+    );
+    const removeUnlinkedScrollListenerRef = reactExports.useRef(void 0);
+    const debounceScrollEnd = useDebounceCallback(() => {
+      if (removeUnlinkedScrollListenerRef.current) {
+        removeUnlinkedScrollListenerRef.current();
+        removeUnlinkedScrollListenerRef.current = void 0;
+      }
+    }, 100);
+    reactExports.useEffect(() => {
+      const viewport = scrollAreaContext.viewport;
+      if (viewport) {
+        const handleScroll2 = () => {
+          debounceScrollEnd();
+          if (!removeUnlinkedScrollListenerRef.current) {
+            const listener = addUnlinkedScrollListener(viewport, onThumbPositionChange);
+            removeUnlinkedScrollListenerRef.current = listener;
+            onThumbPositionChange();
+          }
+        };
+        onThumbPositionChange();
+        viewport.addEventListener("scroll", handleScroll2);
+        return () => viewport.removeEventListener("scroll", handleScroll2);
+      }
+    }, [scrollAreaContext.viewport, debounceScrollEnd, onThumbPositionChange]);
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Primitive.div,
+      {
+        "data-state": scrollbarContext.hasThumb ? "visible" : "hidden",
+        ...thumbProps,
+        ref: composedRef,
+        style: {
+          width: "var(--radix-scroll-area-thumb-width)",
+          height: "var(--radix-scroll-area-thumb-height)",
+          ...style2
+        },
+        onPointerDownCapture: composeEventHandlers(props.onPointerDownCapture, (event) => {
+          const thumb = event.target;
+          const thumbRect = thumb.getBoundingClientRect();
+          const x2 = event.clientX - thumbRect.left;
+          const y2 = event.clientY - thumbRect.top;
+          scrollbarContext.onThumbPointerDown({ x: x2, y: y2 });
+        }),
+        onPointerUp: composeEventHandlers(props.onPointerUp, scrollbarContext.onThumbPointerUp)
+      }
+    );
+  }
+);
+ScrollAreaThumb.displayName = THUMB_NAME;
+var CORNER_NAME = "ScrollAreaCorner";
+var ScrollAreaCorner = reactExports.forwardRef(
+  (props, forwardedRef) => {
+    const context = useScrollAreaContext(CORNER_NAME, props.__scopeScrollArea);
+    const hasBothScrollbarsVisible = Boolean(context.scrollbarX && context.scrollbarY);
+    const hasCorner = context.type !== "scroll" && hasBothScrollbarsVisible;
+    return hasCorner ? /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollAreaCornerImpl, { ...props, ref: forwardedRef }) : null;
+  }
+);
+ScrollAreaCorner.displayName = CORNER_NAME;
+var ScrollAreaCornerImpl = reactExports.forwardRef((props, forwardedRef) => {
+  const { __scopeScrollArea, ...cornerProps } = props;
+  const context = useScrollAreaContext(CORNER_NAME, __scopeScrollArea);
+  const [width, setWidth] = reactExports.useState(0);
+  const [height, setHeight] = reactExports.useState(0);
+  const hasSize = Boolean(width && height);
+  useResizeObserver(context.scrollbarX, () => {
+    var _a3;
+    const height2 = ((_a3 = context.scrollbarX) == null ? void 0 : _a3.offsetHeight) || 0;
+    context.onCornerHeightChange(height2);
+    setHeight(height2);
+  });
+  useResizeObserver(context.scrollbarY, () => {
+    var _a3;
+    const width2 = ((_a3 = context.scrollbarY) == null ? void 0 : _a3.offsetWidth) || 0;
+    context.onCornerWidthChange(width2);
+    setWidth(width2);
+  });
+  return hasSize ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+    Primitive.div,
+    {
+      ...cornerProps,
+      ref: forwardedRef,
+      style: {
+        width,
+        height,
+        position: "absolute",
+        right: context.dir === "ltr" ? 0 : void 0,
+        left: context.dir === "rtl" ? 0 : void 0,
+        bottom: 0,
+        ...props.style
+      }
+    }
+  ) : null;
+});
+function toInt(value) {
+  return value ? parseInt(value, 10) : 0;
+}
+function getThumbRatio(viewportSize, contentSize) {
+  const ratio = viewportSize / contentSize;
+  return isNaN(ratio) ? 0 : ratio;
+}
+function getThumbSize(sizes) {
+  const ratio = getThumbRatio(sizes.viewport, sizes.content);
+  const scrollbarPadding = sizes.scrollbar.paddingStart + sizes.scrollbar.paddingEnd;
+  const thumbSize = (sizes.scrollbar.size - scrollbarPadding) * ratio;
+  return Math.max(thumbSize, 18);
+}
+function getScrollPositionFromPointer(pointerPos, pointerOffset, sizes, dir = "ltr") {
+  const thumbSizePx = getThumbSize(sizes);
+  const thumbCenter = thumbSizePx / 2;
+  const offset = pointerOffset || thumbCenter;
+  const thumbOffsetFromEnd = thumbSizePx - offset;
+  const minPointerPos = sizes.scrollbar.paddingStart + offset;
+  const maxPointerPos = sizes.scrollbar.size - sizes.scrollbar.paddingEnd - thumbOffsetFromEnd;
+  const maxScrollPos = sizes.content - sizes.viewport;
+  const scrollRange = dir === "ltr" ? [0, maxScrollPos] : [maxScrollPos * -1, 0];
+  const interpolate2 = linearScale([minPointerPos, maxPointerPos], scrollRange);
+  return interpolate2(pointerPos);
+}
+function getThumbOffsetFromScroll(scrollPos, sizes, dir = "ltr") {
+  const thumbSizePx = getThumbSize(sizes);
+  const scrollbarPadding = sizes.scrollbar.paddingStart + sizes.scrollbar.paddingEnd;
+  const scrollbar = sizes.scrollbar.size - scrollbarPadding;
+  const maxScrollPos = sizes.content - sizes.viewport;
+  const maxThumbPos = scrollbar - thumbSizePx;
+  const scrollClampRange = dir === "ltr" ? [0, maxScrollPos] : [maxScrollPos * -1, 0];
+  const scrollWithoutMomentum = clamp(scrollPos, scrollClampRange);
+  const interpolate2 = linearScale([0, maxScrollPos], [0, maxThumbPos]);
+  return interpolate2(scrollWithoutMomentum);
+}
+function linearScale(input, output) {
+  return (value) => {
+    if (input[0] === input[1] || output[0] === output[1]) return output[0];
+    const ratio = (output[1] - output[0]) / (input[1] - input[0]);
+    return output[0] + ratio * (value - input[0]);
+  };
+}
+function isScrollingWithinScrollbarBounds(scrollPos, maxScrollPos) {
+  return scrollPos > 0 && scrollPos < maxScrollPos;
+}
+var addUnlinkedScrollListener = (node, handler = () => {
+}) => {
+  let prevPosition = { left: node.scrollLeft, top: node.scrollTop };
+  let rAF = 0;
+  (function loop() {
+    const position = { left: node.scrollLeft, top: node.scrollTop };
+    const isHorizontalScroll = prevPosition.left !== position.left;
+    const isVerticalScroll = prevPosition.top !== position.top;
+    if (isHorizontalScroll || isVerticalScroll) handler();
+    prevPosition = position;
+    rAF = window.requestAnimationFrame(loop);
+  })();
+  return () => window.cancelAnimationFrame(rAF);
+};
+function useDebounceCallback(callback, delay2) {
+  const handleCallback = useCallbackRef$1(callback);
+  const debounceTimerRef = reactExports.useRef(0);
+  reactExports.useEffect(() => () => window.clearTimeout(debounceTimerRef.current), []);
+  return reactExports.useCallback(() => {
+    window.clearTimeout(debounceTimerRef.current);
+    debounceTimerRef.current = window.setTimeout(handleCallback, delay2);
+  }, [handleCallback, delay2]);
+}
+function useResizeObserver(element, onResize) {
+  const handleResize = useCallbackRef$1(onResize);
+  useLayoutEffect2(() => {
+    let rAF = 0;
+    if (element) {
+      const resizeObserver = new ResizeObserver(() => {
+        cancelAnimationFrame(rAF);
+        rAF = window.requestAnimationFrame(handleResize);
+      });
+      resizeObserver.observe(element);
+      return () => {
+        window.cancelAnimationFrame(rAF);
+        resizeObserver.unobserve(element);
+      };
+    }
+  }, [element, handleResize]);
+}
+var Root$2 = ScrollArea$1;
+var Viewport = ScrollAreaViewport;
+var Corner = ScrollAreaCorner;
+function ScrollArea({
+  className,
+  children,
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    Root$2,
+    {
+      "data-slot": "scroll-area",
+      className: cn("relative", className),
+      ...props,
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Viewport,
+          {
+            "data-slot": "scroll-area-viewport",
+            className: "focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1",
+            children
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollBar, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Corner, {})
+      ]
+    }
+  );
+}
+function ScrollBar({
+  className,
+  orientation = "vertical",
+  ...props
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    ScrollAreaScrollbar,
+    {
+      "data-slot": "scroll-area-scrollbar",
+      orientation,
+      className: cn(
+        "flex touch-none p-px transition-colors select-none",
+        orientation === "vertical" && "h-full w-2.5 border-l border-l-transparent",
+        orientation === "horizontal" && "h-2.5 flex-col border-t border-t-transparent",
+        className
+      ),
+      ...props,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        ScrollAreaThumb,
+        {
+          "data-slot": "scroll-area-thumb",
+          className: "bg-border relative flex-1 rounded-full"
+        }
+      )
+    }
+  );
+}
+function formatTime(timestampNs) {
+  const date = new Date(Number(timestampNs) / 1e6);
+  const h2 = date.getHours().toString().padStart(2, "0");
+  const m2 = date.getMinutes().toString().padStart(2, "0");
+  return `${h2}:${m2}`;
+}
+function shortAuthor(author) {
+  return `${author.toString().slice(0, 8)}...`;
+}
+function Chat() {
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: messages } = useGetMessages();
+  const { mutateAsync: sendMessage, isPending } = useSendMessage();
+  const [input, setInput] = reactExports.useState("");
+  const bottomRef = reactExports.useRef(null);
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toText();
+  const msgCount = (messages == null ? void 0 : messages.length) ?? 0;
+  reactExports.useEffect(() => {
+    var _a3;
+    (_a3 = bottomRef.current) == null ? void 0 : _a3.scrollIntoView({ behavior: "smooth" });
+  }, [msgCount]);
+  const handleSend = async () => {
+    const content = input.trim();
+    if (!content || !identity) return;
+    setInput("");
+    try {
+      await sendMessage(content);
+    } catch {
+      setInput(content);
+    }
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-8 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -10 },
+        animate: { opacity: 1, y: 0 },
+        className: "flex items-center justify-between mb-6",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 rounded-xl gradient-bg flex items-center justify-center glow-cyan", children: /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { className: "w-5 h-5 text-white" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: "Community Chat" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground", children: [
+              msgCount,
+              " messages \\u00b7 auto-refreshes every 5s"
+            ] })
+          ] })
+        ] })
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.1 },
+        className: "glass-card rounded-2xl flex flex-col",
+        style: { height: "calc(100vh - 280px)", minHeight: "400px" },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "flex-1 px-4 py-4", children: !messages || messages.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "flex flex-col items-center justify-center h-40 text-center",
+              "data-ocid": "chat.empty_state",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(MessageCircle, { className: "w-10 h-10 text-muted-foreground/30 mb-2" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "No messages yet. Be the first to say hi!" })
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+            messages.map((msg, i) => {
+              const isMe = msg.author.toString() === myPrincipal;
+              return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                motion.div,
+                {
+                  initial: { opacity: 0, y: 8 },
+                  animate: { opacity: 1, y: 0 },
+                  transition: { delay: i < 10 ? i * 0.03 : 0 },
+                  className: `flex gap-2 ${isMe ? "flex-row-reverse" : "flex-row"}`,
+                  "data-ocid": `chat.item.${i + 1}`,
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        className: `w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${isMe ? "gradient-bg text-white" : "bg-secondary text-foreground"}`,
+                        children: msg.author.toString().slice(0, 2).toUpperCase()
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "div",
+                      {
+                        className: `max-w-[70%] ${isMe ? "items-end" : "items-start"} flex flex-col gap-0.5`,
+                        children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                            "div",
+                            {
+                              className: `flex items-center gap-2 ${isMe ? "flex-row-reverse" : ""}`,
+                              children: [
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground font-medium", children: isMe ? "You" : shortAuthor(msg.author) }),
+                                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground/60", children: formatTime(msg.timestamp) })
+                              ]
+                            }
+                          ),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "div",
+                            {
+                              className: `px-3 py-2 rounded-2xl text-sm ${isMe ? "gradient-bg text-white rounded-tr-sm" : "bg-secondary/60 text-foreground rounded-tl-sm"}`,
+                              children: msg.content
+                            }
+                          )
+                        ]
+                      }
+                    )
+                  ]
+                },
+                msg.id.toString()
+              );
+            }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: bottomRef })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Input,
+              {
+                value: input,
+                onChange: (e) => setInput(e.target.value),
+                onKeyDown: handleKeyDown,
+                placeholder: "Type a message...",
+                className: "flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60",
+                disabled: isPending,
+                maxLength: 500,
+                "data-ocid": "chat.input"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                onClick: handleSend,
+                disabled: !input.trim() || isPending,
+                className: "rounded-full gradient-bg border-0 text-white px-4 glow-cyan",
+                "data-ocid": "chat.submit_button",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx(Send, { className: "w-4 h-4" })
+              }
+            )
+          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center py-2", "data-ocid": "chat.error_state", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-2", children: "Log in to chat" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                onClick: login,
+                disabled: loginStatus === "logging-in",
+                className: "gradient-bg border-0 text-white rounded-full px-6 glow-cyan",
+                "data-ocid": "chat.primary_button",
+                children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+              }
+            )
+          ] }) })
+        ]
+      }
+    )
+  ] });
+}
 function Textarea({ className, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "textarea",
@@ -48505,6 +49525,573 @@ function CreateQuiz() {
     }
   ) });
 }
+const COOLDOWN_MS$2 = 24 * 60 * 60 * 1e3;
+function formatCountdown$2(ms) {
+  if (ms <= 0) return "";
+  const s2 = Math.floor(ms / 1e3);
+  const days = Math.floor(s2 / 86400);
+  const hours = Math.floor(s2 % 86400 / 3600);
+  const minutes = Math.floor(s2 % 3600 / 60);
+  const seconds = s2 % 60;
+  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
+  if (minutes > 0) return `${minutes}m ${seconds}s`;
+  return `${seconds}s`;
+}
+function getCooldownKey(principalStr, gameId) {
+  return `custom_game_cooldown_${principalStr}_${gameId}`;
+}
+function getTimeRemaining$1(principalStr, gameId) {
+  const stored = localStorage.getItem(getCooldownKey(principalStr, gameId));
+  if (!stored) return 0;
+  const remaining = COOLDOWN_MS$2 - (Date.now() - Number(stored));
+  return remaining > 0 ? remaining : 0;
+}
+function setCooldown(principalStr, gameId) {
+  localStorage.setItem(
+    getCooldownKey(principalStr, gameId),
+    String(Date.now())
+  );
+}
+const WHEEL_COLORS = [
+  "#3b82f6",
+  "#8b5cf6",
+  "#06b6d4",
+  "#ec4899",
+  "#10b981",
+  "#f59e0b",
+  "#ef4444",
+  "#6366f1",
+  "#14b8a6",
+  "#f97316"
+];
+function drawCustomWheel(canvas, segments) {
+  const ctx = canvas.getContext("2d");
+  const cx2 = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const r2 = cx2 - 8;
+  const segAngle = 360 / segments.length;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
+    const startAngle = (i * segAngle - 90) * Math.PI / 180;
+    const endAngle = ((i + 1) * segAngle - 90) * Math.PI / 180;
+    const midAngle = (startAngle + endAngle) / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx2, cy);
+    ctx.arc(cx2, cy, r2, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = WHEEL_COLORS[i % WHEEL_COLORS.length];
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,0.25)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.save();
+    ctx.translate(
+      cx2 + r2 * 0.65 * Math.cos(midAngle),
+      cy + r2 * 0.65 * Math.sin(midAngle)
+    );
+    ctx.rotate(midAngle + Math.PI / 2);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = `bold ${segments.length > 6 ? 11 : 14}px Plus Jakarta Sans, sans-serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(seg.segmentLabel, 0, 0);
+    ctx.restore();
+  }
+  ctx.beginPath();
+  ctx.arc(cx2, cy, 22, 0, Math.PI * 2);
+  ctx.fillStyle = "#1e1b4b";
+  ctx.fill();
+  ctx.strokeStyle = "rgba(255,255,255,0.5)";
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+function CustomSpinWheelGame({
+  game,
+  principalStr
+}) {
+  const gameId = game.id.toString();
+  const { mutateAsync: playSpinWheel, isPending } = usePlayCustomSpinWheel();
+  const { data: myPoints, refetch } = useGetMyPoints();
+  const canvasRef = reactExports.useRef(null);
+  const navigate = useNavigate();
+  const segments = game.gameType.__kind__ === "customSpinWheel" ? game.gameType.customSpinWheel.segments : [];
+  const segAngle = segments.length > 0 ? 360 / segments.length : 360;
+  const [rotation, setRotation] = reactExports.useState(0);
+  const [spinning, setSpinning] = reactExports.useState(false);
+  const [result, setResult] = reactExports.useState(null);
+  const [cooldownMs, setCooldownMs] = reactExports.useState(
+    () => getTimeRemaining$1(principalStr, gameId)
+  );
+  reactExports.useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id2 = setInterval(() => {
+      setCooldownMs((prev) => {
+        const next = prev - 1e3;
+        if (next <= 0) {
+          clearInterval(id2);
+          return 0;
+        }
+        return next;
+      });
+    }, 1e3);
+    return () => clearInterval(id2);
+  }, [cooldownMs]);
+  reactExports.useEffect(() => {
+    if (canvasRef.current && segments.length > 0) {
+      drawCustomWheel(canvasRef.current, segments);
+    }
+  }, [segments]);
+  const spin = async () => {
+    var _a3;
+    if (spinning || cooldownMs > 0) return;
+    setResult(null);
+    setSpinning(true);
+    const extraSpins = 3 + Math.floor(Math.random() * 5);
+    const stopDeg = Math.floor(Math.random() * 360);
+    const finalRot = rotation + extraSpins * 360 + stopDeg;
+    setRotation(finalRot);
+    await new Promise((r2) => setTimeout(r2, 4500));
+    try {
+      const pointsWon = await playSpinWheel(game.id);
+      setCooldown(principalStr, gameId);
+      setCooldownMs(COOLDOWN_MS$2);
+      await refetch();
+      const normalised = (finalRot % 360 + 360) % 360;
+      const pointerAngle = (360 - normalised + 90) % 360;
+      const segIndex = Math.floor(pointerAngle / segAngle) % segments.length;
+      const label = ((_a3 = segments[segIndex]) == null ? void 0 : _a3.segmentLabel) ?? `${pointsWon} pts`;
+      setResult({ points: pointsWon, label });
+      ue.success(`+${pointsWon} points! 🎉`);
+    } catch {
+      ue.error("Failed to award points");
+    }
+    setSpinning(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center gap-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-4 h-4 text-yellow-400" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-bold", children: (myPoints == null ? void 0 : myPoints.toString()) ?? "0" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: "pts" })
+    ] }),
+    cooldownMs > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl px-8 py-6 text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-2", children: "Come back tomorrow!" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: "Next play in" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl font-bold text-primary tabular-nums", children: formatCountdown$2(cooldownMs) })
+    ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            className: "absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 z-10",
+            style: { filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))" },
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "w-0 h-0",
+                style: {
+                  borderLeft: "10px solid transparent",
+                  borderRight: "10px solid transparent",
+                  borderTop: "24px solid #fbbf24"
+                }
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "canvas",
+          {
+            ref: canvasRef,
+            width: 300,
+            height: 300,
+            className: "rounded-full",
+            style: {
+              transform: `rotate(${rotation}deg)`,
+              transition: spinning ? "transform 4.5s cubic-bezier(0.17, 0.67, 0.12, 0.99)" : "none",
+              boxShadow: "0 0 40px oklch(0.73 0.14 215 / 0.4)"
+            },
+            "data-ocid": "games.canvas_target"
+          }
+        )
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "w-40 h-14 text-lg font-bold gradient-bg border-0 text-white rounded-full glow-cyan disabled:opacity-50",
+          onClick: spin,
+          disabled: spinning || isPending,
+          "data-ocid": "games.primary_button",
+          children: spinning ? /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-5 h-5 animate-spin" }) : "SPIN!"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Button,
+      {
+        variant: "ghost",
+        size: "sm",
+        className: "text-muted-foreground",
+        onClick: () => navigate({ to: "/games" }),
+        "data-ocid": "games.secondary_button",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "w-4 h-4 mr-1" }),
+          " Back to Games"
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatePresence, { children: result && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      motion.div,
+      {
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        exit: { opacity: 0 },
+        className: "fixed inset-0 bg-black/70 flex items-center justify-center z-50",
+        onClick: () => setResult(null),
+        "data-ocid": "games.modal",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          motion.div,
+          {
+            initial: { scale: 0.6, y: 30 },
+            animate: { scale: 1, y: 0 },
+            exit: { scale: 0.8, opacity: 0 },
+            className: "glass-card rounded-3xl p-8 text-center max-w-xs mx-4",
+            onClick: (e) => e.stopPropagation(),
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-6xl mb-3", children: "🎰" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text mb-1", children: "You won!" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "my-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-5xl font-bold text-primary", children: [
+                  "+",
+                  result.points.toString()
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl text-muted-foreground ml-2", children: "pts" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-4", children: result.label }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                Button,
+                {
+                  className: "w-full gradient-bg border-0 text-white rounded-full glow-cyan",
+                  onClick: () => setResult(null),
+                  "data-ocid": "games.close_button",
+                  children: "Awesome!"
+                }
+              )
+            ]
+          }
+        )
+      }
+    ) })
+  ] });
+}
+function CustomTriviaGame({
+  game,
+  principalStr
+}) {
+  const gameId = game.id.toString();
+  const { mutateAsync: playTrivia, isPending } = usePlayCustomTrivia();
+  const { data: myPoints, refetch } = useGetMyPoints();
+  const navigate = useNavigate();
+  const questions = game.gameType.__kind__ === "customTrivia" ? game.gameType.customTrivia.questions : [];
+  const [currentQ, setCurrentQ] = reactExports.useState(0);
+  const [selectedAnswers, setSelectedAnswers] = reactExports.useState({});
+  const [submitted, setSubmitted] = reactExports.useState(false);
+  const [pointsEarned, setPointsEarned] = reactExports.useState(0n);
+  const [cooldownMs, setCooldownMsState] = reactExports.useState(
+    () => getTimeRemaining$1(principalStr, gameId)
+  );
+  reactExports.useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id2 = setInterval(() => {
+      setCooldownMsState((prev) => {
+        const next2 = prev - 1e3;
+        if (next2 <= 0) {
+          clearInterval(id2);
+          return 0;
+        }
+        return next2;
+      });
+    }, 1e3);
+    return () => clearInterval(id2);
+  }, [cooldownMs]);
+  const question = questions[currentQ];
+  const isLast = currentQ === questions.length - 1;
+  const selectOption = (idx) => {
+    setSelectedAnswers((prev) => ({ ...prev, [currentQ]: idx }));
+  };
+  const next = () => {
+    if (currentQ < questions.length - 1) setCurrentQ((p2) => p2 + 1);
+  };
+  const submit = async () => {
+    const answers = questions.map((_q, i) => ({
+      questionId: BigInt(i),
+      answerIndex: BigInt(selectedAnswers[i] ?? 0)
+    }));
+    try {
+      const pts = await playTrivia({ gameId: game.id, answers });
+      setCooldown(principalStr, gameId);
+      setCooldownMsState(COOLDOWN_MS$2);
+      setPointsEarned(pts);
+      setSubmitted(true);
+      await refetch();
+      ue.success(`+${pts} points earned! 🎉`);
+    } catch {
+      ue.error("Failed to submit answers");
+    }
+  };
+  const reset = () => {
+    setCurrentQ(0);
+    setSelectedAnswers({});
+    setSubmitted(false);
+    setPointsEarned(0n);
+  };
+  if (cooldownMs > 0 && !submitted) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-2xl px-8 py-8 text-center max-w-md mx-auto", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg font-semibold mb-2", children: "Come back tomorrow!" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-4", children: "You already played this game today." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: "Next play in" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl font-bold text-primary tabular-nums", children: formatCountdown$2(cooldownMs) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        Button,
+        {
+          variant: "ghost",
+          className: "mt-6 text-muted-foreground",
+          onClick: () => navigate({ to: "/games" }),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "w-4 h-4 mr-1" }),
+            " Back to Games"
+          ]
+        }
+      )
+    ] });
+  }
+  if (submitted) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, scale: 0.9 },
+        animate: { opacity: 1, scale: 1 },
+        className: "glass-card rounded-2xl p-8 text-center max-w-md mx-auto",
+        "data-ocid": "games.success_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "w-16 h-16 text-green-400 mx-auto mb-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text mb-2", children: "Quiz Complete!" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "my-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-5xl font-bold text-primary", children: [
+              "+",
+              pointsEarned.toString()
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl text-muted-foreground ml-2", children: "pts earned" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground mb-6", children: [
+            "Total points: ",
+            (myPoints == null ? void 0 : myPoints.toString()) ?? "0"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                variant: "outline",
+                className: "flex-1",
+                onClick: reset,
+                disabled: cooldownMs > 0,
+                "data-ocid": "games.secondary_button",
+                children: "Play Again"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                className: "flex-1 gradient-bg border-0 text-white rounded-full",
+                onClick: () => navigate({ to: "/games" }),
+                "data-ocid": "games.primary_button",
+                children: "Back to Games"
+              }
+            )
+          ] })
+        ]
+      }
+    );
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-lg mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between mb-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm text-muted-foreground", children: [
+        "Question ",
+        currentQ + 1,
+        " / ",
+        questions.length
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-3 py-1 flex items-center gap-1.5", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-3.5 h-3.5 text-yellow-400" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-bold", children: [
+          (myPoints == null ? void 0 : myPoints.toString()) ?? "0",
+          " pts"
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-secondary/30 rounded-full h-1.5 mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "gradient-bg h-1.5 rounded-full transition-all duration-300",
+        style: { width: `${(currentQ + 1) / questions.length * 100}%` }
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, x: 20 },
+        animate: { opacity: 1, x: 0 },
+        className: "glass-card rounded-2xl p-6",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground uppercase tracking-wider mb-1", children: [
+            "+",
+            question.pointsReward.toString(),
+            " pts for correct answer"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-6", children: question.text }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: question.options.map((option, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              type: "button",
+              onClick: () => selectOption(idx),
+              className: `w-full text-left px-4 py-3 rounded-xl border transition-all duration-200 ${selectedAnswers[currentQ] === idx ? "border-primary bg-primary/20 text-foreground" : "border-border/50 hover:border-primary/40 text-muted-foreground hover:text-foreground"}`,
+              "data-ocid": "games.toggle",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-medium mr-2", children: [
+                  String.fromCharCode(65 + idx),
+                  "."
+                ] }),
+                option
+              ]
+            },
+            option
+          )) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 flex justify-end", children: isLast ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "gradient-bg border-0 text-white rounded-full px-8",
+              onClick: submit,
+              disabled: selectedAnswers[currentQ] === void 0 || isPending,
+              "data-ocid": "games.submit_button",
+              children: isPending ? "Submitting..." : "Submit"
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "gradient-bg border-0 text-white rounded-full px-8",
+              onClick: next,
+              disabled: selectedAnswers[currentQ] === void 0,
+              "data-ocid": "games.primary_button",
+              children: "Next"
+            }
+          ) })
+        ]
+      },
+      currentQ
+    )
+  ] });
+}
+function CustomGamePage() {
+  const { id: id2 } = useParams({ from: "/games/custom/$id" });
+  const { identity, login, loginStatus } = useInternetIdentity();
+  const { data: customGames, isLoading } = useGetAllCustomGames();
+  const navigate = useNavigate();
+  const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
+  const game = customGames == null ? void 0 : customGames.find((g2) => g2.id === BigInt(id2));
+  if (!identity) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-16 h-16 text-primary mx-auto mb-4" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-2", children: "Login to Play" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "Log in to play community games and earn points." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Button,
+        {
+          className: "gradient-bg border-0 text-white rounded-full px-8 glow-cyan",
+          onClick: login,
+          disabled: loginStatus === "logging-in",
+          "data-ocid": "games.primary_button",
+          children: loginStatus === "logging-in" ? "Connecting..." : "Log In"
+        }
+      )
+    ] });
+  }
+  if (isLoading) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: "container mx-auto px-4 py-20 text-center",
+        "data-ocid": "games.loading_state",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Loading game..." })
+      }
+    );
+  }
+  if (!game) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "container mx-auto px-4 py-20 max-w-md text-center",
+        "data-ocid": "games.error_state",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-2", children: "Game not found" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground mb-6", children: "This community game does not exist." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "gradient-bg border-0 text-white rounded-full px-8",
+              onClick: () => navigate({ to: "/games" }),
+              "data-ocid": "games.primary_button",
+              children: "Back to Games"
+            }
+          )
+        ]
+      }
+    );
+  }
+  const isTrivia = game.gameType.__kind__ === "customTrivia";
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-8 max-w-2xl", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
+        initial: { opacity: 0, y: -10 },
+        animate: { opacity: 1, y: 0 },
+        className: "mb-8",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              variant: "ghost",
+              size: "sm",
+              className: "text-muted-foreground mb-4",
+              onClick: () => navigate({ to: "/games" }),
+              "data-ocid": "games.secondary_button",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "w-4 h-4 mr-1" }),
+                " Back to Games"
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: `w-12 h-12 rounded-xl flex items-center justify-center ${isTrivia ? "bg-gradient-to-br from-amber-500 to-orange-600" : "bg-gradient-to-br from-violet-500 to-fuchsia-600"}`,
+                children: isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-6 h-6 text-white" })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold gradient-text", children: game.title }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
+                isTrivia ? "Community Trivia" : "Community Spin Wheel",
+                " \\u00b7 1-day cooldown"
+              ] })
+            ] })
+          ] })
+        ]
+      }
+    ),
+    isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(CustomTriviaGame, { game, principalStr }) : /* @__PURE__ */ jsxRuntimeExports.jsx(CustomSpinWheelGame, { game, principalStr })
+  ] });
+}
 const SKELETON_KEYS$2 = ["sk-a", "sk-b", "sk-c"];
 function Feed() {
   const { data: posts, isLoading } = useGetAllPosts();
@@ -48601,7 +50188,7 @@ function PostCard({
     commentsOpen ? pws.post.id : BigInt(-1)
   );
   const authorStr = pws.post.author.toString();
-  const shortAuthor = authorStr.length > 12 ? `${authorStr.slice(0, 6)}…${authorStr.slice(-4)}` : authorStr;
+  const shortAuthor2 = authorStr.length > 12 ? `${authorStr.slice(0, 6)}…${authorStr.slice(-4)}` : authorStr;
   const likeCount = liked ? Number(pws.likeCount) + 1 : Number(pws.likeCount);
   function handleLike() {
     if (!isLoggedIn) return;
@@ -48643,11 +50230,11 @@ function PostCard({
                 AvatarFallback,
                 {
                   className: `bg-gradient-to-br ${accent} text-white text-xs font-bold`,
-                  children: ((_a3 = shortAuthor[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?"
+                  children: ((_a3 = shortAuthor2[0]) == null ? void 0 : _a3.toUpperCase()) ?? "?"
                 }
               ) }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-semibold text-foreground", children: shortAuthor2 }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: new Date(
                   Number(pws.post.timestamp / BigInt(1e6))
                 ).toLocaleDateString() })
@@ -48822,14 +50409,55 @@ function CardContent({ className, ...props }) {
     }
   );
 }
+const COOLDOWN_MS$1 = 24 * 60 * 60 * 1e3;
+function formatCountdown$1(ms) {
+  if (ms <= 0) return "";
+  const s2 = Math.floor(ms / 1e3);
+  const days = Math.floor(s2 / 86400);
+  const hours = Math.floor(s2 % 86400 / 3600);
+  const minutes = Math.floor(s2 % 3600 / 60);
+  const seconds = s2 % 60;
+  if (days > 0) return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  if (hours > 0) return `${hours}h ${minutes}m ${seconds}s`;
+  if (minutes > 0) return `${minutes}m ${seconds}s`;
+  return `${seconds}s`;
+}
+function useCustomGameCooldown(principalStr, gameId) {
+  const key = `custom_game_cooldown_${principalStr}_${gameId}`;
+  const [cooldownMs, setCooldownMs] = reactExports.useState(() => {
+    if (!principalStr) return 0;
+    const stored = localStorage.getItem(key);
+    if (!stored) return 0;
+    const remaining = COOLDOWN_MS$1 - (Date.now() - Number(stored));
+    return remaining > 0 ? remaining : 0;
+  });
+  reactExports.useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id2 = setInterval(() => {
+      setCooldownMs((prev) => {
+        const next = prev - 1e3;
+        if (next <= 0) {
+          clearInterval(id2);
+          return 0;
+        }
+        return next;
+      });
+    }, 1e3);
+    return () => clearInterval(id2);
+  }, [cooldownMs]);
+  return cooldownMs;
+}
 function GamesHub() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: myPoints } = useGetMyPoints();
+  const { data: customGames } = useGetAllCustomGames();
+  const navigate = useNavigate();
+  const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
   const games = [
     {
       id: "memory",
       title: "Memory Match",
-      description: "Flip cards to find matching pairs. Earn 10 points per match!",
+      description: "Flip cards to find matching pairs. Earn 10 points per pair!",
       icon: Brain,
       path: "/games/memory",
       gradient: "from-cyan-500 to-blue-600",
@@ -48839,7 +50467,7 @@ function GamesHub() {
     {
       id: "spinwheel",
       title: "Spin Wheel",
-      description: "Spin the wheel and win up to 200 bonus points! 30s cooldown.",
+      description: "Spin the wheel and win up to 200 bonus points! 1-day cooldown.",
       icon: RotateCcw,
       path: "/games/spinwheel",
       gradient: "from-purple-500 to-pink-600",
@@ -48892,7 +50520,7 @@ function GamesHub() {
         ]
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-6", children: games.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-6 mb-10", children: games.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
       motion.div,
       {
         initial: { opacity: 0, y: 30 },
@@ -48940,9 +50568,63 @@ function GamesHub() {
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
       motion.div,
       {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+        transition: { delay: 0.4 },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-6 h-6 text-yellow-400" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold gradient-text", children: "Community Games" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { variant: "secondary", className: "ml-2", children: "By #1 Player" })
+          ] }),
+          !customGames || customGames.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              className: "glass-card rounded-2xl p-8 text-center",
+              "data-ocid": "games.community.empty_state",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-10 h-10 text-yellow-400/50 mx-auto mb-3" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground", children: [
+                  "No community games yet — the #1 player can create them in the",
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Link,
+                    {
+                      to: "/admin",
+                      className: "text-primary underline",
+                      "data-ocid": "games.link",
+                      children: "Admin Panel"
+                    }
+                  ),
+                  "."
+                ] })
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-5", children: customGames.map((game, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            CustomGameCard,
+            {
+              game,
+              index: i + 1,
+              principalStr,
+              isLoggedIn: !!identity,
+              onLogin: login,
+              loginStatus,
+              onPlay: () => navigate({
+                to: "/games/custom/$id",
+                params: { id: game.id.toString() }
+              })
+            },
+            game.id.toString()
+          )) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      motion.div,
+      {
         initial: { opacity: 0 },
         animate: { opacity: 1 },
-        transition: { delay: 0.5 },
+        transition: { delay: 0.6 },
         className: "mt-10 glass-card rounded-2xl p-5 flex items-center gap-4",
         children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Crown, { className: "w-8 h-8 text-yellow-400 shrink-0" }),
@@ -48961,13 +50643,85 @@ function GamesHub() {
                 }
               ),
               " ",
-              "— revealing answers to every quiz."
+              "— revealing answers to every quiz and letting you create community games."
             ] })
           ] })
         ]
       }
     )
   ] });
+}
+function CustomGameCard({
+  game,
+  index: index2,
+  principalStr,
+  isLoggedIn,
+  onLogin,
+  loginStatus,
+  onPlay
+}) {
+  const cooldownMs = useCustomGameCooldown(principalStr, game.id.toString());
+  const isTrivia = game.gameType.__kind__ === "customTrivia";
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { delay: 0.1 * index2 },
+      "data-ocid": `games.community.item.${index2}`,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "glass-card border-border/50 hover:border-yellow-400/40 transition-all duration-300 group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardHeader, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start justify-between", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: `w-12 h-12 rounded-xl flex items-center justify-center mb-2 ${isTrivia ? "bg-gradient-to-br from-amber-500 to-orange-600" : "bg-gradient-to-br from-violet-500 to-fuchsia-600"}`,
+                children: isTrivia ? /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-6 h-6 text-white" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "w-6 h-6 text-white" })
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Badge,
+              {
+                variant: "outline",
+                className: `text-xs ${isTrivia ? "border-amber-500/50 text-amber-400" : "border-violet-500/50 text-violet-400"}`,
+                children: isTrivia ? "Trivia" : "Spin Wheel"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-lg", children: game.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: isTrivia ? `${game.gameType.customTrivia.questions.length} questions — earn points for correct answers` : "Spin to win — community prizes" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(CardContent, { className: "space-y-3", children: [
+          cooldownMs > 0 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "glass-card rounded-xl px-4 py-2 text-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Next play in" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-bold text-primary tabular-nums", children: formatCountdown$1(cooldownMs) })
+          ] }),
+          isLoggedIn ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50",
+              onClick: onPlay,
+              disabled: cooldownMs > 0,
+              "data-ocid": `games.community.primary_button.${index2}`,
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(Gamepad2, { className: "w-4 h-4 mr-2" }),
+                cooldownMs > 0 ? "On Cooldown" : "Play Now"
+              ]
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Button,
+            {
+              className: "w-full gradient-bg border-0 text-white font-semibold rounded-full",
+              onClick: onLogin,
+              disabled: loginStatus === "logging-in",
+              "data-ocid": `games.community.primary_button.${index2}`,
+              children: "Log In to Play"
+            }
+          )
+        ] })
+      ] })
+    }
+  );
 }
 function useEscapeKeydown(onEscapeKeyDownProp, ownerDocument = globalThis == null ? void 0 : globalThis.document) {
   const onEscapeKeyDown = useCallbackRef$1(onEscapeKeyDownProp);
@@ -52560,6 +54314,11 @@ const spinWheelRoute = createRoute({
   path: "/games/spinwheel",
   component: SpinWheel
 });
+const customGameRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/games/custom/$id",
+  component: CustomGamePage
+});
 const pointsLeaderboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/points-leaderboard",
@@ -52569,6 +54328,11 @@ const adminRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/admin",
   component: AdminPanel
+});
+const chatRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/chat",
+  component: Chat
 });
 const routeTree = rootRoute.addChildren([
   indexRoute,
@@ -52581,8 +54345,10 @@ const routeTree = rootRoute.addChildren([
   gamesRoute,
   memoryGameRoute,
   spinWheelRoute,
+  customGameRoute,
   pointsLeaderboardRoute,
-  adminRoute
+  adminRoute,
+  chatRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {

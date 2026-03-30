@@ -108,6 +108,13 @@ export const Answer = IDL.Record({
   'questionId' : IDL.Nat,
 });
 
+export const ChatMessage = IDL.Record({
+  'id' : IDL.Nat,
+  'author' : IDL.Principal,
+  'content' : IDL.Text,
+  'timestamp' : Time,
+});
+
 export const idlService = IDL.Service({
   '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
   'addComment' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
@@ -184,6 +191,8 @@ export const idlService = IDL.Service({
   'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
   'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(Answer)], [IDL.Nat], []),
   'trackVisit' : IDL.Func([], [], []),
+  'getMessages' : IDL.Func([], [IDL.Vec(ChatMessage)], ['query']),
+  'sendMessage' : IDL.Func([IDL.Text], [IDL.Nat], []),
   'unlikePost' : IDL.Func([IDL.Nat], [], []),
   'updateUserProfile' : IDL.Func([IDL.Text], [], []),
 });
@@ -293,6 +302,13 @@ export const idlFactory = ({ IDL }) => {
     'questionId' : IDL.Nat,
   });
   
+  const ChatMessage = IDL.Record({
+    'id' : IDL.Nat,
+    'author' : IDL.Principal,
+    'content' : IDL.Text,
+    'timestamp' : Time,
+  });
+
   return IDL.Service({
     '_initializeAccessControlWithSecret' : IDL.Func([IDL.Text], [], []),
     'addComment' : IDL.Func([IDL.Nat, IDL.Text], [IDL.Nat], []),
@@ -373,6 +389,8 @@ export const idlFactory = ({ IDL }) => {
     'saveCallerUserProfile' : IDL.Func([UserProfile], [], []),
     'submitQuizAnswers' : IDL.Func([IDL.Nat, IDL.Vec(Answer)], [IDL.Nat], []),
     'trackVisit' : IDL.Func([], [], []),
+    'getMessages' : IDL.Func([], [IDL.Vec(ChatMessage)], ['query']),
+    'sendMessage' : IDL.Func([IDL.Text], [IDL.Nat], []),
     'unlikePost' : IDL.Func([IDL.Nat], [], []),
     'updateUserProfile' : IDL.Func([IDL.Text], [], []),
   });

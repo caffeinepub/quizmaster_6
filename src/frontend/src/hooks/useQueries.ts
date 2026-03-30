@@ -16,6 +16,13 @@ import type {
 import { seedQuizzes } from "../data/seedData";
 import { useActor } from "./useActor";
 
+export interface ChatMessage {
+  id: bigint;
+  author: { toString(): string };
+  content: string;
+  timestamp: bigint;
+}
+
 export function useGetAllQuizzes() {
   const { actor, isFetching } = useActor();
   return useQuery<Quiz[]>({
@@ -343,5 +350,68 @@ export function useSeedQuizzes() {
       }
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["quizzes"] }),
+  });
+}
+
+// Chat hooks
+export function useGetMessages() {
+  const { actor, isFetching } = useActor();
+  return useQuery<ChatMessage[]>({
+    queryKey: ["chatMessages"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getMessages();
+    },
+    enabled: !!actor && !isFetching,
+    refetchInterval: 5000,
+  });
+}
+
+export function useSendMessage() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<bigint, Error, string>({
+    mutationFn: async (content) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).sendMessage(content);
+    },
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["chatMessages"] }),
+  });
+}
+
+export function usePlayCustomSpinWheel() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<bigint, Error, bigint>({
+    mutationFn: async (gameId) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.playCustomSpinWheel(gameId);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    },
+  });
+}
+
+export function usePlayCustomTrivia() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    bigint,
+    Error,
+    {
+      gameId: bigint;
+      answers: Array<{ questionId: bigint; answerIndex: bigint }>;
+    }
+  >({
+    mutationFn: async ({ gameId, answers }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.playCustomTrivia(gameId, answers);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+    },
   });
 }

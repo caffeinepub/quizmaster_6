@@ -1,30 +1,31 @@
 # QuizMaster
 
 ## Current State
-The app has full quiz creation, play, social feed, mini games, leaderboard, and admin functionality. Currently there are no pre-loaded quizzes -- users see an empty quiz list until someone creates one.
+Full-stack quiz + social app. Backend has custom games (createCustomTrivia, createCustomSpinWheel, getAllCustomGames, playCustomTrivia, playCustomSpinWheel). GamesHub only shows Memory Game and Spin Wheel. No chat feature exists.
 
 ## Requested Changes (Diff)
 
 ### Add
-- A `seedData.ts` file containing 4 pre-built quiz datasets, each with 50 true/false questions:
-  1. General Knowledge (50 questions)
-  2. Science & Nature (50 questions)
-  3. History & Geography (50 questions)
-  4. Movies & Pop Culture (50 questions)
-- A `useSeedQuizzes` hook that uses the actor to create the 4 quizzes and add all questions sequentially
-- A seed trigger in the Home page: when quizzes list is empty AND user is logged in, show a "Load Sample Quizzes" button that runs the seed. While seeding, show a loading state. After completion, invalidate the quizzes query.
+- Chat: backend ChatMessage type, sendMessage, getMessages
+- Chat page with polling, send input for logged-in users
+- Chat link in Navbar
+- Community Games section in GamesHub using getAllCustomGames
+- Custom game page for trivia and spin wheel custom games
+- 1-day localStorage cooldown per custom game per user
+- New hooks: usePlayCustomTrivia, usePlayCustomSpinWheel, useGetMessages, useSendMessage
 
 ### Modify
-- `Home.tsx`: add the seed trigger UI near the empty quiz state section. Only show it when `quizzes.length === 0` and user is authenticated.
-- `useQueries.ts`: add `useSeedQuizzes` hook
+- GamesHub.tsx: community games section with cooldown timers
+- Navbar.tsx: add Chat link
+- App.tsx: add /chat and /games/custom/$id routes
+- useQueries.ts: add new hooks
 
 ### Remove
 - Nothing
 
 ## Implementation Plan
-1. Create `src/frontend/src/data/seedData.ts` with 4 quiz objects, each containing title, description, and 50 true/false questions with their correct answers.
-2. Create `useSeedQuizzes` mutation hook in `useQueries.ts` that:
-   - Creates each quiz via `actor.createQuiz(title, description)`
-   - For each quiz, calls `actor.addQuestion` for all 50 questions with `#trueFalse` question type
-   - Returns the mutation state so UI can show loading/done
-3. In `Home.tsx`, when `filtered.length === 0 && !isLoading && !!identity`, show a "Load Sample Quizzes" button in the empty state. On click, run the seed mutation. Show a spinner while running. On success, toast a success message and invalidate quizzes query.
+1. Generate backend with chat support added
+2. Add hooks for custom game play and chat
+3. Create Chat page with polling every 5s
+4. Create CustomGamePage handling trivia and spin wheel
+5. Update GamesHub, Navbar, App.tsx

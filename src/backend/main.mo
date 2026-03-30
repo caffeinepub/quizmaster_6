@@ -159,6 +159,15 @@ actor {
     timestamp : Time.Time;
   };
 
+
+  // Chat Types
+  type ChatMessage = {
+    id : Nat;
+    author : Principal;
+    content : Text;
+    timestamp : Time.Time;
+  };
+
   // Key compare modules for sorting
   module Question {
     public func compare(a : Question, b : Question) : Order.Order {
@@ -216,6 +225,11 @@ actor {
 
   // Visitors state
   let visitors = Map.empty<Principal, Visitor>();
+
+
+  // Chat state
+  let chatMessages = Map.empty<Nat, ChatMessage>();
+  var nextChatMessageId = 0;
 
   // ID Counters
   var nextQuizId = 0;
@@ -989,5 +1003,34 @@ actor {
     userPoints.add(caller, currentPoints + pointsWon);
     pointsWon;
   };
-};
 
+  /////////////////////////////////////////////////////////////////////////////
+  // Chat Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func sendMessage(content : Text) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized: Only users can send messages");
+    };
+    if (content.size() == 0) {
+      Runtime.trap("Message cannot be empty");
+    };
+    let msgId = nextChatMessageId;
+    nextChatMessageId += 1;
+    let msg : ChatMessage = {
+      id = msgId;
+      author = caller;
+      content;
+      timestamp = Time.now();
+    };
+    chatMessages.add(msgId, msg);
+    msgId;
+  };
+
+  public query func getMessages() : async [ChatMessage] {
+    chatMessages.values().toArray().sort(
+      func(a, b) { Int.compare(a.timestamp, b.timestamp) }
+    );
+  };
+
+};

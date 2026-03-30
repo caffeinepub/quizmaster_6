@@ -15,6 +15,12 @@ export interface Answer {
     { 'trueFalse' : boolean },
   'questionId' : bigint,
 }
+export interface ChatMessage {
+  'id' : bigint,
+  'author' : Principal,
+  'content' : string,
+  'timestamp' : Time,
+}
 export interface Comment {
   'id' : bigint,
   'content' : string,
@@ -143,6 +149,8 @@ export interface _SERVICE {
   'saveCallerUserProfile' : ActorMethod<[UserProfile], undefined>,
   'submitQuizAnswers' : ActorMethod<[bigint, Array<Answer>], bigint>,
   'trackVisit' : ActorMethod<[], undefined>,
+  'getMessages' : ActorMethod<[], Array<ChatMessage>>,
+  'sendMessage' : ActorMethod<[string], bigint>,
   'unlikePost' : ActorMethod<[bigint], undefined>,
   'updateUserProfile' : ActorMethod<[string], undefined>,
 }

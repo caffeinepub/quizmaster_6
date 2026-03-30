@@ -23,6 +23,12 @@ export interface PointsEntry {
     player: Principal;
     points: bigint;
 }
+export interface PointPackage {
+    id: bigint;
+    name: string;
+    points: bigint;
+    priceInPaise: bigint;
+}
 export interface Quiz {
     id: bigint;
     title: string;
@@ -153,6 +159,7 @@ export interface backendInterface {
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
     deleteQuiz(quizId: bigint): Promise<void>;
+    fulfillPointsPurchase(packageId: bigint, sessionId: string): Promise<bigint>;
     getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
     getAllCustomGames(): Promise<Array<CustomGame>>;
     getAllPlayerPoints(): Promise<Array<PointsEntry>>;
@@ -164,9 +171,12 @@ export interface backendInterface {
     getConversation(otherUser: Principal): Promise<Array<PrivateMessage>>;
     getMemoryGameCooldown(): Promise<Time | null>;
     getMessages(): Promise<Array<ChatMessage>>;
+    getMonthlyLimit(): Promise<bigint>;
     getMyConversations(): Promise<Array<ConversationSummary>>;
+    getMyMonthlySpend(): Promise<bigint>;
     getMyPoints(): Promise<bigint>;
     getOwner(): Promise<Principal | null>;
+    getPointPackages(): Promise<Array<PointPackage>>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
     getQuiz(quizId: bigint): Promise<Quiz>;

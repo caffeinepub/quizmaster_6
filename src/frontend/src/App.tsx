@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { OwnerProvider } from "./contexts/OwnerContext";
 import AdminPanel from "./pages/AdminPanel";
+import BuyPoints from "./pages/BuyPoints";
 import Chat from "./pages/Chat";
 import CreateQuiz from "./pages/CreateQuiz";
 import CustomGamePage from "./pages/CustomGamePage";
@@ -150,6 +151,12 @@ const privateChatRoute = createRoute({
   component: PrivateChat,
 });
 
+const buyPointsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/buy-points",
+  component: BuyPoints,
+});
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
   createQuizRoute,
@@ -168,6 +175,7 @@ const routeTree = rootRoute.addChildren([
   chatRoute,
   messagesRoute,
   privateChatRoute,
+  buyPointsRoute,
 ]);
 
 const router = createRouter({ routeTree });

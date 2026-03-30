@@ -4,13 +4,14 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 
 // Hardcoded owner principal IDs
-const OWNER_PRINCIPAL_IDS = [
+export const OWNER_PRINCIPAL_IDS = [
   "z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j6qxy-rqe",
   "z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j",
 ];
@@ -26,75 +27,57 @@ interface OwnerContextValue {
 const OwnerContext = createContext<OwnerContextValue>({
   ownerPrincipal: null,
   isOwner: false,
-  isLoadingOwner: true,
+  isLoadingOwner: false,
   claimOwnership: async () => {},
   refetchOwner: () => {},
 });
 
 export function OwnerProvider({ children }: { children: React.ReactNode }) {
-  const { actor, isFetching } = useActor();
+  const { actor } = useActor();
   const { identity } = useInternetIdentity();
   const [ownerPrincipal, setOwnerPrincipal] = useState<Principal | null>(null);
-  const [isOwner, setIsOwner] = useState(false);
-  const [isLoadingOwner, setIsLoadingOwner] = useState(true);
 
-  const fetchOwner = useCallback(async () => {
+  // isOwner is computed directly from identity against the hardcoded list
+  // No async backend call needed — avoids all timing/loading issues
+  const isOwner = useMemo(() => {
+    if (!identity) return false;
+    const callerPrincipal = identity.getPrincipal().toString();
+    return OWNER_PRINCIPAL_IDS.includes(callerPrincipal);
+  }, [identity]);
+
+  const fetchOwnerPrincipal = useCallback(async () => {
     if (!actor) return;
-    setIsLoadingOwner(true);
     try {
       const a = actor as any;
-      // getOwner returns ?Principal which is [Principal] | [] in JS
       const ownerResult = await (a.getOwner() as Promise<[Principal] | []>);
       const owner: Principal | null =
         Array.isArray(ownerResult) && ownerResult.length > 0
           ? (ownerResult[0] as Principal)
           : null;
       setOwnerPrincipal(owner);
-
-      // Check if caller is owner: first check hardcoded list, then backend
-      if (identity) {
-        const callerPrincipal = identity.getPrincipal().toString();
-        const isHardcodedOwner = OWNER_PRINCIPAL_IDS.includes(callerPrincipal);
-        if (isHardcodedOwner) {
-          setIsOwner(true);
-        } else {
-          try {
-            const callerIsOwner = await (a.isCallerOwner() as Promise<boolean>);
-            setIsOwner(callerIsOwner);
-          } catch {
-            setIsOwner(false);
-          }
-        }
-      } else {
-        setIsOwner(false);
-      }
     } catch {
       // ignore
-    } finally {
-      setIsLoadingOwner(false);
     }
-  }, [actor, identity]);
+  }, [actor]);
 
   useEffect(() => {
-    if (actor && !isFetching) {
-      fetchOwner();
-    }
-  }, [actor, isFetching, fetchOwner]);
+    if (actor) fetchOwnerPrincipal();
+  }, [actor, fetchOwnerPrincipal]);
 
   const claimOwnership = useCallback(async () => {
     if (!actor) throw new Error("Not authenticated");
     await (actor as any).claimOwner();
-    await fetchOwner();
-  }, [actor, fetchOwner]);
+    await fetchOwnerPrincipal();
+  }, [actor, fetchOwnerPrincipal]);
 
   return (
     <OwnerContext.Provider
       value={{
         ownerPrincipal,
         isOwner,
-        isLoadingOwner,
+        isLoadingOwner: false,
         claimOwnership,
-        refetchOwner: fetchOwner,
+        refetchOwner: fetchOwnerPrincipal,
       }}
     >
       {children}

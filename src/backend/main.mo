@@ -178,13 +178,39 @@ actor {
     timestamp : Time.Time;
   };
 
-  // Manually assigned rank override (owner can set any player's rank)
-  type AssignedRank = Text; // "Noob" | "Pro" | "God" | "Hacker" | "Admin" | "Owner"
+  type AssignedRank = Text;
 
   type PlayerRankEntry = {
     player : Principal;
     rank : AssignedRank;
   };
+
+  // Purchase tracking
+  type PointPackage = {
+    id : Nat;
+    name : Text;
+    points : Nat;
+    priceInPaise : Nat; // 1 INR = 100 paise
+  };
+
+  type Purchase = {
+    id : Nat;
+    buyer : Principal;
+    packageId : Nat;
+    pointsAwarded : Nat;
+    priceInPaise : Nat;
+    timestamp : Time.Time;
+    sessionId : Text;
+  };
+
+  let MONTHLY_LIMIT_PAISE : Nat = 1_000_000; // Rs 10,000
+
+  let POINT_PACKAGES : [PointPackage] = [
+    { id = 0; name = "Starter"; points = 100; priceInPaise = 5_000 },
+    { id = 1; name = "Popular"; points = 500; priceInPaise = 10_000 },
+    { id = 2; name = "Premium"; points = 1_000; priceInPaise = 55_000 },
+    { id = 3; name = "Mega"; points = 10_000; priceInPaise = 100_000 },
+  ];
 
   module Question {
     public func compare(a : Question, b : Question) : Order.Order {
@@ -238,6 +264,7 @@ actor {
   let privateMessages = Map.empty<Nat, PrivateMessage>();
   let chatMessages = Map.empty<Nat, ChatMessage>();
   let assignedRanks = Map.empty<Principal, AssignedRank>();
+  let purchases = Map.empty<Nat, Purchase>();
 
   var ownerPrincipal : ?Principal = ?Principal.fromText("z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j6qxy-rqe");
 
@@ -249,6 +276,7 @@ actor {
   var nextCommentId = 0;
   var nextCustomGameId = 0;
   var nextMessageId = 0;
+  var nextPurchaseId = 0;
 
   let accessControlState = AccessControl.initState();
   include MixinAuthorization(accessControlState);
@@ -290,7 +318,6 @@ actor {
     if (not isOwner) {
       Runtime.trap("Unauthorized: Only the owner can assign ranks");
     };
-    // Remove rank override if set to empty string
     if (rank == "") {
       assignedRanks.remove(player);
     } else {
@@ -459,6 +486,102 @@ actor {
       case (null) { null };
       case (?top) { ?top.player };
     };
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Buy Points / Purchase Functions
+  /////////////////////////////////////////////////////////////////////////////
+
+  public query func getPointPackages() : async [PointPackage] {
+    POINT_PACKAGES;
+  };
+
+  public query func getMonthlyLimit() : async Nat {
+    MONTHLY_LIMIT_PAISE;
+  };
+
+  // Returns total paise spent by caller in the current calendar month
+  public query ({ caller }) func getMyMonthlySpend() : async Nat {
+    let nowNs = Time.now();
+    let nowMs = Int.abs(nowNs) / 1_000_000;
+    // Approximate: month = ms / (30 * 24 * 60 * 60 * 1000)
+    let currentMonth = nowMs / 2_592_000_000;
+    var total = 0;
+    for (purchase in purchases.values()) {
+      if (purchase.buyer == caller) {
+        let purchaseMs = Int.abs(purchase.timestamp) / 1_000_000;
+        let purchaseMonth = purchaseMs / 2_592_000_000;
+        if (purchaseMonth == currentMonth) {
+          total += purchase.priceInPaise;
+        };
+      };
+    };
+    total;
+  };
+
+  // Called by frontend after successful Stripe payment to award points
+  // sessionId is the Stripe session/payment intent ID for reference
+  public shared ({ caller }) func fulfillPointsPurchase(packageId : Nat, sessionId : Text) : async Nat {
+    if (not (AccessControl.hasPermission(accessControlState, caller, #user))) {
+      Runtime.trap("Unauthorized");
+    };
+    if (packageId >= POINT_PACKAGES.size()) {
+      Runtime.trap("Invalid package ID");
+    };
+    let pkg = POINT_PACKAGES[packageId];
+
+    // Check monthly limit
+    let nowNs = Time.now();
+    let nowMs = Int.abs(nowNs) / 1_000_000;
+    let currentMonth = nowMs / 2_592_000_000;
+    var monthlySpent = 0;
+    for (purchase in purchases.values()) {
+      if (purchase.buyer == caller) {
+        let purchaseMs = Int.abs(purchase.timestamp) / 1_000_000;
+        let purchaseMonth = purchaseMs / 2_592_000_000;
+        if (purchaseMonth == currentMonth) {
+          monthlySpent += purchase.priceInPaise;
+        };
+      };
+    };
+    if (monthlySpent + pkg.priceInPaise > MONTHLY_LIMIT_PAISE) {
+      Runtime.trap("Monthly spending limit of Rs 10,000 exceeded");
+    };
+
+    // Check for duplicate session ID
+    for (purchase in purchases.values()) {
+      if (purchase.sessionId == sessionId) {
+        Runtime.trap("Purchase already fulfilled");
+      };
+    };
+
+    // Record purchase
+    let purchaseId = nextPurchaseId;
+    nextPurchaseId += 1;
+    purchases.add(purchaseId, {
+      id = purchaseId;
+      buyer = caller;
+      packageId;
+      pointsAwarded = pkg.points;
+      priceInPaise = pkg.priceInPaise;
+      timestamp = Time.now();
+      sessionId;
+    });
+
+    // Award points (skip for owner)
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner) {
+      let currentPoints = switch (userPoints.get(caller)) {
+        case (null) { 0 };
+        case (?pts) { pts };
+      };
+      userPoints.add(caller, currentPoints + pkg.points);
+    };
+
+    pkg.points;
   };
 
   /////////////////////////////////////////////////////////////////////////////

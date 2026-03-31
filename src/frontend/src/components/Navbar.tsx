@@ -13,6 +13,7 @@ import {
   Plus,
   Rss,
   ShieldCheck,
+  ShoppingCart,
   Trophy,
   User,
 } from "lucide-react";
@@ -40,6 +41,7 @@ export default function Navbar() {
     { path: "/chat", label: "Chat", icon: MessageCircle },
     { path: "/points-leaderboard", label: "Leaderboard", icon: Trophy },
     { path: "/ranks-leaderboard", label: "Ranks", icon: Medal },
+    { path: "/buy-points", label: "Buy Points", icon: ShoppingCart },
     { path: "/create", label: "Create", icon: Plus },
     { path: "/profile", label: "Profile", icon: User },
     { path: "/admin", label: "Admin", icon: ShieldCheck },

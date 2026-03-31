@@ -26,6 +26,13 @@ export interface ChatMessage {
   timestamp: bigint;
 }
 
+export interface PointPackage {
+  id: bigint;
+  name: string;
+  points: bigint;
+  priceInPaise: bigint;
+}
+
 export function useGetAllQuizzes() {
   const { actor, isFetching } = useActor();
   return useQuery<Quiz[]>({
@@ -523,5 +530,61 @@ export function useAssignPlayerRank() {
       return (actor as any).assignPlayerRank(player, rank);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: ["assignedRanks"] }),
+  });
+}
+
+// Buy Points hooks
+export function useGetPointPackages() {
+  const { actor, isFetching } = useActor();
+  return useQuery<PointPackage[]>({
+    queryKey: ["pointPackages"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getPointPackages() as Promise<PointPackage[]>;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useGetMyMonthlySpend() {
+  const { actor, isFetching } = useActor();
+  return useQuery<bigint>({
+    queryKey: ["myMonthlySpend"],
+    queryFn: async () => {
+      if (!actor) return 0n;
+      return (actor as any).getMyMonthlySpend() as Promise<bigint>;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useGetMonthlyLimit() {
+  const { actor, isFetching } = useActor();
+  return useQuery<bigint>({
+    queryKey: ["monthlyLimit"],
+    queryFn: async () => {
+      if (!actor) return 1_000_000n;
+      return (actor as any).getMonthlyLimit() as Promise<bigint>;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useFulfillPointsPurchase() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<bigint, Error, { packageId: bigint; sessionId: string }>({
+    mutationFn: async ({ packageId, sessionId }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).fulfillPointsPurchase(
+        packageId,
+        sessionId,
+      ) as Promise<bigint>;
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+      qc.invalidateQueries({ queryKey: ["myMonthlySpend"] });
+    },
   });
 }

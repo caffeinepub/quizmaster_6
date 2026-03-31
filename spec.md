@@ -1,31 +1,31 @@
 # QuizMaster
 
 ## Current State
-Full-stack quiz + social app. Backend has custom games (createCustomTrivia, createCustomSpinWheel, getAllCustomGames, playCustomTrivia, playCustomSpinWheel). GamesHub only shows Memory Game and Spin Wheel. No chat feature exists.
+QuizMaster is a social quiz app with user authentication, quiz creation/play, mini games, points system with gifting, leaderboards, public/private chat, admin panel, and rank system. Owner is hardcoded by Principal ID.
 
 ## Requested Changes (Diff)
 
 ### Add
-- Chat: backend ChatMessage type, sendMessage, getMessages
-- Chat page with polling, send input for logged-in users
-- Chat link in Navbar
-- Community Games section in GamesHub using getAllCustomGames
-- Custom game page for trivia and spin wheel custom games
-- 1-day localStorage cooldown per custom game per user
-- New hooks: usePlayCustomTrivia, usePlayCustomSpinWheel, useGetMessages, useSendMessage
+- **Buy Points page**: New page where logged-in users can purchase points via Stripe (INR)
+- **4 point packages**:
+  - Starter: 100 points for ₹50
+  - Popular: 500 points for ₹100
+  - Premium: 1,000 points for ₹550
+  - Mega: 10,000 points for ₹1,000
+- **Monthly spending limit**: ₹10,000 per user per calendar month
+- **Backend methods**: `purchasePoints(packageId: Nat)`, `getMonthlySpend()`, point packages data
+- **Stripe checkout**: Frontend payment flow for INR; on success, award points to buyer
+- **Navigation**: "Buy Points" link in navbar for logged-in users
 
 ### Modify
-- GamesHub.tsx: community games section with cooldown timers
-- Navbar.tsx: add Chat link
-- App.tsx: add /chat and /games/custom/$id routes
-- useQueries.ts: add new hooks
+- Navbar: add Buy Points link for authenticated users
 
 ### Remove
-- Nothing
+- Nothing removed
 
 ## Implementation Plan
-1. Generate backend with chat support added
-2. Add hooks for custom game play and chat
-3. Create Chat page with polling every 5s
-4. Create CustomGamePage handling trivia and spin wheel
-5. Update GamesHub, Navbar, App.tsx
+1. Select Stripe component
+2. Add purchasePoints, getMonthlySpend, recordPurchase to backend (track monthly spend per user)
+3. Create BuyPoints.tsx with package cards, INR pricing, monthly limit display, Stripe checkout
+4. Add /buy-points route and navbar link
+5. Block purchase if monthly limit (₹10,000) would be exceeded

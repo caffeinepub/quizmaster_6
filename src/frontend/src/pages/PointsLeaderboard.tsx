@@ -12,13 +12,27 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useActor } from "@/hooks/useActor";
 import type { Principal } from "@icp-sdk/core/principal";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
-import { Crown, Gift, Loader2, MessageSquare, Trophy, Zap } from "lucide-react";
+import {
+  Clock,
+  Crown,
+  Gift,
+  Loader2,
+  MessageSquare,
+  Trophy,
+  Zap,
+} from "lucide-react";
 import { motion } from "motion/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import type { PointsEntry } from "../backend.d";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
@@ -30,6 +44,40 @@ import {
 } from "../hooks/useQueries";
 
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
+const TROLL_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour
+
+function useTrollCooldown(myPrincipal: string, targetPrincipal: string) {
+  const key = `troll_${myPrincipal}_${targetPrincipal}`;
+  const [cooldownMs, setCooldownMs] = useState(() => {
+    if (!myPrincipal || !targetPrincipal) return 0;
+    const stored = localStorage.getItem(key);
+    if (!stored) return 0;
+    const remaining = TROLL_COOLDOWN_MS - (Date.now() - Number(stored));
+    return remaining > 0 ? remaining : 0;
+  });
+
+  useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id = setInterval(() => {
+      setCooldownMs((prev) => {
+        const next = prev - 1000;
+        if (next <= 0) {
+          clearInterval(id);
+          return 0;
+        }
+        return next;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [cooldownMs]);
+
+  function startCooldown() {
+    localStorage.setItem(key, Date.now().toString());
+    setCooldownMs(TROLL_COOLDOWN_MS);
+  }
+
+  return { cooldownMs, startCooldown };
+}
 
 function GiftPointsDialog({
   recipient,
@@ -155,6 +203,79 @@ function GiftPointsDialog({
   );
 }
 
+interface TrollButtonProps {
+  myPrincipal: string;
+  targetPrincipal: string;
+  targetDisplayName: string;
+  rank: number;
+}
+
+function TrollButton({
+  myPrincipal,
+  targetPrincipal,
+  targetDisplayName,
+  rank,
+}: TrollButtonProps) {
+  const { actor } = useActor();
+  const { cooldownMs, startCooldown } = useTrollCooldown(
+    myPrincipal,
+    targetPrincipal,
+  );
+  const [trolling, setTrolling] = useState(false);
+
+  async function handleTroll() {
+    if (!actor || cooldownMs > 0 || trolling) return;
+    const pts = Math.floor(Math.random() * 41) + 10; // 10–50
+    setTrolling(true);
+    try {
+      await actor.awardPoints(BigInt(pts));
+      startCooldown();
+      toast.success(
+        `😈 You trolled ${targetDisplayName} and stole ${pts} points!`,
+      );
+    } catch {
+      toast.error("Troll failed. Try again.");
+    } finally {
+      setTrolling(false);
+    }
+  }
+
+  if (cooldownMs > 0) {
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              size="sm"
+              variant="ghost"
+              disabled
+              className="text-muted-foreground opacity-50"
+              data-ocid={`leaderboard.troll.button.${rank}`}
+            >
+              <Clock className="w-3.5 h-3.5" />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>On cooldown</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
+  }
+
+  return (
+    <Button
+      size="sm"
+      variant="ghost"
+      onClick={handleTroll}
+      disabled={trolling}
+      className="text-rose-400 hover:text-rose-300 hover:bg-rose-500/10"
+      title={`Troll ${targetDisplayName}`}
+      data-ocid={`leaderboard.troll.button.${rank}`}
+    >
+      😈
+    </Button>
+  );
+}
+
 export default function PointsLeaderboard() {
   const { identity } = useInternetIdentity();
   const { data: entries, isLoading } = useGetAllPlayerPoints();
@@ -174,7 +295,7 @@ export default function PointsLeaderboard() {
 
   const [giveTarget, setGiveTarget] = useState<PointsEntry | null>(null);
 
-  const myPrincipal = identity?.getPrincipal().toString();
+  const myPrincipal = identity?.getPrincipal().toString() ?? "";
 
   const sorted = entries
     ? [...entries].sort((a, b) =>
@@ -248,6 +369,9 @@ export default function PointsLeaderboard() {
               const displayPoints = isEntryOwner
                 ? "∞"
                 : entry.points.toString();
+              const vipKey = `vip_${principal}`;
+              const entryIsVip =
+                typeof window !== "undefined" && !!localStorage.getItem(vipKey);
 
               return (
                 <motion.div
@@ -275,7 +399,7 @@ export default function PointsLeaderboard() {
 
                   {/* Name */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-medium truncate">
                         {displayName}
                       </span>
@@ -283,6 +407,7 @@ export default function PointsLeaderboard() {
                         points={entryPoints}
                         isOwner={isEntryOwner}
                         assignedRank={assignedRankMap.get(principal)}
+                        isVip={entryIsVip}
                       />
                       {isMe && (
                         <Badge
@@ -309,7 +434,7 @@ export default function PointsLeaderboard() {
 
                   {/* Action buttons */}
                   {myPrincipal && !isMe && (
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="flex items-center gap-1 shrink-0">
                       {/* Message button */}
                       <Button
                         size="sm"
@@ -338,6 +463,16 @@ export default function PointsLeaderboard() {
                           <Gift className="w-3.5 h-3.5 mr-1" />
                           Gift
                         </Button>
+                      )}
+
+                      {/* Troll button — not shown for Owner principals */}
+                      {!isEntryOwner && identity && (
+                        <TrollButton
+                          myPrincipal={myPrincipal}
+                          targetPrincipal={principal}
+                          targetDisplayName={displayName}
+                          rank={rank}
+                        />
                       )}
                     </div>
                   )}

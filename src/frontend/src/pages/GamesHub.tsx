@@ -11,10 +11,13 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import { Brain, Crown, Gamepad2, RotateCcw, Trophy, Zap } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetAllCustomGames, useGetMyPoints } from "../hooks/useQueries";
 
 const COOLDOWN_MS = 24 * 60 * 60 * 1000;
+const BONUS_COOLDOWN_MS = 200 * 60 * 60 * 1000;
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return "";
@@ -55,6 +58,166 @@ function useCustomGameCooldown(principalStr: string, gameId: string) {
   }, [cooldownMs]);
 
   return cooldownMs;
+}
+
+function useBonusCooldown(principalStr: string, itemId: string) {
+  const key = `bonus_${itemId}_${principalStr}`;
+  const [cooldownMs, setCooldownMs] = useState(() => {
+    if (!principalStr) return 0;
+    const stored = localStorage.getItem(key);
+    if (!stored) return 0;
+    const remaining = BONUS_COOLDOWN_MS - (Date.now() - Number(stored));
+    return remaining > 0 ? remaining : 0;
+  });
+
+  useEffect(() => {
+    if (cooldownMs <= 0) return;
+    const id = setInterval(() => {
+      setCooldownMs((prev) => {
+        const next = prev - 1000;
+        if (next <= 0) {
+          clearInterval(id);
+          return 0;
+        }
+        return next;
+      });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [cooldownMs]);
+
+  function startCooldown() {
+    localStorage.setItem(key, Date.now().toString());
+    setCooldownMs(BONUS_COOLDOWN_MS);
+  }
+
+  return { cooldownMs, startCooldown };
+}
+
+const BONUS_ITEMS = [
+  {
+    id: "daily_chest",
+    name: "Daily Chest",
+    emoji: "🎁",
+    description: "Open for a surprise reward! Awards 10–100 random points.",
+    minPts: 10,
+    maxPts: 100,
+    gradient: "from-amber-500 to-orange-600",
+    glowClass: "shadow-amber-500/30",
+  },
+  {
+    id: "mystery_bonus",
+    name: "Mystery Bonus",
+    emoji: "🎲",
+    description: "Roll the dice and win! Awards 20–150 random points.",
+    minPts: 20,
+    maxPts: 150,
+    gradient: "from-violet-500 to-purple-600",
+    glowClass: "shadow-violet-500/30",
+  },
+  {
+    id: "lucky_star",
+    name: "Lucky Star",
+    emoji: "⭐",
+    description: "Wish upon a star! Awards 5–200 random points.",
+    minPts: 5,
+    maxPts: 200,
+    gradient: "from-cyan-500 to-blue-600",
+    glowClass: "shadow-cyan-500/30",
+  },
+];
+
+interface BonusCardProps {
+  item: (typeof BONUS_ITEMS)[number];
+  principalStr: string;
+  isLoggedIn: boolean;
+  onLogin: () => void;
+  loginStatus: string;
+  index: number;
+}
+
+function BonusCard({
+  item,
+  principalStr,
+  isLoggedIn,
+  onLogin,
+  loginStatus,
+  index,
+}: BonusCardProps) {
+  const { actor } = useActor();
+  const { cooldownMs, startCooldown } = useBonusCooldown(principalStr, item.id);
+  const [claiming, setClaiming] = useState(false);
+
+  async function handleClaim() {
+    if (!actor || claiming || cooldownMs > 0) return;
+    const pts =
+      Math.floor(Math.random() * (item.maxPts - item.minPts + 1)) + item.minPts;
+    setClaiming(true);
+    try {
+      await actor.awardPoints(BigInt(pts));
+      startCooldown();
+      toast.success(`${item.emoji} ${item.name}: You earned ${pts} points!`);
+    } catch {
+      toast.error("Failed to claim bonus. Try again.");
+    } finally {
+      setClaiming(false);
+    }
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 * index }}
+      data-ocid={`games.bonus.item.${index}`}
+    >
+      <Card className="glass-card border-border/50 hover:border-primary/40 transition-all duration-300 group">
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div
+              className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-2xl shadow-lg ${item.glowClass} mb-2`}
+            >
+              {item.emoji}
+            </div>
+            <Badge variant="secondary" className="text-xs">
+              {item.minPts}–{item.maxPts} pts
+            </Badge>
+          </div>
+          <CardTitle className="text-lg">{item.name}</CardTitle>
+          <CardDescription>{item.description}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {cooldownMs > 0 && (
+            <div className="glass-card rounded-xl px-4 py-2 text-center">
+              <p className="text-xs text-muted-foreground">Resets in</p>
+              <p className="text-sm font-bold text-primary tabular-nums">
+                {formatCountdown(cooldownMs)}
+              </p>
+            </div>
+          )}
+          {isLoggedIn ? (
+            <Button
+              className="w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50"
+              onClick={handleClaim}
+              disabled={cooldownMs > 0 || claiming}
+              data-ocid={`games.bonus.primary_button.${index}`}
+            >
+              <Zap className="w-4 h-4 mr-2" />
+              {claiming ? "Claiming..." : cooldownMs > 0 ? "Claimed" : "Claim"}
+            </Button>
+          ) : (
+            <Button
+              className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
+              onClick={onLogin}
+              disabled={loginStatus === "logging-in"}
+              data-ocid={`games.bonus.primary_button.${index}`}
+            >
+              Log In to Claim
+            </Button>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
 }
 
 export default function GamesHub() {
@@ -187,6 +350,35 @@ export default function GamesHub() {
           </motion.div>
         ))}
       </div>
+
+      {/* Daily Bonuses */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+        className="mb-10"
+      >
+        <div className="flex items-center gap-2 mb-5">
+          <span className="text-2xl">🎁</span>
+          <h2 className="text-2xl font-bold gradient-text">Daily Bonuses</h2>
+          <Badge variant="secondary" className="ml-2">
+            Resets every 24h
+          </Badge>
+        </div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {BONUS_ITEMS.map((item, i) => (
+            <BonusCard
+              key={item.id}
+              item={item}
+              principalStr={principalStr}
+              isLoggedIn={!!identity}
+              onLogin={login}
+              loginStatus={loginStatus}
+              index={i + 1}
+            />
+          ))}
+        </div>
+      </motion.div>
 
       {/* Community Games */}
       <motion.div

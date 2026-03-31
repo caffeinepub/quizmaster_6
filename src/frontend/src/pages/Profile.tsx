@@ -10,6 +10,13 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Table,
@@ -45,6 +52,8 @@ import {
   useGetUserQuizResults,
   useUpdateUserProfile,
 } from "../hooks/useQueries";
+
+const VIP_COST = 1_000_000;
 
 export default function Profile() {
   const { identity, login } = useInternetIdentity();
@@ -82,6 +91,9 @@ export default function Profile() {
   }
 
   const myPrincipal = identity.getPrincipal().toString();
+  const vipKey = `vip_${myPrincipal}`;
+  const hasVip =
+    typeof window !== "undefined" && !!localStorage.getItem(vipKey);
 
   const myQuizzes = (allQuizzes ?? []).filter(
     (q) => q.creator.toString() === myPrincipal,
@@ -125,9 +137,22 @@ export default function Profile() {
     });
   }
 
+  function handleBuyVip() {
+    if (isOwner || myPoints >= VIP_COST) {
+      localStorage.setItem(vipKey, "1");
+      toast.success(
+        "💎 VIP Activated! Your status is now live across the app.",
+      );
+      // Force re-render by navigating (simple approach: reload)
+      window.location.reload();
+    }
+  }
+
   const sortedResults = results
     ? [...results].sort((a, b) => Number(b.timestamp) - Number(a.timestamp))
     : [];
+
+  const canBuyVip = isOwner || myPoints >= VIP_COST;
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl">
@@ -179,7 +204,12 @@ export default function Profile() {
                 <h1 className="text-2xl font-bold">
                   {profile?.username ?? "Loading..."}
                 </h1>
-                <RankBadge points={myPoints} isOwner={isOwner} size="md" />
+                <RankBadge
+                  points={myPoints}
+                  isOwner={isOwner}
+                  size="md"
+                  isVip={hasVip}
+                />
                 <Button
                   size="icon"
                   variant="ghost"
@@ -230,6 +260,70 @@ export default function Profile() {
             </div>
           </div>
         </div>
+
+        {/* VIP Status */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+        >
+          <Card className="glass-card border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300">
+            <CardHeader className="pb-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-2xl shadow-lg shadow-cyan-500/30">
+                    💎
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg">VIP Status</CardTitle>
+                    <CardDescription>
+                      Show off your VIP status across the app
+                    </CardDescription>
+                  </div>
+                </div>
+                {hasVip && (
+                  <span className="inline-flex items-center gap-1 rounded-full text-xs font-semibold px-3 py-1 bg-cyan-900/40 text-cyan-300 border border-cyan-500/50">
+                    <Check className="w-3 h-3" />
+                    VIP Active
+                  </span>
+                )}
+              </div>
+            </CardHeader>
+            <CardContent>
+              {hasVip ? (
+                <p className="text-sm text-muted-foreground">
+                  Your 💎 VIP badge is displayed next to your name everywhere in
+                  the app. Enjoy your exclusive status!
+                </p>
+              ) : (
+                <div className="flex items-center justify-between gap-4">
+                  <p className="text-sm text-muted-foreground">
+                    Cost:{" "}
+                    <span className="font-bold text-foreground">
+                      1,000,000 pts
+                    </span>
+                    {!canBuyVip && (
+                      <span className="ml-2 text-xs text-muted-foreground">
+                        (You have {myPoints.toLocaleString()} pts)
+                      </span>
+                    )}
+                  </p>
+                  <Button
+                    onClick={handleBuyVip}
+                    disabled={!canBuyVip}
+                    className="gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50 shrink-0"
+                    data-ocid="profile.vip.primary_button"
+                  >
+                    💎{" "}
+                    {canBuyVip
+                      ? "Buy VIP — 1,000,000 pts"
+                      : "Need 1,000,000 pts"}
+                  </Button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* My Quizzes */}
         {myQuizzes.length > 0 && (

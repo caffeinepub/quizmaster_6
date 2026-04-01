@@ -4,6 +4,8 @@ import { RotateCcw, Zap } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useAwardPoints, useGetMyPoints } from "../hooks/useQueries";
 
@@ -103,6 +105,7 @@ function startTicker(
 
 export default function SpinWheel() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
   const { mutateAsync: awardPoints } = useAwardPoints();
 
@@ -135,7 +138,7 @@ export default function SpinWheel() {
   }, []);
 
   const spin = async () => {
-    if (spinning || cooldownMs > 0 || !identity) return;
+    if (spinning || cooldownMs > 0 || !identity || isBanned) return;
     setResult(null);
     setSpinning(true);
 

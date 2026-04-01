@@ -10,6 +10,8 @@ import { ArrowLeft, Loader2, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetConversation } from "../hooks/useQueries";
@@ -39,6 +41,7 @@ export default function PrivateChat() {
   }, [userId]);
 
   const { data: messages, isLoading } = useGetConversation(otherUser);
+  const { isBanned } = useBanStatus();
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -61,7 +64,7 @@ export default function PrivateChat() {
 
   const handleSend = async () => {
     const content = input.trim();
-    if (!content || !actor || !otherUser || !identity) return;
+    if (!content || !actor || !otherUser || !identity || isBanned) return;
     setSending(true);
     setInput("");
     try {
@@ -206,30 +209,34 @@ export default function PrivateChat() {
         </ScrollArea>
 
         <div className="border-t border-border/40 p-3">
-          <div className="flex gap-2">
-            <Input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type a message..."
-              className="flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60"
-              disabled={sending}
-              maxLength={1000}
-              data-ocid="private_chat.input"
-            />
-            <Button
-              onClick={handleSend}
-              disabled={!input.trim() || sending}
-              className="rounded-full gradient-bg border-0 text-white px-4 glow-cyan"
-              data-ocid="private_chat.submit_button"
-            >
-              {sending ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <Send className="w-4 h-4" />
-              )}
-            </Button>
-          </div>
+          {isBanned ? (
+            <BannedBanner />
+          ) : (
+            <div className="flex gap-2">
+              <Input
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type a message..."
+                className="flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60"
+                disabled={sending}
+                maxLength={1000}
+                data-ocid="private_chat.input"
+              />
+              <Button
+                onClick={handleSend}
+                disabled={!input.trim() || sending}
+                className="rounded-full gradient-bg border-0 text-white px-4 glow-cyan"
+                data-ocid="private_chat.submit_button"
+              >
+                {sending ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Send className="w-4 h-4" />
+                )}
+              </Button>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>

@@ -6,6 +6,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
 import type { Answer } from "../backend.d";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useGetQuiz,
@@ -23,6 +25,7 @@ export default function PlayQuiz() {
   const { data: questions, isLoading: loadingQs } = useGetQuizQuestions(quizId);
   const submitAnswers = useSubmitQuizAnswers();
 
+  const { isBanned } = useBanStatus();
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Map<string, Answer>>(new Map());
   const [selected, setSelected] = useState<number | boolean | null>(null);
@@ -42,6 +45,14 @@ export default function PlayQuiz() {
         >
           Log In to Play
         </Button>
+      </div>
+    );
+  }
+
+  if (isBanned) {
+    return (
+      <div className="container mx-auto px-4 py-24 max-w-md">
+        <BannedBanner />
       </div>
     );
   }

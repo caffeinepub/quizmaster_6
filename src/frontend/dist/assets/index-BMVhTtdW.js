@@ -20390,18 +20390,18 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$J = [
+const __iconNode$L = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$J);
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$L);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$I = [
+const __iconNode$K = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -20411,14 +20411,14 @@ const __iconNode$I = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$I);
+const BookOpen = createLucideIcon("book-open", __iconNode$K);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$H = [
+const __iconNode$J = [
   [
     "path",
     {
@@ -20441,39 +20441,61 @@ const __iconNode$H = [
   ["path", { d: "M6 18a4 4 0 0 1-1.967-.516", key: "2e4loj" }],
   ["path", { d: "M19.967 17.484A4 4 0 0 1 18 18", key: "159ez6" }]
 ];
-const Brain = createLucideIcon("brain", __iconNode$H);
+const Brain = createLucideIcon("brain", __iconNode$J);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$G = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
-const Check = createLucideIcon("check", __iconNode$G);
+const __iconNode$I = [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]];
+const Check = createLucideIcon("check", __iconNode$I);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$F = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
-const ChevronDown = createLucideIcon("chevron-down", __iconNode$F);
+const __iconNode$H = [["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]];
+const ChevronDown = createLucideIcon("chevron-down", __iconNode$H);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$E = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
-const ChevronRight = createLucideIcon("chevron-right", __iconNode$E);
+const __iconNode$G = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$G);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$D = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
-const ChevronUp = createLucideIcon("chevron-up", __iconNode$D);
+const __iconNode$F = [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]];
+const ChevronUp = createLucideIcon("chevron-up", __iconNode$F);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$E = [
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+];
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$E);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$D = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+];
+const CircleCheck = createLucideIcon("circle-check", __iconNode$D);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20481,10 +20503,10 @@ const ChevronUp = createLucideIcon("chevron-up", __iconNode$D);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$C = [
-  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
-  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$C);
+const Clock = createLucideIcon("clock", __iconNode$C);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20492,10 +20514,10 @@ const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$C);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$B = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
+  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
 ];
-const CircleCheck = createLucideIcon("circle-check", __iconNode$B);
+const Copy = createLucideIcon("copy", __iconNode$B);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20503,28 +20525,6 @@ const CircleCheck = createLucideIcon("circle-check", __iconNode$B);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$A = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["polyline", { points: "12 6 12 12 16 14", key: "68esgv" }]
-];
-const Clock = createLucideIcon("clock", __iconNode$A);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$z = [
-  ["rect", { width: "14", height: "14", x: "8", y: "8", rx: "2", ry: "2", key: "17jyea" }],
-  ["path", { d: "M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2", key: "zix9uf" }]
-];
-const Copy = createLucideIcon("copy", __iconNode$z);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$y = [
   [
     "path",
     {
@@ -20534,26 +20534,26 @@ const __iconNode$y = [
   ],
   ["path", { d: "M5 21h14", key: "11awu3" }]
 ];
-const Crown = createLucideIcon("crown", __iconNode$y);
+const Crown = createLucideIcon("crown", __iconNode$A);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$x = [
+const __iconNode$z = [
   ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
   ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
   ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
 ];
-const Database = createLucideIcon("database", __iconNode$x);
+const Database = createLucideIcon("database", __iconNode$z);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$w = [
+const __iconNode$y = [
   ["line", { x1: "6", x2: "10", y1: "11", y2: "11", key: "1gktln" }],
   ["line", { x1: "8", x2: "8", y1: "9", y2: "13", key: "qnk9ow" }],
   ["line", { x1: "15", x2: "15.01", y1: "12", y2: "12", key: "krot7o" }],
@@ -20566,14 +20566,14 @@ const __iconNode$w = [
     }
   ]
 ];
-const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$w);
+const Gamepad2 = createLucideIcon("gamepad-2", __iconNode$y);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$v = [
+const __iconNode$x = [
   ["rect", { x: "3", y: "8", width: "18", height: "4", rx: "1", key: "bkv52" }],
   ["path", { d: "M12 8v13", key: "1c76mn" }],
   ["path", { d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7", key: "6wjy6b" }],
@@ -20585,7 +20585,36 @@ const __iconNode$v = [
     }
   ]
 ];
-const Gift = createLucideIcon("gift", __iconNode$v);
+const Gift = createLucideIcon("gift", __iconNode$x);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$w = [
+  [
+    "path",
+    {
+      d: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4",
+      key: "tonef"
+    }
+  ],
+  ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
+];
+const Github = createLucideIcon("github", __iconNode$w);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$v = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }]
+];
+const Globe = createLucideIcon("globe", __iconNode$v);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20596,13 +20625,12 @@ const __iconNode$u = [
   [
     "path",
     {
-      d: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4",
-      key: "tonef"
+      d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
+      key: "c3ymky"
     }
-  ],
-  ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
+  ]
 ];
-const Github = createLucideIcon("github", __iconNode$u);
+const Heart = createLucideIcon("heart", __iconNode$u);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20610,34 +20638,6 @@ const Github = createLucideIcon("github", __iconNode$u);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$t = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
-  ["path", { d: "M2 12h20", key: "9i4pu4" }]
-];
-const Globe = createLucideIcon("globe", __iconNode$t);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$s = [
-  [
-    "path",
-    {
-      d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z",
-      key: "c3ymky"
-    }
-  ]
-];
-const Heart = createLucideIcon("heart", __iconNode$s);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$r = [
   ["path", { d: "M3 12h.01", key: "nlz23k" }],
   ["path", { d: "M3 18h.01", key: "1tta3j" }],
   ["path", { d: "M3 6h.01", key: "1rqtza" }],
@@ -20645,15 +20645,38 @@ const __iconNode$r = [
   ["path", { d: "M8 18h13", key: "1lx6n3" }],
   ["path", { d: "M8 6h13", key: "ik3vkj" }]
 ];
-const List$1 = createLucideIcon("list", __iconNode$r);
+const List$1 = createLucideIcon("list", __iconNode$t);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$q = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
-const LoaderCircle = createLucideIcon("loader-circle", __iconNode$q);
+const __iconNode$s = [["path", { d: "M21 12a9 9 0 1 1-6.219-8.56", key: "13zald" }]];
+const LoaderCircle = createLucideIcon("loader-circle", __iconNode$s);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$r = [
+  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
+  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
+];
+const Lock = createLucideIcon("lock", __iconNode$r);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$q = [
+  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
+  ["path", { d: "M21 12H9", key: "dn1m92" }],
+  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
+];
+const LogOut = createLucideIcon("log-out", __iconNode$q);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20661,29 +20684,6 @@ const LoaderCircle = createLucideIcon("loader-circle", __iconNode$q);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$p = [
-  ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
-  ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
-];
-const Lock = createLucideIcon("lock", __iconNode$p);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$o = [
-  ["path", { d: "m16 17 5-5-5-5", key: "1bji2h" }],
-  ["path", { d: "M21 12H9", key: "dn1m92" }],
-  ["path", { d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4", key: "1uf3rs" }]
-];
-const LogOut = createLucideIcon("log-out", __iconNode$o);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$n = [
   [
     "path",
     {
@@ -20697,7 +20697,27 @@ const __iconNode$n = [
   ["circle", { cx: "12", cy: "17", r: "5", key: "qbz8iq" }],
   ["path", { d: "M12 18v-2h-.5", key: "fawc4q" }]
 ];
-const Medal = createLucideIcon("medal", __iconNode$n);
+const Medal = createLucideIcon("medal", __iconNode$p);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$o = [
+  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
+];
+const MessageCircle = createLucideIcon("message-circle", __iconNode$o);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$n = [
+  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
+];
+const MessageSquare = createLucideIcon("message-square", __iconNode$n);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20705,26 +20725,6 @@ const Medal = createLucideIcon("medal", __iconNode$n);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$m = [
-  ["path", { d: "M7.9 20A9 9 0 1 0 4 16.1L2 22Z", key: "vv11sd" }]
-];
-const MessageCircle = createLucideIcon("message-circle", __iconNode$m);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$l = [
-  ["path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", key: "1lielz" }]
-];
-const MessageSquare = createLucideIcon("message-square", __iconNode$l);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$k = [
   [
     "path",
     {
@@ -20733,15 +20733,39 @@ const __iconNode$k = [
     }
   ]
 ];
-const Pen = createLucideIcon("pen", __iconNode$k);
+const Pen = createLucideIcon("pen", __iconNode$m);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
-const Play = createLucideIcon("play", __iconNode$j);
+const __iconNode$l = [["polygon", { points: "6 3 20 12 6 21 6 3", key: "1oa8hb" }]];
+const Play = createLucideIcon("play", __iconNode$l);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$k = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "M12 5v14", key: "s699le" }]
+];
+const Plus = createLucideIcon("plus", __iconNode$k);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$j = [
+  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
+  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
+  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
+  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+];
+const RefreshCw = createLucideIcon("refresh-cw", __iconNode$j);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20749,10 +20773,10 @@ const Play = createLucideIcon("play", __iconNode$j);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$i = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "M12 5v14", key: "s699le" }]
+  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
+  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
 ];
-const Plus = createLucideIcon("plus", __iconNode$i);
+const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$i);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20760,12 +20784,11 @@ const Plus = createLucideIcon("plus", __iconNode$i);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$h = [
-  ["path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8", key: "v9h5vc" }],
-  ["path", { d: "M21 3v5h-5", key: "1q7to0" }],
-  ["path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16", key: "3uifl3" }],
-  ["path", { d: "M8 16H3v5", key: "1cv678" }]
+  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
+  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
+  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
 ];
-const RefreshCw = createLucideIcon("refresh-cw", __iconNode$h);
+const Rss = createLucideIcon("rss", __iconNode$h);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20773,10 +20796,10 @@ const RefreshCw = createLucideIcon("refresh-cw", __iconNode$h);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$g = [
-  ["path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8", key: "1357e3" }],
-  ["path", { d: "M3 3v5h5", key: "1xhq8a" }]
+  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
+  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
 ];
-const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$g);
+const Search = createLucideIcon("search", __iconNode$g);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20784,11 +20807,16 @@ const RotateCcw = createLucideIcon("rotate-ccw", __iconNode$g);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$f = [
-  ["path", { d: "M4 11a9 9 0 0 1 9 9", key: "pv89mb" }],
-  ["path", { d: "M4 4a16 16 0 0 1 16 16", key: "k0647b" }],
-  ["circle", { cx: "5", cy: "19", r: "1", key: "bfqh0e" }]
+  [
+    "path",
+    {
+      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
+      key: "1ffxy3"
+    }
+  ],
+  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const Rss = createLucideIcon("rss", __iconNode$f);
+const Send = createLucideIcon("send", __iconNode$f);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20796,10 +20824,13 @@ const Rss = createLucideIcon("rss", __iconNode$f);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$e = [
-  ["path", { d: "m21 21-4.34-4.34", key: "14j7rj" }],
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }]
+  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
+  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
+  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
+  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
+  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
 ];
-const Search = createLucideIcon("search", __iconNode$e);
+const Share2 = createLucideIcon("share-2", __iconNode$e);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20810,13 +20841,13 @@ const __iconNode$d = [
   [
     "path",
     {
-      d: "M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z",
-      key: "1ffxy3"
+      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
+      key: "oel41y"
     }
   ],
-  ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
+  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
 ];
-const Send = createLucideIcon("send", __iconNode$d);
+const ShieldCheck = createLucideIcon("shield-check", __iconNode$d);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20824,13 +20855,23 @@ const Send = createLucideIcon("send", __iconNode$d);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$c = [
-  ["circle", { cx: "18", cy: "5", r: "3", key: "gq8acd" }],
-  ["circle", { cx: "6", cy: "12", r: "3", key: "w7nqdw" }],
-  ["circle", { cx: "18", cy: "19", r: "3", key: "1xt0gg" }],
-  ["line", { x1: "8.59", x2: "15.42", y1: "13.51", y2: "17.49", key: "47mynk" }],
-  ["line", { x1: "15.41", x2: "8.59", y1: "6.51", y2: "10.49", key: "1n3mei" }]
+  ["path", { d: "m2 2 20 20", key: "1ooewy" }],
+  [
+    "path",
+    {
+      d: "M5 5a1 1 0 0 0-1 1v7c0 5 3.5 7.5 7.67 8.94a1 1 0 0 0 .67.01c2.35-.82 4.48-1.97 5.9-3.71",
+      key: "1jlk70"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "M9.309 3.652A12.252 12.252 0 0 0 11.24 2.28a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1v7a9.784 9.784 0 0 1-.08 1.264",
+      key: "18rp1v"
+    }
+  ]
 ];
-const Share2 = createLucideIcon("share-2", __iconNode$c);
+const ShieldOff = createLucideIcon("shield-off", __iconNode$c);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20844,10 +20885,9 @@ const __iconNode$b = [
       d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
       key: "oel41y"
     }
-  ],
-  ["path", { d: "m9 12 2 2 4-4", key: "dzmm74" }]
+  ]
 ];
-const ShieldCheck = createLucideIcon("shield-check", __iconNode$b);
+const Shield = createLucideIcon("shield", __iconNode$b);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20855,22 +20895,6 @@ const ShieldCheck = createLucideIcon("shield-check", __iconNode$b);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$a = [
-  [
-    "path",
-    {
-      d: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z",
-      key: "oel41y"
-    }
-  ]
-];
-const Shield = createLucideIcon("shield", __iconNode$a);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$9 = [
   ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
   ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
   [
@@ -20881,14 +20905,14 @@ const __iconNode$9 = [
     }
   ]
 ];
-const ShoppingCart = createLucideIcon("shopping-cart", __iconNode$9);
+const ShoppingCart = createLucideIcon("shopping-cart", __iconNode$a);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [
+const __iconNode$9 = [
   [
     "path",
     {
@@ -20901,7 +20925,21 @@ const __iconNode$8 = [
   ["path", { d: "M4 17v2", key: "vumght" }],
   ["path", { d: "M5 18H3", key: "zchphs" }]
 ];
-const Sparkles = createLucideIcon("sparkles", __iconNode$8);
+const Sparkles = createLucideIcon("sparkles", __iconNode$9);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [
+  ["path", { d: "M3 6h18", key: "d0wm0j" }],
+  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
+  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
+  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
+  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
+];
+const Trash2 = createLucideIcon("trash-2", __iconNode$8);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -20909,20 +20947,6 @@ const Sparkles = createLucideIcon("sparkles", __iconNode$8);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$7 = [
-  ["path", { d: "M3 6h18", key: "d0wm0j" }],
-  ["path", { d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6", key: "4alrt4" }],
-  ["path", { d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2", key: "v07s0e" }],
-  ["line", { x1: "10", x2: "10", y1: "11", y2: "17", key: "1uufr5" }],
-  ["line", { x1: "14", x2: "14", y1: "11", y2: "17", key: "xtxkd" }]
-];
-const Trash2 = createLucideIcon("trash-2", __iconNode$7);
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$6 = [
   [
     "path",
     {
@@ -20933,14 +20957,14 @@ const __iconNode$6 = [
   ["path", { d: "M12 9v4", key: "juzpu7" }],
   ["path", { d: "M12 17h.01", key: "p32p05" }]
 ];
-const TriangleAlert = createLucideIcon("triangle-alert", __iconNode$6);
+const TriangleAlert = createLucideIcon("triangle-alert", __iconNode$7);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$5 = [
+const __iconNode$6 = [
   ["path", { d: "M6 9H4.5a2.5 2.5 0 0 1 0-5H6", key: "17hqa7" }],
   ["path", { d: "M18 9h1.5a2.5 2.5 0 0 0 0-5H18", key: "lmptdp" }],
   ["path", { d: "M4 22h16", key: "57wxv0" }],
@@ -20948,14 +20972,14 @@ const __iconNode$5 = [
   ["path", { d: "M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22", key: "1np0yb" }],
   ["path", { d: "M18 2H6v7a6 6 0 0 0 12 0V2Z", key: "u46fv3" }]
 ];
-const Trophy = createLucideIcon("trophy", __iconNode$5);
+const Trophy = createLucideIcon("trophy", __iconNode$6);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$4 = [
+const __iconNode$5 = [
   [
     "path",
     {
@@ -20964,7 +20988,20 @@ const __iconNode$4 = [
     }
   ]
 ];
-const Twitter = createLucideIcon("twitter", __iconNode$4);
+const Twitter = createLucideIcon("twitter", __iconNode$5);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$4 = [
+  ["path", { d: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2", key: "1yyitq" }],
+  ["circle", { cx: "9", cy: "7", r: "4", key: "nufk8" }],
+  ["line", { x1: "17", x2: "22", y1: "8", y2: "13", key: "3nzzx3" }],
+  ["line", { x1: "22", x2: "17", y1: "8", y2: "13", key: "1swrse" }]
+];
+const UserX = createLucideIcon("user-x", __iconNode$4);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34845,7 +34882,13 @@ Service({
   "submitQuizAnswers": Func([Nat, Vec(Answer)], [Nat], []),
   "trackVisit": Func([], [], []),
   "unlikePost": Func([], [], []),
-  "updateUserProfile": Func([Text], [], [])
+  "updateUserProfile": Func([Text], [], []),
+  "banPlayer": Func([Principal2], [], []),
+  "unbanPlayer": Func([Principal2], [], []),
+  "getBannedPlayers": Func([], [Vec(Principal2)], ["query"]),
+  "isCallerBanned": Func([], [Bool], ["query"]),
+  "isPlayerBanned": Func([Principal2], [Bool], ["query"]),
+  "deductPoints": Func([Principal2, Nat], [Nat], [])
 });
 const idlFactory = ({ IDL: IDL2 }) => {
   const Question2 = IDL2.Record({
@@ -34983,7 +35026,13 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "submitQuizAnswers": IDL2.Func([IDL2.Nat, IDL2.Vec(Answer2)], [IDL2.Nat], []),
     "trackVisit": IDL2.Func([], [], []),
     "unlikePost": IDL2.Func([IDL2.Nat], [], []),
-    "updateUserProfile": IDL2.Func([IDL2.Text], [], [])
+    "updateUserProfile": IDL2.Func([IDL2.Text], [], []),
+    "banPlayer": IDL2.Func([IDL2.Principal], [], []),
+    "unbanPlayer": IDL2.Func([IDL2.Principal], [], []),
+    "getBannedPlayers": IDL2.Func([], [IDL2.Vec(IDL2.Principal)], ["query"]),
+    "isCallerBanned": IDL2.Func([], [IDL2.Bool], ["query"]),
+    "isPlayerBanned": IDL2.Func([IDL2.Principal], [IDL2.Bool], ["query"]),
+    "deductPoints": IDL2.Func([IDL2.Principal, IDL2.Nat], [IDL2.Nat], [])
   });
 };
 class ExternalBlob {
@@ -39100,6 +39149,57 @@ function useFulfillPointsPurchase() {
     }
   });
 }
+function useGetBannedPlayers() {
+  const { actor, isFetching } = useActor();
+  return useQuery({
+    queryKey: ["bannedPlayers"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return actor.getBannedPlayers();
+    },
+    enabled: !!actor && !isFetching
+  });
+}
+function useBanPlayer() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (player) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.banPlayer(player);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bannedPlayers"] });
+    }
+  });
+}
+function useUnbanPlayer() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (player) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.unbanPlayer(player);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bannedPlayers"] });
+    }
+  });
+}
+function useDeductPoints() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ player, amount }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return actor.deductPoints(player, amount);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+    }
+  });
+}
 function Navbar() {
   var _a3, _b3;
   const { login, clear, identity, loginStatus } = useInternetIdentity();
@@ -39211,6 +39311,50 @@ function Navbar() {
       ] })
     }
   );
+}
+const BanContext = reactExports.createContext({
+  isBanned: false,
+  isLoadingBan: false,
+  refetchBanStatus: () => {
+  }
+});
+function BanProvider({ children }) {
+  const { actor } = useActor();
+  const { identity } = useInternetIdentity();
+  const [isBanned, setIsBanned] = reactExports.useState(false);
+  const [isLoadingBan, setIsLoadingBan] = reactExports.useState(false);
+  const fetchBanStatus = reactExports.useCallback(async () => {
+    if (!actor || !identity) {
+      setIsBanned(false);
+      return;
+    }
+    setIsLoadingBan(true);
+    try {
+      const banned = await actor.isCallerBanned();
+      setIsBanned(banned);
+    } catch {
+      setIsBanned(false);
+    } finally {
+      setIsLoadingBan(false);
+    }
+  }, [actor, identity]);
+  reactExports.useEffect(() => {
+    fetchBanStatus();
+  }, [fetchBanStatus]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    BanContext.Provider,
+    {
+      value: {
+        isBanned,
+        isLoadingBan,
+        refetchBanStatus: fetchBanStatus
+      },
+      children
+    }
+  );
+}
+function useBanStatus() {
+  return reactExports.useContext(BanContext);
 }
 function Input({ className, type, ...props }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -48573,6 +48717,186 @@ function ManagePlayerRanks() {
     }
   );
 }
+function PlayerManagement() {
+  const { data: allPoints, isLoading: loadingPoints } = useGetAllPlayerPoints();
+  const { data: bannedPlayers, isLoading: loadingBanned } = useGetBannedPlayers();
+  const { ownerPrincipal } = useOwner();
+  const { identity } = useInternetIdentity();
+  const banPlayer = useBanPlayer();
+  const unbanPlayer = useUnbanPlayer();
+  const deductPoints = useDeductPoints();
+  const [deductAmounts, setDeductAmounts] = reactExports.useState(
+    {}
+  );
+  const [deducting, setDeducting] = reactExports.useState({});
+  const [banning, setBanning] = reactExports.useState({});
+  const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toString();
+  const bannedSet = reactExports.useMemo(() => {
+    const s2 = /* @__PURE__ */ new Set();
+    for (const p2 of bannedPlayers ?? []) s2.add(p2.toString());
+    return s2;
+  }, [bannedPlayers]);
+  const sorted = reactExports.useMemo(
+    () => [...allPoints ?? []].sort(
+      (a2, b2) => b2.points > a2.points ? 1 : b2.points < a2.points ? -1 : 0
+    ),
+    [allPoints]
+  );
+  async function handleBan(player, principalStr) {
+    setBanning((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await banPlayer.mutateAsync(player);
+      ue.success(`Player ${principalStr.slice(0, 8)}... has been banned.`);
+    } catch (e) {
+      ue.error((e == null ? void 0 : e.message) ?? "Failed to ban player");
+    } finally {
+      setBanning((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+  async function handleUnban(player, principalStr) {
+    setBanning((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await unbanPlayer.mutateAsync(player);
+      ue.success(`Player ${principalStr.slice(0, 8)}... has been unbanned.`);
+    } catch (e) {
+      ue.error((e == null ? void 0 : e.message) ?? "Failed to unban player");
+    } finally {
+      setBanning((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+  async function handleDeduct(player, principalStr) {
+    const raw = deductAmounts[principalStr] ?? "";
+    const amount = Number(raw);
+    if (!raw || Number.isNaN(amount) || amount <= 0) {
+      ue.error("Enter a valid amount greater than 0");
+      return;
+    }
+    setDeducting((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await deductPoints.mutateAsync({
+        player,
+        amount: BigInt(Math.floor(amount))
+      });
+      ue.success(
+        `Deducted ${amount} points from ${principalStr.slice(0, 8)}...`
+      );
+      setDeductAmounts((prev) => ({ ...prev, [principalStr]: "" }));
+    } catch (e) {
+      ue.error((e == null ? void 0 : e.message) ?? "Failed to deduct points");
+    } finally {
+      setDeducting((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+  const isLoading = loadingPoints || loadingBanned;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    motion.div,
+    {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      className: "glass-card rounded-2xl overflow-hidden border border-red-500/20",
+      "data-ocid": "admin.player_management.panel",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-4 border-b border-red-500/20 flex items-center gap-3 bg-red-500/5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(UserX, { className: "w-5 h-5 text-red-400" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-lg font-semibold text-red-400", children: "Player Management" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-red-500/20 text-red-400 border-red-500/40 text-xs", children: "\\U0001f451 Owner Only" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-6 py-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground mb-5", children: "Ban players to block all interactive features, or deduct points from any player." }),
+          isLoading ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "space-y-3",
+              "data-ocid": "admin.player_management.loading_state",
+              children: ["p1", "p2", "p3"].map((k2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-16 rounded-xl" }, k2))
+            }
+          ) : sorted.length === 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              className: "text-center py-8 text-muted-foreground text-sm",
+              "data-ocid": "admin.player_management.empty_state",
+              children: "No players found."
+            }
+          ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: sorted.map((entry, i) => {
+            const principalStr = entry.player.toString();
+            const isSelf = principalStr === myPrincipal;
+            const isEntryOwner = isOwnerPrincipal(
+              ownerPrincipal,
+              entry.player
+            );
+            const banned = bannedSet.has(principalStr);
+            const isBanPending = banning[principalStr] ?? false;
+            const isDeductPending = deducting[principalStr] ?? false;
+            const shortId = `${principalStr.slice(0, 10)}...${principalStr.slice(-6)}`;
+            return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "div",
+              {
+                className: `flex flex-wrap items-center gap-3 rounded-xl border px-4 py-3 ${banned ? "border-red-500/40 bg-red-500/5" : "border-border/30 bg-secondary/20"}`,
+                "data-ocid": `admin.player_management.item.${i + 1}`,
+                children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 min-w-0", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 flex-wrap", children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-mono text-xs text-muted-foreground", children: shortId }),
+                      isEntryOwner && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs", children: "\\U0001f451" }),
+                      banned && /* @__PURE__ */ jsxRuntimeExports.jsx(Badge, { className: "bg-red-500/20 text-red-400 border-red-500/40 text-xs", children: "BANNED" })
+                    ] }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-muted-foreground mt-0.5", children: [
+                      isEntryOwner ? "∞" : Number(entry.points).toLocaleString(),
+                      " ",
+                      "pts"
+                    ] })
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 shrink-0", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        type: "number",
+                        min: 1,
+                        placeholder: "Points",
+                        value: deductAmounts[principalStr] ?? "",
+                        onChange: (e) => setDeductAmounts((prev) => ({
+                          ...prev,
+                          [principalStr]: e.target.value
+                        })),
+                        className: "w-24 h-8 text-xs bg-secondary/30 border-border/50",
+                        disabled: isSelf || isEntryOwner || isDeductPending,
+                        "data-ocid": `admin.player_management.input.${i + 1}`
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Button,
+                      {
+                        size: "sm",
+                        variant: "outline",
+                        onClick: () => handleDeduct(entry.player, principalStr),
+                        disabled: isSelf || isEntryOwner || isDeductPending,
+                        className: "h-8 text-xs px-2 border-orange-500/40 text-orange-400 hover:bg-orange-500/10",
+                        "data-ocid": `admin.player_management.secondary_button.${i + 1}`,
+                        children: isDeductPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-3 h-3 animate-spin" }) : "Deduct"
+                      }
+                    )
+                  ] }),
+                  !isSelf && !isEntryOwner && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Button,
+                    {
+                      size: "sm",
+                      onClick: () => banned ? handleUnban(entry.player, principalStr) : handleBan(entry.player, principalStr),
+                      disabled: isBanPending,
+                      className: `h-8 text-xs px-3 shrink-0 ${banned ? "bg-green-500/20 border border-green-500/40 text-green-400 hover:bg-green-500/30" : "bg-red-500/20 border border-red-500/40 text-red-400 hover:bg-red-500/30"}`,
+                      "data-ocid": banned ? `admin.player_management.secondary_button.${i + 1}` : `admin.player_management.delete_button.${i + 1}`,
+                      children: isBanPending ? /* @__PURE__ */ jsxRuntimeExports.jsx(LoaderCircle, { className: "w-3 h-3 animate-spin" }) : banned ? "Unban" : "Ban"
+                    }
+                  )
+                ]
+              },
+              principalStr
+            );
+          }) })
+        ] })
+      ]
+    }
+  );
+}
 function AdminPanel() {
   var _a3;
   const { identity, login, loginStatus } = useInternetIdentity();
@@ -48738,6 +49062,13 @@ function AdminPanel() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-yellow-400", children: "Manage Player Ranks" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(ManagePlayerRanks, {})
+    ] }),
+    isCallerOwner && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-10", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-xl font-semibold mb-4 flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(UserX, { className: "w-5 h-5 text-red-400" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-red-400", children: "Player Management" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(PlayerManagement, {})
     ] })
   ] });
 }
@@ -51418,6 +51749,19 @@ function ScrollBar({
     }
   );
 }
+function BannedBanner() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      className: "flex items-center gap-3 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-red-400 text-sm",
+      "data-ocid": "banned.error_state",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ShieldOff, { className: "w-4 h-4 shrink-0" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "You are banned. You cannot participate in this activity." })
+      ]
+    }
+  );
+}
 function formatTime$1(timestampNs) {
   const date = new Date(Number(timestampNs) / 1e6);
   const h2 = date.getHours().toString().padStart(2, "0");
@@ -51434,6 +51778,7 @@ function Chat() {
   const { ownerPrincipal } = useOwner();
   const { data: allPoints } = useGetAllPlayerPoints();
   const navigate = useNavigate();
+  const { isBanned } = useBanStatus();
   const [input, setInput] = reactExports.useState("");
   const bottomRef = reactExports.useRef(null);
   const myPrincipal = identity == null ? void 0 : identity.getPrincipal().toText();
@@ -51451,7 +51796,7 @@ function Chat() {
   }, [msgCount]);
   const handleSend = async () => {
     const content = input.trim();
-    if (!content || !identity) return;
+    if (!content || !identity || isBanned) return;
     setInput("");
     try {
       await sendMessage(content);
@@ -51580,7 +51925,7 @@ function Chat() {
             }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: bottomRef })
           ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: identity ? isBanned ? /* @__PURE__ */ jsxRuntimeExports.jsx(BannedBanner, {}) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               Input,
               {
@@ -52424,9 +52769,13 @@ function CustomGamePage() {
   const { id: id2 } = useParams({ from: "/games/custom/$id" });
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: customGames, isLoading } = useGetAllCustomGames();
+  const { isBanned } = useBanStatus();
   const navigate = useNavigate();
   const principalStr = (identity == null ? void 0 : identity.getPrincipal().toText()) ?? "";
   const game = customGames == null ? void 0 : customGames.find((g2) => g2.id === BigInt(id2));
+  if (isBanned) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-4 py-24 max-w-md", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BannedBanner, {}) });
+  }
   if (!identity) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-16 h-16 text-primary mx-auto mb-4" }),
@@ -53285,6 +53634,7 @@ function BonusCard({
   item,
   principalStr,
   isLoggedIn,
+  isBanned,
   onLogin,
   loginStatus,
   index: index2
@@ -53293,7 +53643,7 @@ function BonusCard({
   const { cooldownMs, startCooldown } = useBonusCooldown(principalStr, item.id);
   const [claiming, setClaiming] = reactExports.useState(false);
   async function handleClaim() {
-    if (!actor || claiming || cooldownMs > 0) return;
+    if (!actor || claiming || cooldownMs > 0 || isBanned) return;
     const pts = Math.floor(Math.random() * (item.maxPts - item.minPts + 1)) + item.minPts;
     setClaiming(true);
     try {
@@ -53338,7 +53688,7 @@ function BonusCard({
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Resets in" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-bold text-primary tabular-nums", children: formatCountdown$1(cooldownMs) })
           ] }),
-          isLoggedIn ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          isLoggedIn ? isBanned ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-red-400 text-center py-2", children: "You are banned." }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
             Button,
             {
               className: "w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50",
@@ -53367,6 +53717,7 @@ function BonusCard({
 }
 function GamesHub() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints } = useGetMyPoints();
   const { data: customGames } = useGetAllCustomGames();
   const navigate = useNavigate();
@@ -53459,7 +53810,7 @@ function GamesHub() {
             /* @__PURE__ */ jsxRuntimeExports.jsx(CardTitle, { className: "text-xl", children: game.title }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(CardDescription, { children: game.description })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: identity ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CardContent, { children: identity ? isBanned ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-red-400 text-center py-2", children: "You are banned." }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
             Link,
             {
               to: game.path,
@@ -53502,6 +53853,7 @@ function GamesHub() {
               item,
               principalStr,
               isLoggedIn: !!identity,
+              isBanned,
               onLogin: login,
               loginStatus,
               index: i + 1
@@ -54345,6 +54697,7 @@ function initCards() {
 }
 function MemoryGame() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
   const { mutateAsync: awardPoints } = useAwardPoints();
   const [cards, setCards] = reactExports.useState(initCards);
@@ -54361,7 +54714,7 @@ function MemoryGame() {
   }, [matchedCount, cards.length]);
   const handleCardClick = reactExports.useCallback(
     async (id2) => {
-      if (!identity || locked || processingRef.current) return;
+      if (!identity || locked || processingRef.current || isBanned) return;
       const card = cards.find((c2) => c2.id === id2);
       if (!card || card.isFlipped || card.isMatched) return;
       if (selected.includes(id2)) return;
@@ -54407,7 +54760,7 @@ function MemoryGame() {
       setLocked(false);
       processingRef.current = false;
     },
-    [identity, locked, selected, cards, awardPoints, refetchPoints]
+    [identity, locked, selected, cards, awardPoints, refetchPoints, isBanned]
   );
   const resetGame = () => {
     setCards(initCards());
@@ -54417,6 +54770,9 @@ function MemoryGame() {
     setGameOver(false);
     processingRef.current = false;
   };
+  if (isBanned) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-4 py-24 max-w-md", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BannedBanner, {}) });
+  }
   if (!identity) {
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 py-20 max-w-md text-center", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Brain, { className: "w-16 h-16 text-primary mx-auto mb-4" }),
@@ -54685,6 +55041,7 @@ function PlayQuiz() {
   const { data: quiz, isLoading: loadingQuiz } = useGetQuiz(quizId);
   const { data: questions, isLoading: loadingQs } = useGetQuizQuestions(quizId);
   const submitAnswers = useSubmitQuizAnswers();
+  const { isBanned } = useBanStatus();
   const [current, setCurrent] = reactExports.useState(0);
   const [answers, setAnswers] = reactExports.useState(/* @__PURE__ */ new Map());
   const [selected, setSelected] = reactExports.useState(null);
@@ -54703,6 +55060,9 @@ function PlayQuiz() {
         }
       )
     ] });
+  }
+  if (isBanned) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "container mx-auto px-4 py-24 max-w-md", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BannedBanner, {}) });
   }
   if (loadingQuiz || loadingQs) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -57982,6 +58342,7 @@ function PrivateChat() {
     }
   }, [userId]);
   const { data: messages, isLoading } = useGetConversation(otherUser);
+  const { isBanned } = useBanStatus();
   const [input, setInput] = reactExports.useState("");
   const [sending, setSending] = reactExports.useState(false);
   const bottomRef = reactExports.useRef(null);
@@ -57999,7 +58360,7 @@ function PrivateChat() {
   }, [msgCount]);
   const handleSend = async () => {
     const content = input.trim();
-    if (!content || !actor || !otherUser || !identity) return;
+    if (!content || !actor || !otherUser || !identity || isBanned) return;
     setSending(true);
     setInput("");
     try {
@@ -58121,7 +58482,7 @@ function PrivateChat() {
             }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: bottomRef })
           ] }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border/40 p-3", children: isBanned ? /* @__PURE__ */ jsxRuntimeExports.jsx(BannedBanner, {}) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               Input,
               {
@@ -59024,6 +59385,7 @@ function startTicker(setCooldownMs) {
 }
 function SpinWheel() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
   const { mutateAsync: awardPoints } = useAwardPoints();
   const canvasRef = reactExports.useRef(null);
@@ -59050,7 +59412,7 @@ function SpinWheel() {
     if (canvasRef.current) drawWheel(canvasRef.current);
   }, []);
   const spin = async () => {
-    if (spinning || cooldownMs > 0 || !identity) return;
+    if (spinning || cooldownMs > 0 || !identity || isBanned) return;
     setResult(null);
     setSpinning(true);
     const extraSpins = 3 + Math.floor(Math.random() * 5);
@@ -59211,7 +59573,7 @@ function SpinWheel() {
   ] });
 }
 const rootRoute = createRootRoute({
-  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(OwnerProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(OwnerProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(BanProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
       className: "min-h-screen flex flex-col",
@@ -59225,7 +59587,7 @@ const rootRoute = createRootRoute({
         /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
       ]
     }
-  ) })
+  ) }) })
 });
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,

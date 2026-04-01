@@ -12,6 +12,8 @@ import { Brain, Crown, Gamepad2, RotateCcw, Trophy, Zap } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetAllCustomGames, useGetMyPoints } from "../hooks/useQueries";
@@ -130,6 +132,7 @@ interface BonusCardProps {
   item: (typeof BONUS_ITEMS)[number];
   principalStr: string;
   isLoggedIn: boolean;
+  isBanned: boolean;
   onLogin: () => void;
   loginStatus: string;
   index: number;
@@ -139,6 +142,7 @@ function BonusCard({
   item,
   principalStr,
   isLoggedIn,
+  isBanned,
   onLogin,
   loginStatus,
   index,
@@ -148,7 +152,7 @@ function BonusCard({
   const [claiming, setClaiming] = useState(false);
 
   async function handleClaim() {
-    if (!actor || claiming || cooldownMs > 0) return;
+    if (!actor || claiming || cooldownMs > 0 || isBanned) return;
     const pts =
       Math.floor(Math.random() * (item.maxPts - item.minPts + 1)) + item.minPts;
     setClaiming(true);
@@ -195,15 +199,25 @@ function BonusCard({
             </div>
           )}
           {isLoggedIn ? (
-            <Button
-              className="w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50"
-              onClick={handleClaim}
-              disabled={cooldownMs > 0 || claiming}
-              data-ocid={`games.bonus.primary_button.${index}`}
-            >
-              <Zap className="w-4 h-4 mr-2" />
-              {claiming ? "Claiming..." : cooldownMs > 0 ? "Claimed" : "Claim"}
-            </Button>
+            isBanned ? (
+              <div className="text-xs text-red-400 text-center py-2">
+                You are banned.
+              </div>
+            ) : (
+              <Button
+                className="w-full gradient-bg border-0 text-white font-semibold rounded-full disabled:opacity-50"
+                onClick={handleClaim}
+                disabled={cooldownMs > 0 || claiming}
+                data-ocid={`games.bonus.primary_button.${index}`}
+              >
+                <Zap className="w-4 h-4 mr-2" />
+                {claiming
+                  ? "Claiming..."
+                  : cooldownMs > 0
+                    ? "Claimed"
+                    : "Claim"}
+              </Button>
+            )
           ) : (
             <Button
               className="w-full gradient-bg border-0 text-white font-semibold rounded-full"
@@ -222,6 +236,7 @@ function BonusCard({
 
 export default function GamesHub() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints } = useGetMyPoints();
   const { data: customGames } = useGetAllCustomGames();
   const navigate = useNavigate();
@@ -326,15 +341,21 @@ export default function GamesHub() {
               </CardHeader>
               <CardContent>
                 {identity ? (
-                  <Link
-                    to={game.path as "/games/memory" | "/games/spinwheel"}
-                    data-ocid={`games.${game.id}.primary_button`}
-                  >
-                    <Button className="w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan group-hover:opacity-90">
-                      <Gamepad2 className="w-4 h-4 mr-2" />
-                      Play Now
-                    </Button>
-                  </Link>
+                  isBanned ? (
+                    <div className="text-xs text-red-400 text-center py-2">
+                      You are banned.
+                    </div>
+                  ) : (
+                    <Link
+                      to={game.path as "/games/memory" | "/games/spinwheel"}
+                      data-ocid={`games.${game.id}.primary_button`}
+                    >
+                      <Button className="w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan group-hover:opacity-90">
+                        <Gamepad2 className="w-4 h-4 mr-2" />
+                        Play Now
+                      </Button>
+                    </Link>
+                  )
                 ) : (
                   <Button
                     className="w-full gradient-bg border-0 text-white font-semibold rounded-full glow-cyan"
@@ -372,6 +393,7 @@ export default function GamesHub() {
               item={item}
               principalStr={principalStr}
               isLoggedIn={!!identity}
+              isBanned={isBanned}
               onLogin={login}
               loginStatus={loginStatus}
               index={i + 1}

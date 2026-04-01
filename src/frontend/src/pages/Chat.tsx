@@ -5,7 +5,9 @@ import { useNavigate } from "@tanstack/react-router";
 import { MessageCircle, Send } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { BannedBanner } from "../components/BannedBanner";
 import { RankBadge } from "../components/RankBadge";
+import { useBanStatus } from "../contexts/BanContext";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
@@ -33,6 +35,7 @@ export default function Chat() {
   const { data: allPoints } = useGetAllPlayerPoints();
   const navigate = useNavigate();
 
+  const { isBanned } = useBanStatus();
   const [input, setInput] = useState("");
   const bottomRef = useRef<HTMLDivElement>(null);
   const myPrincipal = identity?.getPrincipal().toText();
@@ -53,7 +56,7 @@ export default function Chat() {
 
   const handleSend = async () => {
     const content = input.trim();
-    if (!content || !identity) return;
+    if (!content || !identity || isBanned) return;
     setInput("");
     try {
       await sendMessage(content);
@@ -197,26 +200,30 @@ export default function Chat() {
 
         <div className="border-t border-border/40 p-3">
           {identity ? (
-            <div className="flex gap-2">
-              <Input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Type a message..."
-                className="flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60"
-                disabled={isPending}
-                maxLength={500}
-                data-ocid="chat.input"
-              />
-              <Button
-                onClick={handleSend}
-                disabled={!input.trim() || isPending}
-                className="rounded-full gradient-bg border-0 text-white px-4 glow-cyan"
-                data-ocid="chat.submit_button"
-              >
-                <Send className="w-4 h-4" />
-              </Button>
-            </div>
+            isBanned ? (
+              <BannedBanner />
+            ) : (
+              <div className="flex gap-2">
+                <Input
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Type a message..."
+                  className="flex-1 rounded-full bg-secondary/40 border-border/40 focus:border-primary/60"
+                  disabled={isPending}
+                  maxLength={500}
+                  data-ocid="chat.input"
+                />
+                <Button
+                  onClick={handleSend}
+                  disabled={!input.trim() || isPending}
+                  className="rounded-full gradient-bg border-0 text-white px-4 glow-cyan"
+                  data-ocid="chat.submit_button"
+                >
+                  <Send className="w-4 h-4" />
+                </Button>
+              </div>
+            )
           ) : (
             <div className="text-center py-2" data-ocid="chat.error_state">
               <p className="text-sm text-muted-foreground mb-2">

@@ -9,6 +9,8 @@ import type {
   CustomTriviaQuestion,
   SpinWheelSegment,
 } from "../backend.d";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useGetAllCustomGames,
@@ -543,10 +545,19 @@ export default function CustomGamePage() {
   const { id } = useParams({ from: "/games/custom/$id" });
   const { identity, login, loginStatus } = useInternetIdentity();
   const { data: customGames, isLoading } = useGetAllCustomGames();
+  const { isBanned } = useBanStatus();
   const navigate = useNavigate();
 
   const principalStr = identity?.getPrincipal().toText() ?? "";
   const game = customGames?.find((g) => g.id === BigInt(id));
+
+  if (isBanned) {
+    return (
+      <div className="container mx-auto px-4 py-24 max-w-md">
+        <BannedBanner />
+      </div>
+    );
+  }
 
   if (!identity) {
     return (

@@ -1,26 +1,34 @@
 # QuizMaster
 
 ## Current State
-Games Hub has Memory Match and Spin Wheel mini games, plus Community Games section. Points Leaderboard has Gift Points button per player. Profile has VIP purchase mention queued. Backend supports awardPoints.
+QuizMaster has a full Admin Panel accessible to the Owner and #1 points leader. It includes rank assignment, quiz deletion, custom mini game creation, and player management. The Owner is hardcoded by Principal ID.
 
 ## Requested Changes (Diff)
 
 ### Add
-- **Daily Bonus Items section** in Games Hub: 3 clickable items (Daily Chest, Mystery Bonus, Lucky Star) each awarding random points (10-100) with 24h cooldown timers stored in localStorage
-- **VIP Status purchase**: Players spend 1,000,000 points to buy VIP badge; shown next to username everywhere; stored in localStorage per principal
-- **Troll Button** on Points Leaderboard: Steal 10-50 random points from another player (calls backend giftPoints in reverse logic via awardPoints to caller); 1h cooldown per target; Owner is protected
+- `banPlayer(playerId: Principal)` backend method — sets a banned flag on the player's record
+- `unbanPlayer(playerId: Principal)` backend method — clears the banned flag
+- `deductPoints(playerId: Principal, amount: Nat)` backend method — deducts a specified amount from a player's points (floor at 0), Owner-only
+- `getBannedPlayers()` backend method — returns list of banned player principals
+- Ban/unban UI in Admin Panel: table of all players with ban status toggle (Owner only)
+- Deduct Points UI in Admin Panel: input field + button next to each player to deduct a specific amount
+- Frontend ban enforcement: before allowing quiz play, chat send, points earn actions — check if caller is banned and block with a message
 
 ### Modify
-- GamesHub.tsx: add Daily Bonus Items section below Community Games
-- PointsLeaderboard.tsx: add Troll button next to Gift button for each player (not Owner, not self)
-- Profile.tsx: add Buy VIP section where player can spend 1,000,000 points for VIP badge
-- RankBadge.tsx or wherever username is displayed: show 💎 VIP badge if player has VIP
+- Admin Panel page: add "Player Management" section with ban controls and point deduction controls
+- Public chat, private chat: check ban status before sending messages
+- Quiz play flow: check ban status before submitting answers
+- Mini games / points earning: check ban status before awarding points
 
 ### Remove
-- Nothing
+- Nothing removed
 
 ## Implementation Plan
-1. Add Daily Bonus Items component in GamesHub.tsx with 3 items, random points 10-100, 24h localStorage cooldown per principal
-2. Add Troll button to PointsLeaderboard.tsx — calls actor.awardPoints for caller when troll succeeds (steal from target means caller gains points, but we can't actually deduct from target without backend support; instead just award caller 10-50 random pts as 'troll reward'), 1h cooldown in localStorage
-3. Add VIP purchase to Profile.tsx — checks if player has 1,000,000 pts, calls actor.giftPoints to self (or use a backend deduction); store VIP status in localStorage keyed by principal
-4. Display 💎 VIP badge in RankBadge and leaderboard rows based on localStorage VIP status
+1. Add `bannedPlayers` stable storage (HashSet of Principals) to backend
+2. Implement `banPlayer`, `unbanPlayer`, `getBannedPlayers`, `deductPoints` — all Owner-only
+3. Add `isCallerBanned()` query method for frontend to check ban status
+4. Regenerate backend bindings
+5. Frontend: fetch ban status on login and store in context
+6. Block banned users from: sending chat messages (public/private), playing quizzes, earning points from mini games/bonus items/troll
+7. Show a clear "You are banned" message when a banned user tries to interact
+8. Admin Panel: add Player Management section showing all players, their points, ban status, with Ban/Unban toggle and Deduct Points input+button (Owner only)

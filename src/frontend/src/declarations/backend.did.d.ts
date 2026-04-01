@@ -113,6 +113,12 @@ export interface _SERVICE {
   'trackVisit' : ActorMethod<[], undefined>,
   'unlikePost' : ActorMethod<[bigint], undefined>,
   'updateUserProfile' : ActorMethod<[string], undefined>,
+  'banPlayer' : ActorMethod<[Principal], undefined>,
+  'unbanPlayer' : ActorMethod<[Principal], undefined>,
+  'getBannedPlayers' : ActorMethod<[], Array<Principal>>,
+  'isCallerBanned' : ActorMethod<[], boolean>,
+  'isPlayerBanned' : ActorMethod<[Principal], boolean>,
+  'deductPoints' : ActorMethod<[Principal, bigint], bigint>,
 }
 export declare const idlService: IDL.ServiceClass;
 export declare const idlInitArgs: IDL.Type[];

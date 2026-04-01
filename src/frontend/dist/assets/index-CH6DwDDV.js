@@ -38191,6 +38191,259 @@ const seedQuizzes = [
       {
         text: "Human fingernails grow faster than toenails.",
         correctAnswer: true
+      },
+      { text: "The currency of Japan is the Yen.", correctAnswer: true },
+      {
+        text: "The Nile is the longest river in the world.",
+        correctAnswer: true
+      },
+      { text: "A human adult has 32 teeth.", correctAnswer: true },
+      { text: "The Sun is a planet.", correctAnswer: false },
+      { text: "The chemical symbol for gold is Au.", correctAnswer: true },
+      { text: "Spiders are insects.", correctAnswer: false },
+      { text: "The Berlin Wall fell in 1989.", correctAnswer: true },
+      {
+        text: "Brazil is the largest country in South America.",
+        correctAnswer: true
+      },
+      {
+        text: "The Great Barrier Reef is located in Australia.",
+        correctAnswer: true
+      },
+      { text: "A baker's dozen is 13.", correctAnswer: true },
+      { text: "The Colosseum is located in Rome, Italy.", correctAnswer: true },
+      {
+        text: "India is the most populous country in the world.",
+        correctAnswer: true
+      },
+      { text: "A group of lions is called a pride.", correctAnswer: true },
+      { text: "The human heart has four chambers.", correctAnswer: true },
+      { text: "Sharks are mammals.", correctAnswer: false },
+      { text: "The capital of Canada is Toronto.", correctAnswer: false },
+      {
+        text: "The Statue of Liberty was a gift from France.",
+        correctAnswer: true
+      },
+      { text: "An octopus has eight arms.", correctAnswer: true },
+      { text: "The moon has its own light source.", correctAnswer: false },
+      { text: "Penguins live in the Arctic.", correctAnswer: false },
+      {
+        text: "The human skeleton has over 200 bones at birth.",
+        correctAnswer: true
+      },
+      {
+        text: "Chess is the most popular board game in the world.",
+        correctAnswer: false
+      },
+      {
+        text: "The Pacific Ocean is the deepest ocean on Earth.",
+        correctAnswer: true
+      },
+      { text: "Rome is the capital of Italy.", correctAnswer: true },
+      { text: "A group of wolves is called a flock.", correctAnswer: false },
+      { text: "The chemical symbol for water is H2O.", correctAnswer: true },
+      {
+        text: "Elephants are the only animals that cannot jump.",
+        correctAnswer: true
+      },
+      {
+        text: "The Wright Brothers made the first powered airplane flight in 1903.",
+        correctAnswer: true
+      },
+      {
+        text: "Venus is the hottest planet in our solar system.",
+        correctAnswer: true
+      },
+      {
+        text: "The Amazon Rainforest produces 20% of the world's oxygen.",
+        correctAnswer: true
+      },
+      { text: "A group of crows is called a murder.", correctAnswer: true },
+      {
+        text: "The Dead Sea is the saltiest body of water on Earth.",
+        correctAnswer: true
+      },
+      {
+        text: "Australia is both a country and a continent.",
+        correctAnswer: true
+      },
+      { text: "The human body has four lungs.", correctAnswer: false },
+      {
+        text: "Albert Einstein won the Nobel Prize for his theory of relativity.",
+        correctAnswer: false
+      },
+      {
+        text: "The smallest country in the world is Vatican City.",
+        correctAnswer: true
+      },
+      {
+        text: "Dogs are colorblind and see only black and white.",
+        correctAnswer: false
+      },
+      {
+        text: "The original language of the New Testament was Latin.",
+        correctAnswer: false
+      },
+      {
+        text: "Tokyo is the most populous city in the world.",
+        correctAnswer: true
+      },
+      { text: "A camel's hump stores water.", correctAnswer: false },
+      { text: "The first iPhone was released in 2007.", correctAnswer: true },
+      {
+        text: "The human nose can detect over 1 trillion different smells.",
+        correctAnswer: true
+      },
+      { text: "Butterflies taste with their feet.", correctAnswer: true },
+      { text: "The Titanic sank in 1912.", correctAnswer: true },
+      { text: "The cheetah is the fastest land animal.", correctAnswer: true },
+      {
+        text: "Africa is the largest continent by area.",
+        correctAnswer: false
+      },
+      { text: "A group of fish is called a school.", correctAnswer: true },
+      { text: "Mount Kilimanjaro is in Kenya.", correctAnswer: false },
+      {
+        text: "The human tongue has about 10,000 taste buds.",
+        correctAnswer: true
+      },
+      { text: "Shakespeare was born in London.", correctAnswer: false },
+      {
+        text: "The average human heart beats 60-100 times per minute.",
+        correctAnswer: true
+      },
+      { text: "Coffee beans are actually seeds.", correctAnswer: true },
+      {
+        text: "The world's oldest living tree is a pine tree.",
+        correctAnswer: true
+      },
+      {
+        text: "A group of geese on land is called a gaggle.",
+        correctAnswer: true
+      },
+      {
+        text: "The Great Pyramid of Giza is one of the Seven Wonders of the Ancient World.",
+        correctAnswer: true
+      },
+      {
+        text: "Sound travels faster through water than through air.",
+        correctAnswer: true
+      },
+      {
+        text: "The Atlantic Ocean is larger than the Indian Ocean.",
+        correctAnswer: true
+      },
+      {
+        text: "Cows produce more milk when they listen to music.",
+        correctAnswer: true
+      },
+      {
+        text: "Horses can sleep both standing up and lying down.",
+        correctAnswer: true
+      },
+      {
+        text: "The capital of Russia is St. Petersburg.",
+        correctAnswer: false
+      },
+      { text: "Glass is made from sand.", correctAnswer: true },
+      { text: "Frogs can drown.", correctAnswer: true },
+      { text: "A jiffy is an actual unit of time.", correctAnswer: true },
+      {
+        text: "The Olympic flag has five rings representing five continents.",
+        correctAnswer: true
+      },
+      { text: "Bats are blind.", correctAnswer: false },
+      {
+        text: "The original name for butterfly was flutterby.",
+        correctAnswer: false
+      },
+      { text: "Antarctica is a desert.", correctAnswer: true },
+      { text: "The human liver can regenerate itself.", correctAnswer: true },
+      {
+        text: "The Pyramids of Giza were built by slaves.",
+        correctAnswer: false
+      },
+      { text: "A group of owls is called a parliament.", correctAnswer: true },
+      {
+        text: "The first country to give women the right to vote was New Zealand.",
+        correctAnswer: true
+      },
+      {
+        text: "The letter 'E' is the most commonly used letter in the English language.",
+        correctAnswer: true
+      },
+      { text: "The sun rises in the west.", correctAnswer: false },
+      { text: "Apples belong to the rose family.", correctAnswer: true },
+      { text: "Penguins mate for life.", correctAnswer: true },
+      {
+        text: "The number of languages spoken in Africa is more than 2,000.",
+        correctAnswer: true
+      },
+      {
+        text: "The speed of sound is the same in all materials.",
+        correctAnswer: false
+      },
+      { text: "Blood is blue inside the human body.", correctAnswer: false },
+      {
+        text: "The Amazon River has the largest discharge of any river in the world.",
+        correctAnswer: true
+      },
+      { text: "The first email was sent in 1971.", correctAnswer: true },
+      { text: "Dolphins sleep with one eye open.", correctAnswer: true },
+      { text: "The Mona Lisa is painted on canvas.", correctAnswer: false },
+      {
+        text: "Saturn has more moons than any other planet.",
+        correctAnswer: false
+      },
+      {
+        text: "A polar bear's fur is actually transparent.",
+        correctAnswer: true
+      },
+      {
+        text: "The human body contains more bacteria than human cells.",
+        correctAnswer: true
+      },
+      {
+        text: "The Great Wall of China took less than 100 years to build.",
+        correctAnswer: false
+      },
+      { text: "Pineapples grow on trees.", correctAnswer: false },
+      {
+        text: "The longest bone in the human body is the femur.",
+        correctAnswer: true
+      },
+      { text: "The capital of Mexico is Mexico City.", correctAnswer: true },
+      { text: "Chocolate was once used as currency.", correctAnswer: true },
+      {
+        text: "The first man-made satellite was launched by the USA.",
+        correctAnswer: false
+      },
+      { text: "Koalas sleep up to 22 hours a day.", correctAnswer: true },
+      {
+        text: "The Persian Empire was the largest empire in ancient history.",
+        correctAnswer: true
+      },
+      { text: "Paper was invented in Egypt.", correctAnswer: false },
+      {
+        text: "Lightning is hotter than the surface of the sun.",
+        correctAnswer: true
+      },
+      {
+        text: "The human body has about 5 liters of blood.",
+        correctAnswer: true
+      },
+      {
+        text: "The Eiffel Tower can be 15 cm taller in summer due to thermal expansion.",
+        correctAnswer: true
+      },
+      {
+        text: "The word 'quiz' was invented in the 19th century.",
+        correctAnswer: true
+      },
+      { text: "Watermelons are 92% water.", correctAnswer: true },
+      {
+        text: "An ostrich's eye is bigger than its brain.",
+        correctAnswer: true
       }
     ]
   },

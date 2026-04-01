@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-router";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { BanProvider } from "./contexts/BanContext";
 import { OwnerProvider } from "./contexts/OwnerContext";
 import AdminPanel from "./pages/AdminPanel";
 import BuyPoints from "./pages/BuyPoints";
@@ -31,20 +32,22 @@ import SpinWheel from "./pages/SpinWheel";
 const rootRoute = createRootRoute({
   component: () => (
     <OwnerProvider>
-      <div
-        className="min-h-screen flex flex-col"
-        style={{
-          background:
-            "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))",
-        }}
-      >
-        <Navbar />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-        <Toaster />
-      </div>
+      <BanProvider>
+        <div
+          className="min-h-screen flex flex-col"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))",
+          }}
+        >
+          <Navbar />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+          <Toaster />
+        </div>
+      </BanProvider>
     </OwnerProvider>
   ),
 });

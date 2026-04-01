@@ -588,3 +588,65 @@ export function useFulfillPointsPurchase() {
     },
   });
 }
+
+// Ban management hooks
+export function useGetBannedPlayers() {
+  const { actor, isFetching } = useActor();
+  return useQuery<import("@icp-sdk/core/principal").Principal[]>({
+    queryKey: ["bannedPlayers"],
+    queryFn: async () => {
+      if (!actor) return [];
+      return (actor as any).getBannedPlayers() as Promise<
+        import("@icp-sdk/core/principal").Principal[]
+      >;
+    },
+    enabled: !!actor && !isFetching,
+  });
+}
+
+export function useBanPlayer() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, import("@icp-sdk/core/principal").Principal>({
+    mutationFn: async (player) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).banPlayer(player);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bannedPlayers"] });
+    },
+  });
+}
+
+export function useUnbanPlayer() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<void, Error, import("@icp-sdk/core/principal").Principal>({
+    mutationFn: async (player) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).unbanPlayer(player);
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["bannedPlayers"] });
+    },
+  });
+}
+
+export function useDeductPoints() {
+  const { actor } = useActor();
+  const qc = useQueryClient();
+  return useMutation<
+    bigint,
+    Error,
+    { player: import("@icp-sdk/core/principal").Principal; amount: bigint }
+  >({
+    mutationFn: async ({ player, amount }) => {
+      if (!actor) throw new Error("Not authenticated");
+      return (actor as any).deductPoints(player, amount) as Promise<bigint>;
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["allPlayerPoints"] });
+      qc.invalidateQueries({ queryKey: ["myPoints"] });
+    },
+  });
+}

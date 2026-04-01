@@ -4,6 +4,8 @@ import { Brain, RefreshCw, Zap } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { BannedBanner } from "../components/BannedBanner";
+import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useAwardPoints, useGetMyPoints } from "../hooks/useQueries";
 
@@ -41,6 +43,7 @@ function initCards(): CardState[] {
 
 export default function MemoryGame() {
   const { identity, login, loginStatus } = useInternetIdentity();
+  const { isBanned } = useBanStatus();
   const { data: myPoints, refetch: refetchPoints } = useGetMyPoints();
   const { mutateAsync: awardPoints } = useAwardPoints();
 
@@ -61,7 +64,7 @@ export default function MemoryGame() {
 
   const handleCardClick = useCallback(
     async (id: number) => {
-      if (!identity || locked || processingRef.current) return;
+      if (!identity || locked || processingRef.current || isBanned) return;
       const card = cards.find((c) => c.id === id);
       if (!card || card.isFlipped || card.isMatched) return;
       if (selected.includes(id)) return;
@@ -118,7 +121,7 @@ export default function MemoryGame() {
       setLocked(false);
       processingRef.current = false;
     },
-    [identity, locked, selected, cards, awardPoints, refetchPoints],
+    [identity, locked, selected, cards, awardPoints, refetchPoints, isBanned],
   );
 
   const resetGame = () => {
@@ -129,6 +132,14 @@ export default function MemoryGame() {
     setGameOver(false);
     processingRef.current = false;
   };
+
+  if (isBanned) {
+    return (
+      <div className="container mx-auto px-4 py-24 max-w-md">
+        <BannedBanner />
+      </div>
+    );
+  }
 
   if (!identity) {
     return (

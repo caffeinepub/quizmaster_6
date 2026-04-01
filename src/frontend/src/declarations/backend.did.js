@@ -115,6 +115,12 @@ export const idlService = IDL.Service({
   'trackVisit' : IDL.Func([], [], []),
   'unlikePost' : IDL.Func([], [], []),
   'updateUserProfile' : IDL.Func([IDL.Text], [], []),
+  'banPlayer' : IDL.Func([IDL.Principal], [], []),
+  'unbanPlayer' : IDL.Func([IDL.Principal], [], []),
+  'getBannedPlayers' : IDL.Func([], [IDL.Vec(IDL.Principal)], ['query']),
+  'isCallerBanned' : IDL.Func([], [IDL.Bool], ['query']),
+  'isPlayerBanned' : IDL.Func([IDL.Principal], [IDL.Bool], ['query']),
+  'deductPoints' : IDL.Func([IDL.Principal, IDL.Nat], [IDL.Nat], []),
 });
 
 export const idlInitArgs = [];
@@ -233,6 +239,12 @@ export const idlFactory = ({ IDL }) => {
     'trackVisit' : IDL.Func([], [], []),
     'unlikePost' : IDL.Func([IDL.Nat], [], []),
     'updateUserProfile' : IDL.Func([IDL.Text], [], []),
+  'banPlayer' : IDL.Func([IDL.Principal], [], []),
+  'unbanPlayer' : IDL.Func([IDL.Principal], [], []),
+  'getBannedPlayers' : IDL.Func([], [IDL.Vec(IDL.Principal)], ['query']),
+  'isCallerBanned' : IDL.Func([], [IDL.Bool], ['query']),
+  'isPlayerBanned' : IDL.Func([IDL.Principal], [IDL.Bool], ['query']),
+  'deductPoints' : IDL.Func([IDL.Principal, IDL.Nat], [IDL.Nat], []),
   });
 };
 

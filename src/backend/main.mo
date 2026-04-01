@@ -265,6 +265,7 @@ actor {
   let chatMessages = Map.empty<Nat, ChatMessage>();
   let assignedRanks = Map.empty<Principal, AssignedRank>();
   let purchases = Map.empty<Nat, Purchase>();
+  let bannedPlayers = Map.empty<Principal, Bool>();
 
   var ownerPrincipal : ?Principal = ?Principal.fromText("z3mva-tptde-7oekh-xfili-hlllb-ljasq-t5z65-b3z44-sc4qp-j6qxy-rqe");
 
@@ -417,7 +418,8 @@ actor {
         case (?points) { points };
       };
       if (callerPoints < amount) { Runtime.trap("Insufficient points") };
-      userPoints.add(caller, if (callerPoints >= amount) { callerPoints - amount } else { 0 });
+      let newCallerPoints : Nat = if (callerPoints >= amount) { callerPoints - amount } else { 0 };
+      userPoints.add(caller, newCallerPoints);
     };
 
     let recipientPoints = switch (userPoints.get(recipient)) {
@@ -1049,5 +1051,64 @@ actor {
 
   public query func getMessages() : async [ChatMessage] {
     chatMessages.values().toArray().sort(func(a, b) { Int.compare(a.timestamp, b.timestamp) });
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Ban Management (Owner only)
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func banPlayer(player : Principal) : async () {
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner) { Runtime.trap("Unauthorized: Only the owner can ban players") };
+    bannedPlayers.add(player, true);
+  };
+
+  public shared ({ caller }) func unbanPlayer(player : Principal) : async () {
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner) { Runtime.trap("Unauthorized: Only the owner can unban players") };
+    bannedPlayers.remove(player);
+  };
+
+  public query func getBannedPlayers() : async [Principal] {
+    bannedPlayers.keys().toArray();
+  };
+
+  public query ({ caller }) func isCallerBanned() : async Bool {
+    switch (bannedPlayers.get(caller)) {
+      case (?_) { true };
+      case (null) { false };
+    };
+  };
+
+  public query func isPlayerBanned(player : Principal) : async Bool {
+    switch (bannedPlayers.get(player)) {
+      case (?_) { true };
+      case (null) { false };
+    };
+  };
+
+  /////////////////////////////////////////////////////////////////////////////
+  // Deduct Points (Owner only)
+  /////////////////////////////////////////////////////////////////////////////
+
+  public shared ({ caller }) func deductPoints(player : Principal, amount : Nat) : async Nat {
+    let isOwner = switch (ownerPrincipal) {
+      case (?owner) { caller == owner };
+      case (null) { false };
+    };
+    if (not isOwner) { Runtime.trap("Unauthorized: Only the owner can deduct points") };
+    let current = switch (userPoints.get(player)) {
+      case (?p) { p };
+      case (null) { 0 };
+    };
+    let newPoints : Nat = if (current >= amount) { current - amount } else { 0 };
+    userPoints.add(player, newPoints);
+    newPoints;
   };
 };

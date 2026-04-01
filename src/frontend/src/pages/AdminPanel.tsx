@@ -16,6 +16,7 @@ import {
   Shield,
   ShieldCheck,
   Trash2,
+  UserX,
 } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -31,13 +32,17 @@ import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useAssignPlayerRank,
+  useBanPlayer,
   useCreateCustomSpinWheel,
   useCreateCustomTrivia,
+  useDeductPoints,
   useGetAdminQuizAnswers,
   useGetAllAssignedRanks,
   useGetAllCustomGames,
   useGetAllPlayerPoints,
+  useGetBannedPlayers,
   useGetMyPoints,
+  useUnbanPlayer,
 } from "../hooks/useQueries";
 
 const SKELETON_KEYS = ["sk1", "sk2", "sk3"];
@@ -761,6 +766,244 @@ function ManagePlayerRanks() {
   );
 }
 
+function PlayerManagement() {
+  const { data: allPoints, isLoading: loadingPoints } = useGetAllPlayerPoints();
+  const { data: bannedPlayers, isLoading: loadingBanned } =
+    useGetBannedPlayers();
+  const { ownerPrincipal } = useOwner();
+  const { identity } = useInternetIdentity();
+  const banPlayer = useBanPlayer();
+  const unbanPlayer = useUnbanPlayer();
+  const deductPoints = useDeductPoints();
+
+  const [deductAmounts, setDeductAmounts] = useState<Record<string, string>>(
+    {},
+  );
+  const [deducting, setDeducting] = useState<Record<string, boolean>>({});
+  const [banning, setBanning] = useState<Record<string, boolean>>({});
+
+  const myPrincipal = identity?.getPrincipal().toString();
+
+  const bannedSet = useMemo(() => {
+    const s = new Set<string>();
+    for (const p of bannedPlayers ?? []) s.add(p.toString());
+    return s;
+  }, [bannedPlayers]);
+
+  const sorted = useMemo(
+    () =>
+      [...(allPoints ?? [])].sort((a, b) =>
+        b.points > a.points ? 1 : b.points < a.points ? -1 : 0,
+      ),
+    [allPoints],
+  );
+
+  async function handleBan(player: Principal, principalStr: string) {
+    setBanning((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await banPlayer.mutateAsync(player);
+      toast.success(`Player ${principalStr.slice(0, 8)}... has been banned.`);
+    } catch (e: any) {
+      toast.error(e?.message ?? "Failed to ban player");
+    } finally {
+      setBanning((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+
+  async function handleUnban(player: Principal, principalStr: string) {
+    setBanning((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await unbanPlayer.mutateAsync(player);
+      toast.success(`Player ${principalStr.slice(0, 8)}... has been unbanned.`);
+    } catch (e: any) {
+      toast.error(e?.message ?? "Failed to unban player");
+    } finally {
+      setBanning((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+
+  async function handleDeduct(player: Principal, principalStr: string) {
+    const raw = deductAmounts[principalStr] ?? "";
+    const amount = Number(raw);
+    if (!raw || Number.isNaN(amount) || amount <= 0) {
+      toast.error("Enter a valid amount greater than 0");
+      return;
+    }
+    setDeducting((prev) => ({ ...prev, [principalStr]: true }));
+    try {
+      await deductPoints.mutateAsync({
+        player,
+        amount: BigInt(Math.floor(amount)),
+      });
+      toast.success(
+        `Deducted ${amount} points from ${principalStr.slice(0, 8)}...`,
+      );
+      setDeductAmounts((prev) => ({ ...prev, [principalStr]: "" }));
+    } catch (e: any) {
+      toast.error(e?.message ?? "Failed to deduct points");
+    } finally {
+      setDeducting((prev) => ({ ...prev, [principalStr]: false }));
+    }
+  }
+
+  const isLoading = loadingPoints || loadingBanned;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="glass-card rounded-2xl overflow-hidden border border-red-500/20"
+      data-ocid="admin.player_management.panel"
+    >
+      <div className="px-6 py-4 border-b border-red-500/20 flex items-center gap-3 bg-red-500/5">
+        <UserX className="w-5 h-5 text-red-400" />
+        <h2 className="text-lg font-semibold text-red-400">
+          Player Management
+        </h2>
+        <Badge className="bg-red-500/20 text-red-400 border-red-500/40 text-xs">
+          \U0001f451 Owner Only
+        </Badge>
+      </div>
+
+      <div className="px-6 py-5">
+        <p className="text-sm text-muted-foreground mb-5">
+          Ban players to block all interactive features, or deduct points from
+          any player.
+        </p>
+
+        {isLoading ? (
+          <div
+            className="space-y-3"
+            data-ocid="admin.player_management.loading_state"
+          >
+            {["p1", "p2", "p3"].map((k) => (
+              <Skeleton key={k} className="h-16 rounded-xl" />
+            ))}
+          </div>
+        ) : sorted.length === 0 ? (
+          <div
+            className="text-center py-8 text-muted-foreground text-sm"
+            data-ocid="admin.player_management.empty_state"
+          >
+            No players found.
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {sorted.map((entry, i) => {
+              const principalStr = entry.player.toString();
+              const isSelf = principalStr === myPrincipal;
+              const isEntryOwner = isOwnerPrincipal(
+                ownerPrincipal,
+                entry.player,
+              );
+              const banned = bannedSet.has(principalStr);
+              const isBanPending = banning[principalStr] ?? false;
+              const isDeductPending = deducting[principalStr] ?? false;
+              const shortId = `${principalStr.slice(0, 10)}...${principalStr.slice(-6)}`;
+
+              return (
+                <div
+                  key={principalStr}
+                  className={`flex flex-wrap items-center gap-3 rounded-xl border px-4 py-3 ${
+                    banned
+                      ? "border-red-500/40 bg-red-500/5"
+                      : "border-border/30 bg-secondary/20"
+                  }`}
+                  data-ocid={`admin.player_management.item.${i + 1}`}
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {shortId}
+                      </span>
+                      {isEntryOwner && (
+                        <span className="text-xs">\U0001f451</span>
+                      )}
+                      {banned && (
+                        <Badge className="bg-red-500/20 text-red-400 border-red-500/40 text-xs">
+                          BANNED
+                        </Badge>
+                      )}
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {isEntryOwner
+                        ? "\u221e"
+                        : Number(entry.points).toLocaleString()}{" "}
+                      pts
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <Input
+                      type="number"
+                      min={1}
+                      placeholder="Points"
+                      value={deductAmounts[principalStr] ?? ""}
+                      onChange={(e) =>
+                        setDeductAmounts((prev) => ({
+                          ...prev,
+                          [principalStr]: e.target.value,
+                        }))
+                      }
+                      className="w-24 h-8 text-xs bg-secondary/30 border-border/50"
+                      disabled={isSelf || isEntryOwner || isDeductPending}
+                      data-ocid={`admin.player_management.input.${i + 1}`}
+                    />
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => handleDeduct(entry.player, principalStr)}
+                      disabled={isSelf || isEntryOwner || isDeductPending}
+                      className="h-8 text-xs px-2 border-orange-500/40 text-orange-400 hover:bg-orange-500/10"
+                      data-ocid={`admin.player_management.secondary_button.${i + 1}`}
+                    >
+                      {isDeductPending ? (
+                        <Loader2 className="w-3 h-3 animate-spin" />
+                      ) : (
+                        "Deduct"
+                      )}
+                    </Button>
+                  </div>
+
+                  {!isSelf && !isEntryOwner && (
+                    <Button
+                      size="sm"
+                      onClick={() =>
+                        banned
+                          ? handleUnban(entry.player, principalStr)
+                          : handleBan(entry.player, principalStr)
+                      }
+                      disabled={isBanPending}
+                      className={`h-8 text-xs px-3 shrink-0 ${
+                        banned
+                          ? "bg-green-500/20 border border-green-500/40 text-green-400 hover:bg-green-500/30"
+                          : "bg-red-500/20 border border-red-500/40 text-red-400 hover:bg-red-500/30"
+                      }`}
+                      data-ocid={
+                        banned
+                          ? `admin.player_management.secondary_button.${i + 1}`
+                          : `admin.player_management.delete_button.${i + 1}`
+                      }
+                    >
+                      {isBanPending ? (
+                        <Loader2 className="w-3 h-3 animate-spin" />
+                      ) : banned ? (
+                        "Unban"
+                      ) : (
+                        "Ban"
+                      )}
+                    </Button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
 export default function AdminPanel() {
   const { identity, login, loginStatus } = useInternetIdentity();
   const { actor } = useActor();
@@ -967,6 +1210,17 @@ export default function AdminPanel() {
             <span className="text-yellow-400">Manage Player Ranks</span>
           </h2>
           <ManagePlayerRanks />
+        </div>
+      )}
+
+      {/* Player Management — Owner only */}
+      {isCallerOwner && (
+        <div className="mt-10">
+          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+            <UserX className="w-5 h-5 text-red-400" />
+            <span className="text-red-400">Player Management</span>
+          </h2>
+          <PlayerManagement />
         </div>
       )}
     </div>

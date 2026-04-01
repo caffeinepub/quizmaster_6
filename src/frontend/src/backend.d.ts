@@ -210,4 +210,10 @@ export interface backendInterface {
     trackVisit(): Promise<void>;
     unlikePost(postId: bigint): Promise<void>;
     updateUserProfile(username: string): Promise<void>;
+    banPlayer(player: Principal): Promise<void>;
+    unbanPlayer(player: Principal): Promise<void>;
+    getBannedPlayers(): Promise<Array<Principal>>;
+    isCallerBanned(): Promise<boolean>;
+    isPlayerBanned(player: Principal): Promise<boolean>;
+    deductPoints(player: Principal, amount: bigint): Promise<bigint>;
 }

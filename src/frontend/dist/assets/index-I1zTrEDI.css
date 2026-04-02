@@ -1245,10 +1245,6 @@ body{
   min-height: 70vh;
 }
 
-.min-h-screen{
-  min-height: 100vh;
-}
-
 .min-h-svh{
   min-height: 100svh;
 }
@@ -3045,6 +3041,12 @@ body{
 
 .outline{
   outline-style: solid;
+}
+
+.ring{
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .ring-0{

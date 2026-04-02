@@ -546,12 +546,16 @@ video {
     --sidebar-ring: 0.73 0.14 215;
   }
 
+html,
+  body {
+    background: #000008;
+  }
+
 *{
   border-color: oklch(var(--border));
 }
 
 body{
-  background-color: oklch(var(--background));
   color: oklch(var(--foreground));
     font-family: "Plus Jakarta Sans", sans-serif;
 }

@@ -39565,6 +39565,123 @@ function Navbar() {
     }
   );
 }
+function generateStars(count2) {
+  const stars = [];
+  for (let i = 0; i < count2; i++) {
+    const size2 = Math.random() * 2 + 0.5;
+    stars.push({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      size: size2,
+      delay: `${(Math.random() * 8).toFixed(2)}s`,
+      duration: `${(Math.random() * 4 + 2).toFixed(2)}s`,
+      opacity: Math.random() * 0.6 + 0.2
+    });
+  }
+  return stars;
+}
+function SpaceBackground() {
+  const stars = reactExports.useMemo(() => generateStars(220), []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      "aria-hidden": "true",
+      style: {
+        position: "fixed",
+        inset: 0,
+        zIndex: -1,
+        pointerEvents: "none",
+        overflow: "hidden",
+        background: "#000008"
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              width: "60vw",
+              height: "50vh",
+              top: "-10%",
+              left: "-10%",
+              background: "radial-gradient(ellipse at center, oklch(0.28 0.12 290 / 0.18) 0%, transparent 70%)",
+              borderRadius: "50%",
+              animation: "nebulaDrift1 40s ease-in-out infinite alternate"
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              width: "55vw",
+              height: "45vh",
+              bottom: "-5%",
+              right: "-10%",
+              background: "radial-gradient(ellipse at center, oklch(0.32 0.1 220 / 0.15) 0%, transparent 70%)",
+              borderRadius: "50%",
+              animation: "nebulaDrift2 50s ease-in-out infinite alternate"
+            }
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              width: "40vw",
+              height: "35vh",
+              top: "40%",
+              left: "30%",
+              background: "radial-gradient(ellipse at center, oklch(0.26 0.09 260 / 0.12) 0%, transparent 70%)",
+              borderRadius: "50%",
+              animation: "nebulaDrift3 35s ease-in-out infinite alternate"
+            }
+          }
+        ),
+        stars.map((star) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: star.top,
+              left: star.left,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              borderRadius: "50%",
+              backgroundColor: "#ffffff",
+              opacity: star.opacity,
+              animation: `twinkle ${star.duration} ${star.delay} ease-in-out infinite alternate`,
+              boxShadow: star.size > 2 ? `0 0 ${star.size * 2}px rgba(180,220,255,0.6)` : "none"
+            }
+          },
+          star.id
+        )),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+        @keyframes twinkle {
+          0%   { opacity: var(--star-lo, 0.1); transform: scale(1); }
+          100% { opacity: var(--star-hi, 0.9); transform: scale(1.3); }
+        }
+
+        @keyframes nebulaDrift1 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(5vw, 4vh) scale(1.15); }
+        }
+        @keyframes nebulaDrift2 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(-6vw, -3vh) scale(1.1); }
+        }
+        @keyframes nebulaDrift3 {
+          0%   { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(3vw, -5vh) scale(1.12); }
+        }
+      ` })
+      ]
+    }
+  );
+}
 const BanContext = reactExports.createContext({
   isBanned: false,
   isLoadingBan: false,
@@ -59826,21 +59943,36 @@ function SpinWheel() {
   ] });
 }
 const rootRoute = createRootRoute({
-  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(OwnerProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(BanProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      className: "min-h-screen flex flex-col",
-      style: {
-        background: "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))"
-      },
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
-      ]
-    }
-  ) }) })
+  component: () => /* @__PURE__ */ jsxRuntimeExports.jsx(OwnerProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(BanProvider, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(SpaceBackground, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "div",
+      {
+        className: "min-h-screen flex flex-col",
+        style: {
+          background: "transparent"
+        },
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              style: {
+                position: "fixed",
+                inset: 0,
+                zIndex: -1,
+                pointerEvents: "none",
+                background: "linear-gradient(135deg, oklch(0.08 0.022 250 / 0.55), oklch(0.12 0.025 255 / 0.45), oklch(0.09 0.020 245 / 0.5))"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Navbar, {}),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {}),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, {})
+        ]
+      }
+    )
+  ] }) })
 });
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,

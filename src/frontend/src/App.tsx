@@ -34,26 +34,20 @@ const rootRoute = createRootRoute({
   component: () => (
     <OwnerProvider>
       <BanProvider>
+        {/* Fixed background layer -- sits behind everything */}
         <SpaceBackground />
+        {/* App shell -- sits on top of background */}
         <div
-          className="min-h-screen flex flex-col"
           style={{
-            background: "transparent",
+            position: "relative",
+            zIndex: 1,
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
           }}
         >
-          {/* Subtle overlay to preserve existing color depth */}
-          <div
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: -1,
-              pointerEvents: "none",
-              background:
-                "linear-gradient(135deg, oklch(0.08 0.022 250 / 0.55), oklch(0.12 0.025 255 / 0.45), oklch(0.09 0.020 245 / 0.5))",
-            }}
-          />
           <Navbar />
-          <main className="flex-1">
+          <main style={{ flex: 1 }}>
             <Outlet />
           </main>
           <Footer />

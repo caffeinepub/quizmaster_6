@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-router";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import SpaceBackground from "./components/SpaceBackground";
 import { BanProvider } from "./contexts/BanContext";
 import { OwnerProvider } from "./contexts/OwnerContext";
 import AdminPanel from "./pages/AdminPanel";
@@ -33,13 +34,24 @@ const rootRoute = createRootRoute({
   component: () => (
     <OwnerProvider>
       <BanProvider>
+        <SpaceBackground />
         <div
           className="min-h-screen flex flex-col"
           style={{
-            background:
-              "linear-gradient(135deg, oklch(0.08 0.022 250), oklch(0.12 0.025 255), oklch(0.09 0.020 245))",
+            background: "transparent",
           }}
         >
+          {/* Subtle overlay to preserve existing color depth */}
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: -1,
+              pointerEvents: "none",
+              background:
+                "linear-gradient(135deg, oklch(0.08 0.022 250 / 0.55), oklch(0.12 0.025 255 / 0.45), oklch(0.09 0.020 245 / 0.5))",
+            }}
+          />
           <Navbar />
           <main className="flex-1">
             <Outlet />

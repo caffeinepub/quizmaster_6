@@ -42,12 +42,17 @@
     --sidebar-ring: 0.73 0.14 215;
   }
 
+  html,
+  body {
+    background: #000008;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: "Plus Jakarta Sans", sans-serif;
   }
 }

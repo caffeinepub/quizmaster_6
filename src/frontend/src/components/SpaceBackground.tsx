@@ -88,9 +88,13 @@ export default function SpaceBackground() {
         position: "fixed",
         inset: 0,
         zIndex: 0,
+        /* CRITICAL: Never intercept any mouse events, clicks, or text selection */
         pointerEvents: "none",
+        userSelect: "none",
+        WebkitUserSelect: "none",
         overflow: "hidden",
-        background: "oklch(0.07 0.018 255)",
+        background:
+          "linear-gradient(160deg, #050a15 0%, #070d1e 50%, #040810 100%)",
       }}
     >
       {/* Nebula glow blobs */}

@@ -4,11 +4,6 @@ import { ArrowLeft, Brain, CheckCircle, RotateCcw, Zap } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import type {
-  CustomGame,
-  CustomTriviaQuestion,
-  SpinWheelSegment,
-} from "../backend.d";
 import { BannedBanner } from "../components/BannedBanner";
 import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
@@ -18,6 +13,11 @@ import {
   usePlayCustomSpinWheel,
   usePlayCustomTrivia,
 } from "../hooks/useQueries";
+import type {
+  CustomGame,
+  CustomTriviaQuestion,
+  SpinWheelSegment,
+} from "../types";
 
 const COOLDOWN_MS = 24 * 60 * 60 * 1000;
 

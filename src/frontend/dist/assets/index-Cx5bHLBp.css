@@ -109,7 +109,7 @@
 }
 
 /*
-! tailwindcss v3.4.18 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -548,7 +548,7 @@ video {
 
 html,
   body {
-    background: #000008;
+    background: #050a15;
   }
 
 *{
@@ -558,7 +558,46 @@ html,
 body{
   color: oklch(var(--foreground));
     font-family: "Plus Jakarta Sans", sans-serif;
+    /* Ensure all text is selectable and copyable */
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    /* Ensure body text is always visible */
+    color: oklch(0.97 0.005 250);
 }
+
+/* Every text node is selectable by default */
+
+p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  td,
+  th,
+  label,
+  a,
+  div {
+    -moz-user-select: text;
+         user-select: text;
+    -webkit-user-select: text;
+  }
+
+/* Interactive elements use auto so drag still works */
+
+button,
+  input,
+  textarea,
+  select {
+    -moz-user-select: auto;
+         user-select: auto;
+    -webkit-user-select: auto;
+  }
 
 .container{
   width: 100%;
@@ -3244,10 +3283,6 @@ body{
   animation-timing-function: linear;
 }
 
-.running{
-  animation-play-state: running;
-}
-
 .gradient-text {
     background: linear-gradient(
       135deg,
@@ -3257,6 +3292,10 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    /* Ensure text remains selectable even with gradient */
+    -moz-user-select: text;
+         user-select: text;
+    -webkit-user-select: text;
   }
 
 .gradient-bg {
@@ -3276,9 +3315,13 @@ body{
   }
 
 .glass-card {
-    background: oklch(0.16 0.02 250 / 0.8);
+    background: oklch(0.16 0.02 250 / 0.85);
     border: 1px solid oklch(0.28 0.04 245 / 0.6);
     backdrop-filter: blur(12px);
+    /* Ensure text inside glass cards is always selectable */
+    -moz-user-select: text;
+         user-select: text;
+    -webkit-user-select: text;
   }
 
 .\[--cell-size\:--spacing\(8\)\]{

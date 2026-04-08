@@ -18,7 +18,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useActor } from "@/hooks/useActor";
 import type { Principal } from "@icp-sdk/core/principal";
 import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
@@ -34,14 +33,15 @@ import {
 import { motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import type { PointsEntry } from "../backend.d";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
   useGetAllAssignedRanks,
   useGetAllPlayerPoints,
   useGetMyPoints,
 } from "../hooks/useQueries";
+import type { PointsEntry } from "../types";
 
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 const TROLL_COOLDOWN_MS = 60 * 60 * 1000; // 1 hour

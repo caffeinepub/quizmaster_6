@@ -40,7 +40,6 @@ import {
 import { motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { Quiz } from "../backend.d";
 import UsernameDialog from "../components/UsernameDialog";
 import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
@@ -51,6 +50,7 @@ import {
   useGetUserProfile,
   useSeedQuizzes,
 } from "../hooks/useQueries";
+import type { Quiz } from "../types";
 
 const SKELETON_KEYS = [
   "sk-a",

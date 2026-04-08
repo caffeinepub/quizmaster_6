@@ -21,11 +21,6 @@ import {
 import { motion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
-import type {
-  CustomTriviaQuestion,
-  Question,
-  SpinWheelSegment,
-} from "../backend.d";
 import { RankBadge } from "../components/RankBadge";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useActor } from "../hooks/useActor";
@@ -44,6 +39,11 @@ import {
   useGetMyPoints,
   useUnbanPlayer,
 } from "../hooks/useQueries";
+import type {
+  CustomTriviaQuestion,
+  Question,
+  SpinWheelSegment,
+} from "../types";
 
 const SKELETON_KEYS = ["sk1", "sk2", "sk3"];
 const RANK_OPTIONS = ["", "Noob", "Pro", "God", "Hacker", "Admin", "Owner"];

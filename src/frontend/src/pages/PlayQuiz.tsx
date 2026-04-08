@@ -5,7 +5,6 @@ import { ChevronRight, Clock, Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { toast } from "sonner";
-import type { Answer } from "../backend.d";
 import { BannedBanner } from "../components/BannedBanner";
 import { useBanStatus } from "../contexts/BanContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
@@ -14,6 +13,7 @@ import {
   useGetQuizQuestions,
   useSubmitQuizAnswers,
 } from "../hooks/useQueries";
+import type { Answer } from "../types";
 
 export default function PlayQuiz() {
   const { id } = useParams({ from: "/quiz/$id" });

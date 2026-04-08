@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useActor } from "@/hooks/useActor";
 import { Principal } from "@icp-sdk/core/principal";
 import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, Loader2, Send } from "lucide-react";
@@ -13,6 +12,7 @@ import { toast } from "sonner";
 import { BannedBanner } from "../components/BannedBanner";
 import { useBanStatus } from "../contexts/BanContext";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetConversation } from "../hooks/useQueries";
 

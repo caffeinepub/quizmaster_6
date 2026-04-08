@@ -1,5 +1,6 @@
 import type { Principal } from "@icp-sdk/core/principal";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { seedQuizzes } from "../data/seedData";
 import type {
   Answer,
   Comment,
@@ -15,8 +16,7 @@ import type {
   Result,
   SpinWheelSegment,
   UserProfile,
-} from "../backend.d";
-import { seedQuizzes } from "../data/seedData";
+} from "../types";
 import { useActor } from "./useActor";
 
 export interface ChatMessage {

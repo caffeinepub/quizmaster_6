@@ -34,9 +34,9 @@ const rootRoute = createRootRoute({
   component: () => (
     <OwnerProvider>
       <BanProvider>
-        {/* Fixed background layer -- sits behind everything */}
+        {/* Fixed background layer -- sits behind everything, pointer-events: none always */}
         <SpaceBackground />
-        {/* App shell -- sits on top of background */}
+        {/* App shell -- sits on top of background, all text selectable */}
         <div
           style={{
             position: "relative",
@@ -44,6 +44,9 @@ const rootRoute = createRootRoute({
             minHeight: "100vh",
             display: "flex",
             flexDirection: "column",
+            /* Ensure all app content is interactive and text is selectable */
+            userSelect: "text",
+            WebkitUserSelect: "text",
           }}
         >
           <Navbar />

@@ -140,6 +140,15 @@ export interface CustomGame {
         };
     };
 }
+export interface PrivateMessage {
+    id: bigint;
+    content: string;
+    recipient: Principal;
+    isRead: boolean;
+    sender: Principal;
+    timestamp: Time;
+}
+export type AssignedRank = string;
 export interface Result {
     username: string;
     player: Principal;
@@ -168,6 +177,16 @@ export interface Post {
     timestamp: Time;
     quizId: bigint;
 }
+export interface PlayerRankEntry {
+    player: Principal;
+    rank: AssignedRank;
+}
+export interface ChatMessage {
+    id: bigint;
+    content: string;
+    author: Principal;
+    timestamp: Time;
+}
 export interface Answer {
     answer: {
         __kind__: "multipleChoice";
@@ -195,35 +214,63 @@ export interface Question {
     };
     quizId: bigint;
 }
+export interface ConversationSummary {
+    lastMessage: string;
+    otherUser: Principal;
+    unreadCount: bigint;
+    lastTimestamp: Time;
+}
+export interface PointPackage {
+    id: bigint;
+    name: string;
+    priceInPaise: bigint;
+    points: bigint;
+}
 export interface UserProfile {
     username: string;
-}
-export enum UserRole {
-    admin = "admin",
-    user = "user",
-    guest = "guest"
+    isVip: boolean;
 }
 export interface backendInterface {
-    _initializeAccessControlWithSecret(userSecret: string): Promise<void>;
     addComment(postId: bigint, content: string): Promise<bigint>;
     addQuestion(quizId: bigint, question: Question): Promise<bigint>;
-    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    assignCallerUserRole(): Promise<void>;
+    assignPlayerRank(player: Principal, rank: AssignedRank): Promise<void>;
     awardPoints(amount: bigint): Promise<void>;
+    banPlayer(player: Principal): Promise<void>;
+    claimDailyChest(): Promise<bigint>;
+    claimLuckyStar(): Promise<bigint>;
+    claimMysteryBonus(): Promise<bigint>;
     createCustomSpinWheel(title: string, segments: Array<SpinWheelSegment>): Promise<bigint>;
-    createCustomTrivia(title: string, questions: Array<CustomTriviaQuestion>): Promise<bigint>;
+    createCustomTrivia(title: string, qs: Array<CustomTriviaQuestion>): Promise<bigint>;
     createPost(quizId: bigint, message: string): Promise<bigint>;
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
+    deductPoints(player: Principal, amount: bigint): Promise<bigint>;
+    deleteQuiz(quizId: bigint): Promise<void>;
+    fulfillPointsPurchase(packageId: bigint, sessionId: string): Promise<bigint>;
     getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
+    getAllAssignedRanks(): Promise<Array<PlayerRankEntry>>;
     getAllCustomGames(): Promise<Array<CustomGame>>;
     getAllPlayerPoints(): Promise<Array<PointsEntry>>;
     getAllPostsWithStats(): Promise<Array<PostWithStats>>;
     getAllQuizzes(): Promise<Array<Quiz>>;
+    getBannedPlayers(): Promise<Array<Principal>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
-    getCallerUserRole(): Promise<UserRole>;
+    getCallerUserRole(): Promise<string>;
     getCommentsByPostId(postId: bigint): Promise<Array<Comment>>;
+    getConversation(otherUser: Principal): Promise<Array<PrivateMessage>>;
+    getDailyChestCooldown(): Promise<Time | null>;
+    getLuckyStarCooldown(): Promise<Time | null>;
     getMemoryGameCooldown(): Promise<Time | null>;
+    getMessages(): Promise<Array<ChatMessage>>;
+    getMonthlyLimit(): Promise<bigint>;
+    getMyConversations(): Promise<Array<ConversationSummary>>;
+    getMyMonthlySpend(): Promise<bigint>;
     getMyPoints(): Promise<bigint>;
+    getMysteryBonusCooldown(): Promise<Time | null>;
+    getOwner(): Promise<Principal>;
+    getPlayerAssignedRank(player: Principal): Promise<AssignedRank | null>;
+    getPointPackages(): Promise<Array<PointPackage>>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
     getQuiz(quizId: bigint): Promise<Quiz>;
@@ -233,42 +280,40 @@ export interface backendInterface {
     getSpinWheelCooldown(): Promise<Time | null>;
     getTopPlayer(): Promise<Principal | null>;
     getTotalVisitors(): Promise<bigint>;
+    getTrollCooldown(target: Principal): Promise<Time | null>;
+    getUnreadMessageCount(): Promise<bigint>;
     getUserPosts(user: Principal): Promise<Array<PostWithStats>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     getUserQuizResults(): Promise<Array<Result>>;
     giftPoints(recipient: Principal, amount: bigint): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
+    isCallerBanned(): Promise<boolean>;
+    isCallerOwner(): Promise<boolean>;
+    isPlayerBanned(player: Principal): Promise<boolean>;
     likePost(postId: bigint): Promise<void>;
+    markConversationRead(otherUser: Principal): Promise<void>;
     playCustomSpinWheel(gameId: bigint): Promise<bigint>;
     playCustomTrivia(gameId: bigint, answers: Array<{
         answerIndex: bigint;
         questionId: bigint;
     }>): Promise<bigint>;
+    purchaseVip(): Promise<void>;
     recordMemoryGamePlay(): Promise<void>;
     recordSpinWheelPlay(): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
+    searchUsers(searchQuery: string): Promise<Array<[Principal, UserProfile]>>;
+    sendMessage(content: string): Promise<bigint>;
+    sendPrivateMessage(recipient: Principal, content: string): Promise<bigint>;
     submitQuizAnswers(quizId: bigint, answers: Array<Answer>): Promise<bigint>;
     trackVisit(): Promise<void>;
+    trollPlayer(target: Principal): Promise<bigint>;
+    unbanPlayer(player: Principal): Promise<void>;
     unlikePost(postId: bigint): Promise<void>;
     updateUserProfile(username: string): Promise<void>;
 }
-import type { Answer as _Answer, CustomGame as _CustomGame, CustomTriviaQuestion as _CustomTriviaQuestion, PostWithComment as _PostWithComment, Question as _Question, Quiz as _Quiz, QuizWithAnswers as _QuizWithAnswers, Result as _Result, SpinWheelSegment as _SpinWheelSegment, Time as _Time, UserProfile as _UserProfile, UserRole as _UserRole } from "./declarations/backend.did.d.ts";
+import type { Answer as _Answer, AssignedRank as _AssignedRank, CustomGame as _CustomGame, CustomTriviaQuestion as _CustomTriviaQuestion, PostWithComment as _PostWithComment, Question as _Question, Quiz as _Quiz, QuizWithAnswers as _QuizWithAnswers, Result as _Result, SpinWheelSegment as _SpinWheelSegment, Time as _Time, UserProfile as _UserProfile } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
-    async _initializeAccessControlWithSecret(arg0: string): Promise<void> {
-        if (this.processError) {
-            try {
-                const result = await this.actor._initializeAccessControlWithSecret(arg0);
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor._initializeAccessControlWithSecret(arg0);
-            return result;
-        }
-    }
     async addComment(arg0: bigint, arg1: string): Promise<bigint> {
         if (this.processError) {
             try {
@@ -297,17 +342,31 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async assignCallerUserRole(arg0: Principal, arg1: UserRole): Promise<void> {
+    async assignCallerUserRole(): Promise<void> {
         if (this.processError) {
             try {
-                const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n4(this._uploadFile, this._downloadFile, arg1));
+                const result = await this.actor.assignCallerUserRole();
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.assignCallerUserRole(arg0, to_candid_UserRole_n4(this._uploadFile, this._downloadFile, arg1));
+            const result = await this.actor.assignCallerUserRole();
+            return result;
+        }
+    }
+    async assignPlayerRank(arg0: Principal, arg1: AssignedRank): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.assignPlayerRank(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.assignPlayerRank(arg0, arg1);
             return result;
         }
     }
@@ -322,6 +381,62 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.awardPoints(arg0);
+            return result;
+        }
+    }
+    async banPlayer(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.banPlayer(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.banPlayer(arg0);
+            return result;
+        }
+    }
+    async claimDailyChest(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.claimDailyChest();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.claimDailyChest();
+            return result;
+        }
+    }
+    async claimLuckyStar(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.claimLuckyStar();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.claimLuckyStar();
+            return result;
+        }
+    }
+    async claimMysteryBonus(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.claimMysteryBonus();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.claimMysteryBonus();
             return result;
         }
     }
@@ -395,32 +510,88 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async deductPoints(arg0: Principal, arg1: bigint): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.deductPoints(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.deductPoints(arg0, arg1);
+            return result;
+        }
+    }
+    async deleteQuiz(arg0: bigint): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.deleteQuiz(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.deleteQuiz(arg0);
+            return result;
+        }
+    }
+    async fulfillPointsPurchase(arg0: bigint, arg1: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.fulfillPointsPurchase(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.fulfillPointsPurchase(arg0, arg1);
+            return result;
+        }
+    }
     async getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>> {
         if (this.processError) {
             try {
                 const result = await this.actor.getAdminQuizAnswers();
-                return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
+                return from_candid_vec_n4(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getAdminQuizAnswers();
-            return from_candid_vec_n6(this._uploadFile, this._downloadFile, result);
+            return from_candid_vec_n4(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getAllAssignedRanks(): Promise<Array<PlayerRankEntry>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getAllAssignedRanks();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getAllAssignedRanks();
+            return result;
         }
     }
     async getAllCustomGames(): Promise<Array<CustomGame>> {
         if (this.processError) {
             try {
                 const result = await this.actor.getAllCustomGames();
-                return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+                return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getAllCustomGames();
-            return from_candid_vec_n13(this._uploadFile, this._downloadFile, result);
+            return from_candid_vec_n11(this._uploadFile, this._downloadFile, result);
         }
     }
     async getAllPlayerPoints(): Promise<Array<PointsEntry>> {
@@ -465,32 +636,46 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getBannedPlayers(): Promise<Array<Principal>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getBannedPlayers();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getBannedPlayers();
+            return result;
+        }
+    }
     async getCallerUserProfile(): Promise<UserProfile | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserProfile();
-                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n15(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserProfile();
-            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n15(this._uploadFile, this._downloadFile, result);
         }
     }
-    async getCallerUserRole(): Promise<UserRole> {
+    async getCallerUserRole(): Promise<string> {
         if (this.processError) {
             try {
                 const result = await this.actor.getCallerUserRole();
-                return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
+                return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getCallerUserRole();
-            return from_candid_UserRole_n18(this._uploadFile, this._downloadFile, result);
+            return result;
         }
     }
     async getCommentsByPostId(arg0: bigint): Promise<Array<Comment>> {
@@ -507,18 +692,116 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getConversation(arg0: Principal): Promise<Array<PrivateMessage>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getConversation(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getConversation(arg0);
+            return result;
+        }
+    }
+    async getDailyChestCooldown(): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getDailyChestCooldown();
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getDailyChestCooldown();
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getLuckyStarCooldown(): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getLuckyStarCooldown();
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getLuckyStarCooldown();
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        }
+    }
     async getMemoryGameCooldown(): Promise<Time | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getMemoryGameCooldown();
-                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getMemoryGameCooldown();
-            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getMessages(): Promise<Array<ChatMessage>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMessages();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMessages();
+            return result;
+        }
+    }
+    async getMonthlyLimit(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMonthlyLimit();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMonthlyLimit();
+            return result;
+        }
+    }
+    async getMyConversations(): Promise<Array<ConversationSummary>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMyConversations();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMyConversations();
+            return result;
+        }
+    }
+    async getMyMonthlySpend(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMyMonthlySpend();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMyMonthlySpend();
+            return result;
         }
     }
     async getMyPoints(): Promise<bigint> {
@@ -535,18 +818,74 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getMysteryBonusCooldown(): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getMysteryBonusCooldown();
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getMysteryBonusCooldown();
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getOwner(): Promise<Principal> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getOwner();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getOwner();
+            return result;
+        }
+    }
+    async getPlayerAssignedRank(arg0: Principal): Promise<AssignedRank | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getPlayerAssignedRank(arg0);
+                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getPlayerAssignedRank(arg0);
+            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getPointPackages(): Promise<Array<PointPackage>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getPointPackages();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getPointPackages();
+            return result;
+        }
+    }
     async getPostWithComments(arg0: bigint): Promise<PostWithComment | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getPostWithComments(arg0);
-                return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getPostWithComments(arg0);
-            return from_candid_opt_n21(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n18(this._uploadFile, this._downloadFile, result);
         }
     }
     async getPostsByQuizId(arg0: bigint): Promise<Array<PostWithStats>> {
@@ -581,28 +920,28 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getQuizLeaderboard(arg0);
-                return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n19(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getQuizLeaderboard(arg0);
-            return from_candid_opt_n22(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n19(this._uploadFile, this._downloadFile, result);
         }
     }
     async getQuizQuestions(arg0: bigint): Promise<Array<Question>> {
         if (this.processError) {
             try {
                 const result = await this.actor.getQuizQuestions(arg0);
-                return from_candid_vec_n9(this._uploadFile, this._downloadFile, result);
+                return from_candid_vec_n7(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getQuizQuestions(arg0);
-            return from_candid_vec_n9(this._uploadFile, this._downloadFile, result);
+            return from_candid_vec_n7(this._uploadFile, this._downloadFile, result);
         }
     }
     async getQuizStats(): Promise<Array<QuizStats>> {
@@ -623,28 +962,28 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getSpinWheelCooldown();
-                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getSpinWheelCooldown();
-            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
         }
     }
     async getTopPlayer(): Promise<Principal | null> {
         if (this.processError) {
             try {
                 const result = await this.actor.getTopPlayer();
-                return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getTopPlayer();
-            return from_candid_opt_n23(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n20(this._uploadFile, this._downloadFile, result);
         }
     }
     async getTotalVisitors(): Promise<bigint> {
@@ -658,6 +997,34 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getTotalVisitors();
+            return result;
+        }
+    }
+    async getTrollCooldown(arg0: Principal): Promise<Time | null> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getTrollCooldown(arg0);
+                return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getTrollCooldown(arg0);
+            return from_candid_opt_n16(this._uploadFile, this._downloadFile, result);
+        }
+    }
+    async getUnreadMessageCount(): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getUnreadMessageCount();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getUnreadMessageCount();
             return result;
         }
     }
@@ -679,14 +1046,14 @@ export class Backend implements backendInterface {
         if (this.processError) {
             try {
                 const result = await this.actor.getUserProfile(arg0);
-                return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+                return from_candid_opt_n15(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
             const result = await this.actor.getUserProfile(arg0);
-            return from_candid_opt_n17(this._uploadFile, this._downloadFile, result);
+            return from_candid_opt_n15(this._uploadFile, this._downloadFile, result);
         }
     }
     async getUserQuizResults(): Promise<Array<Result>> {
@@ -731,6 +1098,48 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async isCallerBanned(): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.isCallerBanned();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.isCallerBanned();
+            return result;
+        }
+    }
+    async isCallerOwner(): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.isCallerOwner();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.isCallerOwner();
+            return result;
+        }
+    }
+    async isPlayerBanned(arg0: Principal): Promise<boolean> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.isPlayerBanned(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.isPlayerBanned(arg0);
+            return result;
+        }
+    }
     async likePost(arg0: bigint): Promise<void> {
         if (this.processError) {
             try {
@@ -742,6 +1151,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.likePost(arg0);
+            return result;
+        }
+    }
+    async markConversationRead(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.markConversationRead(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.markConversationRead(arg0);
             return result;
         }
     }
@@ -773,6 +1196,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.playCustomTrivia(arg0, arg1);
+            return result;
+        }
+    }
+    async purchaseVip(): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.purchaseVip();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.purchaseVip();
             return result;
         }
     }
@@ -818,17 +1255,59 @@ export class Backend implements backendInterface {
             return result;
         }
     }
-    async submitQuizAnswers(arg0: bigint, arg1: Array<Answer>): Promise<bigint> {
+    async searchUsers(arg0: string): Promise<Array<[Principal, UserProfile]>> {
         if (this.processError) {
             try {
-                const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
+                const result = await this.actor.searchUsers(arg0);
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n24(this._uploadFile, this._downloadFile, arg1));
+            const result = await this.actor.searchUsers(arg0);
+            return result;
+        }
+    }
+    async sendMessage(arg0: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.sendMessage(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.sendMessage(arg0);
+            return result;
+        }
+    }
+    async sendPrivateMessage(arg0: Principal, arg1: string): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.sendPrivateMessage(arg0, arg1);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.sendPrivateMessage(arg0, arg1);
+            return result;
+        }
+    }
+    async submitQuizAnswers(arg0: bigint, arg1: Array<Answer>): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n21(this._uploadFile, this._downloadFile, arg1));
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.submitQuizAnswers(arg0, to_candid_vec_n21(this._uploadFile, this._downloadFile, arg1));
             return result;
         }
     }
@@ -843,6 +1322,34 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.trackVisit();
+            return result;
+        }
+    }
+    async trollPlayer(arg0: Principal): Promise<bigint> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.trollPlayer(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.trollPlayer(arg0);
+            return result;
+        }
+    }
+    async unbanPlayer(arg0: Principal): Promise<void> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.unbanPlayer(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.unbanPlayer(arg0);
             return result;
         }
     }
@@ -875,34 +1382,82 @@ export class Backend implements backendInterface {
         }
     }
 }
-function from_candid_CustomGame_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _CustomGame): CustomGame {
-    return from_candid_record_n15(_uploadFile, _downloadFile, value);
+function from_candid_CustomGame_n12(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _CustomGame): CustomGame {
+    return from_candid_record_n13(_uploadFile, _downloadFile, value);
 }
-function from_candid_Question_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Question): Question {
-    return from_candid_record_n11(_uploadFile, _downloadFile, value);
+function from_candid_Question_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _Question): Question {
+    return from_candid_record_n9(_uploadFile, _downloadFile, value);
 }
-function from_candid_QuizWithAnswers_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _QuizWithAnswers): QuizWithAnswers {
-    return from_candid_record_n8(_uploadFile, _downloadFile, value);
+function from_candid_QuizWithAnswers_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _QuizWithAnswers): QuizWithAnswers {
+    return from_candid_record_n6(_uploadFile, _downloadFile, value);
 }
-function from_candid_UserRole_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: _UserRole): UserRole {
-    return from_candid_variant_n19(_uploadFile, _downloadFile, value);
-}
-function from_candid_opt_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
+function from_candid_opt_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_UserProfile]): UserProfile | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Time]): Time | null {
+function from_candid_opt_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_Time]): Time | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_PostWithComment]): PostWithComment | null {
+function from_candid_opt_n17(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_AssignedRank]): AssignedRank | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n22(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Array<_Result>]): Array<Result> | null {
+function from_candid_opt_n18(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_PostWithComment]): PostWithComment | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_opt_n23(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
+function from_candid_opt_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Array<_Result>]): Array<Result> | null {
     return value.length === 0 ? null : value[0];
 }
-function from_candid_record_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_opt_n20(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [Principal]): Principal | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_record_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    gameType: {
+        customSpinWheel: {
+            segments: Array<_SpinWheelSegment>;
+        };
+    } | {
+        customTrivia: {
+            questions: Array<_CustomTriviaQuestion>;
+        };
+    };
+}): {
+    id: bigint;
+    title: string;
+    creator: Principal;
+    gameType: {
+        __kind__: "customSpinWheel";
+        customSpinWheel: {
+            segments: Array<SpinWheelSegment>;
+        };
+    } | {
+        __kind__: "customTrivia";
+        customTrivia: {
+            questions: Array<CustomTriviaQuestion>;
+        };
+    };
+} {
+    return {
+        id: value.id,
+        title: value.title,
+        creator: value.creator,
+        gameType: from_candid_variant_n14(_uploadFile, _downloadFile, value.gameType)
+    };
+}
+function from_candid_record_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+    quiz: _Quiz;
+    questions: Array<_Question>;
+}): {
+    quiz: Quiz;
+    questions: Array<Question>;
+} {
+    return {
+        quiz: value.quiz,
+        questions: from_candid_vec_n7(_uploadFile, _downloadFile, value.questions)
+    };
+}
+function from_candid_record_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     id: bigint;
     text: string;
     questionType: {
@@ -936,59 +1491,11 @@ function from_candid_record_n11(_uploadFile: (file: ExternalBlob) => Promise<Uin
     return {
         id: value.id,
         text: value.text,
-        questionType: from_candid_variant_n12(_uploadFile, _downloadFile, value.questionType),
+        questionType: from_candid_variant_n10(_uploadFile, _downloadFile, value.questionType),
         quizId: value.quizId
     };
 }
-function from_candid_record_n15(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
-    id: bigint;
-    title: string;
-    creator: Principal;
-    gameType: {
-        customSpinWheel: {
-            segments: Array<_SpinWheelSegment>;
-        };
-    } | {
-        customTrivia: {
-            questions: Array<_CustomTriviaQuestion>;
-        };
-    };
-}): {
-    id: bigint;
-    title: string;
-    creator: Principal;
-    gameType: {
-        __kind__: "customSpinWheel";
-        customSpinWheel: {
-            segments: Array<SpinWheelSegment>;
-        };
-    } | {
-        __kind__: "customTrivia";
-        customTrivia: {
-            questions: Array<CustomTriviaQuestion>;
-        };
-    };
-} {
-    return {
-        id: value.id,
-        title: value.title,
-        creator: value.creator,
-        gameType: from_candid_variant_n16(_uploadFile, _downloadFile, value.gameType)
-    };
-}
-function from_candid_record_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
-    quiz: _Quiz;
-    questions: Array<_Question>;
-}): {
-    quiz: Quiz;
-    questions: Array<Question>;
-} {
-    return {
-        quiz: value.quiz,
-        questions: from_candid_vec_n9(_uploadFile, _downloadFile, value.questions)
-    };
-}
-function from_candid_variant_n12(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_variant_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     multipleChoice: {
         correctOption: bigint;
         options: Array<string>;
@@ -1017,7 +1524,7 @@ function from_candid_variant_n12(_uploadFile: (file: ExternalBlob) => Promise<Ui
         trueFalse: value.trueFalse
     } : value;
 }
-function from_candid_variant_n16(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function from_candid_variant_n14(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     customSpinWheel: {
         segments: Array<_SpinWheelSegment>;
     };
@@ -1044,32 +1551,20 @@ function from_candid_variant_n16(_uploadFile: (file: ExternalBlob) => Promise<Ui
         customTrivia: value.customTrivia
     } : value;
 }
-function from_candid_variant_n19(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
-    admin: null;
-} | {
-    user: null;
-} | {
-    guest: null;
-}): UserRole {
-    return "admin" in value ? UserRole.admin : "user" in value ? UserRole.user : "guest" in value ? UserRole.guest : value;
+function from_candid_vec_n11(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_CustomGame>): Array<CustomGame> {
+    return value.map((x)=>from_candid_CustomGame_n12(_uploadFile, _downloadFile, x));
 }
-function from_candid_vec_n13(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_CustomGame>): Array<CustomGame> {
-    return value.map((x)=>from_candid_CustomGame_n14(_uploadFile, _downloadFile, x));
+function from_candid_vec_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_QuizWithAnswers>): Array<QuizWithAnswers> {
+    return value.map((x)=>from_candid_QuizWithAnswers_n5(_uploadFile, _downloadFile, x));
 }
-function from_candid_vec_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_QuizWithAnswers>): Array<QuizWithAnswers> {
-    return value.map((x)=>from_candid_QuizWithAnswers_n7(_uploadFile, _downloadFile, x));
+function from_candid_vec_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_Question>): Array<Question> {
+    return value.map((x)=>from_candid_Question_n8(_uploadFile, _downloadFile, x));
 }
-function from_candid_vec_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_Question>): Array<Question> {
-    return value.map((x)=>from_candid_Question_n10(_uploadFile, _downloadFile, x));
-}
-function to_candid_Answer_n25(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Answer): _Answer {
-    return to_candid_record_n26(_uploadFile, _downloadFile, value);
+function to_candid_Answer_n22(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Answer): _Answer {
+    return to_candid_record_n23(_uploadFile, _downloadFile, value);
 }
 function to_candid_Question_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Question): _Question {
     return to_candid_record_n2(_uploadFile, _downloadFile, value);
-}
-function to_candid_UserRole_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): _UserRole {
-    return to_candid_variant_n5(_uploadFile, _downloadFile, value);
 }
 function to_candid_record_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     id: bigint;
@@ -1109,7 +1604,7 @@ function to_candid_record_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8A
         quizId: value.quizId
     };
 }
-function to_candid_record_n26(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function to_candid_record_n23(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     answer: {
         __kind__: "multipleChoice";
         multipleChoice: bigint;
@@ -1127,11 +1622,11 @@ function to_candid_record_n26(_uploadFile: (file: ExternalBlob) => Promise<Uint8
     questionId: bigint;
 } {
     return {
-        answer: to_candid_variant_n27(_uploadFile, _downloadFile, value.answer),
+        answer: to_candid_variant_n24(_uploadFile, _downloadFile, value.answer),
         questionId: value.questionId
     };
 }
-function to_candid_variant_n27(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
+function to_candid_variant_n24(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     __kind__: "multipleChoice";
     multipleChoice: bigint;
 } | {
@@ -1175,23 +1670,8 @@ function to_candid_variant_n3(_uploadFile: (file: ExternalBlob) => Promise<Uint8
         trueFalse: value.trueFalse
     } : value;
 }
-function to_candid_variant_n5(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: UserRole): {
-    admin: null;
-} | {
-    user: null;
-} | {
-    guest: null;
-} {
-    return value == UserRole.admin ? {
-        admin: null
-    } : value == UserRole.user ? {
-        user: null
-    } : value == UserRole.guest ? {
-        guest: null
-    } : value;
-}
-function to_candid_vec_n24(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<Answer>): Array<_Answer> {
-    return value.map((x)=>to_candid_Answer_n25(_uploadFile, _downloadFile, x));
+function to_candid_vec_n21(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<Answer>): Array<_Answer> {
+    return value.map((x)=>to_candid_Answer_n22(_uploadFile, _downloadFile, x));
 }
 export interface CreateActorOptions {
     agent?: Agent;

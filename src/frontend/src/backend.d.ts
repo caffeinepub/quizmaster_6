@@ -23,12 +23,6 @@ export interface PointsEntry {
     player: Principal;
     points: bigint;
 }
-export interface PointPackage {
-    id: bigint;
-    name: string;
-    points: bigint;
-    priceInPaise: bigint;
-}
 export interface Quiz {
     id: bigint;
     title: string;
@@ -72,6 +66,7 @@ export interface PrivateMessage {
     sender: Principal;
     timestamp: Time;
 }
+export type AssignedRank = string;
 export interface Result {
     username: string;
     player: Principal;
@@ -100,6 +95,16 @@ export interface Post {
     timestamp: Time;
     quizId: bigint;
 }
+export interface PlayerRankEntry {
+    player: Principal;
+    rank: AssignedRank;
+}
+export interface ChatMessage {
+    id: bigint;
+    content: string;
+    author: Principal;
+    timestamp: Time;
+}
 export interface Answer {
     answer: {
         __kind__: "multipleChoice";
@@ -109,12 +114,6 @@ export interface Answer {
         trueFalse: boolean;
     };
     questionId: bigint;
-}
-export interface ChatMessage {
-    id: bigint;
-    content: string;
-    author: Principal;
-    timestamp: Time;
 }
 export interface Question {
     id: bigint;
@@ -139,43 +138,56 @@ export interface ConversationSummary {
     unreadCount: bigint;
     lastTimestamp: Time;
 }
+export interface PointPackage {
+    id: bigint;
+    name: string;
+    priceInPaise: bigint;
+    points: bigint;
+}
 export interface UserProfile {
     username: string;
-}
-export enum UserRole {
-    admin = "admin",
-    user = "user",
-    guest = "guest"
+    isVip: boolean;
 }
 export interface backendInterface {
     addComment(postId: bigint, content: string): Promise<bigint>;
     addQuestion(quizId: bigint, question: Question): Promise<bigint>;
-    assignCallerUserRole(user: Principal, role: UserRole): Promise<void>;
+    assignCallerUserRole(): Promise<void>;
+    assignPlayerRank(player: Principal, rank: AssignedRank): Promise<void>;
     awardPoints(amount: bigint): Promise<void>;
-    claimOwnership(): Promise<void>;
+    banPlayer(player: Principal): Promise<void>;
+    claimDailyChest(): Promise<bigint>;
+    claimLuckyStar(): Promise<bigint>;
+    claimMysteryBonus(): Promise<bigint>;
     createCustomSpinWheel(title: string, segments: Array<SpinWheelSegment>): Promise<bigint>;
-    createCustomTrivia(title: string, questions: Array<CustomTriviaQuestion>): Promise<bigint>;
+    createCustomTrivia(title: string, qs: Array<CustomTriviaQuestion>): Promise<bigint>;
     createPost(quizId: bigint, message: string): Promise<bigint>;
     createQuiz(title: string, description: string): Promise<bigint>;
     createUserProfile(username: string): Promise<void>;
+    deductPoints(player: Principal, amount: bigint): Promise<bigint>;
     deleteQuiz(quizId: bigint): Promise<void>;
     fulfillPointsPurchase(packageId: bigint, sessionId: string): Promise<bigint>;
     getAdminQuizAnswers(): Promise<Array<QuizWithAnswers>>;
+    getAllAssignedRanks(): Promise<Array<PlayerRankEntry>>;
     getAllCustomGames(): Promise<Array<CustomGame>>;
     getAllPlayerPoints(): Promise<Array<PointsEntry>>;
     getAllPostsWithStats(): Promise<Array<PostWithStats>>;
     getAllQuizzes(): Promise<Array<Quiz>>;
+    getBannedPlayers(): Promise<Array<Principal>>;
     getCallerUserProfile(): Promise<UserProfile | null>;
-    getCallerUserRole(): Promise<UserRole>;
+    getCallerUserRole(): Promise<string>;
     getCommentsByPostId(postId: bigint): Promise<Array<Comment>>;
     getConversation(otherUser: Principal): Promise<Array<PrivateMessage>>;
+    getDailyChestCooldown(): Promise<Time | null>;
+    getLuckyStarCooldown(): Promise<Time | null>;
     getMemoryGameCooldown(): Promise<Time | null>;
     getMessages(): Promise<Array<ChatMessage>>;
     getMonthlyLimit(): Promise<bigint>;
     getMyConversations(): Promise<Array<ConversationSummary>>;
     getMyMonthlySpend(): Promise<bigint>;
     getMyPoints(): Promise<bigint>;
-    getOwner(): Promise<Principal | null>;
+    getMysteryBonusCooldown(): Promise<Time | null>;
+    getOwner(): Promise<Principal>;
+    getPlayerAssignedRank(player: Principal): Promise<AssignedRank | null>;
     getPointPackages(): Promise<Array<PointPackage>>;
     getPostWithComments(postId: bigint): Promise<PostWithComment | null>;
     getPostsByQuizId(quizId: bigint): Promise<Array<PostWithStats>>;
@@ -186,13 +198,16 @@ export interface backendInterface {
     getSpinWheelCooldown(): Promise<Time | null>;
     getTopPlayer(): Promise<Principal | null>;
     getTotalVisitors(): Promise<bigint>;
+    getTrollCooldown(target: Principal): Promise<Time | null>;
     getUnreadMessageCount(): Promise<bigint>;
     getUserPosts(user: Principal): Promise<Array<PostWithStats>>;
     getUserProfile(user: Principal): Promise<UserProfile | null>;
     getUserQuizResults(): Promise<Array<Result>>;
     giftPoints(recipient: Principal, amount: bigint): Promise<void>;
     isCallerAdmin(): Promise<boolean>;
+    isCallerBanned(): Promise<boolean>;
     isCallerOwner(): Promise<boolean>;
+    isPlayerBanned(player: Principal): Promise<boolean>;
     likePost(postId: bigint): Promise<void>;
     markConversationRead(otherUser: Principal): Promise<void>;
     playCustomSpinWheel(gameId: bigint): Promise<bigint>;
@@ -200,6 +215,7 @@ export interface backendInterface {
         answerIndex: bigint;
         questionId: bigint;
     }>): Promise<bigint>;
+    purchaseVip(): Promise<void>;
     recordMemoryGamePlay(): Promise<void>;
     recordSpinWheelPlay(): Promise<void>;
     saveCallerUserProfile(profile: UserProfile): Promise<void>;
@@ -208,12 +224,8 @@ export interface backendInterface {
     sendPrivateMessage(recipient: Principal, content: string): Promise<bigint>;
     submitQuizAnswers(quizId: bigint, answers: Array<Answer>): Promise<bigint>;
     trackVisit(): Promise<void>;
+    trollPlayer(target: Principal): Promise<bigint>;
+    unbanPlayer(player: Principal): Promise<void>;
     unlikePost(postId: bigint): Promise<void>;
     updateUserProfile(username: string): Promise<void>;
-    banPlayer(player: Principal): Promise<void>;
-    unbanPlayer(player: Principal): Promise<void>;
-    getBannedPlayers(): Promise<Array<Principal>>;
-    isCallerBanned(): Promise<boolean>;
-    isPlayerBanned(player: Principal): Promise<boolean>;
-    deductPoints(player: Principal, amount: bigint): Promise<bigint>;
 }

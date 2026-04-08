@@ -5,7 +5,6 @@ import { getRankFromAssigned } from "@/lib/ranks";
 import { Medal } from "lucide-react";
 import { motion } from "motion/react";
 import { useMemo } from "react";
-import type { PointsEntry } from "../backend.d";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import {
@@ -13,6 +12,7 @@ import {
   useGetAllAssignedRanks,
   useGetAllPlayerPoints,
 } from "../hooks/useQueries";
+import type { PointsEntry } from "../types";
 
 const SKELETON_KEYS = ["s1", "s2", "s3", "s4", "s5"];
 

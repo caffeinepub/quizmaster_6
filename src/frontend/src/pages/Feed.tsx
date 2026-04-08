@@ -30,7 +30,6 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
-import type { PostWithStats, Quiz } from "../backend.d";
 import { RankBadge } from "../components/RankBadge";
 import { useOwner } from "../contexts/OwnerContext";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
@@ -43,6 +42,7 @@ import {
   useGetComments,
   useLikePost,
 } from "../hooks/useQueries";
+import type { PostWithStats, Quiz } from "../types";
 
 const SKELETON_KEYS = ["sk-a", "sk-b", "sk-c"];
 

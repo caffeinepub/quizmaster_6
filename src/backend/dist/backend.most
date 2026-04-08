@@ -1,0 +1,337 @@
+// Version: 3.0.0
+type AssignedRank__64720817 = Text;
+type ChatMessage__1037536196 =
+  {author : Principal; content : Text; id : Nat; timestamp : Time__900049286};
+type Comment__473346131 =
+  {
+    author : Principal;
+    content : Text;
+    id : Nat;
+    postId : Nat;
+    timestamp : Time__900049286
+  };
+type CustomGame__526353192 =
+  {
+    creator : Principal;
+    gameType :
+      {
+        #customSpinWheel : {segments : [SpinWheelSegment__6335759]};
+        #customTrivia : {questions : [CustomTriviaQuestion__300575072]}
+      };
+    id : Nat;
+    title : Text
+  };
+type CustomTriviaQuestion__300575072 =
+  {correctOption : Nat; options : [Text]; pointsReward : Nat; text : Text};
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type Int__270357528 = Int__616954475;
+type Int__616954475 = Int;
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type Like__463364016 =
+  {postId : Nat; timestamp : Time__900049286; user : Principal};
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type MiniGameCooldownEntry__672035644 =
+  {gameKey : Text; lastPlayed : Time__900049286};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type OldAccessControlState__841599830 =
+  {
+    var adminAssigned : Bool;
+    userRoles : Map__605269027<Principal, OldUserRole__889293160>
+  };
+type OldMiniGameCooldown__168457270 =
+  {gameType : OldMiniGameType__3609604; lastPlayed : Time__900049286};
+type OldMiniGameType__3609604 = {#memoryGame; #spinWheel};
+type OldUserProfile__416069324 = {username : Text};
+type OldUserRole__889293160 = {#admin; #guest; #user};
+type PointPackage__541545435 =
+  {id : Nat; name : Text; points : Nat; priceInPaise : Nat};
+type Post__955439577 =
+  {
+    author : Principal;
+    id : Nat;
+    message : Text;
+    quizId : Nat;
+    timestamp : Time__900049286
+  };
+type PrivateMessage__31115108 =
+  {
+    content : Text;
+    id : Nat;
+    isRead : Bool;
+    recipient : Principal;
+    sender : Principal;
+    timestamp : Time__900049286
+  };
+type Purchase__439230863 =
+  {
+    buyer : Principal;
+    id : Nat;
+    packageId : Nat;
+    pointsAwarded : Nat;
+    priceInPaise : Nat;
+    sessionId : Text;
+    timestamp : Time__900049286
+  };
+type Question__879138514 =
+  {
+    id : Nat;
+    questionType :
+      {
+        #multipleChoice : {correctOption : Nat; options : [Text]};
+        #trueFalse : {correctAnswer : Bool}
+      };
+    quizId : Nat;
+    text : Text
+  };
+type Quiz__699127777 =
+  {
+    creator : Principal;
+    description : Text;
+    id : Nat;
+    timestamp : Time__900049286;
+    title : Text
+  };
+type Result__751795088 =
+  {
+    player : Principal;
+    quizId : Nat;
+    score : Nat;
+    timestamp : Time__900049286;
+    totalQuestions : Nat;
+    username : Text
+  };
+type SpinWheelSegment__6335759 = {points : Nat; segmentLabel : Text};
+type Time__796480547 = Int__270357528;
+type Time__900049286 = Time__796480547;
+type UserProfile__491224006 = {isVip : Bool; username : Text};
+type Visitor__750663053 =
+  {principalId : Principal; timestamp : Time__900049286};
+actor ({
+  stable DAILY_CHEST_KEY : Text;
+  stable LUCKY_STAR_KEY : Text;
+  stable MONTHLY_LIMIT_PAISE : Nat;
+  stable MYSTERY_BONUS_KEY : Text;
+  stable ONE_DAY_NS : Int;
+  stable ONE_HOUR_NS : Int;
+  stable OWNER_PRINCIPAL : Principal;
+  stable POINT_PACKAGES : [PointPackage__541545435];
+  stable THREE_DAYS_NS : Int;
+  stable TWO_HUNDRED_HOURS_NS : Int;
+  in accessControlState : OldAccessControlState__841599830;
+  stable assignedRanks :
+    {
+      var root : Node__46230540<Principal, AssignedRank__64720817>;
+      var size : Nat__490723111
+    };
+  stable bannedPlayers :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable chatMessages :
+    {
+      var root : Node__46230540<Nat, ChatMessage__1037536196>;
+      var size : Nat__490723111
+    };
+  stable comments :
+    {
+      var root : Node__46230540<Nat, [Comment__473346131]>;
+      var size : Nat__490723111
+    };
+  stable customGames :
+    {
+      var root : Node__46230540<Nat, CustomGame__526353192>;
+      var size : Nat__490723111
+    };
+  stable likes :
+    {
+      var root : Node__46230540<Nat, [Like__463364016]>;
+      var size : Nat__490723111
+    };
+  in miniGameCooldowns :
+    Map__605269027<Principal, [OldMiniGameCooldown__168457270]>;
+  stable var nextChatMessageId : Nat;
+  stable var nextCommentId : Nat;
+  stable var nextCustomGameId : Nat;
+  stable var nextMessageId : Nat;
+  stable var nextPostId : Nat;
+  stable var nextPurchaseId : Nat;
+  stable var nextQuestionId : Nat;
+  stable var nextQuizId : Nat;
+  stable var nextResultId : Nat;
+  in ownerPrincipal : ?Principal;
+  stable posts :
+    {
+      var root : Node__46230540<Nat, Post__955439577>;
+      var size : Nat__490723111
+    };
+  stable postsByQuiz :
+    {
+      var root : Node__46230540<Nat, [Post__955439577]>;
+      var size : Nat__490723111
+    };
+  stable var preloadedQuizzesInitialized : Bool;
+  stable privateMessages :
+    {
+      var root : Node__46230540<Nat, PrivateMessage__31115108>;
+      var size : Nat__490723111
+    };
+  stable purchases :
+    {
+      var root : Node__46230540<Nat, Purchase__439230863>;
+      var size : Nat__490723111
+    };
+  stable questions :
+    {
+      var root : Node__46230540<Nat, Question__879138514>;
+      var size : Nat__490723111
+    };
+  stable quizResults :
+    {
+      var root : Node__46230540<Nat, Result__751795088>;
+      var size : Nat__490723111
+    };
+  stable quizzes :
+    {
+      var root : Node__46230540<Nat, Quiz__699127777>;
+      var size : Nat__490723111
+    };
+  stable registeredUsers :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable resultsByQuiz :
+    {
+      var root : Node__46230540<Nat, [Result__751795088]>;
+      var size : Nat__490723111
+    };
+  stable trollCooldowns :
+    {
+      var root : Node__46230540<Text, Time__900049286>;
+      var size : Nat__490723111
+    };
+  stable userPoints :
+    {var root : Node__46230540<Principal, Nat>; var size : Nat__490723111};
+  in userProfiles : Map__605269027<Principal, OldUserProfile__416069324>;
+  stable visitors :
+    {
+      var root : Node__46230540<Principal, Visitor__750663053>;
+      var size : Nat__490723111
+    }
+}, {
+  stable DAILY_CHEST_KEY : Text;
+  stable LUCKY_STAR_KEY : Text;
+  stable MONTHLY_LIMIT_PAISE : Nat;
+  stable MYSTERY_BONUS_KEY : Text;
+  stable ONE_DAY_NS : Int;
+  stable ONE_HOUR_NS : Int;
+  stable OWNER_PRINCIPAL : Principal;
+  stable POINT_PACKAGES : [PointPackage__541545435];
+  stable THREE_DAYS_NS : Int;
+  stable TWO_HUNDRED_HOURS_NS : Int;
+  stable assignedRanks :
+    {
+      var root : Node__46230540<Principal, AssignedRank__64720817>;
+      var size : Nat__490723111
+    };
+  stable bannedPlayers :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable chatMessages :
+    {
+      var root : Node__46230540<Nat, ChatMessage__1037536196>;
+      var size : Nat__490723111
+    };
+  stable comments :
+    {
+      var root : Node__46230540<Nat, [Comment__473346131]>;
+      var size : Nat__490723111
+    };
+  stable cooldowns :
+    {
+      var root : Node__46230540<Principal, [MiniGameCooldownEntry__672035644]>;
+      var size : Nat__490723111
+    };
+  stable customGames :
+    {
+      var root : Node__46230540<Nat, CustomGame__526353192>;
+      var size : Nat__490723111
+    };
+  stable likes :
+    {
+      var root : Node__46230540<Nat, [Like__463364016]>;
+      var size : Nat__490723111
+    };
+  stable var nextChatMessageId : Nat;
+  stable var nextCommentId : Nat;
+  stable var nextCustomGameId : Nat;
+  stable var nextMessageId : Nat;
+  stable var nextPostId : Nat;
+  stable var nextPurchaseId : Nat;
+  stable var nextQuestionId : Nat;
+  stable var nextQuizId : Nat;
+  stable var nextResultId : Nat;
+  stable posts :
+    {
+      var root : Node__46230540<Nat, Post__955439577>;
+      var size : Nat__490723111
+    };
+  stable postsByQuiz :
+    {
+      var root : Node__46230540<Nat, [Post__955439577]>;
+      var size : Nat__490723111
+    };
+  stable var preloadedQuizzesInitialized : Bool;
+  stable privateMessages :
+    {
+      var root : Node__46230540<Nat, PrivateMessage__31115108>;
+      var size : Nat__490723111
+    };
+  stable purchases :
+    {
+      var root : Node__46230540<Nat, Purchase__439230863>;
+      var size : Nat__490723111
+    };
+  stable questions :
+    {
+      var root : Node__46230540<Nat, Question__879138514>;
+      var size : Nat__490723111
+    };
+  stable quizResults :
+    {
+      var root : Node__46230540<Nat, Result__751795088>;
+      var size : Nat__490723111
+    };
+  stable quizzes :
+    {
+      var root : Node__46230540<Nat, Quiz__699127777>;
+      var size : Nat__490723111
+    };
+  stable registeredUsers :
+    {var root : Node__46230540<Principal, Bool>; var size : Nat__490723111};
+  stable resultsByQuiz :
+    {
+      var root : Node__46230540<Nat, [Result__751795088]>;
+      var size : Nat__490723111
+    };
+  stable trollCooldowns :
+    {
+      var root : Node__46230540<Text, Time__900049286>;
+      var size : Nat__490723111
+    };
+  stable userPoints :
+    {var root : Node__46230540<Principal, Nat>; var size : Nat__490723111};
+  stable userProfiles :
+    {
+      var root : Node__46230540<Principal, UserProfile__491224006>;
+      var size : Nat__490723111
+    };
+  stable visitors :
+    {
+      var root : Node__46230540<Principal, Visitor__750663053>;
+      var size : Nat__490723111
+    }
+}) ;

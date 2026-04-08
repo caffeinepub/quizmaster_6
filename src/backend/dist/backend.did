@@ -1,0 +1,235 @@
+type UserProfile = 
+ record {
+   isVip: bool;
+   username: text;
+ };
+type Time = int;
+type SpinWheelSegment = 
+ record {
+   points: nat;
+   segmentLabel: text;
+ };
+type Result = 
+ record {
+   player: principal;
+   quizId: nat;
+   score: nat;
+   timestamp: Time;
+   totalQuestions: nat;
+   username: text;
+ };
+type QuizWithAnswers = 
+ record {
+   questions: vec Question;
+   quiz: Quiz;
+ };
+type QuizStats = 
+ record {
+   quizId: nat;
+   title: text;
+   totalAttemptCount: nat;
+   totalCorrectCount: nat;
+ };
+type Quiz = 
+ record {
+   creator: principal;
+   description: text;
+   id: nat;
+   timestamp: Time;
+   title: text;
+ };
+type Question = 
+ record {
+   id: nat;
+   questionType:
+    variant {
+      multipleChoice: record {
+                        correctOption: nat;
+                        options: vec text;
+                      };
+      trueFalse: record {correctAnswer: bool;};
+    };
+   quizId: nat;
+   "text": text;
+ };
+type PrivateMessage = 
+ record {
+   content: text;
+   id: nat;
+   isRead: bool;
+   recipient: principal;
+   sender: principal;
+   timestamp: Time;
+ };
+type PostWithStats = 
+ record {
+   commentCount: nat;
+   likeCount: nat;
+   post: Post;
+ };
+type PostWithComment = 
+ record {
+   comments: vec Comment;
+   post: Post;
+ };
+type Post = 
+ record {
+   author: principal;
+   id: nat;
+   message: text;
+   quizId: nat;
+   timestamp: Time;
+ };
+type PointsEntry = 
+ record {
+   player: principal;
+   points: nat;
+ };
+type PointPackage = 
+ record {
+   id: nat;
+   name: text;
+   points: nat;
+   priceInPaise: nat;
+ };
+type PlayerRankEntry = 
+ record {
+   player: principal;
+   rank: AssignedRank;
+ };
+type CustomTriviaQuestion = 
+ record {
+   correctOption: nat;
+   options: vec text;
+   pointsReward: nat;
+   "text": text;
+ };
+type CustomGame = 
+ record {
+   creator: principal;
+   gameType:
+    variant {
+      customSpinWheel: record {segments: vec SpinWheelSegment;};
+      customTrivia: record {questions: vec CustomTriviaQuestion;};
+    };
+   id: nat;
+   title: text;
+ };
+type ConversationSummary = 
+ record {
+   lastMessage: text;
+   lastTimestamp: Time;
+   otherUser: principal;
+   unreadCount: nat;
+ };
+type Comment = 
+ record {
+   author: principal;
+   content: text;
+   id: nat;
+   postId: nat;
+   timestamp: Time;
+ };
+type ChatMessage = 
+ record {
+   author: principal;
+   content: text;
+   id: nat;
+   timestamp: Time;
+ };
+type AssignedRank = text;
+type Answer = 
+ record {
+   answer: variant {
+             multipleChoice: nat;
+             trueFalse: bool;
+           };
+   questionId: nat;
+ };
+service : {
+  addComment: (postId: nat, content: text) -> (nat);
+  addQuestion: (quizId: nat, question: Question) -> (nat);
+  assignCallerUserRole: () -> ();
+  assignPlayerRank: (player: principal, rank: AssignedRank) -> ();
+  awardPoints: (amount: nat) -> ();
+  banPlayer: (player: principal) -> ();
+  claimDailyChest: () -> (nat);
+  claimLuckyStar: () -> (nat);
+  claimMysteryBonus: () -> (nat);
+  createCustomSpinWheel: (title: text, segments: vec SpinWheelSegment) ->
+   (nat);
+  createCustomTrivia: (title: text, qs: vec CustomTriviaQuestion) -> (nat);
+  createPost: (quizId: nat, message: text) -> (nat);
+  createQuiz: (title: text, description: text) -> (nat);
+  createUserProfile: (username: text) -> ();
+  deductPoints: (player: principal, amount: nat) -> (nat);
+  deleteQuiz: (quizId: nat) -> ();
+  fulfillPointsPurchase: (packageId: nat, sessionId: text) -> (nat);
+  getAdminQuizAnswers: () -> (vec QuizWithAnswers) query;
+  getAllAssignedRanks: () -> (vec PlayerRankEntry) query;
+  getAllCustomGames: () -> (vec CustomGame) query;
+  getAllPlayerPoints: () -> (vec PointsEntry) query;
+  getAllPostsWithStats: () -> (vec PostWithStats) query;
+  getAllQuizzes: () -> (vec Quiz) query;
+  getBannedPlayers: () -> (vec principal) query;
+  getCallerUserProfile: () -> (opt UserProfile) query;
+  getCallerUserRole: () -> (text) query;
+  getCommentsByPostId: (postId: nat) -> (vec Comment) query;
+  getConversation: (otherUser: principal) -> (vec PrivateMessage) query;
+  getDailyChestCooldown: () -> (opt Time) query;
+  getLuckyStarCooldown: () -> (opt Time) query;
+  getMemoryGameCooldown: () -> (opt Time) query;
+  getMessages: () -> (vec ChatMessage) query;
+  getMonthlyLimit: () -> (nat) query;
+  getMyConversations: () -> (vec ConversationSummary) query;
+  getMyMonthlySpend: () -> (nat) query;
+  getMyPoints: () -> (nat) query;
+  getMysteryBonusCooldown: () -> (opt Time) query;
+  getOwner: () -> (principal) query;
+  getPlayerAssignedRank: (player: principal) -> (opt AssignedRank) query;
+  getPointPackages: () -> (vec PointPackage) query;
+  getPostWithComments: (postId: nat) -> (opt PostWithComment) query;
+  getPostsByQuizId: (quizId: nat) -> (vec PostWithStats) query;
+  getQuiz: (quizId: nat) -> (Quiz) query;
+  getQuizLeaderboard: (quizId: nat) -> (opt vec Result) query;
+  getQuizQuestions: (quizId: nat) -> (vec Question) query;
+  getQuizStats: () -> (vec QuizStats) query;
+  getSpinWheelCooldown: () -> (opt Time) query;
+  getTopPlayer: () -> (opt principal) query;
+  getTotalVisitors: () -> (nat) query;
+  getTrollCooldown: (target: principal) -> (opt Time) query;
+  getUnreadMessageCount: () -> (nat) query;
+  getUserPosts: (user: principal) -> (vec PostWithStats) query;
+  getUserProfile: (user: principal) -> (opt UserProfile) query;
+  getUserQuizResults: () -> (vec Result) query;
+  giftPoints: (recipient: principal, amount: nat) -> ();
+  isCallerAdmin: () -> (bool) query;
+  isCallerBanned: () -> (bool) query;
+  isCallerOwner: () -> (bool) query;
+  isPlayerBanned: (player: principal) -> (bool) query;
+  likePost: (postId: nat) -> ();
+  markConversationRead: (otherUser: principal) -> ();
+  playCustomSpinWheel: (gameId: nat) -> (nat);
+  playCustomTrivia: (gameId: nat, answers:
+   vec record {
+         answerIndex: nat;
+         questionId: nat;
+       }) -> (nat);
+  purchaseVip: () -> ();
+  recordMemoryGamePlay: () -> ();
+  recordSpinWheelPlay: () -> ();
+  saveCallerUserProfile: (profile: UserProfile) -> ();
+  searchUsers: (searchQuery: text) ->
+   (vec record {
+          principal;
+          UserProfile;
+        }) query;
+  sendMessage: (content: text) -> (nat);
+  sendPrivateMessage: (recipient: principal, content: text) -> (nat);
+  submitQuizAnswers: (quizId: nat, answers: vec Answer) -> (nat);
+  trackVisit: () -> ();
+  trollPlayer: (target: principal) -> (nat);
+  unbanPlayer: (player: principal) -> ();
+  unlikePost: (postId: nat) -> ();
+  updateUserProfile: (username: text) -> ();
+}

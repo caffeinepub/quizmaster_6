@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useActor } from "@/hooks/useActor";
 import type { Principal } from "@icp-sdk/core/principal";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { MessageSquare, Search, Users } from "lucide-react";
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { isOwnerPrincipal, useOwner } from "../contexts/OwnerContext";
+import { useActor } from "../hooks/useActor";
 import { useInternetIdentity } from "../hooks/useInternetIdentity";
 import { useGetMyConversations } from "../hooks/useQueries";
 

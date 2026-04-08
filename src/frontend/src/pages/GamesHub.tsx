@@ -487,7 +487,7 @@ export default function GamesHub() {
 }
 
 interface CustomGameCardProps {
-  game: import("../backend.d").CustomGame;
+  game: import("../types").CustomGame;
   index: number;
   principalStr: string;
   isLoggedIn: boolean;
